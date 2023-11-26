@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Dot.Net._6.WF.Calendario.Senac
@@ -14,6 +15,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             gridCurso.Rows.Add(txtCurso.Text, txtMes.Text, txtInicio.Text, txtFim.Text, txtDias.Text,
             txtMeta.Text, txtRealizado.Text, txtTurno.Text, txtValor.Text, txtHorario.Text, txtTurma.Text, txtSala.Text);
+
         }
 
         private void iLimpar()
@@ -53,10 +55,16 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             iDeletar();
         }
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
+        
 
-        }
+         private void btnSalvar_Click(object sender, EventArgs e)
+            {
+                
+            }
+                   
+        
+        
+
         Bitmap bitmap;
         private void btnImprimir_Click(object sender, EventArgs e)
         {

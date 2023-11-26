@@ -59,3 +59,5 @@ C:\Users\morei\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendari
 C:\Users\morei\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.genruntimeconfig.cache
 C:\Users\morei\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\ref\Dot.Net.6.WF.Calendario.Senac.dll
 C:\Users\morei\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Agenda_de_Curso.resources
+C:\Users\morei\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Login.resources
+C:\Users\morei\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Properties.Resources.resources
