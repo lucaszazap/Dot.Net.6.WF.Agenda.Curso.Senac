@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda_de_Curso));
             groupBox1 = new GroupBox();
-            txtFim = new TextBox();
-            txtInicio = new TextBox();
             txtMes = new ComboBox();
             txtCurso = new ComboBox();
             txtTurno = new ComboBox();
@@ -86,6 +84,8 @@
             btnAdicionar = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
+            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker2 = new DateTimePicker();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -95,8 +95,8 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtFim);
-            groupBox1.Controls.Add(txtInicio);
+            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(dateTimePicker2);
             groupBox1.Controls.Add(txtMes);
             groupBox1.Controls.Add(txtCurso);
             groupBox1.Controls.Add(txtTurno);
@@ -125,22 +125,6 @@
             groupBox1.Size = new Size(1005, 163);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            // 
-            // txtFim
-            // 
-            txtFim.Location = new Point(570, 48);
-            txtFim.Name = "txtFim";
-            txtFim.Size = new Size(100, 23);
-            txtFim.TabIndex = 28;
-            txtFim.KeyPress += NumbersOnly;
-            // 
-            // txtInicio
-            // 
-            txtInicio.Location = new Point(411, 48);
-            txtInicio.Name = "txtInicio";
-            txtInicio.Size = new Size(100, 23);
-            txtInicio.TabIndex = 27;
-            txtInicio.KeyPress += NumbersOnly;
             // 
             // txtMes
             // 
@@ -563,6 +547,20 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(570, 50);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(100, 23);
+            dateTimePicker1.TabIndex = 3;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(411, 51);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(100, 23);
+            dateTimePicker2.TabIndex = 4;
+            // 
             // Agenda_de_Curso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -632,8 +630,6 @@
         private DataGridViewTextBoxColumn ColunaCursoHorario;
         private DataGridViewTextBoxColumn ColunaCursoTurma;
         private DataGridViewTextBoxColumn ColunaCursoSala;
-        private TextBox txtFim;
-        private TextBox txtInicio;
         private ComboBox txtMes;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
@@ -646,5 +642,7 @@
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem limparToolStripMenuItem;
         private ToolStripMenuItem deletarToolStripMenuItem;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker2;
     }
 }
