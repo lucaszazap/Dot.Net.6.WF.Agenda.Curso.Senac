@@ -53,7 +53,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             iDeletar();
         }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
@@ -83,6 +82,22 @@ namespace Dot.Net._6.WF.Calendario.Senac
             iSair();
         }
 
+        private void NumbersOnly(object sender, KeyPressEventArgs e)
+        {
+            // Valida se a tecla pressionada é um número.
+            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            {
+                // Permite a entrada do caractere.
+                e.Handled = false;
+            }
+            else
+            {
+                // Exibe uma mensagem de erro.
+                MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Bloqueia a entrada do caractere.
+                e.Handled = true;
+            }
+        }
 
     }
 }

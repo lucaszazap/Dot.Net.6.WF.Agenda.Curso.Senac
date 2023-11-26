@@ -132,6 +132,7 @@
             txtFim.Name = "txtFim";
             txtFim.Size = new Size(100, 23);
             txtFim.TabIndex = 28;
+            txtFim.KeyPress += NumbersOnly;
             // 
             // txtInicio
             // 
@@ -139,11 +140,11 @@
             txtInicio.Name = "txtInicio";
             txtInicio.Size = new Size(100, 23);
             txtInicio.TabIndex = 27;
+            txtInicio.KeyPress += NumbersOnly;
             // 
             // txtMes
             // 
             txtMes.FormattingEnabled = true;
-            txtMes.Items.AddRange(new object[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" });
             txtMes.Location = new Point(239, 48);
             txtMes.Name = "txtMes";
             txtMes.Size = new Size(121, 23);
@@ -152,7 +153,6 @@
             // txtCurso
             // 
             txtCurso.FormattingEnabled = true;
-            txtCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
             txtCurso.Location = new Point(67, 48);
             txtCurso.Name = "txtCurso";
             txtCurso.Size = new Size(121, 23);
@@ -161,7 +161,6 @@
             // txtTurno
             // 
             txtTurno.FormattingEnabled = true;
-            txtTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
             txtTurno.Location = new Point(239, 91);
             txtTurno.Name = "txtTurno";
             txtTurno.Size = new Size(121, 23);
@@ -173,6 +172,7 @@
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(100, 23);
             txtMeta.TabIndex = 23;
+            txtMeta.KeyPress += NumbersOnly;
             // 
             // txtDias
             // 
@@ -208,6 +208,7 @@
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(100, 23);
             txtValor.TabIndex = 14;
+            txtValor.KeyPress += NumbersOnly;
             // 
             // txtRealizado
             // 
@@ -215,6 +216,7 @@
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 13;
+            txtRealizado.KeyPress += NumbersOnly;
             // 
             // label12
             // 
@@ -519,7 +521,6 @@
             btnSalvar.TabIndex = 3;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
-            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnDeletar
             // 
@@ -556,6 +557,7 @@
             printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
             printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
             printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.Enabled = true;
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
