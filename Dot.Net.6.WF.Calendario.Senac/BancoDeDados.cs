@@ -13,7 +13,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             protected override void OnConfiguring(DbContextOptionsBuilder opt)
             {
-                opt.UseSqlite("Data Source=cursos.db");
+                opt.UseSqlite("Data Source=Cursos.db");
             }
         }
     }
