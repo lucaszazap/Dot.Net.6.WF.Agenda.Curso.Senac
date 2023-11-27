@@ -13,6 +13,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            // gridCurso.Rows.Add(txtCurso.Text, txtMes.Text, txtInicio.Text, txtFim.Text, txtDias.Text,
+           // txtMeta.Text, txtRealizado.Text, txtTurno.Text, txtValor.Text, txtHorario.Text, txtTurma.Text, txtSala.Text);
             // Validar se os campos obrigatórios estão preenchidos
             if (string.IsNullOrWhiteSpace(txtCurso.Text) || string.IsNullOrWhiteSpace(txtMes.Text))
             {
@@ -41,9 +43,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 gridCurso.DataSource = bd.Cursos.ToList();
 
                 MessageBox.Show("Curso adicionado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-
-                
+                       
               
                 {
                     // Tratar exceções específicas ou genéricas
