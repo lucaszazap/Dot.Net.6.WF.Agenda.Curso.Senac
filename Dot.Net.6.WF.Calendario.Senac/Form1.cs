@@ -13,8 +13,44 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            gridCurso.Rows.Add(txtCurso.Text, txtMes.Text, txtInicio.Text, txtFim.Text, txtDias.Text,
-            txtMeta.Text, txtRealizado.Text, txtTurno.Text, txtValor.Text, txtHorario.Text, txtTurma.Text, txtSala.Text);
+            // Validar se os campos obrigatórios estão preenchidos
+            if (string.IsNullOrWhiteSpace(txtCurso.Text) || string.IsNullOrWhiteSpace(txtMes.Text))
+            {
+                MessageBox.Show("Por favor, preencha os campos obrigatórios: Curso e Mês", "Campos obrigatórios não preenchidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var nome = txtCurso.Text;
+            var mes = txtMes.Text;
+
+
+
+            using (var bd = new BancoDeDados())
+            {
+                var curso = new Curso()
+                {
+                    Nome = nome,
+                    Mes = mes,
+                };
+
+                bd.Cursos.Add(curso);
+
+                bd.SaveChanges();
+
+                // Atualizar o grid com os cursos após adicionar o novo curso
+                gridCurso.DataSource = bd.Cursos.ToList();
+
+                MessageBox.Show("Curso adicionado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+
+                
+              
+                {
+                    // Tratar exceções específicas ou genéricas
+                    MessageBox.Show($"Erro ao adicionar curso: ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
 
         }
 
