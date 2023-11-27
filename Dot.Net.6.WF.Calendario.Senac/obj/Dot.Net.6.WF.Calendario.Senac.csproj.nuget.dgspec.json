@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\morei\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {}
+    "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {}
   },
   "projects": {
-    "C:\\Users\\morei\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {
+    "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\morei\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+        "projectUniqueName": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
         "projectName": "Dot.Net.6.WF.Calendario.Senac",
-        "projectPath": "C:\\Users\\morei\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
-        "packagesPath": "C:\\Users\\morei\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\morei\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
+        "projectPath": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+        "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\morei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -80,7 +85,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

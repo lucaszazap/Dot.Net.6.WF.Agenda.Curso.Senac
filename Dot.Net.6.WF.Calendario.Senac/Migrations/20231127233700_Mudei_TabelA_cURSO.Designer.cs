@@ -3,6 +3,7 @@ using System;
 using Dot.Net._6.WF.Calendario.Senac;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dot.Net._6.WF.Calendario.Senac.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    partial class BancoDeDadosModelSnapshot : ModelSnapshot
+    [Migration("20231127233700_Mudei_TabelA_cURSO")]
+    partial class Mudei_TabelA_cURSO
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");
@@ -26,13 +28,13 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
                     b.Property<string>("Dias")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Fim")
+                    b.Property<DateOnly>("Fim")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Horario")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Inicio")
+                    b.Property<DateOnly>("Inicio")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Mes")
