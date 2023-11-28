@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda_de_Curso));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.txtFim = new System.Windows.Forms.TextBox();
             this.txtMes = new System.Windows.Forms.ComboBox();
             this.txtCurso = new System.Windows.Forms.ComboBox();
             this.txtTurno = new System.Windows.Forms.ComboBox();
@@ -96,8 +96,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpFim);
             this.groupBox1.Controls.Add(this.dtpInicio);
-            this.groupBox1.Controls.Add(this.txtFim);
             this.groupBox1.Controls.Add(this.txtMes);
             this.groupBox1.Controls.Add(this.txtCurso);
             this.groupBox1.Controls.Add(this.txtTurno);
@@ -127,19 +127,19 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // dtpFim
+            // 
+            this.dtpFim.Location = new System.Drawing.Point(561, 56);
+            this.dtpFim.Name = "dtpFim";
+            this.dtpFim.Size = new System.Drawing.Size(119, 23);
+            this.dtpFim.TabIndex = 33;
+            // 
             // dtpInicio
             // 
             this.dtpInicio.Location = new System.Drawing.Point(411, 56);
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(119, 23);
             this.dtpInicio.TabIndex = 32;
-            // 
-            // txtFim
-            // 
-            this.txtFim.Location = new System.Drawing.Point(561, 53);
-            this.txtFim.Name = "txtFim";
-            this.txtFim.Size = new System.Drawing.Size(100, 23);
-            this.txtFim.TabIndex = 31;
             // 
             // txtMes
             // 
@@ -608,6 +608,7 @@
             this.btnLimpar.TabIndex = 1;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnAdicionar
             // 
@@ -701,7 +702,6 @@
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem limparToolStripMenuItem;
         private ToolStripMenuItem deletarToolStripMenuItem;
-        private TextBox txtFim;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn ColunaCurso;
         private DataGridViewTextBoxColumn ColunaCursoMes;
@@ -716,5 +716,6 @@
         private DataGridViewTextBoxColumn ColunaCursoTurma;
         private DataGridViewTextBoxColumn ColunaCursoSala;
         private DateTimePicker dtpInicio;
+        private DateTimePicker dtpFim;
     }
 }

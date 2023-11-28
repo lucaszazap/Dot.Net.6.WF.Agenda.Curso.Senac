@@ -16,32 +16,50 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var nome = txtCurso.Text;
             var mes = txtMes.Text;
             var inicio = dtpInicio.Value.Date;
-            
+            var fim = dtpFim.Value.Date;
+            var dias = txtDias.Text;
+            var meta = txtMeta.Text;
+            var realizado = txtRealizado.Text;
+            var turno = txtTurno.Text;
+            var valor = txtValor.Text;
+            var horario = txtHorario.Text;
+            var turma = txtTurma.Text;
+            var sala = txtSala.Text;
 
             using (var bd = new BancoDeDados())
             {
                 var curso = new Curso()
                 {
-                    //gridCurso.Rows.Add(txtCurso.Text, txtMes.Text, txtInicio.Text, txtFim.Text, txtDias.Text,
-                    // txtMeta.Text, txtRealizado.Text, txtTurno.Text, txtValor.Text, txtHorario.Text, txtTurma.Text, txtSala.Text);
                     Nome = nome,
                     Mes = mes,
-                    Inicio = inicio
+                    Inicio = inicio,
+                    Fim = fim,
+                    Dias = dias,
+                    Meta = meta,
+                    Realizado = realizado,
+                    Turno = turno,
+                    Valor = Convert.ToDecimal(valor),
+                    Horario = horario,
+                    Turma = turma,
+                    Sala = sala,
+
                 };
 
 
                 // banco de dados Adicionar
                 bd.Cursos.Add(curso);
 
-                try { 
+                try
+                {
                     // salva as alterações no banco
                     bd.SaveChanges();
                 }
-                catch(Exception ex) {                 
+                catch (Exception ex)
+                {
                     Console.WriteLine(ex.Message);
                 }
 
-                gridCurso.DataSource = bd.Cursos.ToList();
+
             }
         }
 
@@ -52,6 +70,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 gridCurso.DataSource = bd.Cursos.ToList();
             }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            iLimpar();
         }
 
 
@@ -77,10 +100,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            iLimpar();
-        }
+
         private void iDeletar()
         {
             foreach (DataGridViewRow item in this.gridCurso.SelectedRows)
@@ -97,9 +117,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-                
+
                 var curso = bd.Cursos.First();
-               
+
                 curso.Nome = txtCurso.Text;
                 curso.Mes = txtMes.Text;
 
@@ -121,7 +141,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             printPreviewDialog1.PrintPreviewControl.Zoom = 1;
             printPreviewDialog1.ShowDialog();
         }
-               
+
         private void NumbersOnly(object sender, KeyPressEventArgs e)
         {
             // Valida se a tecla pressionada é um número.
@@ -155,8 +175,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
         {
-            CarregarGrid()
+            CarregarGrid();
         }
+
+        
     }
 }
 
