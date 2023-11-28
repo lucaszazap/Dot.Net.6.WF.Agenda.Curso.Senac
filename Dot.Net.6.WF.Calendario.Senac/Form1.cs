@@ -211,6 +211,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 // Bloqueia a entrada do caractere.
                 e.Handled = true;
             }
+        }
     }
 }
 
