@@ -49,15 +49,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 // banco de dados Adicionar
                 bd.Cursos.Add(curso);
 
-                try
-                {
-                    // salva as alterações no banco
-                    bd.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+
+                // salva as alterações no banco
+                bd.SaveChanges();
+
 
 
             }
@@ -113,51 +108,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
             iDeletar();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            using (var bd = new BancoDeDados())
-            {
-
-                var curso = bd.Cursos.First();
-
-                curso.Nome = txtCurso.Text;
-                curso.Mes = txtMes.Text;
 
 
-                // SALVA AS ALTERAÇÕES
-                bd.SaveChanges();
-                gridCurso.DataSource = bd.Cursos.ToList();
-            }
 
-        }
 
         Bitmap bitmap;
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            int heigt = gridCurso.Height;
-            gridCurso.Height = gridCurso.RowCount * gridCurso.RowTemplate.Height * 2;
-            bitmap = new Bitmap(gridCurso.Width, gridCurso.Height);
-            gridCurso.DrawToBitmap(bitmap, new Rectangle(0, 0, gridCurso.Width, gridCurso.Height));
-            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-            printPreviewDialog1.ShowDialog();
-        }
 
-        private void NumbersOnly(object sender, KeyPressEventArgs e)
-        {
-            // Valida se a tecla pressionada é um número.
-            if (e.KeyChar >= '0' && e.KeyChar <= '9')
-            {
-                // Permite a entrada do caractere.
-                e.Handled = false;
-            }
-            else
-            {
-                // Exibe uma mensagem de erro.
-                MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Bloqueia a entrada do caractere.
-                e.Handled = true;
-            }
-        }
+
+
         private void iSair()
         {
             DialogResult iSair;
@@ -178,7 +136,81 @@ namespace Dot.Net._6.WF.Calendario.Senac
             CarregarGrid();
         }
 
-        
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            using (var bd = new BancoDeDados())
+            {
+
+                var curso = bd.Cursos
+                    .Where(w => w.Id == Convert.ToInt32(txtCurso.Text))
+                    .First();
+
+                curso.Nome = txtCurso.Text;
+                curso.Mes = txtMes.Text;
+                curso.Inicio = dtpInicio.MinDate;
+                curso.Fim = dtpFim.MaxDate;
+                curso.Dias = txtDias.Text;
+                curso.Meta = txtMeta.Text;
+                curso.Realizado = txtRealizado.Text;
+                curso.Turno = txtTurno.Text;
+                curso.Valor = Convert.ToDecimal(txtValor);
+                curso.Horario = txtHorario.Text;
+                curso.Turma = txtTurma.Text;
+                curso.Sala = txtSala.Text;
+
+
+
+                // SALVA AS ALTERAÇÕES
+                bd.SaveChanges();
+
+            }
+        }
+
+        private void gridCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
+
+            txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
+            txtMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
+            dtpInicio.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
+            dtpFim.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
+            txtDias.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
+            txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
+            txtTurno.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
+            txtValor.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
+            txtHorario.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
+            txtTurma.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
+            txtSala.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
+
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            int heigt = gridCurso.Height;
+            gridCurso.Height = gridCurso.RowCount * gridCurso.RowTemplate.Height * 2;
+            bitmap = new Bitmap(gridCurso.Width, gridCurso.Height);
+            gridCurso.DrawToBitmap(bitmap, new Rectangle(0, 0, gridCurso.Width, gridCurso.Height));
+            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+            printPreviewDialog1.ShowDialog();
+
+        }
+
+        private void NumbersOnly(object sender, KeyPressEventArgs e)
+        {
+            // Valida se a tecla pressionada é um número.
+            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            {
+                // Permite a entrada do caractere.
+                e.Handled = false;
+            }
+            else
+            {
+                // Exibe uma mensagem de erro.
+                MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Bloqueia a entrada do caractere.
+                e.Handled = true;
+            }
     }
 }
 
