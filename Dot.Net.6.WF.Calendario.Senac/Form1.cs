@@ -21,10 +21,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var meta = txtMeta.Text;
             var realizado = txtRealizado.Text;
             var turno = txtTurno.Text;
-            var valor = txtValor.Text;
+            decimal.TryParse(txtValor.Text, out var valor);
             var horario = txtHorario.Text;
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
+
+            
 
             using (var bd = new BancoDeDados())
             {
@@ -38,7 +40,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Meta = meta,
                     Realizado = realizado,
                     Turno = turno,
-                    Valor = Convert.ToDecimal(valor),
+                    Valor = valor,
                     Horario = horario,
                     Turma = turma,
                     Sala = sala,
