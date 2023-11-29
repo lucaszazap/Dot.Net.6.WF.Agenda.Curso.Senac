@@ -24,6 +24,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
             return (nomeUsuario == "admin" && senha == "senha123");
         }
 
+        
+        private void MostrarOutraTela()
+        {
+            // Crie uma instância do novo formulário
+           Login formOutraTela = new Login();
+
+            // Exiba o novo formulário
+            formOutraTela.ShowDialog();
+
+
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string nomeUsuario = txtUsuario.Text;
@@ -43,6 +55,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
 
                 // Esconda a tela de login
+                // ocular total a tela de login ***
                 this.Hide();
             }
             else
@@ -50,24 +63,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("Login falhou. Verifique suas credenciais.");
             }
         }
-        private void MostrarOutraTela()
-        {
-            // Crie uma instância do novo formulário
-           Login formOutraTela = new Login();
-
-            // Exiba o novo formulário
-            formOutraTela.ShowDialog();
-
-
-        }
-
-
     }
+}
 
 
 
     
 
-}
+
 
 

@@ -52,12 +52,29 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 // salva as alterações no banco
                 bd.SaveChanges();
-
+                LimparCampos(); 
 
 
             }
         }
 
+        private void LimparCampos()
+        {
+            txtCurso.Text = String.Empty;
+            txtMes.Text = String.Empty;
+            dtpInicio.Text = String.Empty;
+            dtpFim.Text = String.Empty;
+            txtDias.Text = String.Empty;
+            txtMeta.Text = String.Empty;
+            txtRealizado.Text = String.Empty;
+            txtTurno.Text = String.Empty;
+            txtValor.Text = String.Empty;
+            txtHorario.Text = String.Empty;
+            txtTurma.Text = String.Empty;
+            txtSala.Text = String.Empty;
+            txtCurso.Focus();
+
+        }
 
         private void CarregarGrid()
         {
@@ -147,13 +164,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 curso.Nome = txtCurso.Text;
                 curso.Mes = txtMes.Text;
-                curso.Inicio = dtpInicio.MinDate;
-                curso.Fim = dtpFim.MaxDate;
+                curso.Inicio = dtpInicio.MinDate.Date;
+                curso.Fim = dtpFim.MaxDate.Date;
                 curso.Dias = txtDias.Text;
                 curso.Meta = txtMeta.Text;
                 curso.Realizado = txtRealizado.Text;
                 curso.Turno = txtTurno.Text;
-                curso.Valor = Convert.ToDecimal(txtValor);
+                curso.Valor = Convert.ToDecimal(txtValor.Text);
                 curso.Horario = txtHorario.Text;
                 curso.Turma = txtTurma.Text;
                 curso.Sala = txtSala.Text;
@@ -162,7 +179,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 // SALVA AS ALTERAÇÕES
                 bd.SaveChanges();
-
+                LimparCampos();
             }
         }
 
