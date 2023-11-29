@@ -79,6 +79,7 @@
             ColunaCursoTurma = new DataGridViewTextBoxColumn();
             ColunaCursoSala = new DataGridViewTextBoxColumn();
             groupBox3 = new GroupBox();
+            btnListar = new Button();
             btnSair = new Button();
             btnImprimir = new Button();
             btnSalvar = new Button();
@@ -87,6 +88,8 @@
             btnAdicionar = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
+            textBox2 = new TextBox();
+            txtId = new Label();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -96,6 +99,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtId);
+            groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(dtpFim);
             groupBox1.Controls.Add(dtpInicio);
             groupBox1.Controls.Add(txtMes);
@@ -123,20 +128,20 @@
             groupBox1.Controls.Add(menuStrip1);
             groupBox1.Location = new Point(12, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1005, 163);
+            groupBox1.Size = new Size(1022, 163);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
             // dtpFim
             // 
-            dtpFim.Location = new Point(561, 56);
+            dtpFim.Location = new Point(587, 59);
             dtpFim.Name = "dtpFim";
             dtpFim.Size = new Size(119, 23);
             dtpFim.TabIndex = 33;
             // 
             // dtpInicio
             // 
-            dtpInicio.Location = new Point(411, 56);
+            dtpInicio.Location = new Point(437, 59);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(119, 23);
             dtpInicio.TabIndex = 32;
@@ -145,7 +150,7 @@
             // 
             txtMes.FormattingEnabled = true;
             txtMes.Items.AddRange(new object[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" });
-            txtMes.Location = new Point(239, 48);
+            txtMes.Location = new Point(265, 51);
             txtMes.Name = "txtMes";
             txtMes.Size = new Size(121, 23);
             txtMes.TabIndex = 26;
@@ -154,7 +159,7 @@
             // 
             txtCurso.FormattingEnabled = true;
             txtCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
-            txtCurso.Location = new Point(67, 48);
+            txtCurso.Location = new Point(93, 51);
             txtCurso.Name = "txtCurso";
             txtCurso.Size = new Size(121, 23);
             txtCurso.TabIndex = 25;
@@ -163,14 +168,14 @@
             // 
             txtTurno.FormattingEnabled = true;
             txtTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
-            txtTurno.Location = new Point(239, 91);
+            txtTurno.Location = new Point(265, 94);
             txtTurno.Name = "txtTurno";
             txtTurno.Size = new Size(121, 23);
             txtTurno.TabIndex = 24;
             // 
             // txtMeta
             // 
-            txtMeta.Location = new Point(872, 48);
+            txtMeta.Location = new Point(898, 51);
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(100, 23);
             txtMeta.TabIndex = 23;
@@ -178,7 +183,7 @@
             // 
             // txtDias
             // 
-            txtDias.Location = new Point(727, 48);
+            txtDias.Location = new Point(753, 51);
             txtDias.Name = "txtDias";
             txtDias.Size = new Size(100, 23);
             txtDias.TabIndex = 22;
@@ -186,35 +191,35 @@
             // 
             // txtSala
             // 
-            txtSala.Location = new Point(873, 94);
+            txtSala.Location = new Point(899, 97);
             txtSala.Name = "txtSala";
             txtSala.Size = new Size(100, 23);
             txtSala.TabIndex = 17;
             // 
             // txtTurma
             // 
-            txtTurma.Location = new Point(733, 94);
+            txtTurma.Location = new Point(759, 97);
             txtTurma.Name = "txtTurma";
             txtTurma.Size = new Size(100, 23);
             txtTurma.TabIndex = 16;
             // 
             // txtHorario
             // 
-            txtHorario.Location = new Point(570, 91);
+            txtHorario.Location = new Point(596, 94);
             txtHorario.Name = "txtHorario";
             txtHorario.Size = new Size(100, 23);
             txtHorario.TabIndex = 15;
             // 
             // txtValor
             // 
-            txtValor.Location = new Point(411, 94);
+            txtValor.Location = new Point(437, 97);
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(100, 23);
             txtValor.TabIndex = 14;
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(67, 91);
+            txtRealizado.Location = new Point(93, 94);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 13;
@@ -223,7 +228,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(839, 99);
+            label12.Location = new Point(865, 102);
             label12.Name = "label12";
             label12.Size = new Size(28, 15);
             label12.TabIndex = 11;
@@ -232,7 +237,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(686, 97);
+            label11.Location = new Point(712, 100);
             label11.Name = "label11";
             label11.Size = new Size(41, 15);
             label11.TabIndex = 10;
@@ -241,7 +246,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(517, 99);
+            label10.Location = new Point(543, 102);
             label10.Name = "label10";
             label10.Size = new Size(47, 15);
             label10.TabIndex = 9;
@@ -250,7 +255,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(372, 99);
+            label9.Location = new Point(398, 102);
             label9.Name = "label9";
             label9.Size = new Size(33, 15);
             label9.TabIndex = 8;
@@ -259,7 +264,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(528, 56);
+            label4.Location = new Point(554, 59);
             label4.Name = "label4";
             label4.Size = new Size(27, 15);
             label4.TabIndex = 3;
@@ -268,7 +273,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(195, 97);
+            label8.Location = new Point(221, 100);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 7;
@@ -277,7 +282,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(23, 51);
+            label1.Location = new Point(49, 59);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 0;
@@ -286,7 +291,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(4, 97);
+            label7.Location = new Point(30, 105);
             label7.Name = "label7";
             label7.Size = new Size(57, 15);
             label7.TabIndex = 6;
@@ -295,7 +300,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(195, 51);
+            label2.Location = new Point(221, 54);
             label2.Name = "label2";
             label2.Size = new Size(29, 15);
             label2.TabIndex = 1;
@@ -304,7 +309,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(833, 56);
+            label6.Location = new Point(859, 59);
             label6.Name = "label6";
             label6.Size = new Size(34, 15);
             label6.TabIndex = 5;
@@ -313,7 +318,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(369, 56);
+            label3.Location = new Point(395, 59);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 2;
@@ -322,7 +327,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(692, 56);
+            label5.Location = new Point(718, 59);
             label5.Name = "label5";
             label5.Size = new Size(29, 15);
             label5.TabIndex = 4;
@@ -333,7 +338,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem });
             menuStrip1.Location = new Point(3, 19);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(999, 24);
+            menuStrip1.Size = new Size(1016, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -392,7 +397,7 @@
             groupBox2.Controls.Add(gridCurso);
             groupBox2.Location = new Point(12, 172);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1005, 308);
+            groupBox2.Size = new Size(1022, 308);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
@@ -403,7 +408,7 @@
             gridCurso.BackgroundColor = Color.White;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoMes, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoTurno, ColunaCursoValor, ColunaCursoHorario, ColunaCursoTurma, ColunaCursoSala });
-            gridCurso.Location = new Point(0, 11);
+            gridCurso.Location = new Point(23, 17);
             gridCurso.Name = "gridCurso";
             gridCurso.ReadOnly = true;
             gridCurso.RowTemplate.Height = 25;
@@ -517,17 +522,28 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(btnListar);
             groupBox3.Controls.Add(btnSair);
             groupBox3.Controls.Add(btnImprimir);
             groupBox3.Controls.Add(btnSalvar);
             groupBox3.Controls.Add(btnDeletar);
             groupBox3.Controls.Add(btnLimpar);
             groupBox3.Controls.Add(btnAdicionar);
-            groupBox3.Location = new Point(12, 513);
+            groupBox3.Location = new Point(29, 513);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(1005, 99);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
+            // 
+            // btnListar
+            // 
+            btnListar.Location = new Point(432, 41);
+            btnListar.Name = "btnListar";
+            btnListar.Size = new Size(98, 31);
+            btnListar.TabIndex = 6;
+            btnListar.Text = "Listar";
+            btnListar.UseVisualStyleBackColor = true;
+            btnListar.Click += btnListar_Click;
             // 
             // btnSair
             // 
@@ -541,7 +557,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(686, 41);
+            btnImprimir.Location = new Point(727, 41);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(98, 31);
             btnImprimir.TabIndex = 4;
@@ -551,7 +567,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(527, 41);
+            btnSalvar.Location = new Point(582, 41);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(98, 31);
             btnSalvar.TabIndex = 3;
@@ -561,7 +577,7 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(374, 41);
+            btnDeletar.Location = new Point(307, 41);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;
@@ -571,7 +587,7 @@
             // 
             // btnLimpar
             // 
-            btnLimpar.Location = new Point(206, 41);
+            btnLimpar.Location = new Point(161, 41);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(98, 31);
             btnLimpar.TabIndex = 1;
@@ -581,7 +597,7 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(45, 41);
+            btnAdicionar.Location = new Point(23, 41);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(98, 31);
             btnAdicionar.TabIndex = 0;
@@ -600,11 +616,27 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(23, 51);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(28, 23);
+            textBox2.TabIndex = 34;
+            // 
+            // txtId
+            // 
+            txtId.AutoSize = true;
+            txtId.Location = new Point(6, 59);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(18, 15);
+            txtId.TabIndex = 35;
+            txtId.Text = "ID";
+            // 
             // Agenda_de_Curso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1029, 661);
+            ClientSize = new Size(1071, 677);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -685,5 +717,8 @@
         private DataGridViewTextBoxColumn ColunaCursoSala;
         private DateTimePicker dtpInicio;
         private DateTimePicker dtpFim;
+        private Button btnListar;
+        private Label txtId;
+        private TextBox textBox2;
     }
 }

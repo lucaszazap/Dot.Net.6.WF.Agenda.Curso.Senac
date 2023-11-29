@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
 
@@ -26,7 +27,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
 
-            
+
 
             using (var bd = new BancoDeDados())
             {
@@ -54,7 +55,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 // salva as alterações no banco
                 bd.SaveChanges();
-                LimparCampos(); 
+                LimparCampos();
 
 
             }
@@ -62,6 +63,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void LimparCampos()
         {
+            txtId.Text = String.Empty;
             txtCurso.Text = String.Empty;
             txtMes.Text = String.Empty;
             dtpInicio.Text = String.Empty;
@@ -82,7 +84,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-                gridCurso.DataSource = bd.Cursos.ToList();
+                bd.SaveChanges();
             }
         }
 
@@ -94,6 +96,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void iLimpar()
         {
+
+
             int numRows = gridCurso.Rows.Count;
             for (int i = 0; i < numRows; i++)
             {
@@ -111,7 +115,24 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
                 }
+
+                using (var bd = new BancoDeDados())
+                {
+                    var curso = bd.Cursos.Where(w => w.Id
+                    == Convert.ToInt32(txtId.Text))
+                        .First();
+
+                    bd.Cursos.Remove(curso);
+                    bd.SaveChanges();
+                    Listar();
+                    LimparCampos();
+
+
+                }
+
             }
+
+
         }
 
 
@@ -231,6 +252,30 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 e.Handled = true;
             }
         }
+
+        private void Listar()
+        {
+            gridCurso.Rows.Clear();
+
+            using (var bd = new BancoDeDados())
+            {
+                var cursos = new bd.Cursos.ToList();
+
+                foreach (var curso in cursos)
+                {
+
+                    gridCurso.Rows.Add(gridCurso.Rows.Count + 1);
+
+
+                }
+
+
+            }
+        }
+            private void btnListar_Click(object sender, EventArgs e)
+            {
+
+            }
+        }
     }
-}
 
