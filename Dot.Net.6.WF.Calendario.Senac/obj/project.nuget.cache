@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jzMnBugbEniVjsqvqKBq14QMS+2A6DjVUa9ZvgnL14DRL1eQ+KZUP8x2YquptJwreov4QISZcUEM/aaixFC5Qg==",
+  "dgSpecHash": "oO/Qm9nefJPLwahPBIRLd8Xk11ywrAneTL/JeKKGL736WdZht+5s2XmROicG5A3P/GM8tO+xG3Et6wdOqrHYqA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+  "projectFilePath": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aluno\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Aluno\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.25\\microsoft.data.sqlite.core.6.0.25.nupkg.sha512",
