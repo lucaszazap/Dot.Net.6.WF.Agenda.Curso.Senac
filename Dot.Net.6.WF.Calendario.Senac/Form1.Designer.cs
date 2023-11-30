@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda_de_Curso));
             groupBox1 = new GroupBox();
+            txtId = new Label();
+            textBox2 = new TextBox();
             dtpFim = new DateTimePicker();
             dtpInicio = new DateTimePicker();
             txtMes = new ComboBox();
@@ -88,8 +90,6 @@
             btnAdicionar = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
-            textBox2 = new TextBox();
-            txtId = new Label();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -131,6 +131,22 @@
             groupBox1.Size = new Size(1022, 163);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // txtId
+            // 
+            txtId.AutoSize = true;
+            txtId.Location = new Point(6, 59);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(18, 15);
+            txtId.TabIndex = 35;
+            txtId.Text = "ID";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(23, 51);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(28, 23);
+            textBox2.TabIndex = 34;
             // 
             // dtpFim
             // 
@@ -616,30 +632,15 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(23, 51);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(28, 23);
-            textBox2.TabIndex = 34;
-            // 
-            // txtId
-            // 
-            txtId.AutoSize = true;
-            txtId.Location = new Point(6, 59);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(18, 15);
-            txtId.TabIndex = 35;
-            txtId.Text = "ID";
-            // 
             // Agenda_de_Curso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1071, 677);
+            ClientSize = new Size(1100, 709);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            MaximumSize = new Size(1200, 780);
             Name = "Agenda_de_Curso";
             Text = "Agenda_de_Curso";
             Load += Agenda_de_Curso_Load;

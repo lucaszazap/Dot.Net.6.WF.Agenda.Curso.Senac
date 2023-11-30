@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -257,25 +258,43 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             gridCurso.Rows.Clear();
 
-            using (var bd = new BancoDeDados())
-            {
-                var cursos = new bd.Cursos.ToList();
+          //  using (var bd = new BancoDeDados())
+          //  {
+             //   var cursos = new bd.Cursos.ToList();
 
-                foreach (var curso in cursos)
-                {
+             //   foreach (var curso in cursos)
+             //   {
 
-                    gridCurso.Rows.Add(gridCurso.Rows.Count + 1);
+                //    gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
+                //    curso.Nome,
+                //    curso.Mes,
+                //    curso.Inicio,
+                //    curso.Fim,
+                 //   curso.Dias,
+                 //   curso.Meta,
+                //    curso.Realizado,
+                //    curso.Turno,
+                //    curso.Valor,
+                 //   curso.Horario,
+                 //   curso.Turma,
+                 //   curso.Sala);
 
 
-                }
 
 
-            }
+               // }
+
+
+         //   }
         }
-            private void btnListar_Click(object sender, EventArgs e)
-            {
-
-            }
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            Listar();
         }
     }
+
+
+}
+
+
 

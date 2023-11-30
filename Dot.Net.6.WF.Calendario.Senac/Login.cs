@@ -16,54 +16,35 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             InitializeComponent();
             txtSenha.PasswordChar = '*';
+           
         }
-
-        private bool AutenticacaoBemSucedida(string nomeUsuario, string senha)
-        {
-            // Substitua esta lógica com sua própria autenticação (por exemplo, consultando um banco de dados)
-            return (nomeUsuario == "admin" && senha == "senha123");
-        }
-
-        
-        private void MostrarOutraTela()
-        {
-            // Crie uma instância do novo formulário
-           Login formOutraTela = new Login();
-
-            // Exiba o novo formulário
-            formOutraTela.ShowDialog();
-
-
-        }
-
+                                  
+       
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string nomeUsuario = txtUsuario.Text;
-            string senha = txtSenha.Text;
+            string nomeUsuario = "admin";
+            string senha = "senha123";
 
-            if (AutenticacaoBemSucedida(nomeUsuario, senha))
+            if(txtUsuario.Text == nomeUsuario & txtSenha.Text == senha)
             {
-                // Crie o formulário principal
+                MessageBox.Show("Acesso liberado");
                 Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
 
                 // Exiba o formulário principal como um diálogo
-                if (formPrincipal.ShowDialog() == DialogResult.OK)
-                {
-                    // Aqui você pode adicionar lógica adicional após o fechamento bem-sucedido do formulário principal
-                    // Por exemplo, mostrar outra tela, fazer alguma ação, etc.
-                    MostrarOutraTela();
-                }
-
-                // Esconda a tela de login
-                // ocular total a tela de login ***
+                formPrincipal.Show();
                 this.Hide();
+                        
+                                          
             }
             else
             {
-                MessageBox.Show("Login falhou. Verifique suas credenciais.");
+                MessageBox.Show("Usuario/Senha incorretos");
             }
         }
+
+       
     }
+
 }
 
 
