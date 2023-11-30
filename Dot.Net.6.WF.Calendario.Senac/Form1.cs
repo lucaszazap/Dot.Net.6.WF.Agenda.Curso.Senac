@@ -74,12 +74,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 };
 
 
-                bd.Cursos.Add(curso);
+                 bd.Cursos.Add(curso);
                 bd.SaveChanges();
+
+                // Limpa os campos
+                LimparCampos();
             }
 
-            // Limpa os campos
-            LimparCampos();
+           
+        
 
 
         }
