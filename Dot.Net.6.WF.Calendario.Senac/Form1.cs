@@ -15,49 +15,71 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iAdicionar()
 
         {
+            if (string.IsNullOrEmpty(txtCurso.Text))
+            {
+                MessageBox.Show("O campo 'Nome' é obrigatório.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtMes.Text))
+            {
+                MessageBox.Show("O campo 'Mês' é obrigatório.");
+                return;
+            }
+
+            if (dtpInicio.Value == null)
+            {
+                MessageBox.Show("O campo 'Início' é obrigatório.");
+                return;
+            }
+
+            if (dtpFim.Value == null)
+            {
+                MessageBox.Show("O campo 'Fim' é obrigatório.");
+                return;
+            }
+
             var nome = txtCurso.Text;
-            var mes = txtMes.Text;
-            var inicio = dtpInicio.Value.Date;
-            var fim = dtpFim.Value.Date;
+            var mes = txtMes.Text; 
+            var inicio = dtpInicio.Value;
+            var fim = dtpFim.Value;
             var dias = txtDias.Text;
             var meta = txtMeta.Text;
             var realizado = txtRealizado.Text;
             var turno = txtTurno.Text;
-            decimal.TryParse(txtValor.Text, out var valor);
+            var valor = txtValor.Text;
             var horario = txtHorario.Text;
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
 
+          
 
-
+            // Adiciona o curso ao banco de dados
             using (var bd = new BancoDeDados())
             {
                 var curso = new Curso()
                 {
-                    Nome = nome,
-                    Mes = mes,
-                    Inicio = inicio,
-                    Fim = fim,
-                    Dias = dias,
-                    Meta = meta,
-                    Realizado = realizado,
-                    Turno = turno,
-                    Valor = valor,
-                    Horario = horario,
-                    Turma = turma,
-                    Sala = sala,
+                    Nome = txtCurso.Text,
+                    Mes = txtMes.Text,
+                    Inicio = dtpInicio.Value.Date,
+                    Fim = dtpFim.Value.Date,
+                    Dias = txtMeta.Text,
+                    Realizado = txtRealizado.Text,
+                    Turno = txtTurno.Text,
+                    Valor = decimal.Parse(txtValor.Text),
+                    Horario = txtHorario.Text,
+                    Turma = txtTurma.Text,
+                    Sala = txtSala.Text,
 
                 };
 
 
-                // banco de dados Adicionar
                 bd.Cursos.Add(curso);
-
-
-                // salva as alterações no banco
                 bd.SaveChanges();
-                LimparCampos();
             }
+
+            // Limpa os campos
+            LimparCampos();
 
 
         }
