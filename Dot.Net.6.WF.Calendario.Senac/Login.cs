@@ -16,16 +16,16 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             InitializeComponent();
             txtSenha.PasswordChar = '*';
-           
+
         }
-                                  
-       
+
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string nomeUsuario = "admin";
             string senha = "senha123";
 
-            if(txtUsuario.Text == nomeUsuario & txtSenha.Text == senha)
+            if (txtUsuario.Text == nomeUsuario & txtSenha.Text == senha)
             {
                 MessageBox.Show("Acesso liberado");
                 Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
@@ -33,8 +33,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 // Exiba o formulário principal como um diálogo
                 formPrincipal.Show();
                 this.Hide();
-                        
-                                          
+
+
             }
             else
             {
@@ -42,14 +42,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-       
+
     }
 
 }
 
 
 
-    
+
 
 
 

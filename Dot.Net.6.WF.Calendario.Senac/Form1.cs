@@ -12,8 +12,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             InitializeComponent();
         }
+        private void iAdicionar()
 
-        private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             var nome = txtCurso.Text;
             var mes = txtMes.Text;
@@ -57,9 +57,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 // salva as alterações no banco
                 bd.SaveChanges();
                 LimparCampos();
-
-
             }
+
+
+        }
+
+
+        private void btnAdicionar_Click_1(object sender, EventArgs e)
+        {
+            iAdicionar();
         }
 
         private void LimparCampos()
@@ -225,8 +231,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtSala.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
 
         }
-
-        private void btnImprimir_Click(object sender, EventArgs e)
+        private void iImprimir()
         {
             int heigt = gridCurso.Height;
             gridCurso.Height = gridCurso.RowCount * gridCurso.RowTemplate.Height * 2;
@@ -235,6 +240,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
             printPreviewDialog1.PrintPreviewControl.Zoom = 1;
             printPreviewDialog1.ShowDialog();
 
+        }
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            iImprimir();
         }
 
         private void NumbersOnly(object sender, KeyPressEventArgs e)
@@ -258,38 +267,53 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             gridCurso.Rows.Clear();
 
-          //  using (var bd = new BancoDeDados())
-          //  {
-             //   var cursos = new bd.Cursos.ToList();
+            //  using (var bd = new BancoDeDados())
+            //  {
+            //   var cursos = new bd.Cursos.ToList();
 
-             //   foreach (var curso in cursos)
-             //   {
+            //   foreach (var curso in cursos)
+            //   {
 
-                //    gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
-                //    curso.Nome,
-                //    curso.Mes,
-                //    curso.Inicio,
-                //    curso.Fim,
-                 //   curso.Dias,
-                 //   curso.Meta,
-                //    curso.Realizado,
-                //    curso.Turno,
-                //    curso.Valor,
-                 //   curso.Horario,
-                 //   curso.Turma,
-                 //   curso.Sala);
-
-
+            //    gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
+            //    curso.Nome,
+            //    curso.Mes,
+            //    curso.Inicio,
+            //    curso.Fim,
+            //   curso.Dias,
+            //   curso.Meta,
+            //    curso.Realizado,
+            //    curso.Turno,
+            //    curso.Valor,
+            //   curso.Horario,
+            //   curso.Turma,
+            //   curso.Sala);
 
 
-               // }
 
 
-         //   }
+            // }
+
+
+            //   }
         }
         private void btnListar_Click(object sender, EventArgs e)
         {
             Listar();
+        }
+
+        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iAdicionar();
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iImprimir();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iSair();
         }
     }
 
