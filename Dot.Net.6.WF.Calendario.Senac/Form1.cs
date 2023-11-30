@@ -47,7 +47,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var meta = txtMeta.Text;
             var realizado = txtRealizado.Text;
             var turno = txtTurno.Text;
-            var valor = txtValor.Text;
+            var valor = Convert.ToDecimal(txtValor.Text);
             var horario = txtHorario.Text;
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
@@ -77,6 +77,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 bd.Cursos.Add(curso);
                 bd.SaveChanges();
 
+                MessageBox.Show("Curso adicionado com sucesso.");
                 // Limpa os campos
                 LimparCampos();
             }
@@ -241,19 +242,19 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void gridCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
-
-            txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
-            txtMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
-            dtpInicio.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
-            dtpFim.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            txtDias.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
-            txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
-            txtTurno.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
-            txtValor.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
-            txtHorario.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
-            txtTurma.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
-            txtSala.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
+            txtId.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
+            txtCurso.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
+            txtMes.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
+            dtpInicio.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
+            dtpFim.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
+            txtDias.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
+            txtRealizado.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
+            txtTurno.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
+            txtValor.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
+            txtHorario.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
+            txtTurma.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
+            txtSala.Text = gridCurso.CurrentRow.Cells[13].Value.ToString();
 
         }
         private void iImprimir()
