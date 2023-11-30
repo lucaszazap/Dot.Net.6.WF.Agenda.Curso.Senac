@@ -40,7 +40,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
 
             var nome = txtCurso.Text;
-            var mes = txtMes.Text; 
+            var mes = txtMes.Text;
             var inicio = dtpInicio.Value;
             var fim = dtpFim.Value;
             var dias = txtDias.Text;
@@ -52,7 +52,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
 
-          
+
 
             // Adiciona o curso ao banco de dados
             using (var bd = new BancoDeDados())
@@ -74,15 +74,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 };
 
 
-                 bd.Cursos.Add(curso);
+                bd.Cursos.Add(curso);
                 bd.SaveChanges();
 
                 // Limpa os campos
                 LimparCampos();
             }
 
-           
-        
+
+
 
 
         }
