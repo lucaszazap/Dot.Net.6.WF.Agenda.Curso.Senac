@@ -101,7 +101,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 foreach (var curso in Curso)
                 {
-                    gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
+                    gridCurso.Rows.Add(gridCurso.Rows.Count,
                          curso.Id,
                         curso.Nome,
                         curso.Mes,
@@ -121,7 +121,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void LimparCampos()
         {
-            txtId.Text = String.Empty;
+            lbl.Text = String.Empty;
             txtCurso.Text = String.Empty;
             txtMes.Text = String.Empty;
             dtpInicio.Text = String.Empty;
@@ -138,12 +138,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-      
+
 
 
         private void iDeletar()
         {
-            if (string.IsNullOrEmpty(txtId.Text))
+            if (string.IsNullOrEmpty(lbl.Text))
             {
                 MessageBox.Show("Tem certeza que deseja excluir?");
                 return;
@@ -210,7 +210,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void gridCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
-            txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
+            lbl.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
             txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
             txtMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
             dtpInicio.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
@@ -229,19 +229,33 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void NumbersOnly(object sender, KeyPressEventArgs e)
         {
-            // Valida se a tecla pressionada é um número.
-            if (e.KeyChar >= '0' && e.KeyChar <= '9')
+            if (e.KeyChar == '\b')
             {
-                // Permite a entrada do caractere.
                 e.Handled = false;
             }
+            // Valida se a tecla pressionada é um número.
             else
             {
-                // Exibe uma mensagem de erro.
-                MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Bloqueia a entrada do caractere.
-                e.Handled = true;
+
+                if (e.KeyChar >= '0' && e.KeyChar <= '9')
+                {
+
+                    // Permite a entrada do caractere.
+                    e.Handled = false;
+
+                }
+
+
+                else
+                {
+                    // Exibe uma mensagem de erro.
+                    MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Bloqueia a entrada do caractere.
+                    e.Handled = true;
+                }
             }
+
+
         }
 
         private void iSair()
@@ -270,7 +284,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             iSair();
         }
-              
+
 
         private void btnLimparCampos_Click(object sender, EventArgs e)
         {
