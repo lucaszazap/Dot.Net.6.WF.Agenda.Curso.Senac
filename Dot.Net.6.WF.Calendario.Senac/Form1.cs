@@ -39,71 +39,49 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("O campo 'Fim' é obrigatório.");
                 return;
             }
+            var nome = txtCurso.Text;
+            var mes = txtMes.Text;
+            var inicio = dtpInicio.Value;
+            var fim = dtpFim.Value;
+            var dias = txtDias.Text;
+            var meta = txtMeta.Text;
+            var realizado = txtRealizado.Text;
+            var turno = txtTurno.Text;
+            var valor = Convert.ToDecimal(txtValor.Text);
+            var horario = txtHorario.Text;
+            var turma = txtTurma.Text;
+            var sala = txtSala.Text;
 
-            int n = gridCurso.Rows.Add();
 
-            gridCurso.Rows[n].Cells[0].Value = txtId.Text;
-            gridCurso.Rows[n].Cells[1].Value = txtCurso.Text;
-            gridCurso.Rows[n].Cells[2].Value = txtMes.Text;
-            gridCurso.Rows[n].Cells[3].Value = dtpInicio.Text;
-            gridCurso.Rows[n].Cells[4].Value = dtpFim.Text;
-            gridCurso.Rows[n].Cells[5].Value = txtDias.Text;
-            gridCurso.Rows[n].Cells[6].Value = txtMeta.Text;
-            gridCurso.Rows[n].Cells[7].Value = txtRealizado.Text;
-            gridCurso.Rows[n].Cells[8].Value = txtTurno.Text;
-            gridCurso.Rows[n].Cells[9].Value = txtValor.Text;
-            gridCurso.Rows[n].Cells[10].Value = txtHorario.Text;
-            gridCurso.Rows[n].Cells[11].Value = txtTurma.Text;
-            gridCurso.Rows[n].Cells[12].Value = txtSala.Text;
-
-            //limpando os dados
-            txtId.Text = " ";
-            txtCurso.Text = " ";
-            txtMes.Text = " ";
-            dtpInicio.Value = DateTime.Now;
-            dtpFim.Value = DateTime.Now;
-            txtDias.Text = " ";
-            txtMeta.Text = " ";
-            txtRealizado.Text = " ";
-            txtTurno.Text = " ";
-            txtValor.Text = " ";
-            txtHorario.Text = " ";
-            txtTurma.Text = " ";
-            txtSala.Text = " ";
-
-            
 
             // Adiciona o curso ao banco de dados
-             // using (var bd = new BancoDeDados())
-           //  {
-            //   var curso = new Curso()
-            //  {
-           // txtCurso.Text,
-           //   Mes = txtMes.Text,
-           //   Inicio = dtpInicio.Value.Date,
-            //  Fim = dtpFim.Value.Date,
-            //  Dias = txtMeta.Text,
-            //  Realizado = txtRealizado.Text,
-            //  Turno = txtTurno.Text,
-            //  Valor = decimal.Parse(txtValor.Text),
-            //  Horario = txtHorario.Text,
-            //  Turma = txtTurma.Text,
-            //  Sala = txtSala.Text,
+            using (var bd = new BancoDeDados())
+            {
+                var curso = new Curso()
+                {
+                    Nome = txtCurso.Text,
+                    Mes = txtMes.Text,
+                    Inicio = dtpInicio.Value.Date,
+                    Fim = dtpFim.Value.Date,
+                    Dias = txtMeta.Text,
+                    Realizado = txtRealizado.Text,
+                    Turno = txtTurno.Text,
+                    Valor = decimal.Parse(txtValor.Text),
+                    Horario = txtHorario.Text,
+                    Turma = txtTurma.Text,
+                    Sala = txtSala.Text,
 
-             //  };
-        
-
-              // bd.Cursos.Add(curso);
-             // bd.SaveChanges();
-
-              // MessageBox.Show("Curso adicionado com sucesso.");
-
-               // LimparCampos();
-              // }
+                };
 
 
+                bd.Cursos.Add(curso);
+                bd.SaveChanges();
 
-
+                MessageBox.Show("Curso adicionado com sucesso.");
+                // Limpa os campos
+                Listar();
+                LimparCampos();
+            }
 
         }
 
@@ -111,6 +89,34 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             iAdicionar();
+        }
+
+        private void Listar()
+        {
+            gridCurso.Rows.Clear();
+
+            using (var bd = new BancoDeDados())
+            {
+                var Curso = bd.Cursos.ToList();
+
+                foreach (var curso in Curso)
+                {
+                    gridCurso.Rows.Add(gridCurso.Rows.Count - 1,
+                         curso.Id,
+                        curso.Nome,
+                        curso.Mes,
+                        curso.Inicio,
+                        curso.Fim,
+                        curso.Dias,
+                        curso.Meta,
+                        curso.Realizado,
+                        curso.Turno,
+                        curso.Valor,
+                        curso.Horario,
+                        curso.Turma,
+                        curso.Sala);
+                }
+            }
         }
 
         private void LimparCampos()
@@ -140,59 +146,23 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            iLimpar();
-        }
-
-
-        private void iLimpar()
-        {
-
-
-            int numRows = gridCurso.Rows.Count;
-            for (int i = 0; i < numRows; i++)
-            {
-                try
-                {
-                    int max = gridCurso.Rows.Count - 1;
-                    gridCurso.Rows.Remove(gridCurso.Rows[max]);
-
-                }
-
-                catch (Exception exe)
-                {
-                    MessageBox.Show("Apagar tudo?" + exe, "Apagar todos os dados",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                }
-
-                using (var bd = new BancoDeDados())
-                {
-                    var curso = bd.Cursos.Where(w => w.Id
-                    == Convert.ToInt32(txtId.Text))
-                        .First();
-
-                    bd.Cursos.Remove(curso);
-                    bd.SaveChanges();
-                    //  Listar();
-                    LimparCampos();
-
-
-                }
-
-            }
-
-
-        }
-
 
         private void iDeletar()
         {
-            foreach (DataGridViewRow item in this.gridCurso.SelectedRows)
+           if (string.IsNullOrEmpty(txtId.Text))
             {
-                gridCurso.Rows.RemoveAt(item.Index);
+                MessageBox.Show("Tem certeza que deseja excluir?");
+                return;
+            }
+
+           using (var bd = new BancoDeDados())
+            {
+                var curso = bd.Cursos.Where(z => z .Id == Convert.ToInt32(txtId.Text));
+
+                bd.Cursos.Remove((Curso)curso);
+                bd.SaveChanges() ;
+                Listar();
+                LimparCampos();
             }
         }
         private void btnDeletar_Click_1(object sender, EventArgs e)
@@ -200,28 +170,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             iDeletar();
         }
 
-
-
-
-
-        Bitmap bitmap;
-
-
-
-        private void iSair()
-        {
-            DialogResult iSair;
-            iSair = MessageBox.Show("Você está prestes a fechar. Tem certeza?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-            if (iSair == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-        private void btnSair_Click_1(object sender, EventArgs e)
-        {
-            iSair();
-        }
 
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
         {
@@ -254,6 +202,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 // SALVA AS ALTERAÇÕES
                 bd.SaveChanges();
+                Listar();
                 LimparCampos();
             }
         }
@@ -276,20 +225,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtSala.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
 
         }
-        private void iImprimir()
-        {
-            int heigt = gridCurso.Height;
-            gridCurso.Height = gridCurso.RowCount * gridCurso.RowTemplate.Height * 2;
-            bitmap = new Bitmap(gridCurso.Width, gridCurso.Height);
-            gridCurso.DrawToBitmap(bitmap, new Rectangle(0, 0, gridCurso.Width, gridCurso.Height));
-            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-            printPreviewDialog1.ShowDialog();
 
-        }
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            iImprimir();
-        }
 
         private void NumbersOnly(object sender, KeyPressEventArgs e)
         {
@@ -308,53 +244,27 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        //  private void Listar()
-        // {
-        // gridCurso.Rows.Clear();
+        private void iSair()
+        {
+            DialogResult iSair;
+            iSair = MessageBox.Show("Você está prestes a fechar. Tem certeza?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-        // using (var bd = new BancoDeDados())
-        //{
-        //  var cursos = new bd.Cursos.ToList();
-
-        //  foreach (var curso in cursos)
-        //   {
-
-        //  gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
-        //   curso.Nome,
-        //  curso.Mes,
-        //   curso.Inicio,
-        //  curso.Fim,
-        // curso.Dias,
-        //  curso.Meta,
-        //   curso.Realizado,
-        //   curso.Turno,
-        //  curso.Valor,
-        //  curso.Horario,
-        //   curso.Turma,
-        //  curso.Sala);
-
-
-
-
-        //  }
-
-
-        //  }
-        // }
-        //  private void btnListar_Click(object sender, EventArgs e)
-        //  {
-        //  Listar();
-        //  }
+            if (iSair == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+        private void btnSair_Click_1(object sender, EventArgs e)
+        {
+            iSair();
+        }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iAdicionar();
         }
 
-        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            iImprimir();
-        }
+
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -364,10 +274,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void gridCurso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int n = e.RowIndex;
-            
-            if(n != -1)
+
+            if (n != -1)
             {
-                lblInformação.Text = (string)gridCurso.Rows[n].Cells[1].Value ;
+                lblInformação.Text = (string)gridCurso.Rows[n].Cells[1].Value;
             }
         }
     }

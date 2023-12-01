@@ -83,10 +83,8 @@
             groupBox3 = new GroupBox();
             btnListar = new Button();
             btnSair = new Button();
-            btnImprimir = new Button();
             btnSalvar = new Button();
             btnDeletar = new Button();
-            btnLimpar = new Button();
             btnAdicionar = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
@@ -384,7 +382,6 @@
             imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
             imprimirToolStripMenuItem.Size = new Size(125, 22);
             imprimirToolStripMenuItem.Text = "Imprimir";
-            imprimirToolStripMenuItem.Click += imprimirToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
@@ -545,10 +542,8 @@
             // 
             groupBox3.Controls.Add(btnListar);
             groupBox3.Controls.Add(btnSair);
-            groupBox3.Controls.Add(btnImprimir);
             groupBox3.Controls.Add(btnSalvar);
             groupBox3.Controls.Add(btnDeletar);
-            groupBox3.Controls.Add(btnLimpar);
             groupBox3.Controls.Add(btnAdicionar);
             groupBox3.Location = new Point(42, 562);
             groupBox3.Name = "groupBox3";
@@ -575,16 +570,6 @@
             btnSair.UseVisualStyleBackColor = true;
             btnSair.Click += btnSair_Click_1;
             // 
-            // btnImprimir
-            // 
-            btnImprimir.Location = new Point(751, 41);
-            btnImprimir.Name = "btnImprimir";
-            btnImprimir.Size = new Size(98, 31);
-            btnImprimir.TabIndex = 4;
-            btnImprimir.Text = "Imprimir";
-            btnImprimir.UseVisualStyleBackColor = true;
-            btnImprimir.Click += btnImprimir_Click;
-            // 
             // btnSalvar
             // 
             btnSalvar.Location = new Point(603, 41);
@@ -604,16 +589,6 @@
             btnDeletar.Text = "Deletar";
             btnDeletar.UseVisualStyleBackColor = true;
             btnDeletar.Click += btnDeletar_Click_1;
-            // 
-            // btnLimpar
-            // 
-            btnLimpar.Location = new Point(150, 41);
-            btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(98, 31);
-            btnLimpar.TabIndex = 1;
-            btnLimpar.Text = "Limpar";
-            btnLimpar.UseVisualStyleBackColor = true;
-            btnLimpar.Click += btnLimpar_Click;
             // 
             // btnAdicionar
             // 
@@ -677,10 +652,8 @@
         private GroupBox groupBox3;
         private Button btnAdicionar;
         private Button btnSair;
-        private Button btnImprimir;
         private Button btnSalvar;
         private Button btnDeletar;
-        private Button btnLimpar;
         private TextBox txtMeta;
         private TextBox txtDias;
         private TextBox textBox10;
