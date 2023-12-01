@@ -138,13 +138,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void CarregarGrid()
-        {
-            using (var bd = new BancoDeDados())
-            {
-                bd.SaveChanges();
-            }
-        }
+      
 
 
         private void iDeletar()
@@ -179,7 +173,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
         {
-            CarregarGrid();
+            Listar();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -188,7 +182,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
 
                 var curso = bd.Cursos
-                    .Where(w => w.Id == Convert.ToInt32(txtCurso.Text))
+                    .Where(w => w.Id == Convert.ToInt32(txtId.Text))
                     .First();
 
                 curso.Nome = txtCurso.Text;
