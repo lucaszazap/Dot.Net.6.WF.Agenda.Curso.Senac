@@ -89,6 +89,7 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             lblInformação = new Label();
+            btnLimparCampos = new Button();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -435,7 +436,7 @@
             gridCurso.RowTemplate.Height = 25;
             gridCurso.Size = new Size(999, 291);
             gridCurso.TabIndex = 6;
-            gridCurso.CellClick += gridCurso_CellClick;
+           
             gridCurso.CellContentClick += gridCurso_CellContentClick;
             // 
             // Column1
@@ -544,6 +545,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(btnLimparCampos);
             groupBox3.Controls.Add(btnListar);
             groupBox3.Controls.Add(btnSair);
             groupBox3.Controls.Add(btnSalvar);
@@ -557,7 +559,7 @@
             // 
             // btnListar
             // 
-            btnListar.Location = new Point(427, 41);
+            btnListar.Location = new Point(448, 41);
             btnListar.Name = "btnListar";
             btnListar.Size = new Size(98, 31);
             btnListar.TabIndex = 6;
@@ -566,7 +568,7 @@
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(863, 41);
+            btnSair.Location = new Point(884, 41);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 5;
@@ -576,7 +578,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(653, 41);
+            btnSalvar.Location = new Point(674, 41);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(98, 31);
             btnSalvar.TabIndex = 3;
@@ -586,7 +588,7 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(219, 41);
+            btnDeletar.Location = new Point(286, 41);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;
@@ -623,6 +625,16 @@
             lblInformação.Size = new Size(32, 15);
             lblInformação.TabIndex = 36;
             lblInformação.Text = "label";
+            // 
+            // btnLimparCampos
+            // 
+            btnLimparCampos.Location = new Point(133, 41);
+            btnLimparCampos.Name = "btnLimparCampos";
+            btnLimparCampos.Size = new Size(98, 31);
+            btnLimparCampos.TabIndex = 7;
+            btnLimparCampos.Text = "Limpar";
+            btnLimparCampos.UseVisualStyleBackColor = true;
+            btnLimparCampos.Click += btnLimparCampos_Click;
             // 
             // Agenda_de_Curso
             // 
@@ -715,5 +727,6 @@
         private Label txtId;
         private TextBox textBox2;
         private Label lblInformação;
+        private Button btnLimparCampos;
     }
 }

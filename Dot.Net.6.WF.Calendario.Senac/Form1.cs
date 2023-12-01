@@ -16,13 +16,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iAdicionar()
 
         {
-            if (string.IsNullOrEmpty(txtCurso.Text))
+            if (txtCurso.Text == null)
             {
                 MessageBox.Show("O campo 'Nome' é obrigatório.");
                 return;
             }
 
-            if (string.IsNullOrEmpty(txtMes.Text))
+            if (txtMes.Text == null)
             {
                 MessageBox.Show("O campo 'Mês' é obrigatório.");
                 return;
@@ -157,7 +157,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var curso = bd.Cursos.Where(z => z.Id == Convert.ToInt32(txtId.Text));
+                var curso = bd.Cursos.Find(Convert.ToInt32(txtId.Text));
+                if (curso != null)
+                {
+                    MessageBox.Show("O curso não existe.");
+                    return;
+                }
+
 
                 bd.Cursos.Remove((Curso)curso);
                 bd.SaveChanges();
@@ -270,15 +276,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             iSair();
         }
+              
 
-        private void gridCurso_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnLimparCampos_Click(object sender, EventArgs e)
         {
-            int n = e.RowIndex;
-
-            if (n != -1)
-            {
-                lblInformação.Text = (string)gridCurso.Rows[n].Cells[1].Value;
-            }
+            LimparCampos();
         }
     }
 
