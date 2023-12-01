@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda_de_Curso));
             groupBox1 = new GroupBox();
+            txtId = new Label();
+            textBox2 = new TextBox();
             dtpFim = new DateTimePicker();
             dtpInicio = new DateTimePicker();
             txtMes = new ComboBox();
@@ -88,8 +90,7 @@
             btnAdicionar = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
-            txtId = new Label();
-            textBox2 = new TextBox();
+            lblInformação = new Label();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -131,6 +132,22 @@
             groupBox1.Size = new Size(1022, 163);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // txtId
+            // 
+            txtId.AutoSize = true;
+            txtId.Location = new Point(4, 68);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(18, 15);
+            txtId.TabIndex = 35;
+            txtId.Text = "ID";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(21, 60);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(28, 23);
+            textBox2.TabIndex = 34;
             // 
             // dtpFim
             // 
@@ -417,6 +434,7 @@
             gridCurso.RowTemplate.Height = 25;
             gridCurso.Size = new Size(999, 291);
             gridCurso.TabIndex = 6;
+            gridCurso.CellClick += gridCurso_CellClick;
             gridCurso.CellContentClick += gridCurso_CellContentClick;
             // 
             // Column1
@@ -546,7 +564,6 @@
             btnListar.TabIndex = 6;
             btnListar.Text = "Listar";
             btnListar.UseVisualStyleBackColor = true;
-            btnListar.Click += btnListar_Click;
             // 
             // btnSair
             // 
@@ -619,21 +636,14 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
-            // txtId
+            // lblInformação
             // 
-            txtId.AutoSize = true;
-            txtId.Location = new Point(4, 68);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(18, 15);
-            txtId.TabIndex = 35;
-            txtId.Text = "ID";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(21, 60);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(28, 23);
-            textBox2.TabIndex = 34;
+            lblInformação.AutoSize = true;
+            lblInformação.Location = new Point(45, 544);
+            lblInformação.Name = "lblInformação";
+            lblInformação.Size = new Size(32, 15);
+            lblInformação.TabIndex = 36;
+            lblInformação.Text = "label";
             // 
             // Agenda_de_Curso
             // 
@@ -641,6 +651,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1100, 709);
+            Controls.Add(lblInformação);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -656,6 +667,7 @@
             ((System.ComponentModel.ISupportInitialize)gridCurso).EndInit();
             groupBox3.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -725,5 +737,6 @@
         private Button btnListar;
         private Label txtId;
         private TextBox textBox2;
+        private Label lblInformação;
     }
 }

@@ -318,3 +318,4 @@ C:\Users\Aluno\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendari
 C:\Users\Aluno\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.pdb
 C:\Users\Aluno\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.genruntimeconfig.cache
 C:\Users\Aluno\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\ref\Dot.Net.6.WF.Calendario.Senac.dll
+C:\Users\Aluno\source\repos\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.sourcelink.json

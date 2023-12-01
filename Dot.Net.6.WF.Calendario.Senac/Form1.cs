@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.CompilerServices;
@@ -39,48 +40,66 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
 
-            var nome = txtCurso.Text;
-            var mes = txtMes.Text;
-            var inicio = dtpInicio.Value;
-            var fim = dtpFim.Value;
-            var dias = txtDias.Text;
-            var meta = txtMeta.Text;
-            var realizado = txtRealizado.Text;
-            var turno = txtTurno.Text;
-            var valor = Convert.ToDecimal(txtValor.Text);
-            var horario = txtHorario.Text;
-            var turma = txtTurma.Text;
-            var sala = txtSala.Text;
+            int n = gridCurso.Rows.Add();
 
+            gridCurso.Rows[n].Cells[0].Value = txtId.Text;
+            gridCurso.Rows[n].Cells[1].Value = txtCurso.Text;
+            gridCurso.Rows[n].Cells[2].Value = txtMes.Text;
+            gridCurso.Rows[n].Cells[3].Value = dtpInicio.Text;
+            gridCurso.Rows[n].Cells[4].Value = dtpFim.Text;
+            gridCurso.Rows[n].Cells[5].Value = txtDias.Text;
+            gridCurso.Rows[n].Cells[6].Value = txtMeta.Text;
+            gridCurso.Rows[n].Cells[7].Value = txtRealizado.Text;
+            gridCurso.Rows[n].Cells[8].Value = txtTurno.Text;
+            gridCurso.Rows[n].Cells[9].Value = txtValor.Text;
+            gridCurso.Rows[n].Cells[10].Value = txtHorario.Text;
+            gridCurso.Rows[n].Cells[11].Value = txtTurma.Text;
+            gridCurso.Rows[n].Cells[12].Value = txtSala.Text;
 
+            //limpando os dados
+            txtId.Text = " ";
+            txtCurso.Text = " ";
+            txtMes.Text = " ";
+            dtpInicio.Value = DateTime.Now;
+            dtpFim.Value = DateTime.Now;
+            txtDias.Text = " ";
+            txtMeta.Text = " ";
+            txtRealizado.Text = " ";
+            txtTurno.Text = " ";
+            txtValor.Text = " ";
+            txtHorario.Text = " ";
+            txtTurma.Text = " ";
+            txtSala.Text = " ";
+
+            
 
             // Adiciona o curso ao banco de dados
-            using (var bd = new BancoDeDados())
-            {
-                var curso = new Curso()
-                {
-                    Nome = txtCurso.Text,
-                    Mes = txtMes.Text,
-                    Inicio = dtpInicio.Value.Date,
-                    Fim = dtpFim.Value.Date,
-                    Dias = txtMeta.Text,
-                    Realizado = txtRealizado.Text,
-                    Turno = txtTurno.Text,
-                    Valor = decimal.Parse(txtValor.Text),
-                    Horario = txtHorario.Text,
-                    Turma = txtTurma.Text,
-                    Sala = txtSala.Text,
+             // using (var bd = new BancoDeDados())
+           //  {
+            //   var curso = new Curso()
+            //  {
+           // txtCurso.Text,
+           //   Mes = txtMes.Text,
+           //   Inicio = dtpInicio.Value.Date,
+            //  Fim = dtpFim.Value.Date,
+            //  Dias = txtMeta.Text,
+            //  Realizado = txtRealizado.Text,
+            //  Turno = txtTurno.Text,
+            //  Valor = decimal.Parse(txtValor.Text),
+            //  Horario = txtHorario.Text,
+            //  Turma = txtTurma.Text,
+            //  Sala = txtSala.Text,
 
-                };
+             //  };
+        
 
+              // bd.Cursos.Add(curso);
+             // bd.SaveChanges();
 
-                bd.Cursos.Add(curso);
-                bd.SaveChanges();
+              // MessageBox.Show("Curso adicionado com sucesso.");
 
-                MessageBox.Show("Curso adicionado com sucesso.");
-                // Limpa os campos
-                LimparCampos();
-            }
+               // LimparCampos();
+              // }
 
 
 
@@ -157,7 +176,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                     bd.Cursos.Remove(curso);
                     bd.SaveChanges();
-                    Listar();
+                    //  Listar();
                     LimparCampos();
 
 
@@ -220,8 +239,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 curso.Nome = txtCurso.Text;
                 curso.Mes = txtMes.Text;
-                curso.Inicio = dtpInicio.MinDate.Date;
-                curso.Fim = dtpFim.MaxDate.Date;
+                curso.Inicio = dtpInicio.Value;
+                curso.Fim = dtpFim.Value;
                 curso.Dias = txtDias.Text;
                 curso.Meta = txtMeta.Text;
                 curso.Realizado = txtRealizado.Text;
@@ -242,19 +261,19 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void gridCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
-            txtId.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
-            txtCurso.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
-            txtMes.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
-            dtpInicio.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            dtpFim.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
-            txtDias.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
-            txtRealizado.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
-            txtTurno.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
-            txtValor.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
-            txtHorario.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
-            txtTurma.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
-            txtSala.Text = gridCurso.CurrentRow.Cells[13].Value.ToString();
+            txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
+            txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
+            txtMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
+            dtpInicio.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
+            dtpFim.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
+            txtDias.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
+            txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
+            txtTurno.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
+            txtValor.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
+            txtHorario.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
+            txtTurma.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
+            txtSala.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
 
         }
         private void iImprimir()
@@ -289,43 +308,43 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void Listar()
-        {
-            gridCurso.Rows.Clear();
+        //  private void Listar()
+        // {
+        // gridCurso.Rows.Clear();
 
-            //  using (var bd = new BancoDeDados())
-            //  {
-            //   var cursos = new bd.Cursos.ToList();
+        // using (var bd = new BancoDeDados())
+        //{
+        //  var cursos = new bd.Cursos.ToList();
 
-            //   foreach (var curso in cursos)
-            //   {
+        //  foreach (var curso in cursos)
+        //   {
 
-            //    gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
-            //    curso.Nome,
-            //    curso.Mes,
-            //    curso.Inicio,
-            //    curso.Fim,
-            //   curso.Dias,
-            //   curso.Meta,
-            //    curso.Realizado,
-            //    curso.Turno,
-            //    curso.Valor,
-            //   curso.Horario,
-            //   curso.Turma,
-            //   curso.Sala);
-
-
+        //  gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
+        //   curso.Nome,
+        //  curso.Mes,
+        //   curso.Inicio,
+        //  curso.Fim,
+        // curso.Dias,
+        //  curso.Meta,
+        //   curso.Realizado,
+        //   curso.Turno,
+        //  curso.Valor,
+        //  curso.Horario,
+        //   curso.Turma,
+        //  curso.Sala);
 
 
-            // }
 
 
-            //   }
-        }
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            Listar();
-        }
+        //  }
+
+
+        //  }
+        // }
+        //  private void btnListar_Click(object sender, EventArgs e)
+        //  {
+        //  Listar();
+        //  }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -340,6 +359,16 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iSair();
+        }
+
+        private void gridCurso_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int n = e.RowIndex;
+            
+            if(n != -1)
+            {
+                lblInformação.Text = (string)gridCurso.Rows[n].Cells[1].Value ;
+            }
         }
     }
 
