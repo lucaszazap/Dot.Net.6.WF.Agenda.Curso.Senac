@@ -101,7 +101,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 foreach (var curso in Curso)
                 {
-                    gridCurso.Rows.Add(gridCurso.Rows.Count - 1,
+                    gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
                          curso.Id,
                         curso.Nome,
                         curso.Mes,
@@ -149,18 +149,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void iDeletar()
         {
-           if (string.IsNullOrEmpty(txtId.Text))
+            if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Tem certeza que deseja excluir?");
                 return;
             }
 
-           using (var bd = new BancoDeDados())
+            using (var bd = new BancoDeDados())
             {
-                var curso = bd.Cursos.Where(z => z .Id == Convert.ToInt32(txtId.Text));
+                var curso = bd.Cursos.Where(z => z.Id == Convert.ToInt32(txtId.Text));
 
                 bd.Cursos.Remove((Curso)curso);
-                bd.SaveChanges() ;
+                bd.SaveChanges();
                 Listar();
                 LimparCampos();
             }

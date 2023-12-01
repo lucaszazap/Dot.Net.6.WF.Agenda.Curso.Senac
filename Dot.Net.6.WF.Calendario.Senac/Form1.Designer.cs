@@ -149,17 +149,21 @@
             // 
             // dtpFim
             // 
+            dtpFim.Format = DateTimePickerFormat.Short;
             dtpFim.Location = new Point(582, 60);
             dtpFim.Name = "dtpFim";
             dtpFim.Size = new Size(119, 23);
             dtpFim.TabIndex = 33;
+            dtpFim.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
             // dtpInicio
             // 
+            dtpInicio.Format = DateTimePickerFormat.Short;
             dtpInicio.Location = new Point(427, 60);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(119, 23);
             dtpInicio.TabIndex = 32;
+            dtpInicio.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
             // txtMes
             // 
@@ -553,7 +557,7 @@
             // 
             // btnListar
             // 
-            btnListar.Location = new Point(448, 41);
+            btnListar.Location = new Point(427, 41);
             btnListar.Name = "btnListar";
             btnListar.Size = new Size(98, 31);
             btnListar.TabIndex = 6;
@@ -562,7 +566,7 @@
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(896, 41);
+            btnSair.Location = new Point(863, 41);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 5;
@@ -572,7 +576,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(603, 41);
+            btnSalvar.Location = new Point(653, 41);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(98, 31);
             btnSalvar.TabIndex = 3;
@@ -582,7 +586,7 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(297, 41);
+            btnDeletar.Location = new Point(219, 41);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;
