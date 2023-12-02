@@ -45,11 +45,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
             var nome = txtCurso.Text;
-
-
             var inicio = dtpInicio.Value.Date;
             var fim = dtpFim.Value.Date;
             var meta = txtMeta.Text;
+            var dias = txtDias.Text;
             var realizado = txtRealizado.Text;
             var turno = cbxTurno.Text;
             var valor = Convert.ToDecimal(txtValor.Text);
@@ -67,7 +66,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Nome = txtCurso.Text,
                     Inicio = dtpInicio.Value.Date,
                     Fim = dtpFim.Value.Date,
-                    Dias = txtMeta.Text,
+                    Dias = txtDias.Text,
+                    Meta = txtMeta.Text,
                     Realizado = txtRealizado.Text,
                     Turno = cbxTurno.Text,
                     Valor = decimal.Parse(txtValor.Text),
