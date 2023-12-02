@@ -14,10 +14,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class Agenda_de_Curso : Form
     {
+
         public Agenda_de_Curso()
         {
             InitializeComponent();
+
+
         }
+
         private void iAdicionar()
 
         {
@@ -27,7 +31,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
 
-           
+
 
             if (dtpInicio.Value == null)
             {
@@ -42,9 +46,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
             var nome = txtCurso.Text;
 
-            var inicio = dtpInicio.Value;
-            var fim = dtpFim.Value;
-            var dias = txtDias.Text;
+
+            var inicio = dtpInicio.Value.Date;
+            var fim = dtpFim.Value.Date;
             var meta = txtMeta.Text;
             var realizado = txtRealizado.Text;
             var turno = cbxTurno.Text;
@@ -61,7 +65,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 var curso = new Curso()
                 {
                     Nome = txtCurso.Text,
-
                     Inicio = dtpInicio.Value.Date,
                     Fim = dtpFim.Value.Date,
                     Dias = txtMeta.Text,
@@ -312,7 +315,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         // Adiciona cabeçalhos
                         worksheet.Cells[1, 1].Value = "ID";
                         worksheet.Cells[1, 2].Value = "Curso";
-
                         worksheet.Cells[1, 3].Value = "Inicio";
                         worksheet.Cells[1, 4].Value = "Fim";
                         worksheet.Cells[1, 5].Value = "Dias";
@@ -328,7 +330,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         int row = 2;
                         worksheet.Cells[row, 1].Value = cursoSelecionado.Id;
                         worksheet.Cells[row, 2].Value = cursoSelecionado.Nome;
-
                         worksheet.Cells[row, 3].Value = cursoSelecionado.Inicio;
                         worksheet.Cells[row, 4].Value = cursoSelecionado.Fim;
                         worksheet.Cells[row, 5].Value = cursoSelecionado.Dias;
@@ -381,11 +382,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
             // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
             txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
             txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
-            ;
             dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
             dtpFim.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
             txtDias.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value + "".ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
             txtRealizado.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
             cbxTurno.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
             txtValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();

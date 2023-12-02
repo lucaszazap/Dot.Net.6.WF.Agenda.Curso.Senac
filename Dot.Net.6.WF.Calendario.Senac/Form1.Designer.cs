@@ -65,19 +65,6 @@
             deletarToolStripMenuItem = new ToolStripMenuItem();
             groupBox2 = new GroupBox();
             gridCurso = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            ColunaCurso = new DataGridViewTextBoxColumn();
-            ColunaCursoMes = new DataGridViewTextBoxColumn();
-            ColunaCursoInicio = new DataGridViewTextBoxColumn();
-            ColunaCursoFim = new DataGridViewTextBoxColumn();
-            ColunaCursoDias = new DataGridViewTextBoxColumn();
-            ColunaCursoMeta = new DataGridViewTextBoxColumn();
-            ColunaCursoRealizado = new DataGridViewTextBoxColumn();
-            ColunaCursoTurno = new DataGridViewTextBoxColumn();
-            ColunaCursoValor = new DataGridViewTextBoxColumn();
-            ColunaCursoHorario = new DataGridViewTextBoxColumn();
-            ColunaCursoTurma = new DataGridViewTextBoxColumn();
-            ColunaCursoSala = new DataGridViewTextBoxColumn();
             groupBox3 = new GroupBox();
             btnExportar = new Button();
             btnLimparCampos = new Button();
@@ -88,6 +75,18 @@
             btnAdicionar = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
+            Column1 = new DataGridViewTextBoxColumn();
+            ColunaCurso = new DataGridViewTextBoxColumn();
+            ColunaCursoInicio = new DataGridViewTextBoxColumn();
+            ColunaCursoFim = new DataGridViewTextBoxColumn();
+            ColunaCursoDias = new DataGridViewTextBoxColumn();
+            ColunaCursoMeta = new DataGridViewTextBoxColumn();
+            ColunaCursoRealizado = new DataGridViewTextBoxColumn();
+            ColunaCursoTurno = new DataGridViewTextBoxColumn();
+            ColunaCursoValor = new DataGridViewTextBoxColumn();
+            ColunaCursoHorario = new DataGridViewTextBoxColumn();
+            ColunaCursoTurma = new DataGridViewTextBoxColumn();
+            ColunaCursoSala = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -137,15 +136,14 @@
             lbl.Size = new Size(18, 15);
             lbl.TabIndex = 35;
             lbl.Text = "ID";
-            lbl.Visible = false;
             // 
             // txtId
             // 
             txtId.Location = new Point(90, 60);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(121, 23);
             txtId.TabIndex = 34;
-            txtId.Visible = false;
             // 
             // dtpFim
             // 
@@ -163,7 +161,7 @@
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(119, 23);
             dtpInicio.TabIndex = 32;
-            dtpInicio.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
+            dtpInicio.Value = new DateTime(2023, 12, 2, 0, 0, 0, 0);
             // 
             // txtCurso
             // 
@@ -412,7 +410,7 @@
             gridCurso.AllowUserToDeleteRows = false;
             gridCurso.BackgroundColor = Color.White;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoMes, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoTurno, ColunaCursoValor, ColunaCursoHorario, ColunaCursoTurma, ColunaCursoSala });
+            gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoTurno, ColunaCursoValor, ColunaCursoHorario, ColunaCursoTurma, ColunaCursoSala });
             gridCurso.Location = new Point(7, 17);
             gridCurso.Name = "gridCurso";
             gridCurso.ReadOnly = true;
@@ -421,110 +419,6 @@
             gridCurso.TabIndex = 6;
             gridCurso.CellClick += gridCurso_CellClick;
             gridCurso.CellContentClick += gridCurso_CellContentClick;
-            // 
-            // Column1
-            // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Column1.HeaderText = "#";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 39;
-            // 
-            // ColunaCurso
-            // 
-            ColunaCurso.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCurso.HeaderText = "Curso";
-            ColunaCurso.Name = "ColunaCurso";
-            ColunaCurso.ReadOnly = true;
-            ColunaCurso.Width = 63;
-            // 
-            // ColunaCursoMes
-            // 
-            ColunaCursoMes.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoMes.HeaderText = "Mês";
-            ColunaCursoMes.Name = "ColunaCursoMes";
-            ColunaCursoMes.ReadOnly = true;
-            ColunaCursoMes.Width = 54;
-            // 
-            // ColunaCursoInicio
-            // 
-            ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoInicio.HeaderText = "Início";
-            ColunaCursoInicio.Name = "ColunaCursoInicio";
-            ColunaCursoInicio.ReadOnly = true;
-            ColunaCursoInicio.Width = 61;
-            // 
-            // ColunaCursoFim
-            // 
-            ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoFim.HeaderText = "Fim";
-            ColunaCursoFim.Name = "ColunaCursoFim";
-            ColunaCursoFim.ReadOnly = true;
-            ColunaCursoFim.Width = 52;
-            // 
-            // ColunaCursoDias
-            // 
-            ColunaCursoDias.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoDias.HeaderText = "Dias";
-            ColunaCursoDias.Name = "ColunaCursoDias";
-            ColunaCursoDias.ReadOnly = true;
-            ColunaCursoDias.Width = 54;
-            // 
-            // ColunaCursoMeta
-            // 
-            ColunaCursoMeta.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoMeta.HeaderText = "Meta";
-            ColunaCursoMeta.Name = "ColunaCursoMeta";
-            ColunaCursoMeta.ReadOnly = true;
-            ColunaCursoMeta.Width = 59;
-            // 
-            // ColunaCursoRealizado
-            // 
-            ColunaCursoRealizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoRealizado.HeaderText = "Realizado";
-            ColunaCursoRealizado.Name = "ColunaCursoRealizado";
-            ColunaCursoRealizado.ReadOnly = true;
-            ColunaCursoRealizado.Width = 82;
-            // 
-            // ColunaCursoTurno
-            // 
-            ColunaCursoTurno.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoTurno.HeaderText = "Turno";
-            ColunaCursoTurno.Name = "ColunaCursoTurno";
-            ColunaCursoTurno.ReadOnly = true;
-            ColunaCursoTurno.Width = 63;
-            // 
-            // ColunaCursoValor
-            // 
-            ColunaCursoValor.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoValor.HeaderText = "Valor";
-            ColunaCursoValor.Name = "ColunaCursoValor";
-            ColunaCursoValor.ReadOnly = true;
-            ColunaCursoValor.Width = 58;
-            // 
-            // ColunaCursoHorario
-            // 
-            ColunaCursoHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoHorario.HeaderText = "Horário";
-            ColunaCursoHorario.Name = "ColunaCursoHorario";
-            ColunaCursoHorario.ReadOnly = true;
-            ColunaCursoHorario.Width = 72;
-            // 
-            // ColunaCursoTurma
-            // 
-            ColunaCursoTurma.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoTurma.HeaderText = "Turma";
-            ColunaCursoTurma.Name = "ColunaCursoTurma";
-            ColunaCursoTurma.ReadOnly = true;
-            ColunaCursoTurma.Width = 66;
-            // 
-            // ColunaCursoSala
-            // 
-            ColunaCursoSala.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCursoSala.HeaderText = "Sala";
-            ColunaCursoSala.Name = "ColunaCursoSala";
-            ColunaCursoSala.ReadOnly = true;
-            ColunaCursoSala.Width = 53;
             // 
             // groupBox3
             // 
@@ -621,6 +515,102 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
+            // Column1
+            // 
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column1.HeaderText = "#";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 39;
+            // 
+            // ColunaCurso
+            // 
+            ColunaCurso.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCurso.HeaderText = "Curso";
+            ColunaCurso.Name = "ColunaCurso";
+            ColunaCurso.ReadOnly = true;
+            ColunaCurso.Width = 63;
+            // 
+            // ColunaCursoInicio
+            // 
+            ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoInicio.HeaderText = "Início";
+            ColunaCursoInicio.Name = "ColunaCursoInicio";
+            ColunaCursoInicio.ReadOnly = true;
+            ColunaCursoInicio.Width = 61;
+            // 
+            // ColunaCursoFim
+            // 
+            ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoFim.HeaderText = "Fim";
+            ColunaCursoFim.Name = "ColunaCursoFim";
+            ColunaCursoFim.ReadOnly = true;
+            ColunaCursoFim.Width = 52;
+            // 
+            // ColunaCursoDias
+            // 
+            ColunaCursoDias.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoDias.HeaderText = "Dias";
+            ColunaCursoDias.Name = "ColunaCursoDias";
+            ColunaCursoDias.ReadOnly = true;
+            ColunaCursoDias.Width = 54;
+            // 
+            // ColunaCursoMeta
+            // 
+            ColunaCursoMeta.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoMeta.HeaderText = "Meta";
+            ColunaCursoMeta.Name = "ColunaCursoMeta";
+            ColunaCursoMeta.ReadOnly = true;
+            ColunaCursoMeta.Width = 59;
+            // 
+            // ColunaCursoRealizado
+            // 
+            ColunaCursoRealizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoRealizado.HeaderText = "Realizado";
+            ColunaCursoRealizado.Name = "ColunaCursoRealizado";
+            ColunaCursoRealizado.ReadOnly = true;
+            ColunaCursoRealizado.Width = 82;
+            // 
+            // ColunaCursoTurno
+            // 
+            ColunaCursoTurno.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoTurno.HeaderText = "Turno";
+            ColunaCursoTurno.Name = "ColunaCursoTurno";
+            ColunaCursoTurno.ReadOnly = true;
+            ColunaCursoTurno.Width = 63;
+            // 
+            // ColunaCursoValor
+            // 
+            ColunaCursoValor.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoValor.HeaderText = "Valor";
+            ColunaCursoValor.Name = "ColunaCursoValor";
+            ColunaCursoValor.ReadOnly = true;
+            ColunaCursoValor.Width = 58;
+            // 
+            // ColunaCursoHorario
+            // 
+            ColunaCursoHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoHorario.HeaderText = "Horário";
+            ColunaCursoHorario.Name = "ColunaCursoHorario";
+            ColunaCursoHorario.ReadOnly = true;
+            ColunaCursoHorario.Width = 72;
+            // 
+            // ColunaCursoTurma
+            // 
+            ColunaCursoTurma.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoTurma.HeaderText = "Turma";
+            ColunaCursoTurma.Name = "ColunaCursoTurma";
+            ColunaCursoTurma.ReadOnly = true;
+            ColunaCursoTurma.Width = 66;
+            // 
+            // ColunaCursoSala
+            // 
+            ColunaCursoSala.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoSala.HeaderText = "Sala";
+            ColunaCursoSala.Name = "ColunaCursoSala";
+            ColunaCursoSala.ReadOnly = true;
+            ColunaCursoSala.Width = 53;
+            // 
             // Agenda_de_Curso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -689,9 +679,16 @@
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem limparToolStripMenuItem;
         private ToolStripMenuItem deletarToolStripMenuItem;
+        private DateTimePicker dtpInicio;
+        private DateTimePicker dtpFim;
+        private Button btnListar;
+        private Label lbl;
+        private TextBox txtId;
+        private Button btnLimparCampos;
+        private Button btnExportar;
+        private ToolStripMenuItem exportarToolStripMenuItem;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn ColunaCurso;
-        private DataGridViewTextBoxColumn ColunaCursoMes;
         private DataGridViewTextBoxColumn ColunaCursoInicio;
         private DataGridViewTextBoxColumn ColunaCursoFim;
         private DataGridViewTextBoxColumn ColunaCursoDias;
@@ -702,13 +699,5 @@
         private DataGridViewTextBoxColumn ColunaCursoHorario;
         private DataGridViewTextBoxColumn ColunaCursoTurma;
         private DataGridViewTextBoxColumn ColunaCursoSala;
-        private DateTimePicker dtpInicio;
-        private DateTimePicker dtpFim;
-        private Button btnListar;
-        private Label lbl;
-        private TextBox txtId;
-        private Button btnLimparCampos;
-        private Button btnExportar;
-        private ToolStripMenuItem exportarToolStripMenuItem;
     }
 }
