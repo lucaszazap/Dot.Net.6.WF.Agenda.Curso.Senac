@@ -106,8 +106,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 foreach (var curso in Curso)
                 {
-                    gridCurso.Rows.Add(gridCurso.Rows.Count + 1,
-                         curso.Id,
+                    gridCurso.Rows.Add(
+                        curso.Id,
                         curso.Nome,
                         curso.Mes,
                         curso.Inicio,
@@ -157,8 +157,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
             using (var bd = new BancoDeDados())
             {
                 var curso = bd.Cursos.Where(w => w
-                .Id == Convert .ToInt32(txtId.Text)).First();
-                       
+                .Id == Convert.ToInt32(txtId.Text)).First();
+
                 bd.Cursos.Remove(curso);
                 bd.SaveChanges();
                 Listar();
@@ -217,22 +217,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void gridCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
-            txtId.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
-            txtCurso.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
-            txtMes.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
-            dtpInicio.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            dtpFim.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
-            txtDias.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
-            txtRealizado.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
-            txtTurno.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
-            txtValor.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
-            txtHorario.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
-            txtTurma.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
-            txtSala.Text = gridCurso.CurrentRow.Cells[13].Value.ToString();
+
 
         }
+
 
 
         private void NumbersOnly(object sender, KeyPressEventArgs e)
@@ -381,6 +369,24 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iExportar();
+        }
+
+        private void gridCurso_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
+            txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
+            txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
+            txtMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
+            dtpInicio.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
+            dtpFim.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
+            txtDias.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value + "".ToString();
+            txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
+            txtTurno.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
+            txtValor.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
+            txtHorario.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
+            txtTurma.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
+            txtSala.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
         }
     }
 
