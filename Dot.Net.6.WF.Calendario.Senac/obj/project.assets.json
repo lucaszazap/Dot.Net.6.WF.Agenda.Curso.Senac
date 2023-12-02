@@ -7174,11 +7174,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+      "projectUniqueName": "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
       "projectName": "Dot.Net.6.WF.Calendario.Senac",
-      "projectPath": "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+      "projectPath": "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
       "packagesPath": "C:\\Users\\caua.moreira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
+      "outputPath": "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\caua.moreira\\AppData\\Roaming\\NuGet\\NuGet.Config",

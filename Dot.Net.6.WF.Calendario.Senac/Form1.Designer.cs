@@ -34,9 +34,9 @@
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
             dtpInicio = new DateTimePicker();
-            txtMes = new ComboBox();
+            cbxMes = new ComboBox();
             txtCurso = new ComboBox();
-            txtTurno = new ComboBox();
+            cbxTurno = new ComboBox();
             txtMeta = new TextBox();
             txtDias = new TextBox();
             txtSala = new TextBox();
@@ -103,9 +103,9 @@
             groupBox1.Controls.Add(txtId);
             groupBox1.Controls.Add(dtpFim);
             groupBox1.Controls.Add(dtpInicio);
-            groupBox1.Controls.Add(txtMes);
+            groupBox1.Controls.Add(cbxMes);
             groupBox1.Controls.Add(txtCurso);
-            groupBox1.Controls.Add(txtTurno);
+            groupBox1.Controls.Add(cbxTurno);
             groupBox1.Controls.Add(txtMeta);
             groupBox1.Controls.Add(txtDias);
             groupBox1.Controls.Add(txtSala);
@@ -129,7 +129,7 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(42, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(842, 219);
+            groupBox1.Size = new Size(1130, 182);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
@@ -141,6 +141,7 @@
             lbl.Size = new Size(18, 15);
             lbl.TabIndex = 35;
             lbl.Text = "ID";
+            lbl.Visible = false;
             // 
             // txtId
             // 
@@ -148,11 +149,12 @@
             txtId.Name = "txtId";
             txtId.Size = new Size(28, 23);
             txtId.TabIndex = 34;
+            txtId.Visible = false;
             // 
             // dtpFim
             // 
             dtpFim.Format = DateTimePickerFormat.Short;
-            dtpFim.Location = new Point(273, 103);
+            dtpFim.Location = new Point(604, 60);
             dtpFim.Name = "dtpFim";
             dtpFim.Size = new Size(119, 23);
             dtpFim.TabIndex = 33;
@@ -161,20 +163,21 @@
             // dtpInicio
             // 
             dtpInicio.Format = DateTimePickerFormat.Short;
-            dtpInicio.Location = new Point(273, 60);
+            dtpInicio.Location = new Point(443, 62);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(119, 23);
             dtpInicio.TabIndex = 32;
             dtpInicio.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
-            // txtMes
+            // cbxMes
             // 
-            txtMes.FormattingEnabled = true;
-            txtMes.Items.AddRange(new object[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" });
-            txtMes.Location = new Point(91, 101);
-            txtMes.Name = "txtMes";
-            txtMes.Size = new Size(121, 23);
-            txtMes.TabIndex = 26;
+            cbxMes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxMes.FormattingEnabled = true;
+            cbxMes.Items.AddRange(new object[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" });
+            cbxMes.Location = new Point(260, 60);
+            cbxMes.Name = "cbxMes";
+            cbxMes.Size = new Size(121, 23);
+            cbxMes.TabIndex = 26;
             // 
             // txtCurso
             // 
@@ -185,18 +188,19 @@
             txtCurso.Size = new Size(121, 23);
             txtCurso.TabIndex = 25;
             // 
-            // txtTurno
+            // cbxTurno
             // 
-            txtTurno.FormattingEnabled = true;
-            txtTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
-            txtTurno.Location = new Point(656, 60);
-            txtTurno.Name = "txtTurno";
-            txtTurno.Size = new Size(121, 23);
-            txtTurno.TabIndex = 24;
+            cbxTurno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxTurno.FormattingEnabled = true;
+            cbxTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
+            cbxTurno.Location = new Point(602, 109);
+            cbxTurno.Name = "cbxTurno";
+            cbxTurno.Size = new Size(121, 23);
+            cbxTurno.TabIndex = 24;
             // 
             // txtMeta
             // 
-            txtMeta.Location = new Point(471, 62);
+            txtMeta.Location = new Point(786, 57);
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(121, 23);
             txtMeta.TabIndex = 23;
@@ -204,42 +208,42 @@
             // 
             // txtDias
             // 
-            txtDias.Location = new Point(91, 140);
+            txtDias.Location = new Point(90, 109);
             txtDias.Name = "txtDias";
             txtDias.Size = new Size(121, 23);
             txtDias.TabIndex = 22;
             // 
             // txtSala
             // 
-            txtSala.Location = new Point(656, 142);
+            txtSala.Location = new Point(986, 109);
             txtSala.Name = "txtSala";
             txtSala.Size = new Size(121, 23);
             txtSala.TabIndex = 17;
             // 
             // txtTurma
             // 
-            txtTurma.Location = new Point(656, 105);
+            txtTurma.Location = new Point(786, 109);
             txtTurma.Name = "txtTurma";
             txtTurma.Size = new Size(121, 23);
             txtTurma.TabIndex = 16;
             // 
             // txtHorario
             // 
-            txtHorario.Location = new Point(273, 140);
+            txtHorario.Location = new Point(262, 109);
             txtHorario.Name = "txtHorario";
             txtHorario.Size = new Size(119, 23);
             txtHorario.TabIndex = 15;
             // 
             // txtValor
             // 
-            txtValor.Location = new Point(471, 142);
+            txtValor.Location = new Point(441, 109);
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(121, 23);
             txtValor.TabIndex = 14;
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(471, 103);
+            txtRealizado.Location = new Point(986, 62);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 13;
@@ -248,7 +252,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(622, 150);
+            label12.Location = new Point(952, 117);
             label12.Name = "label12";
             label12.Size = new Size(28, 15);
             label12.TabIndex = 11;
@@ -257,7 +261,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(612, 109);
+            label11.Location = new Point(742, 113);
             label11.Name = "label11";
             label11.Size = new Size(41, 15);
             label11.TabIndex = 10;
@@ -266,7 +270,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(228, 148);
+            label10.Location = new Point(217, 117);
             label10.Name = "label10";
             label10.Size = new Size(47, 15);
             label10.TabIndex = 9;
@@ -275,7 +279,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(431, 145);
+            label9.Location = new Point(402, 117);
             label9.Name = "label9";
             label9.Size = new Size(33, 15);
             label9.TabIndex = 8;
@@ -284,7 +288,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(243, 111);
+            label4.Location = new Point(571, 68);
             label4.Name = "label4";
             label4.Size = new Size(27, 15);
             label4.TabIndex = 3;
@@ -293,7 +297,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(612, 66);
+            label8.Location = new Point(560, 117);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 7;
@@ -311,7 +315,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(408, 108);
+            label7.Location = new Point(923, 67);
             label7.Name = "label7";
             label7.Size = new Size(57, 15);
             label7.TabIndex = 6;
@@ -320,7 +324,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(56, 106);
+            label2.Location = new Point(228, 68);
             label2.Name = "label2";
             label2.Size = new Size(29, 15);
             label2.TabIndex = 1;
@@ -329,7 +333,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(431, 70);
+            label6.Location = new Point(746, 67);
             label6.Name = "label6";
             label6.Size = new Size(34, 15);
             label6.TabIndex = 5;
@@ -338,7 +342,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(231, 68);
+            label3.Location = new Point(401, 68);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 2;
@@ -347,7 +351,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(56, 148);
+            label5.Location = new Point(55, 117);
             label5.Name = "label5";
             label5.Size = new Size(29, 15);
             label5.TabIndex = 4;
@@ -358,7 +362,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem });
             menuStrip1.Location = new Point(3, 19);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(836, 24);
+            menuStrip1.Size = new Size(1124, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -421,7 +425,7 @@
             groupBox2.Controls.Add(gridCurso);
             groupBox2.Location = new Point(45, 226);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(845, 308);
+            groupBox2.Size = new Size(1124, 308);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
@@ -429,15 +433,14 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
-            gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.White;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoMes, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoTurno, ColunaCursoValor, ColunaCursoHorario, ColunaCursoTurma, ColunaCursoSala });
-            gridCurso.Location = new Point(7, 11);
+            gridCurso.Location = new Point(7, 17);
             gridCurso.Name = "gridCurso";
             gridCurso.ReadOnly = true;
             gridCurso.RowTemplate.Height = 25;
-            gridCurso.Size = new Size(832, 291);
+            gridCurso.Size = new Size(1111, 291);
             gridCurso.TabIndex = 6;
             gridCurso.CellClick += gridCurso_CellClick;
             gridCurso.CellContentClick += gridCurso_CellContentClick;
@@ -557,13 +560,13 @@
             groupBox3.Controls.Add(btnAdicionar);
             groupBox3.Location = new Point(12, 582);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(937, 99);
+            groupBox3.Size = new Size(1157, 99);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             // 
             // btnExportar
             // 
-            btnExportar.Location = new Point(703, 41);
+            btnExportar.Location = new Point(832, 41);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(94, 31);
             btnExportar.TabIndex = 3;
@@ -573,7 +576,7 @@
             // 
             // btnLimparCampos
             // 
-            btnLimparCampos.Location = new Point(150, 41);
+            btnLimparCampos.Location = new Point(196, 41);
             btnLimparCampos.Name = "btnLimparCampos";
             btnLimparCampos.Size = new Size(98, 31);
             btnLimparCampos.TabIndex = 7;
@@ -583,7 +586,7 @@
             // 
             // btnListar
             // 
-            btnListar.Location = new Point(437, 41);
+            btnListar.Location = new Point(514, 41);
             btnListar.Name = "btnListar";
             btnListar.Size = new Size(98, 31);
             btnListar.TabIndex = 6;
@@ -592,7 +595,7 @@
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(819, 41);
+            btnSair.Location = new Point(982, 41);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 5;
@@ -602,7 +605,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(578, 41);
+            btnSalvar.Location = new Point(682, 41);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(98, 31);
             btnSalvar.TabIndex = 3;
@@ -612,7 +615,7 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(290, 41);
+            btnDeletar.Location = new Point(353, 41);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;
@@ -622,7 +625,7 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(6, 41);
+            btnAdicionar.Location = new Point(40, 41);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(98, 31);
             btnAdicionar.TabIndex = 0;
@@ -647,7 +650,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(972, 709);
+            ClientSize = new Size(1184, 741);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -698,9 +701,9 @@
         private Label label3;
         private Label label5;
         private ComboBox txtCurso;
-        private ComboBox txtTurno;
+        private ComboBox cbxTurno;
         private DataGridView gridCurso;
-        private ComboBox txtMes;
+        private ComboBox cbxMes;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
         private MenuStrip menuStrip1;

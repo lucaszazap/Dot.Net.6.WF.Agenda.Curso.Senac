@@ -27,7 +27,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
 
-            if (txtMes.Text == null)
+            if (cbxMes.Text == null)
             {
                 MessageBox.Show("O campo 'Mês' é obrigatório.");
                 return;
@@ -45,13 +45,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
             var nome = txtCurso.Text;
-            var mes = txtMes.Text;
+            var mes = cbxMes.Text;
             var inicio = dtpInicio.Value;
             var fim = dtpFim.Value;
             var dias = txtDias.Text;
             var meta = txtMeta.Text;
             var realizado = txtRealizado.Text;
-            var turno = txtTurno.Text;
+            var turno = cbxTurno.Text;
             var valor = Convert.ToDecimal(txtValor.Text);
             var horario = txtHorario.Text;
             var turma = txtTurma.Text;
@@ -65,12 +65,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 var curso = new Curso()
                 {
                     Nome = txtCurso.Text,
-                    Mes = txtMes.Text,
+                    Mes = cbxMes.Text,
                     Inicio = dtpInicio.Value.Date,
                     Fim = dtpFim.Value.Date,
                     Dias = txtMeta.Text,
                     Realizado = txtRealizado.Text,
-                    Turno = txtTurno.Text,
+                    Turno = cbxTurno.Text,
                     Valor = decimal.Parse(txtValor.Text),
                     Horario = txtHorario.Text,
                     Turma = txtTurma.Text,
@@ -128,13 +128,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             lbl.Text = String.Empty;
             txtCurso.Text = String.Empty;
-            txtMes.Text = String.Empty;
+            cbxMes.Text = String.Empty;
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
             txtDias.Text = String.Empty;
             txtMeta.Text = String.Empty;
             txtRealizado.Text = String.Empty;
-            txtTurno.Text = String.Empty;
+            cbxTurno.Text = String.Empty;
             txtValor.Text = String.Empty;
             txtHorario.Text = String.Empty;
             txtTurma.Text = String.Empty;
@@ -178,39 +178,48 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void iSalvar()
         {
+            // Obtém os dados do formulário
+            string nome = txtCurso.Text;
+            string mes = cbxMes.Text;
+            DateTime inicio = dtpInicio.Value.Date;
+            DateTime fim = dtpFim.Value.Date;
+            string dias = txtDias.Text;
+            string meta = txtMeta.Text;
+            string realizado = txtRealizado.Text;
+            string turno = cbxTurno.Text;
+            decimal valorDecimal = decimal.Parse(String.Format("{0:C}", txtValor.Text));
+            string horario = txtHorario.Text;
+            string turma = txtTurma.Text;
+            string sala = txtSala.Text;
+
             using (var bd = new BancoDeDados())
             {
-
                 var curso = bd.Cursos
-                    .Where(w => w.Id == Convert.ToInt32(txtId.Text))
-                    .First();
+            .Where(w => w.Id == Convert.ToInt32(txtId.Text))
+            .First();
 
-                curso.Nome = txtCurso.Text;
-                curso.Mes = txtMes.Text;
-                curso.Inicio = dtpInicio.Value;
-                curso.Fim = dtpFim.Value;
-                curso.Dias = txtDias.Text;
-                curso.Meta = txtMeta.Text;
-                curso.Realizado = txtRealizado.Text;
-                curso.Turno = txtTurno.Text;
-                curso.Valor = Convert.ToDecimal(txtValor.Text);
-                curso.Horario = txtHorario.Text;
-                curso.Turma = txtTurma.Text;
-                curso.Sala = txtSala.Text;
+                curso.Nome = nome;
+                curso.Mes = mes;
+                curso.Inicio = inicio;
+                curso.Fim = fim;
+                curso.Dias = dias;
+                curso.Meta = meta;
+                curso.Realizado = realizado;
+                curso.Turno = turno;
+                curso.Valor = valorDecimal;
+                curso.Horario = horario;
+                curso.Turma = turma;
+                curso.Sala = sala;
 
-
-
-                // SALVA AS ALTERAÇÕES
                 bd.SaveChanges();
                 Listar();
                 LimparCampos();
             }
 
-
-
-
         }
-        private void btnSalvar_Click(object sender, EventArgs e)
+
+    
+    private void btnSalvar_Click(object sender, EventArgs e)
         {
             iSalvar();
         }
@@ -376,13 +385,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
             // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
             txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
             txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
-            txtMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
+            cbxMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
             dtpInicio.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
             dtpFim.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
             txtDias.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
             txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value + "".ToString();
             txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
-            txtTurno.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
+            cbxTurno.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
             txtValor.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
             txtHorario.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
             txtTurma.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A2ewgZyVabZSiov6T29og/hNzfUm+E1oxDD/05IxcL4F6Ye4h1HrPBDNXWDRkLhjFlYM7qt+hBlQ5QCZr0SClw==",
+  "dgSpecHash": "wZSfbon/UqvLpCGM7eeWjf/fpqPxxctIgEOq1InYD9eyAbHT7221RnSZUIFVlWEOnjB6IhiJEad90kvvvYjfXw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+  "projectFilePath": "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caua.moreira\\.nuget\\packages\\closedxml\\0.102.1\\closedxml.0.102.1.nupkg.sha512",
     "C:\\Users\\caua.moreira\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",

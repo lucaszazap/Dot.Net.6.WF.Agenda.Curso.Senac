@@ -23,7 +23,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public string? Meta { get; set; }
         public string? Realizado { get; set; } 
         public string? Turno { get; set; } 
-        public decimal? Valor { get; set; }
+        public decimal Valor { get; set; }
         public string? Horario { get; set; } 
         public string? Turma { get; set; } 
         public string? Sala { get; set; }
