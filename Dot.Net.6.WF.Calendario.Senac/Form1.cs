@@ -27,11 +27,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
 
-            if (cbxMes.Text == null)
-            {
-                MessageBox.Show("O campo 'Mês' é obrigatório.");
-                return;
-            }
+           
 
             if (dtpInicio.Value == null)
             {
@@ -45,7 +41,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
             var nome = txtCurso.Text;
-            var mes = cbxMes.Text;
+
             var inicio = dtpInicio.Value;
             var fim = dtpFim.Value;
             var dias = txtDias.Text;
@@ -65,7 +61,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 var curso = new Curso()
                 {
                     Nome = txtCurso.Text,
-                    Mes = cbxMes.Text,
+
                     Inicio = dtpInicio.Value.Date,
                     Fim = dtpFim.Value.Date,
                     Dias = txtMeta.Text,
@@ -109,7 +105,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     gridCurso.Rows.Add(
                         curso.Id,
                         curso.Nome,
-                        curso.Mes,
+
                         curso.Inicio,
                         curso.Fim,
                         curso.Dias,
@@ -126,9 +122,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void LimparCampos()
         {
-            lbl.Text = String.Empty;
+            txtId.Text = String.Empty;
             txtCurso.Text = String.Empty;
-            cbxMes.Text = String.Empty;
+
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
             txtDias.Text = String.Empty;
@@ -180,14 +176,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             // Obtém os dados do formulário
             string nome = txtCurso.Text;
-            string mes = cbxMes.Text;
+
             DateTime inicio = dtpInicio.Value.Date;
             DateTime fim = dtpFim.Value.Date;
             string dias = txtDias.Text;
             string meta = txtMeta.Text;
             string realizado = txtRealizado.Text;
             string turno = cbxTurno.Text;
-            decimal valorDecimal = decimal.Parse(String.Format("{0:C}", txtValor.Text));
+            decimal valor = decimal.Parse(txtValor.Text);
             string horario = txtHorario.Text;
             string turma = txtTurma.Text;
             string sala = txtSala.Text;
@@ -199,14 +195,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
             .First();
 
                 curso.Nome = nome;
-                curso.Mes = mes;
+
                 curso.Inicio = inicio;
                 curso.Fim = fim;
                 curso.Dias = dias;
                 curso.Meta = meta;
                 curso.Realizado = realizado;
                 curso.Turno = turno;
-                curso.Valor = valorDecimal;
+                curso.Valor = valor;
                 curso.Horario = horario;
                 curso.Turma = turma;
                 curso.Sala = sala;
@@ -218,8 +214,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-    
-    private void btnSalvar_Click(object sender, EventArgs e)
+
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             iSalvar();
         }
@@ -266,7 +262,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iSair()
         {
             DialogResult iSair;
-            iSair = MessageBox.Show("Você está prestes a fechar. Tem certeza?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            iSair = MessageBox.Show("Você está prestes a sair. Tem certeza?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (iSair == DialogResult.Yes)
             {
@@ -316,33 +312,33 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         // Adiciona cabeçalhos
                         worksheet.Cells[1, 1].Value = "ID";
                         worksheet.Cells[1, 2].Value = "Curso";
-                        worksheet.Cells[1, 3].Value = "Mes";
-                        worksheet.Cells[1, 4].Value = "Inicio";
-                        worksheet.Cells[1, 5].Value = "Fim";
-                        worksheet.Cells[1, 6].Value = "Dias";
-                        worksheet.Cells[1, 7].Value = "Meta";
-                        worksheet.Cells[1, 8].Value = "Realizado";
-                        worksheet.Cells[1, 9].Value = "Turno";
-                        worksheet.Cells[1, 10].Value = "Valor";
-                        worksheet.Cells[1, 11].Value = "Horario";
-                        worksheet.Cells[1, 12].Value = "Turma";
-                        worksheet.Cells[1, 13].Value = "Sala";
+
+                        worksheet.Cells[1, 3].Value = "Inicio";
+                        worksheet.Cells[1, 4].Value = "Fim";
+                        worksheet.Cells[1, 5].Value = "Dias";
+                        worksheet.Cells[1, 6].Value = "Meta";
+                        worksheet.Cells[1, 7].Value = "Realizado";
+                        worksheet.Cells[1, 8].Value = "Turno";
+                        worksheet.Cells[1, 9].Value = "Valor";
+                        worksheet.Cells[1, 10].Value = "Horario";
+                        worksheet.Cells[1, 11].Value = "Turma";
+                        worksheet.Cells[1, 12].Value = "Sala";
 
                         // Preenche os dados
                         int row = 2;
                         worksheet.Cells[row, 1].Value = cursoSelecionado.Id;
                         worksheet.Cells[row, 2].Value = cursoSelecionado.Nome;
-                        worksheet.Cells[row, 3].Value = cursoSelecionado.Mes;
-                        worksheet.Cells[row, 4].Value = cursoSelecionado.Inicio;
-                        worksheet.Cells[row, 5].Value = cursoSelecionado.Fim;
-                        worksheet.Cells[row, 6].Value = cursoSelecionado.Dias;
-                        worksheet.Cells[row, 7].Value = cursoSelecionado.Meta;
-                        worksheet.Cells[row, 8].Value = cursoSelecionado.Realizado;
-                        worksheet.Cells[row, 9].Value = cursoSelecionado.Turno;
-                        worksheet.Cells[row, 10].Value = cursoSelecionado.Valor;
-                        worksheet.Cells[row, 11].Value = cursoSelecionado.Horario;
-                        worksheet.Cells[row, 12].Value = cursoSelecionado.Turma;
-                        worksheet.Cells[row, 13].Value = cursoSelecionado.Sala;
+
+                        worksheet.Cells[row, 3].Value = cursoSelecionado.Inicio;
+                        worksheet.Cells[row, 4].Value = cursoSelecionado.Fim;
+                        worksheet.Cells[row, 5].Value = cursoSelecionado.Dias;
+                        worksheet.Cells[row, 6].Value = cursoSelecionado.Meta;
+                        worksheet.Cells[row, 7].Value = cursoSelecionado.Realizado;
+                        worksheet.Cells[row, 8].Value = cursoSelecionado.Turno;
+                        worksheet.Cells[row, 9].Value = cursoSelecionado.Valor;
+                        worksheet.Cells[row, 10].Value = cursoSelecionado.Horario;
+                        worksheet.Cells[row, 11].Value = cursoSelecionado.Turma;
+                        worksheet.Cells[row, 12].Value = cursoSelecionado.Sala;
 
                         // Salva o arquivo Excel
                         SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -385,17 +381,17 @@ namespace Dot.Net._6.WF.Calendario.Senac
             // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
             txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
             txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
-            cbxMes.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
-            dtpInicio.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
-            dtpFim.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            txtDias.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value + "".ToString();
-            txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
-            cbxTurno.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
-            txtValor.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
-            txtHorario.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
-            txtTurma.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
-            txtSala.Text = gridCurso.CurrentRow.Cells[12].Value.ToString();
+            ;
+            dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
+            dtpFim.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
+            txtDias.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value + "".ToString();
+            txtRealizado.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
+            cbxTurno.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
+            txtValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
+            txtHorario.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
+            txtTurma.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
+            txtSala.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
         }
     }
 

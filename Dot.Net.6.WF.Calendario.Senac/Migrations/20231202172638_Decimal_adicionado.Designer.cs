@@ -3,6 +3,7 @@ using System;
 using Dot.Net._6.WF.Calendario.Senac;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dot.Net._6.WF.Calendario.Senac.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    partial class BancoDeDadosModelSnapshot : ModelSnapshot
+    [Migration("20231202172638_Decimal_adicionado")]
+    partial class Decimal_adicionado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");
@@ -33,6 +35,10 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Inicio")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Mes")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Meta")

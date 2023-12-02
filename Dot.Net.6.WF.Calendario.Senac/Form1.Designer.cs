@@ -34,7 +34,6 @@
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
             dtpInicio = new DateTimePicker();
-            cbxMes = new ComboBox();
             txtCurso = new ComboBox();
             cbxTurno = new ComboBox();
             txtMeta = new TextBox();
@@ -52,7 +51,6 @@
             label8 = new Label();
             label1 = new Label();
             label7 = new Label();
-            label2 = new Label();
             label6 = new Label();
             label3 = new Label();
             label5 = new Label();
@@ -103,7 +101,6 @@
             groupBox1.Controls.Add(txtId);
             groupBox1.Controls.Add(dtpFim);
             groupBox1.Controls.Add(dtpInicio);
-            groupBox1.Controls.Add(cbxMes);
             groupBox1.Controls.Add(txtCurso);
             groupBox1.Controls.Add(cbxTurno);
             groupBox1.Controls.Add(txtMeta);
@@ -121,7 +118,6 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label5);
@@ -136,7 +132,7 @@
             // lbl
             // 
             lbl.AutoSize = true;
-            lbl.Location = new Point(4, 68);
+            lbl.Location = new Point(66, 66);
             lbl.Name = "lbl";
             lbl.Size = new Size(18, 15);
             lbl.TabIndex = 35;
@@ -145,9 +141,9 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(21, 60);
+            txtId.Location = new Point(90, 60);
             txtId.Name = "txtId";
-            txtId.Size = new Size(28, 23);
+            txtId.Size = new Size(121, 23);
             txtId.TabIndex = 34;
             txtId.Visible = false;
             // 
@@ -169,21 +165,11 @@
             dtpInicio.TabIndex = 32;
             dtpInicio.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
-            // cbxMes
-            // 
-            cbxMes.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxMes.FormattingEnabled = true;
-            cbxMes.Items.AddRange(new object[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" });
-            cbxMes.Location = new Point(260, 60);
-            cbxMes.Name = "cbxMes";
-            cbxMes.Size = new Size(121, 23);
-            cbxMes.TabIndex = 26;
-            // 
             // txtCurso
             // 
             txtCurso.FormattingEnabled = true;
             txtCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
-            txtCurso.Location = new Point(91, 60);
+            txtCurso.Location = new Point(262, 60);
             txtCurso.Name = "txtCurso";
             txtCurso.Size = new Size(121, 23);
             txtCurso.TabIndex = 25;
@@ -306,7 +292,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(47, 68);
+            label1.Location = new Point(217, 68);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 0;
@@ -320,15 +306,6 @@
             label7.Size = new Size(57, 15);
             label7.TabIndex = 6;
             label7.Text = "Realizado";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(228, 68);
-            label2.Name = "label2";
-            label2.Size = new Size(29, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Mês";
             // 
             // label6
             // 
@@ -696,14 +673,12 @@
         private Label label8;
         private Label label1;
         private Label label7;
-        private Label label2;
         private Label label6;
         private Label label3;
         private Label label5;
         private ComboBox txtCurso;
         private ComboBox cbxTurno;
         private DataGridView gridCurso;
-        private ComboBox cbxMes;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
         private MenuStrip menuStrip1;
