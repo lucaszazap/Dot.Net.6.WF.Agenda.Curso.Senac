@@ -60,7 +60,7 @@
             arquivoToolStripMenuItem = new ToolStripMenuItem();
             adicionarToolStripMenuItem = new ToolStripMenuItem();
             salvarToolStripMenuItem = new ToolStripMenuItem();
-            imprimirToolStripMenuItem = new ToolStripMenuItem();
+            exportarToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
             editarToolStripMenuItem = new ToolStripMenuItem();
             limparToolStripMenuItem = new ToolStripMenuItem();
@@ -81,6 +81,7 @@
             ColunaCursoTurma = new DataGridViewTextBoxColumn();
             ColunaCursoSala = new DataGridViewTextBoxColumn();
             groupBox3 = new GroupBox();
+            btnExportar = new Button();
             btnLimparCampos = new Button();
             btnListar = new Button();
             btnSair = new Button();
@@ -188,7 +189,7 @@
             // 
             txtTurno.FormattingEnabled = true;
             txtTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
-            txtTurno.Location = new Point(471, 105);
+            txtTurno.Location = new Point(656, 60);
             txtTurno.Name = "txtTurno";
             txtTurno.Size = new Size(121, 23);
             txtTurno.TabIndex = 24;
@@ -207,7 +208,6 @@
             txtDias.Name = "txtDias";
             txtDias.Size = new Size(121, 23);
             txtDias.TabIndex = 22;
-            txtDias.KeyPress += NumbersOnly;
             // 
             // txtSala
             // 
@@ -239,7 +239,7 @@
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(656, 60);
+            txtRealizado.Location = new Point(471, 103);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 13;
@@ -364,7 +364,7 @@
             // 
             // arquivoToolStripMenuItem
             // 
-            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, salvarToolStripMenuItem, imprimirToolStripMenuItem, sairToolStripMenuItem });
+            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, salvarToolStripMenuItem, exportarToolStripMenuItem, sairToolStripMenuItem });
             arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             arquivoToolStripMenuItem.Size = new Size(61, 20);
             arquivoToolStripMenuItem.Text = "Arquivo";
@@ -372,26 +372,28 @@
             // adicionarToolStripMenuItem
             // 
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(125, 22);
+            adicionarToolStripMenuItem.Size = new Size(180, 22);
             adicionarToolStripMenuItem.Text = "Adicionar";
             adicionarToolStripMenuItem.Click += adicionarToolStripMenuItem_Click;
             // 
             // salvarToolStripMenuItem
             // 
             salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            salvarToolStripMenuItem.Size = new Size(125, 22);
+            salvarToolStripMenuItem.Size = new Size(180, 22);
             salvarToolStripMenuItem.Text = "Salvar";
+            salvarToolStripMenuItem.Click += salvarToolStripMenuItem_Click;
             // 
-            // imprimirToolStripMenuItem
+            // exportarToolStripMenuItem
             // 
-            imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            imprimirToolStripMenuItem.Size = new Size(125, 22);
-            imprimirToolStripMenuItem.Text = "Imprimir";
+            exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            exportarToolStripMenuItem.Size = new Size(180, 22);
+            exportarToolStripMenuItem.Text = "Exportar";
+            exportarToolStripMenuItem.Click += exportarToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(125, 22);
+            sairToolStripMenuItem.Size = new Size(180, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -544,18 +546,28 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(btnExportar);
             groupBox3.Controls.Add(btnLimparCampos);
             groupBox3.Controls.Add(btnListar);
             groupBox3.Controls.Add(btnSair);
             groupBox3.Controls.Add(btnSalvar);
             groupBox3.Controls.Add(btnDeletar);
             groupBox3.Controls.Add(btnAdicionar);
-            groupBox3.Location = new Point(46, 598);
+            groupBox3.Location = new Point(12, 582);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(844, 99);
+            groupBox3.Size = new Size(937, 99);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
-            groupBox3.Visible = false;
+            // 
+            // btnExportar
+            // 
+            btnExportar.Location = new Point(703, 41);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(94, 31);
+            btnExportar.TabIndex = 3;
+            btnExportar.Text = "Exportar";
+            btnExportar.UseVisualStyleBackColor = true;
+            btnExportar.Click += btnExportar_Click;
             // 
             // btnLimparCampos
             // 
@@ -578,7 +590,7 @@
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(746, 41);
+            btnSair.Location = new Point(819, 41);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 5;
@@ -693,7 +705,6 @@
         private ToolStripMenuItem arquivoToolStripMenuItem;
         private ToolStripMenuItem adicionarToolStripMenuItem;
         private ToolStripMenuItem salvarToolStripMenuItem;
-        private ToolStripMenuItem imprimirToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem limparToolStripMenuItem;
@@ -717,5 +728,7 @@
         private Label lbl;
         private TextBox txtId;
         private Button btnLimparCampos;
+        private Button btnExportar;
+        private ToolStripMenuItem exportarToolStripMenuItem;
     }
 }

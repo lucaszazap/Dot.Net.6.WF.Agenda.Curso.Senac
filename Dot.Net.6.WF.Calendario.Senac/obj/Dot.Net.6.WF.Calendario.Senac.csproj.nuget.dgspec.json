@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {}
+    "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {}
   },
   "projects": {
-    "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {
+    "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+        "projectUniqueName": "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
         "projectName": "Dot.Net.6.WF.Calendario.Senac",
-        "projectPath": "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+        "projectPath": "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
         "packagesPath": "C:\\Users\\caua.moreira\\.nuget\\packages\\",
-        "outputPath": "D:\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
+        "outputPath": "C:\\Users\\caua.moreira\\Desktop\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\caua.moreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.102.1, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.25, )"
@@ -59,6 +67,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.25, )"
+            },
+            "OfficeOpenXml.Core.ExcelPackage": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "System.IO.Pipelines": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "System.IO.Pipes": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [
