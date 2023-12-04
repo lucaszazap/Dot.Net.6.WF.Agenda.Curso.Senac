@@ -1,1 +1,1 @@
-# Dot.Net.6.WF.Calendario.Senac
+# Dot.Net.6.WF.Agenda.Curso.Senac
