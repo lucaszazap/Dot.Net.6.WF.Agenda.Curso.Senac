@@ -8,6 +8,7 @@ using ClosedXML.Excel;
 using OfficeOpenXml;
 using System.IO.Pipes;
 using System.IO.Pipelines;
+using Dot.Net._6.WF.Calendario.Senac.Migrations;
 
 
 namespace Dot.Net._6.WF.Calendario.Senac
@@ -93,6 +94,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             iAdicionar();
+
+            Random random = new Random();
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+
+            this.BackColor = randomColor;
         }
 
         private void Listar()
@@ -301,67 +307,68 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-                // puxa a linha atualmente selecionada no grid
-                var cursoSelecionado = bd.Cursos
-                    .FirstOrDefault(c => c.Id == Convert.ToInt32(gridCurso.CurrentRow.Cells[0].Value));
+                // Puxa todos os cursos do banco de dados
+                var todosCursos = bd.Cursos.ToList();
 
-                if (cursoSelecionado != null)
-
-                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                using (ExcelPackage excelPackage = new ExcelPackage())
                 {
-                    using (ExcelPackage excelPackage = new ExcelPackage())
+                    // Cria uma planilha
+                    ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Cursos");
+
+                    // Adiciona cabeçalhos
+                    worksheet.Cells[1, 1].Value = "ID";
+                    worksheet.Cells[1, 2].Value = "Curso";
+                    worksheet.Cells[1, 3].Value = "Inicio";
+                    worksheet.Cells[1, 4].Value = "Fim";
+                    worksheet.Cells[1, 5].Value = "Dias";
+                    worksheet.Cells[1, 6].Value = "Meta";
+                    worksheet.Cells[1, 7].Value = "Realizado";
+                    worksheet.Cells[1, 8].Value = "Turno";
+                    worksheet.Cells[1, 9].Value = "Valor";
+                    worksheet.Cells[1, 10].Value = "Horario";
+                    worksheet.Cells[1, 11].Value = "Turma";
+                    worksheet.Cells[1, 12].Value = "Sala";
+
+                    // Preenche os dados
+                    int row = 2;
+                    foreach (var curso in todosCursos)
                     {
-                        // Cria uma planilha
-                        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Curso");
+                        worksheet.Cells[row, 1].Value = curso.Id;
+                        worksheet.Cells[row, 2].Value = curso.Nome;
+                        worksheet.Cells[row, 3].Value = curso.Inicio.ToString("dd-MM-yyyy");
+                        worksheet.Cells[row, 4].Value = curso.Fim.ToString("dd-MM-yyyy");
+                        worksheet.Cells[row, 5].Value = curso.Dias;
+                        worksheet.Cells[row, 6].Value = curso.Meta;
+                        worksheet.Cells[row, 7].Value = curso.Realizado;
+                        worksheet.Cells[row, 8].Value = curso.Turno;
+                        worksheet.Cells[row, 9].Value = curso.Valor;
+                        worksheet.Cells[row, 10].Value = curso.Horario;
+                        worksheet.Cells[row, 11].Value = curso.Turma;
+                        worksheet.Cells[row, 12].Value = curso.Sala;
 
-                        // Adiciona cabeçalhos
-                        worksheet.Cells[1, 1].Value = "ID";
-                        worksheet.Cells[1, 2].Value = "Curso";
-                        worksheet.Cells[1, 3].Value = "Inicio";
-                        worksheet.Cells[1, 4].Value = "Fim";
-                        worksheet.Cells[1, 5].Value = "Dias";
-                        worksheet.Cells[1, 6].Value = "Meta";
-                        worksheet.Cells[1, 7].Value = "Realizado";
-                        worksheet.Cells[1, 8].Value = "Turno";
-                        worksheet.Cells[1, 9].Value = "Valor";
-                        worksheet.Cells[1, 10].Value = "Horario";
-                        worksheet.Cells[1, 11].Value = "Turma";
-                        worksheet.Cells[1, 12].Value = "Sala";
-
-                        // Preenche os dados
-                        int row = 2;
-                        worksheet.Cells[row, 1].Value = cursoSelecionado.Id;
-                        worksheet.Cells[row, 2].Value = cursoSelecionado.Nome;
-                        worksheet.Cells[row, 3].Value = cursoSelecionado.Inicio.ToString("yyyy-MM-dd");
-                        worksheet.Cells[row, 4].Value = cursoSelecionado.Fim.ToString("yyyy-MM-dd");
-                        worksheet.Cells[row, 5].Value = cursoSelecionado.Dias;
-                        worksheet.Cells[row, 6].Value = cursoSelecionado.Meta;
-                        worksheet.Cells[row, 7].Value = cursoSelecionado.Realizado;
-                        worksheet.Cells[row, 8].Value = cursoSelecionado.Turno;
-                        worksheet.Cells[row, 9].Value = cursoSelecionado.Valor;
-                        worksheet.Cells[row, 10].Value = cursoSelecionado.Horario;
-                        worksheet.Cells[row, 11].Value = cursoSelecionado.Turma;
-                        worksheet.Cells[row, 12].Value = cursoSelecionado.Sala;
-
-                        // Salva o arquivo Excel
-                        SaveFileDialog saveFileDialog = new SaveFileDialog();
-                        saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
-                        saveFileDialog.FileName = "Agenda de Cursos.xlsx";
-
-                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                        {
-                            excelPackage.SaveAs(new System.IO.FileInfo(saveFileDialog.FileName));
-                            MessageBox.Show("Exportação para o Excel concluída com sucesso!");
-                        }
+                        row++;
                     }
 
+                    // Salva o arquivo Excel
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                    saveFileDialog.FileName = "Agenda de Cursos.xlsx";
 
-                    bd.SaveChanges();
-                    LimparCampos();
-
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        excelPackage.SaveAs(new FileInfo(saveFileDialog.FileName));
+                    }
                 }
+
+
+
+                bd.SaveChanges();
+                LimparCampos();
+
             }
         }
+
 
 
         private void btnExportar_Click(object sender, EventArgs e)
@@ -396,8 +403,55 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtSala.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
         }
 
-       
-    }
+        private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iDeletar();
+        }
 
+        private void TextOnly(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !
+                    char.IsLetter(e.KeyChar) && !
+                    char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+
+
+                // Exibe uma mensagem de erro.
+                MessageBox.Show("Digite apenas texto.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Bloqueia a entrada do caractere.
+
+            }
+        }
+
+
+
+        private void txtHorario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddCifrao(object sender, KeyPressEventArgs e)
+        {
+            {
+                // Verifica se o caractere digitado é um número ou uma tecla de controle
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+                {
+                    // Se não for um número ou tecla de controle, cancela o evento
+                    e.Handled = true;
+                    return;
+                }
+
+                // Converte o texto do TextBox para decimal
+                if (decimal.TryParse(txtValor.Text, out decimal valor))
+                {
+                   
+                    txtValor.Text = string.Format("{0,00:C}", valor);
+                }
+            }
+        }
+    }
 }
+
+
 
