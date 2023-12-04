@@ -20,8 +20,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
 
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
+
             string nomeUsuario = "admin";
             string senha = "senha123";
 
@@ -41,11 +42,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("Usuario/Senha incorretos");
             }
         }
-
-
     }
-
 }
+
+
 
 
 

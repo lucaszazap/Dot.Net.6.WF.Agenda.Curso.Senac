@@ -45,8 +45,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
             var nome = txtCurso.Text;
-            var inicio = dtpInicio.Value.Date;
-            var fim = dtpFim.Value.Date;
+            var inicio = dtpInicio.Value;
+            var fim = dtpFim.Value;
             var meta = txtMeta.Text;
             var dias = txtDias.Text;
             var realizado = txtRealizado.Text;
@@ -211,6 +211,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 curso.Sala = sala;
 
                 bd.SaveChanges();
+
+                MessageBox.Show("Curso salvo com sucesso.");
                 Listar();
                 LimparCampos();
             }
@@ -330,8 +332,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         int row = 2;
                         worksheet.Cells[row, 1].Value = cursoSelecionado.Id;
                         worksheet.Cells[row, 2].Value = cursoSelecionado.Nome;
-                        worksheet.Cells[row, 3].Value = cursoSelecionado.Inicio;
-                        worksheet.Cells[row, 4].Value = cursoSelecionado.Fim;
+                        worksheet.Cells[row, 3].Value = cursoSelecionado.Inicio.ToString("yyyy-MM-dd");
+                        worksheet.Cells[row, 4].Value = cursoSelecionado.Fim.ToString("yyyy-MM-dd");
                         worksheet.Cells[row, 5].Value = cursoSelecionado.Dias;
                         worksheet.Cells[row, 6].Value = cursoSelecionado.Meta;
                         worksheet.Cells[row, 7].Value = cursoSelecionado.Realizado;
@@ -385,7 +387,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
             dtpFim.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
             txtDias.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value + "".ToString();
             txtRealizado.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
             cbxTurno.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
             txtValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
@@ -393,6 +395,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtTurma.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
             txtSala.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
         }
+
+       
     }
 
 }
