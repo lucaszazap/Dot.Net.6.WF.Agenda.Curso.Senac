@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lbl = new Label();
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
@@ -117,7 +117,7 @@
             dtpFim.Location = new Point(565, 40);
             dtpFim.Name = "dtpFim";
             dtpFim.Size = new Size(119, 23);
-            dtpFim.TabIndex = 33;
+            dtpFim.TabIndex = 3;
             dtpFim.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
             // dtpInicio
@@ -127,7 +127,7 @@
             dtpInicio.Location = new Point(399, 40);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(119, 23);
-            dtpInicio.TabIndex = 32;
+            dtpInicio.TabIndex = 1;
             dtpInicio.Value = new DateTime(2023, 12, 2, 0, 0, 0, 0);
             // 
             // txtCurso
@@ -137,7 +137,7 @@
             txtCurso.Location = new Point(221, 40);
             txtCurso.Name = "txtCurso";
             txtCurso.Size = new Size(121, 23);
-            txtCurso.TabIndex = 25;
+            txtCurso.TabIndex = 0;
             // 
             // cbxTurno
             // 
@@ -147,14 +147,14 @@
             cbxTurno.Location = new Point(565, 87);
             cbxTurno.Name = "cbxTurno";
             cbxTurno.Size = new Size(121, 23);
-            cbxTurno.TabIndex = 24;
+            cbxTurno.TabIndex = 9;
             // 
             // txtMeta
             // 
             txtMeta.Location = new Point(748, 42);
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(121, 23);
-            txtMeta.TabIndex = 23;
+            txtMeta.TabIndex = 4;
             txtMeta.KeyPress += NumbersOnly;
             // 
             // txtDias
@@ -162,7 +162,7 @@
             txtDias.Location = new Point(49, 87);
             txtDias.Name = "txtDias";
             txtDias.Size = new Size(121, 23);
-            txtDias.TabIndex = 22;
+            txtDias.TabIndex = 6;
             txtDias.KeyPress += TextOnly;
             // 
             // txtSala
@@ -170,14 +170,14 @@
             txtSala.Location = new Point(945, 88);
             txtSala.Name = "txtSala";
             txtSala.Size = new Size(121, 23);
-            txtSala.TabIndex = 17;
+            txtSala.TabIndex = 12;
             // 
             // txtTurma
             // 
             txtTurma.Location = new Point(748, 88);
             txtTurma.Name = "txtTurma";
             txtTurma.Size = new Size(121, 23);
-            txtTurma.TabIndex = 16;
+            txtTurma.TabIndex = 10;
             txtTurma.KeyPress += NumbersOnly;
             // 
             // txtHorario
@@ -185,7 +185,7 @@
             txtHorario.Location = new Point(221, 88);
             txtHorario.Name = "txtHorario";
             txtHorario.Size = new Size(119, 23);
-            txtHorario.TabIndex = 15;
+            txtHorario.TabIndex = 7;
             txtHorario.TextChanged += txtHorario_TextChanged;
             // 
             // txtRealizado
@@ -193,7 +193,7 @@
             txtRealizado.Location = new Point(945, 40);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
-            txtRealizado.TabIndex = 13;
+            txtRealizado.TabIndex = 5;
             txtRealizado.KeyPress += NumbersOnly;
             // 
             // label12
@@ -375,8 +375,8 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.LightGray;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -410,9 +410,9 @@
             // ColunaCursoInicio
             // 
             ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.Format = "d";
-            dataGridViewCellStyle8.NullValue = null;
-            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle5;
             ColunaCursoInicio.HeaderText = "Início";
             ColunaCursoInicio.MinimumWidth = 6;
             ColunaCursoInicio.Name = "ColunaCursoInicio";
@@ -421,9 +421,9 @@
             // ColunaCursoFim
             // 
             ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Format = "d";
-            dataGridViewCellStyle9.NullValue = null;
-            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle6;
             ColunaCursoFim.HeaderText = "Fim";
             ColunaCursoFim.MinimumWidth = 6;
             ColunaCursoFim.Name = "ColunaCursoFim";
@@ -529,10 +529,10 @@
             // mtbValor
             // 
             mtbValor.Location = new Point(403, 88);
-            mtbValor.Mask = "$ 999.999,00";
+            mtbValor.Mask = "$ 999.999,000";
             mtbValor.Name = "mtbValor";
             mtbValor.Size = new Size(117, 23);
-            mtbValor.TabIndex = 36;
+            mtbValor.TabIndex = 8;
             mtbValor.MaskInputRejected += mtbValor_MaskInputRejected;
             // 
             // panel2

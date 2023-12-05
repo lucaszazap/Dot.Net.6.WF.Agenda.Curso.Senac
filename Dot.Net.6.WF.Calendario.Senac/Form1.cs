@@ -19,8 +19,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Agenda_de_Curso()
         {
             InitializeComponent();
-            txtCurso.Focus();
-
+            
 
         }
 
@@ -53,7 +52,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var dias = txtDias.Text;
             var realizado = txtRealizado.Text;
             var turno = cbxTurno.Text;
-            var valor = Convert.ToDecimal(mtbValor.Text);
+            var valor = mtbValor.Text;
             var horario = txtHorario.Text;
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
@@ -72,7 +71,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Meta = txtMeta.Text,
                     Realizado = txtRealizado.Text,
                     Turno = cbxTurno.Text,
-                    Valor = decimal.Parse(mtbValor.Text),
+                    Valor = mtbValor.Text,
                     Horario = txtHorario.Text,
                     Turma = txtTurma.Text,
                     Sala = txtSala.Text,
@@ -96,10 +95,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             iAdicionar();
 
-            Random random = new Random();
-            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
-
-            this.BackColor = randomColor;
+           
         }
 
         private void Listar()
@@ -115,7 +111,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     gridCurso.Rows.Add(
                         curso.Id,
                         curso.Nome,
-
                         curso.Inicio,
                         curso.Fim,
                         curso.Dias,
@@ -134,7 +129,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             txtId.Text = String.Empty;
             txtCurso.Text = String.Empty;
-
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
             txtDias.Text = String.Empty;
@@ -145,7 +139,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtHorario.Text = String.Empty;
             txtTurma.Text = String.Empty;
             txtSala.Text = String.Empty;
-            txtCurso.Focus();
+            
 
         }
 
@@ -193,7 +187,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             string meta = txtMeta.Text;
             string realizado = txtRealizado.Text;
             string turno = cbxTurno.Text;
-            decimal valor = decimal.Parse(mtbValor.Text);
+            string valor = Convert.ToString(mtbValor.Text);
             string horario = txtHorario.Text;
             string turma = txtTurma.Text;
             string sala = txtSala.Text;
@@ -216,6 +210,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 curso.Horario = horario;
                 curso.Turma = turma;
                 curso.Sala = sala;
+
+
 
                 bd.SaveChanges();
 
@@ -253,7 +249,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 if (e.KeyChar >= '0' && e.KeyChar <= '9')
                 {
 
-                    // Permite a entrada do caractere.
+                    // Permite a entrada do caractere
                     e.Handled = false;
 
                 }
@@ -261,9 +257,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 else
                 {
-                    // Exibe uma mensagem de erro.
+                    // Exibe uma mensagem de erro
                     MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Bloqueia a entrada do caractere.
+                    // Bloqueia a entrada do caractere
                     e.Handled = true;
                 }
             }
@@ -274,7 +270,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iSair()
         {
             DialogResult iSair;
-            iSair = MessageBox.Show("Você está prestes a sair. Tem certeza?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            iSair = MessageBox.Show("Tem certeza que deseja sair?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (iSair == DialogResult.Yes)
             {
@@ -439,7 +435,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-      
+
 
         private void mtbValor_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
