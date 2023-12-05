@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Office2013.PowerPoint.Roaming;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Login()
         {
             InitializeComponent();
+            txtUsuario.Focus();
             txtSenha.PasswordChar = '*';
 
         }
@@ -24,7 +27,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
 
             string nomeUsuario = "admin";
-            string senha = "senha123";
+            string senha = "senha";
 
             if (txtUsuario.Text == nomeUsuario & txtSenha.Text == senha)
             {
@@ -40,6 +43,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
             else
             {
                 MessageBox.Show("Usuario/Senha incorretos");
+            }
+        }
+
+   
+
+        private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == '\r' ) {
+                button1_Click_1( this, new EventArgs());
             }
         }
     }

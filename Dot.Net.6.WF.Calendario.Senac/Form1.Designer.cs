@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            groupBox1 = new GroupBox();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             lbl = new Label();
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
@@ -42,7 +42,6 @@
             txtSala = new TextBox();
             txtTurma = new TextBox();
             txtHorario = new TextBox();
-            txtValor = new TextBox();
             txtRealizado = new TextBox();
             label12 = new Label();
             label11 = new Label();
@@ -78,58 +77,26 @@
             ColunaCursoHorario = new DataGridViewTextBoxColumn();
             ColunaCursoTurma = new DataGridViewTextBoxColumn();
             ColunaCursoSala = new DataGridViewTextBoxColumn();
-            groupBox3 = new GroupBox();
-            btnExportar = new Button();
-            btnLimparCampos = new Button();
+            panel1 = new Panel();
+            mtbValor = new MaskedTextBox();
+            panel2 = new Panel();
             btnSair = new Button();
+            btnExportar = new Button();
+            btnAdicionar = new Button();
+            btnLimparCampos = new Button();
             btnSalvar = new Button();
             btnDeletar = new Button();
-            btnAdicionar = new Button();
-            groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridCurso).BeginInit();
-            groupBox3.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(lbl);
-            groupBox1.Controls.Add(txtId);
-            groupBox1.Controls.Add(dtpFim);
-            groupBox1.Controls.Add(dtpInicio);
-            groupBox1.Controls.Add(txtCurso);
-            groupBox1.Controls.Add(cbxTurno);
-            groupBox1.Controls.Add(txtMeta);
-            groupBox1.Controls.Add(txtDias);
-            groupBox1.Controls.Add(txtSala);
-            groupBox1.Controls.Add(txtTurma);
-            groupBox1.Controls.Add(txtHorario);
-            groupBox1.Controls.Add(txtValor);
-            groupBox1.Controls.Add(txtRealizado);
-            groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(menuStrip1);
-            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(23, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1130, 182);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
             // 
             // lbl
             // 
             lbl.AutoSize = true;
-            lbl.Location = new Point(35, 73);
+            lbl.Location = new Point(25, 46);
             lbl.Name = "lbl";
             lbl.Size = new Size(21, 15);
             lbl.TabIndex = 35;
@@ -137,7 +104,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(59, 65);
+            txtId.Location = new Point(49, 38);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(121, 23);
@@ -147,7 +114,7 @@
             // 
             dtpFim.CustomFormat = "dd-MM-yyyy";
             dtpFim.Format = DateTimePickerFormat.Custom;
-            dtpFim.Location = new Point(575, 67);
+            dtpFim.Location = new Point(565, 40);
             dtpFim.Name = "dtpFim";
             dtpFim.Size = new Size(119, 23);
             dtpFim.TabIndex = 33;
@@ -157,7 +124,7 @@
             // 
             dtpInicio.CustomFormat = "dd-MM-yyyy";
             dtpInicio.Format = DateTimePickerFormat.Custom;
-            dtpInicio.Location = new Point(409, 67);
+            dtpInicio.Location = new Point(399, 40);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(119, 23);
             dtpInicio.TabIndex = 32;
@@ -167,7 +134,7 @@
             // 
             txtCurso.FormattingEnabled = true;
             txtCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
-            txtCurso.Location = new Point(231, 67);
+            txtCurso.Location = new Point(221, 40);
             txtCurso.Name = "txtCurso";
             txtCurso.Size = new Size(121, 23);
             txtCurso.TabIndex = 25;
@@ -177,14 +144,14 @@
             cbxTurno.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxTurno.FormattingEnabled = true;
             cbxTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
-            cbxTurno.Location = new Point(575, 114);
+            cbxTurno.Location = new Point(565, 87);
             cbxTurno.Name = "cbxTurno";
             cbxTurno.Size = new Size(121, 23);
             cbxTurno.TabIndex = 24;
             // 
             // txtMeta
             // 
-            txtMeta.Location = new Point(758, 69);
+            txtMeta.Location = new Point(748, 42);
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(121, 23);
             txtMeta.TabIndex = 23;
@@ -192,7 +159,7 @@
             // 
             // txtDias
             // 
-            txtDias.Location = new Point(59, 114);
+            txtDias.Location = new Point(49, 87);
             txtDias.Name = "txtDias";
             txtDias.Size = new Size(121, 23);
             txtDias.TabIndex = 22;
@@ -200,14 +167,14 @@
             // 
             // txtSala
             // 
-            txtSala.Location = new Point(955, 114);
+            txtSala.Location = new Point(945, 88);
             txtSala.Name = "txtSala";
             txtSala.Size = new Size(121, 23);
             txtSala.TabIndex = 17;
             // 
             // txtTurma
             // 
-            txtTurma.Location = new Point(758, 115);
+            txtTurma.Location = new Point(748, 88);
             txtTurma.Name = "txtTurma";
             txtTurma.Size = new Size(121, 23);
             txtTurma.TabIndex = 16;
@@ -215,23 +182,15 @@
             // 
             // txtHorario
             // 
-            txtHorario.Location = new Point(231, 115);
+            txtHorario.Location = new Point(221, 88);
             txtHorario.Name = "txtHorario";
             txtHorario.Size = new Size(119, 23);
             txtHorario.TabIndex = 15;
             txtHorario.TextChanged += txtHorario_TextChanged;
             // 
-            // txtValor
-            // 
-            txtValor.Location = new Point(409, 114);
-            txtValor.Name = "txtValor";
-            txtValor.Size = new Size(121, 23);
-            txtValor.TabIndex = 14;
-            txtValor.KeyPress += AddCifrao;
-            // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(955, 67);
+            txtRealizado.Location = new Point(945, 40);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 13;
@@ -240,7 +199,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(921, 122);
+            label12.Location = new Point(911, 95);
             label12.Name = "label12";
             label12.Size = new Size(31, 15);
             label12.TabIndex = 11;
@@ -249,7 +208,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(715, 123);
+            label11.Location = new Point(705, 96);
             label11.Name = "label11";
             label11.Size = new Size(44, 15);
             label11.TabIndex = 10;
@@ -258,7 +217,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(177, 122);
+            label10.Location = new Point(167, 95);
             label10.Name = "label10";
             label10.Size = new Size(50, 15);
             label10.TabIndex = 9;
@@ -267,7 +226,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(372, 122);
+            label9.Location = new Point(362, 96);
             label9.Name = "label9";
             label9.Size = new Size(36, 15);
             label9.TabIndex = 8;
@@ -276,7 +235,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(547, 75);
+            label4.Location = new Point(537, 48);
             label4.Name = "label4";
             label4.Size = new Size(30, 15);
             label4.TabIndex = 3;
@@ -285,7 +244,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(536, 123);
+            label8.Location = new Point(526, 96);
             label8.Name = "label8";
             label8.Size = new Size(41, 15);
             label8.TabIndex = 7;
@@ -294,7 +253,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(186, 73);
+            label1.Location = new Point(176, 46);
             label1.Name = "label1";
             label1.Size = new Size(41, 15);
             label1.TabIndex = 0;
@@ -303,7 +262,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(892, 75);
+            label7.Location = new Point(882, 48);
             label7.Name = "label7";
             label7.Size = new Size(60, 15);
             label7.TabIndex = 6;
@@ -312,7 +271,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(722, 75);
+            label6.Location = new Point(712, 48);
             label6.Name = "label6";
             label6.Size = new Size(37, 15);
             label6.TabIndex = 5;
@@ -321,7 +280,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(369, 75);
+            label3.Location = new Point(359, 48);
             label3.Name = "label3";
             label3.Size = new Size(39, 15);
             label3.TabIndex = 2;
@@ -330,7 +289,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(24, 122);
+            label5.Location = new Point(14, 95);
             label5.Name = "label5";
             label5.Size = new Size(32, 15);
             label5.TabIndex = 4;
@@ -338,11 +297,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem });
-            menuStrip1.Location = new Point(3, 19);
+            menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1124, 24);
+            menuStrip1.Size = new Size(118, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -387,6 +347,7 @@
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "Editar";
+            editarToolStripMenuItem.Click += editarToolStripMenuItem_Click;
             // 
             // limparToolStripMenuItem
             // 
@@ -404,9 +365,9 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(gridCurso);
-            groupBox2.Location = new Point(29, 224);
+            groupBox2.Location = new Point(12, 192);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1124, 308);
+            groupBox2.Size = new Size(1094, 316);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
@@ -414,170 +375,183 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.LightGray;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoTurno, ColunaCursoValor, ColunaCursoHorario, ColunaCursoTurma, ColunaCursoSala });
-            gridCurso.Location = new Point(-6, 0);
+            gridCurso.Location = new Point(-1, 5);
             gridCurso.Name = "gridCurso";
             gridCurso.ReadOnly = true;
             gridCurso.RowHeadersWidth = 51;
             gridCurso.RowTemplate.Height = 25;
-            gridCurso.Size = new Size(1130, 308);
+            gridCurso.Size = new Size(1095, 310);
             gridCurso.TabIndex = 6;
             gridCurso.CellClick += gridCurso_CellClick;
             gridCurso.CellContentClick += gridCurso_CellContentClick;
             // 
             // Column1
             // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column1.HeaderText = "#";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 39;
             // 
             // ColunaCurso
             // 
-            ColunaCurso.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCurso.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCurso.HeaderText = "Curso";
             ColunaCurso.MinimumWidth = 6;
             ColunaCurso.Name = "ColunaCurso";
             ColunaCurso.ReadOnly = true;
-            ColunaCurso.Width = 63;
             // 
             // ColunaCursoInicio
             // 
-            ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle5;
+            ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle8.Format = "d";
+            dataGridViewCellStyle8.NullValue = null;
+            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle8;
             ColunaCursoInicio.HeaderText = "Início";
             ColunaCursoInicio.MinimumWidth = 6;
             ColunaCursoInicio.Name = "ColunaCursoInicio";
             ColunaCursoInicio.ReadOnly = true;
-            ColunaCursoInicio.Width = 61;
             // 
             // ColunaCursoFim
             // 
-            ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = null;
-            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle6;
+            ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle9.Format = "d";
+            dataGridViewCellStyle9.NullValue = null;
+            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle9;
             ColunaCursoFim.HeaderText = "Fim";
             ColunaCursoFim.MinimumWidth = 6;
             ColunaCursoFim.Name = "ColunaCursoFim";
             ColunaCursoFim.ReadOnly = true;
-            ColunaCursoFim.Width = 52;
             // 
             // ColunaCursoDias
             // 
-            ColunaCursoDias.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoDias.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoDias.HeaderText = "Dias";
             ColunaCursoDias.MinimumWidth = 6;
             ColunaCursoDias.Name = "ColunaCursoDias";
             ColunaCursoDias.ReadOnly = true;
-            ColunaCursoDias.Width = 54;
             // 
             // ColunaCursoMeta
             // 
-            ColunaCursoMeta.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoMeta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoMeta.HeaderText = "Meta";
             ColunaCursoMeta.MinimumWidth = 6;
             ColunaCursoMeta.Name = "ColunaCursoMeta";
             ColunaCursoMeta.ReadOnly = true;
-            ColunaCursoMeta.Width = 59;
             // 
             // ColunaCursoRealizado
             // 
-            ColunaCursoRealizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoRealizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoRealizado.HeaderText = "Realizado";
             ColunaCursoRealizado.MinimumWidth = 6;
             ColunaCursoRealizado.Name = "ColunaCursoRealizado";
             ColunaCursoRealizado.ReadOnly = true;
-            ColunaCursoRealizado.Width = 82;
             // 
             // ColunaCursoTurno
             // 
-            ColunaCursoTurno.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoTurno.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoTurno.HeaderText = "Turno";
             ColunaCursoTurno.MinimumWidth = 6;
             ColunaCursoTurno.Name = "ColunaCursoTurno";
             ColunaCursoTurno.ReadOnly = true;
-            ColunaCursoTurno.Width = 63;
             // 
             // ColunaCursoValor
             // 
-            ColunaCursoValor.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoValor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoValor.HeaderText = "Valor";
             ColunaCursoValor.MinimumWidth = 6;
             ColunaCursoValor.Name = "ColunaCursoValor";
             ColunaCursoValor.ReadOnly = true;
-            ColunaCursoValor.Width = 58;
             // 
             // ColunaCursoHorario
             // 
-            ColunaCursoHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoHorario.HeaderText = "Horário";
             ColunaCursoHorario.MinimumWidth = 6;
             ColunaCursoHorario.Name = "ColunaCursoHorario";
             ColunaCursoHorario.ReadOnly = true;
-            ColunaCursoHorario.Width = 72;
             // 
             // ColunaCursoTurma
             // 
-            ColunaCursoTurma.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoTurma.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoTurma.HeaderText = "Turma";
             ColunaCursoTurma.MinimumWidth = 6;
             ColunaCursoTurma.Name = "ColunaCursoTurma";
             ColunaCursoTurma.ReadOnly = true;
-            ColunaCursoTurma.Width = 66;
             // 
             // ColunaCursoSala
             // 
-            ColunaCursoSala.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCursoSala.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ColunaCursoSala.HeaderText = "Sala";
             ColunaCursoSala.MinimumWidth = 6;
             ColunaCursoSala.Name = "ColunaCursoSala";
             ColunaCursoSala.ReadOnly = true;
-            ColunaCursoSala.Width = 53;
             // 
-            // groupBox3
+            // panel1
             // 
-            groupBox3.Controls.Add(btnExportar);
-            groupBox3.Controls.Add(btnLimparCampos);
-            groupBox3.Controls.Add(btnSair);
-            groupBox3.Controls.Add(btnSalvar);
-            groupBox3.Controls.Add(btnDeletar);
-            groupBox3.Controls.Add(btnAdicionar);
-            groupBox3.Location = new Point(23, 538);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1127, 111);
-            groupBox3.TabIndex = 2;
-            groupBox3.TabStop = false;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(mtbValor);
+            panel1.Controls.Add(menuStrip1);
+            panel1.Controls.Add(lbl);
+            panel1.Controls.Add(txtId);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(dtpFim);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(dtpInicio);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(txtCurso);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(cbxTurno);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(txtMeta);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(txtDias);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(txtSala);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(txtTurma);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(txtHorario);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(txtRealizado);
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1094, 155);
+            panel1.TabIndex = 3;
             // 
-            // btnExportar
+            // mtbValor
             // 
-            btnExportar.Location = new Point(808, 41);
-            btnExportar.Name = "btnExportar";
-            btnExportar.Size = new Size(94, 31);
-            btnExportar.TabIndex = 3;
-            btnExportar.Text = "Exportar";
-            btnExportar.UseVisualStyleBackColor = true;
-            btnExportar.Click += btnExportar_Click;
+            mtbValor.Location = new Point(403, 88);
+            mtbValor.Mask = "$ 999.999,00";
+            mtbValor.Name = "mtbValor";
+            mtbValor.Size = new Size(117, 23);
+            mtbValor.TabIndex = 36;
+            mtbValor.MaskInputRejected += mtbValor_MaskInputRejected;
             // 
-            // btnLimparCampos
+            // panel2
             // 
-            btnLimparCampos.Location = new Point(222, 41);
-            btnLimparCampos.Name = "btnLimparCampos";
-            btnLimparCampos.Size = new Size(98, 31);
-            btnLimparCampos.TabIndex = 7;
-            btnLimparCampos.Text = "Limpar";
-            btnLimparCampos.UseVisualStyleBackColor = true;
-            btnLimparCampos.Click += btnLimparCampos_Click;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(btnSair);
+            panel2.Controls.Add(btnExportar);
+            panel2.Controls.Add(btnAdicionar);
+            panel2.Controls.Add(btnLimparCampos);
+            panel2.Controls.Add(btnSalvar);
+            panel2.Controls.Add(btnDeletar);
+            panel2.Location = new Point(13, 549);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1093, 87);
+            panel2.TabIndex = 7;
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(982, 41);
+            btnSair.Location = new Point(968, 31);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 5;
@@ -585,9 +559,39 @@
             btnSair.UseVisualStyleBackColor = true;
             btnSair.Click += btnSair_Click_1;
             // 
+            // btnExportar
+            // 
+            btnExportar.Location = new Point(775, 31);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(94, 31);
+            btnExportar.TabIndex = 3;
+            btnExportar.Text = "Exportar";
+            btnExportar.UseVisualStyleBackColor = true;
+            btnExportar.Click += btnExportar_Click;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.Location = new Point(14, 31);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(98, 31);
+            btnAdicionar.TabIndex = 0;
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click_1;
+            // 
+            // btnLimparCampos
+            // 
+            btnLimparCampos.Location = new Point(203, 31);
+            btnLimparCampos.Name = "btnLimparCampos";
+            btnLimparCampos.Size = new Size(98, 31);
+            btnLimparCampos.TabIndex = 7;
+            btnLimparCampos.Text = "Limpar";
+            btnLimparCampos.UseVisualStyleBackColor = true;
+            btnLimparCampos.Click += btnLimparCampos_Click;
+            // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(619, 41);
+            btnSalvar.Location = new Point(588, 31);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(98, 31);
             btnSalvar.TabIndex = 3;
@@ -597,7 +601,7 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(409, 41);
+            btnDeletar.Location = new Point(399, 31);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;
@@ -605,50 +609,31 @@
             btnDeletar.UseVisualStyleBackColor = true;
             btnDeletar.Click += btnDeletar_Click_1;
             // 
-            // btnAdicionar
-            // 
-            btnAdicionar.Location = new Point(40, 41);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(98, 31);
-            btnAdicionar.TabIndex = 0;
-            btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
-            btnAdicionar.Click += btnAdicionar_Click_1;
-            // 
             // Agenda_de_Curso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1182, 661);
-            Controls.Add(groupBox3);
+            ClientSize = new Size(1126, 661);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
             MaximumSize = new Size(1200, 778);
             Name = "Agenda_de_Curso";
             Text = "Agenda de Cursos";
             Load += Agenda_de_Curso_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridCurso).EndInit();
-            groupBox3.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private GroupBox groupBox3;
-        private Button btnAdicionar;
-        private Button btnSair;
-        private Button btnSalvar;
-        private Button btnDeletar;
         private TextBox txtMeta;
         private TextBox txtDias;
         private TextBox textBox10;
@@ -657,7 +642,6 @@
         private TextBox txtSala;
         private TextBox txtTurma;
         private TextBox txtHorario;
-        private TextBox txtValor;
         private TextBox txtRealizado;
         private TextBox textBox1;
         private Label label12;
@@ -686,9 +670,15 @@
         private DateTimePicker dtpFim;
         private Label lbl;
         private TextBox txtId;
-        private Button btnLimparCampos;
-        private Button btnExportar;
         private ToolStripMenuItem exportarToolStripMenuItem;
+        private Panel panel1;
+        private Panel panel2;
+        private Button btnSair;
+        private Button btnExportar;
+        private Button btnAdicionar;
+        private Button btnLimparCampos;
+        private Button btnSalvar;
+        private Button btnDeletar;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn ColunaCurso;
         private DataGridViewTextBoxColumn ColunaCursoInicio;
@@ -701,5 +691,6 @@
         private DataGridViewTextBoxColumn ColunaCursoHorario;
         private DataGridViewTextBoxColumn ColunaCursoTurma;
         private DataGridViewTextBoxColumn ColunaCursoSala;
+        private MaskedTextBox mtbValor;
     }
 }

@@ -19,6 +19,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Agenda_de_Curso()
         {
             InitializeComponent();
+            txtCurso.Focus();
 
 
         }
@@ -52,7 +53,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var dias = txtDias.Text;
             var realizado = txtRealizado.Text;
             var turno = cbxTurno.Text;
-            var valor = Convert.ToDecimal(txtValor.Text);
+            var valor = Convert.ToDecimal(mtbValor.Text);
             var horario = txtHorario.Text;
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
@@ -71,7 +72,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Meta = txtMeta.Text,
                     Realizado = txtRealizado.Text,
                     Turno = cbxTurno.Text,
-                    Valor = decimal.Parse(txtValor.Text),
+                    Valor = decimal.Parse(mtbValor.Text),
                     Horario = txtHorario.Text,
                     Turma = txtTurma.Text,
                     Sala = txtSala.Text,
@@ -140,7 +141,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtMeta.Text = String.Empty;
             txtRealizado.Text = String.Empty;
             cbxTurno.Text = String.Empty;
-            txtValor.Text = String.Empty;
+            mtbValor.Text = String.Empty;
             txtHorario.Text = String.Empty;
             txtTurma.Text = String.Empty;
             txtSala.Text = String.Empty;
@@ -192,7 +193,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             string meta = txtMeta.Text;
             string realizado = txtRealizado.Text;
             string turno = cbxTurno.Text;
-            decimal valor = decimal.Parse(txtValor.Text);
+            decimal valor = decimal.Parse(mtbValor.Text);
             string horario = txtHorario.Text;
             string turma = txtTurma.Text;
             string sala = txtSala.Text;
@@ -397,7 +398,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value + "".ToString();
             txtRealizado.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
             cbxTurno.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
-            txtValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
+            mtbValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
             txtHorario.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
             txtTurma.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
             txtSala.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
@@ -431,24 +432,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void AddCifrao(object sender, KeyPressEventArgs e)
-        {
-            {
-                // Verifica se o caractere digitado é um número ou uma tecla de controle
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-                {
-                    // Se não for um número ou tecla de controle, cancela o evento
-                    e.Handled = true;
-                    return;
-                }
 
-                // Converte o texto do TextBox para decimal
-                if (decimal.TryParse(txtValor.Text, out decimal valor))
-                {
-                   
-                    txtValor.Text = string.Format("{0,00:C}", valor);
-                }
-            }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void mtbValor_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
