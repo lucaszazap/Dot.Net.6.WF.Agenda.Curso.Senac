@@ -138,7 +138,8 @@
             txtCurso.Name = "txtCurso";
             txtCurso.Size = new Size(121, 23);
             txtCurso.TabIndex = 0;
-            txtCurso.SelectedIndexChanged += txtCurso_SelectedIndexChanged;
+            
+            txtCurso.KeyPress += TextOnly;
             // 
             // cbxTurno
             // 

@@ -21,9 +21,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
             InitializeComponent();
 
 
+
         }
-
-
 
 
 
@@ -449,11 +448,20 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void txtCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
-
     }
-}
+
+}    
+
+                
+
+
+
+        
+
+    
+
 
 
 
