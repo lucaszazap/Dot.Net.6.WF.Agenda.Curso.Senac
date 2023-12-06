@@ -19,9 +19,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Agenda_de_Curso()
         {
             InitializeComponent();
-            
+
 
         }
+
+
+
+
 
         private void iAdicionar()
 
@@ -95,7 +99,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             iAdicionar();
 
-           
+
         }
 
         private void Listar()
@@ -139,7 +143,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtHorario.Text = String.Empty;
             txtTurma.Text = String.Empty;
             txtSala.Text = String.Empty;
-            
+
 
         }
 
@@ -174,6 +178,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
         {
             Listar();
+
         }
 
         private void iSalvar()
@@ -441,6 +446,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
 
         }
+
+        private void txtCurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 
