@@ -31,7 +31,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             if (txtUsuario.Text == nomeUsuario & txtSenha.Text == senha)
             {
-                MessageBox.Show("Acesso liberado");
+                MessageBox.Show("Acesso liberado", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
 
                 // Exiba o formulário principal como um diálogo
@@ -42,17 +42,35 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
             else
             {
-                MessageBox.Show("Usuario/Senha incorretos");
+                MessageBox.Show("Usuario/Senha incorretos", "Verifique suas credenciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                txtUsuario.Focus() ;
+                txtUsuario.Text = "";
+                txtSenha.Text = "";
             }
         }
 
-   
+
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == '\r' ) {
-                button1_Click_1( this, new EventArgs());
+            if (e.KeyChar == '\r')
+            {
+                button1_Click_1(this, new EventArgs());
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+           
+            MessageBox.Show("Deseja realmente cancelar?", 
+                "Alerta", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning);
+            
+            this.Close();
+
+
         }
     }
 }

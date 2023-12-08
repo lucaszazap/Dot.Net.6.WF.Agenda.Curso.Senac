@@ -35,8 +35,8 @@
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
             dtpInicio = new DateTimePicker();
-            txtCurso = new ComboBox();
-            cbxTurno = new ComboBox();
+            cmbCurso = new ComboBox();
+            cmbTurno = new ComboBox();
             txtMeta = new TextBox();
             txtDias = new TextBox();
             txtSala = new TextBox();
@@ -125,31 +125,32 @@
             dtpInicio.CustomFormat = "dd-MM-yyyy";
             dtpInicio.Format = DateTimePickerFormat.Custom;
             dtpInicio.Location = new Point(399, 40);
+            dtpInicio.MaxDate = new DateTime(2999, 12, 31, 0, 0, 0, 0);
+            dtpInicio.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(119, 23);
             dtpInicio.TabIndex = 1;
             dtpInicio.Value = new DateTime(2023, 12, 2, 0, 0, 0, 0);
             // 
-            // txtCurso
+            // cmbCurso
             // 
-            txtCurso.FormattingEnabled = true;
-            txtCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
-            txtCurso.Location = new Point(221, 40);
-            txtCurso.Name = "txtCurso";
-            txtCurso.Size = new Size(121, 23);
-            txtCurso.TabIndex = 0;
-            
-            txtCurso.KeyPress += TextOnly;
+            cmbCurso.FormattingEnabled = true;
+            cmbCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
+            cmbCurso.Location = new Point(221, 40);
+            cmbCurso.Name = "cmbCurso";
+            cmbCurso.Size = new Size(121, 23);
+            cmbCurso.TabIndex = 0;
+            cmbCurso.KeyPress += TextOnly;
             // 
-            // cbxTurno
+            // cmbTurno
             // 
-            cbxTurno.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxTurno.FormattingEnabled = true;
-            cbxTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
-            cbxTurno.Location = new Point(571, 87);
-            cbxTurno.Name = "cbxTurno";
-            cbxTurno.Size = new Size(121, 23);
-            cbxTurno.TabIndex = 9;
+            cmbTurno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTurno.FormattingEnabled = true;
+            cmbTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
+            cmbTurno.Location = new Point(571, 87);
+            cmbTurno.Name = "cmbTurno";
+            cmbTurno.Size = new Size(121, 23);
+            cmbTurno.TabIndex = 9;
             // 
             // txtMeta
             // 
@@ -376,9 +377,9 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(dtpInicio);
             panel1.Controls.Add(label6);
-            panel1.Controls.Add(txtCurso);
+            panel1.Controls.Add(cmbCurso);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(cbxTurno);
+            panel1.Controls.Add(cmbTurno);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtMeta);
             panel1.Controls.Add(label8);
@@ -659,8 +660,8 @@
         private Label label6;
         private Label label3;
         private Label label5;
-        private ComboBox txtCurso;
-        private ComboBox cbxTurno;
+        private ComboBox cmbCurso;
+        private ComboBox cmbTurno;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem arquivoToolStripMenuItem;
         private ToolStripMenuItem adicionarToolStripMenuItem;

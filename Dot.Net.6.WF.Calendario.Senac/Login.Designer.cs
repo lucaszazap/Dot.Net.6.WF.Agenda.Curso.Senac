@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             groupBox1 = new GroupBox();
+            btnCancelar = new Button();
             txtSenha = new TextBox();
             btnLogin = new Button();
             txtUsuario = new TextBox();
@@ -42,6 +43,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(txtSenha);
             groupBox1.Controls.Add(btnLogin);
             groupBox1.Controls.Add(txtUsuario);
@@ -54,22 +56,33 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(316, 339);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(63, 27);
+            btnCancelar.TabIndex = 19;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // txtSenha
             // 
             txtSenha.Location = new Point(319, 300);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
-            txtSenha.Size = new Size(129, 23);
-            txtSenha.TabIndex = 1;            
+            txtSenha.Size = new Size(132, 23);
+            txtSenha.TabIndex = 1;
+            txtSenha.UseSystemPasswordChar = true;
             txtSenha.KeyPress += txtSenha_KeyPress;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(327, 346);
+            btnLogin.Location = new Point(385, 339);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(112, 28);
+            btnLogin.Size = new Size(66, 27);
             btnLogin.TabIndex = 16;
-            btnLogin.Text = "Login";
+            btnLogin.Text = "Entrar";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += button1_Click_1;
             // 
@@ -77,7 +90,7 @@
             // 
             txtUsuario.Location = new Point(319, 267);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(129, 23);
+            txtUsuario.Size = new Size(132, 23);
             txtUsuario.TabIndex = 0;
             // 
             // label1
@@ -105,7 +118,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(5, 0);
+            pictureBox1.Location = new Point(2, 10);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(766, 475);
@@ -119,7 +132,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(762, 461);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "Login";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agendamento de Cursos";
             groupBox1.ResumeLayout(false);
@@ -137,5 +152,6 @@
         private Label label1;
         private Label label2;
         private PictureBox pictureBox1;
+        private Button btnCancelar;
     }
 }

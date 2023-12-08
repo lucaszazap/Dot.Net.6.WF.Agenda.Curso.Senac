@@ -13,23 +13,20 @@ using Dot.Net._6.WF.Calendario.Senac.Migrations;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
+
     public partial class Agenda_de_Curso : Form
     {
-
+       
         public Agenda_de_Curso()
         {
             InitializeComponent();
 
-
-
         }
-
-
 
         private void iAdicionar()
 
         {
-            if (txtCurso.Text == null)
+            if (cmbCurso.Text == null)
             {
                 MessageBox.Show("O campo 'Nome' é obrigatório.");
                 return;
@@ -48,13 +45,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("O campo 'Fim' é obrigatório.");
                 return;
             }
-            var nome = txtCurso.Text;
+            var nome = cmbCurso.Text;
             var inicio = dtpInicio.Value;
             var fim = dtpFim.Value;
             var meta = txtMeta.Text;
             var dias = txtDias.Text;
             var realizado = txtRealizado.Text;
-            var turno = cbxTurno.Text;
+            var turno = cmbTurno.Text;
             var valor = mtbValor.Text;
             var horario = txtHorario.Text;
             var turma = txtTurma.Text;
@@ -67,13 +64,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 var curso = new Curso()
                 {
-                    Nome = txtCurso.Text,
+                    Nome = cmbCurso.Text,
                     Inicio = dtpInicio.Value.Date,
                     Fim = dtpFim.Value.Date,
                     Dias = txtDias.Text,
                     Meta = txtMeta.Text,
                     Realizado = txtRealizado.Text,
-                    Turno = cbxTurno.Text,
+                    Turno = cmbTurno.Text,
                     Valor = mtbValor.Text,
                     Horario = txtHorario.Text,
                     Turma = txtTurma.Text,
@@ -85,10 +82,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 bd.Cursos.Add(curso);
                 bd.SaveChanges();
 
-                MessageBox.Show("Curso adicionado com sucesso.");
+                MessageBox.Show("Curso adicionado com sucesso.", 
+                    "Agenda de Cursos", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
                 // Limpa os campos
                 Listar();
                 LimparCampos();
+
             }
 
         }
@@ -97,6 +97,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             iAdicionar();
+            AdicionarItemComboBox();
+
 
 
         }
@@ -131,13 +133,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void LimparCampos()
         {
             txtId.Text = String.Empty;
-            txtCurso.Text = String.Empty;
+            cmbCurso.Text = String.Empty;
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
             txtDias.Text = String.Empty;
             txtMeta.Text = String.Empty;
             txtRealizado.Text = String.Empty;
-            cbxTurno.Text = String.Empty;
+            cmbTurno.Text = String.Empty;
             mtbValor.Text = String.Empty;
             txtHorario.Text = String.Empty;
             txtTurma.Text = String.Empty;
@@ -171,6 +173,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnDeletar_Click_1(object sender, EventArgs e)
         {
             iDeletar();
+
         }
 
 
@@ -178,19 +181,19 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             Listar();
 
+
         }
 
         private void iSalvar()
         {
             // Obtém os dados do formulário
-            string nome = txtCurso.Text;
-
+            string nome = cmbCurso.Text;
             DateTime inicio = dtpInicio.Value.Date;
             DateTime fim = dtpFim.Value.Date;
             string dias = txtDias.Text;
             string meta = txtMeta.Text;
             string realizado = txtRealizado.Text;
-            string turno = cbxTurno.Text;
+            string turno = cmbTurno.Text;
             string valor = Convert.ToString(mtbValor.Text);
             string horario = txtHorario.Text;
             string turma = txtTurma.Text;
@@ -203,7 +206,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             .First();
 
                 curso.Nome = nome;
-
                 curso.Inicio = inicio;
                 curso.Fim = fim;
                 curso.Dias = dias;
@@ -219,7 +221,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 bd.SaveChanges();
 
-                MessageBox.Show("Curso salvo com sucesso.");
+                MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.OKCancel);
                 Listar();
                 LimparCampos();
             }
@@ -274,7 +276,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iSair()
         {
             DialogResult iSair;
-            iSair = MessageBox.Show("Tem certeza que deseja sair?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            iSair = MessageBox.Show("Tem certeza que deseja sair?",
+                "Agenda de Cursos", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning);
 
             if (iSair == DialogResult.Yes)
             {
@@ -360,7 +365,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     {
                         excelPackage.SaveAs(new FileInfo(saveFileDialog.FileName));
                     }
+                    MessageBox.Show("Exportado com sucesso.", "Agenda de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
+
 
 
 
@@ -391,13 +399,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
             txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
-            txtCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
+            cmbCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
             dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
             dtpFim.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
             txtDias.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value + "".ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
             txtRealizado.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
-            cbxTurno.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
+            cmbTurno.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
             mtbValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
             txtHorario.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
             txtTurma.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
@@ -446,13 +454,22 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void txtCurso_SelectedIndexChanged(object sender, EventArgs e)
+        private void AdicionarItemComboBox()
         {
-            
+            string novoItem = " ";
+            cmbCurso.Items.Add(novoItem);
         }
     }
 
-}    
+}
+
+
+
+
+ 
+    
+
+  
 
                 
 
