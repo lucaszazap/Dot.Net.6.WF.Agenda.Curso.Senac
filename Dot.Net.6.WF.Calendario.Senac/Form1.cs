@@ -16,11 +16,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class Agenda_de_Curso : Form
     {
-       
+        
         public Agenda_de_Curso()
         {
             InitializeComponent();
-
+            
         }
 
         private void iAdicionar()
@@ -82,8 +82,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 bd.Cursos.Add(curso);
                 bd.SaveChanges();
 
-                MessageBox.Show("Curso adicionado com sucesso.", 
-                    "Agenda de Cursos", MessageBoxButtons.OK, 
+                MessageBox.Show("Curso adicionado com sucesso.",
+                    "Agenda de Cursos", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 // Limpa os campos
                 Listar();
@@ -277,8 +277,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             DialogResult iSair;
             iSair = MessageBox.Show("Tem certeza que deseja sair?",
-                "Agenda de Cursos", 
-                MessageBoxButtons.YesNo, 
+                "Agenda de Cursos",
+                MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
             if (iSair == DialogResult.Yes)
@@ -459,25 +459,35 @@ namespace Dot.Net._6.WF.Calendario.Senac
             string novoItem = " ";
             cmbCurso.Items.Add(novoItem);
         }
-    }
 
+        private void btnCadastroCurso_Click(object sender, EventArgs e)
+        {
+
+        
+
+        }
+
+        
+    }
 }
 
 
 
 
- 
-    
-
-  
-
-                
 
 
 
-        
 
-    
+
+
+
+
+
+
+
+
+
+
 
 
 

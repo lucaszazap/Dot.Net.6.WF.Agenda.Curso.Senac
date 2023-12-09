@@ -10,54 +10,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CredentialManagement;
+using System.Net.Mail;
+using System.Net;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class Login : Form
     {
-        private readonly string alvoCredenciais = "Credenciais  ";
+
+
         public Login()
         {
             InitializeComponent();
             txtUsuario.Focus();
             txtSenha.PasswordChar = '*';
 
+
         }
-        //private void CarregarCredenciaisSalvas()
-        //{
-        //    var credencial = new Credential { Target = alvoCredenciais };
 
-        //    if (credencial.Load())
-        //    {
-        //        txtUsuario.Text = credencial.Username;
-        //        txtSenha.Text = credencial.Password;
-        //        chkLembrarSenha.Checked = true;
-        //    }
-        //}
 
-        //private void SalvarCredenciais()
-        //{
-        //    var credencial = new Credential
-        //    {
-        //        Target = alvoCredenciais,
-        //        Username = txtUsuario.Text,
-        //        Password = txtSenha.Text,
-        //        PersistanceType = PersistanceType.LocalComputer
-        //    };
 
-        //    if (chkLembrarSenha.Checked)
-        //    {
-        //        credencial.Save();
-        //    }
-        //    else
-        //    {
-        //        credencial.Delete();
-        //    }
-        //}
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1()
         {
-
             string nomeUsuario = "admin";
             string senha = "senha";
 
@@ -76,10 +51,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 MessageBox.Show("Usuario/Senha incorretos", "Verifique suas credenciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                txtUsuario.Focus() ;
+                txtUsuario.Focus();
                 txtUsuario.Text = "";
                 txtSenha.Text = "";
             }
+
+
+
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            button1_Click_1();
+
         }
 
 
@@ -94,18 +77,21 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-           
-            MessageBox.Show("Deseja realmente cancelar?", 
-                "Alerta", 
-                MessageBoxButtons.YesNo, 
+
+            MessageBox.Show("Deseja realmente cancelar?",
+                "Alerta",
+                MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
-            
+
             this.Close();
 
 
         }
+
+
     }
 }
+
 
 
 

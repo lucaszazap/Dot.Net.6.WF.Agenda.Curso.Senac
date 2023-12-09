@@ -847,3 +847,6 @@ C:\Users\Aluno\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.
 C:\Users\Aluno\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.pdb
 C:\Users\Aluno\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.genruntimeconfig.cache
 C:\Users\Aluno\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\ref\Dot.Net.6.WF.Calendario.Senac.dll
+D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\CredentialManagement.dll
+D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Esqueceu_a_senha.resources
+D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Cadastramento_de_Cursos.resources
