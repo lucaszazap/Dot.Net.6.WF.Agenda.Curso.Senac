@@ -12,11 +12,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class Cadastramento_de_Cursos : Form
     {
-        
+
         public Cadastramento_de_Cursos()
         {
             InitializeComponent();
-            
+
 
             txtCadastramento.Focus();
         }
@@ -25,10 +25,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             string nomeCurso = txtCadastramento.Text;
 
-            if (txtCadastramento.Text == nomeCurso);
+            if (txtCadastramento.Text == nomeCurso) ;
             {
                 MessageBox.Show("O campo não pode estar vazio.");
-                
+
                 Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
                 formPrincipal.Show();
                 this.Hide();
@@ -36,7 +36,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
 
             MessageBox.Show("O curso foi cadastrado com sucesso.");
-           
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

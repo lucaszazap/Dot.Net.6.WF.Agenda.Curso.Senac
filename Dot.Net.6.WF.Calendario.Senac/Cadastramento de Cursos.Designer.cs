@@ -45,9 +45,9 @@
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(txtCadastramento);
             groupBox1.Controls.Add(label);
-            groupBox1.Location = new Point(12, 193);
+            groupBox1.Location = new Point(12, 246);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(435, 107);
+            groupBox1.Size = new Size(435, 100);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             // 
@@ -93,7 +93,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(435, 175);
+            pictureBox1.Size = new Size(435, 228);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -102,10 +102,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(469, 317);
+            BackColor = SystemColors.ButtonFace;
+            ClientSize = new Size(469, 395);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox1);
             Name = "Cadastramento_de_Cursos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastramento_de_Cursos";
             Load += Cadastramento_de_Cursos_Load;
             groupBox1.ResumeLayout(false);

@@ -9,6 +9,7 @@ using OfficeOpenXml;
 using System.IO.Pipes;
 using System.IO.Pipelines;
 using Dot.Net._6.WF.Calendario.Senac.Migrations;
+using DocumentFormat.OpenXml.Vml;
 
 
 namespace Dot.Net._6.WF.Calendario.Senac
@@ -16,11 +17,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class Agenda_de_Curso : Form
     {
-        
+
         public Agenda_de_Curso()
         {
             InitializeComponent();
-            
+
         }
 
         private void iAdicionar()
@@ -97,7 +98,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             iAdicionar();
-            AdicionarItemComboBox();
+
 
 
 
@@ -156,7 +157,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Tem certeza que deseja excluir?");
-                return;
+
             }
 
             using (var bd = new BancoDeDados())
@@ -454,20 +455,16 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void AdicionarItemComboBox()
-        {
-            string novoItem = " ";
-            cmbCurso.Items.Add(novoItem);
-        }
+
 
         private void btnCadastroCurso_Click(object sender, EventArgs e)
         {
+            Cadastramento_de_Cursos CadastroCursoForm = new Cadastramento_de_Cursos();
+            CadastroCursoForm.ShowDialog();
 
-        
+
 
         }
-
-        
     }
 }
 
