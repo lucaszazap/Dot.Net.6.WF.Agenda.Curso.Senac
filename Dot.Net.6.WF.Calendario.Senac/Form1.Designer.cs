@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             lbl = new Label();
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
@@ -94,29 +94,31 @@
             // lbl
             // 
             lbl.AutoSize = true;
-            lbl.Location = new Point(13, 46);
+            lbl.Location = new Point(24, 75);
             lbl.Name = "lbl";
-            lbl.Size = new Size(21, 15);
+            lbl.Size = new Size(27, 20);
             lbl.TabIndex = 35;
             lbl.Text = "ID:";
             // 
             // txtId
             // 
-            txtId.Location = new Point(40, 38);
+            txtId.Location = new Point(57, 65);
+            txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(121, 23);
+            txtId.Size = new Size(138, 27);
             txtId.TabIndex = 34;
             // 
             // dtpFim
             // 
             dtpFim.CustomFormat = "dd-MM-yyyy";
             dtpFim.Format = DateTimePickerFormat.Custom;
-            dtpFim.Location = new Point(573, 40);
+            dtpFim.Location = new Point(687, 65);
+            dtpFim.Margin = new Padding(3, 4, 3, 4);
             dtpFim.MaxDate = new DateTime(2999, 12, 31, 0, 0, 0, 0);
             dtpFim.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpFim.Name = "dtpFim";
-            dtpFim.Size = new Size(119, 23);
+            dtpFim.Size = new Size(135, 27);
             dtpFim.TabIndex = 3;
             dtpFim.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
@@ -124,11 +126,12 @@
             // 
             dtpInicio.CustomFormat = "dd-MM-yyyy";
             dtpInicio.Format = DateTimePickerFormat.Custom;
-            dtpInicio.Location = new Point(399, 40);
+            dtpInicio.Location = new Point(486, 65);
+            dtpInicio.Margin = new Padding(3, 4, 3, 4);
             dtpInicio.MaxDate = new DateTime(2999, 12, 31, 0, 0, 0, 0);
             dtpInicio.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpInicio.Name = "dtpInicio";
-            dtpInicio.Size = new Size(119, 23);
+            dtpInicio.Size = new Size(135, 27);
             dtpInicio.TabIndex = 1;
             dtpInicio.Value = new DateTime(2023, 12, 2, 0, 0, 0, 0);
             // 
@@ -136,9 +139,10 @@
             // 
             cmbCurso.FormattingEnabled = true;
             cmbCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
-            cmbCurso.Location = new Point(221, 40);
+            cmbCurso.Location = new Point(276, 67);
+            cmbCurso.Margin = new Padding(3, 4, 3, 4);
             cmbCurso.Name = "cmbCurso";
-            cmbCurso.Size = new Size(121, 23);
+            cmbCurso.Size = new Size(138, 28);
             cmbCurso.TabIndex = 0;
             cmbCurso.KeyPress += TextOnly;
             // 
@@ -147,154 +151,161 @@
             cmbTurno.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTurno.FormattingEnabled = true;
             cmbTurno.Items.AddRange(new object[] { "Matutino", "Vespertino", "Noturno" });
-            cmbTurno.Location = new Point(571, 87);
+            cmbTurno.Location = new Point(684, 127);
+            cmbTurno.Margin = new Padding(3, 4, 3, 4);
             cmbTurno.Name = "cmbTurno";
-            cmbTurno.Size = new Size(121, 23);
+            cmbTurno.Size = new Size(138, 28);
             cmbTurno.TabIndex = 9;
             // 
             // txtMeta
             // 
-            txtMeta.Location = new Point(748, 42);
+            txtMeta.Location = new Point(888, 66);
+            txtMeta.Margin = new Padding(3, 4, 3, 4);
             txtMeta.Name = "txtMeta";
-            txtMeta.Size = new Size(121, 23);
+            txtMeta.Size = new Size(138, 27);
             txtMeta.TabIndex = 4;
             txtMeta.KeyPress += NumbersOnly;
             // 
             // txtDias
             // 
-            txtDias.Location = new Point(40, 87);
+            txtDias.Location = new Point(57, 127);
+            txtDias.Margin = new Padding(3, 4, 3, 4);
             txtDias.Name = "txtDias";
-            txtDias.Size = new Size(121, 23);
+            txtDias.Size = new Size(138, 27);
             txtDias.TabIndex = 6;
             txtDias.KeyPress += TextOnly;
             // 
             // txtSala
             // 
-            txtSala.Location = new Point(956, 88);
+            txtSala.Location = new Point(1116, 130);
+            txtSala.Margin = new Padding(3, 4, 3, 4);
             txtSala.Name = "txtSala";
-            txtSala.Size = new Size(121, 23);
+            txtSala.Size = new Size(138, 27);
             txtSala.TabIndex = 12;
             // 
             // txtTurma
             // 
-            txtTurma.Location = new Point(748, 88);
+            txtTurma.Location = new Point(888, 129);
+            txtTurma.Margin = new Padding(3, 4, 3, 4);
             txtTurma.Name = "txtTurma";
-            txtTurma.Size = new Size(121, 23);
+            txtTurma.Size = new Size(138, 27);
             txtTurma.TabIndex = 10;
             txtTurma.KeyPress += NumbersOnly;
             // 
             // txtHorario
             // 
-            txtHorario.Location = new Point(221, 88);
+            txtHorario.Location = new Point(276, 127);
+            txtHorario.Margin = new Padding(3, 4, 3, 4);
             txtHorario.Name = "txtHorario";
-            txtHorario.Size = new Size(121, 23);
+            txtHorario.Size = new Size(138, 27);
             txtHorario.TabIndex = 7;
             txtHorario.TextChanged += txtHorario_TextChanged;
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(956, 40);
+            txtRealizado.Location = new Point(1116, 66);
+            txtRealizado.Margin = new Padding(3, 4, 3, 4);
             txtRealizado.Name = "txtRealizado";
-            txtRealizado.Size = new Size(121, 23);
+            txtRealizado.Size = new Size(138, 27);
             txtRealizado.TabIndex = 5;
             txtRealizado.KeyPress += NumbersOnly;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(922, 95);
+            label12.Location = new Point(1070, 136);
             label12.Name = "label12";
-            label12.Size = new Size(31, 15);
+            label12.Size = new Size(40, 20);
             label12.TabIndex = 11;
             label12.Text = "Sala:";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(698, 96);
+            label11.Location = new Point(828, 135);
             label11.Name = "label11";
-            label11.Size = new Size(44, 15);
+            label11.Size = new Size(54, 20);
             label11.TabIndex = 10;
             label11.Text = "Turma:";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(167, 95);
+            label10.Location = new Point(207, 133);
             label10.Name = "label10";
-            label10.Size = new Size(50, 15);
+            label10.Size = new Size(63, 20);
             label10.TabIndex = 9;
             label10.Text = "Horário:";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(357, 95);
+            label9.Location = new Point(435, 136);
             label9.Name = "label9";
-            label9.Size = new Size(36, 15);
+            label9.Size = new Size(46, 20);
             label9.TabIndex = 8;
             label9.Text = "Valor:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(537, 48);
+            label4.Location = new Point(645, 75);
             label4.Name = "label4";
-            label4.Size = new Size(30, 15);
+            label4.Size = new Size(36, 20);
             label4.TabIndex = 3;
             label4.Text = "Fim:";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(524, 95);
+            label8.Location = new Point(630, 138);
             label8.Name = "label8";
-            label8.Size = new Size(41, 15);
+            label8.Size = new Size(50, 20);
             label8.TabIndex = 7;
             label8.Text = "Turno:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(176, 46);
+            label1.Location = new Point(221, 74);
             label1.Name = "label1";
-            label1.Size = new Size(41, 15);
+            label1.Size = new Size(49, 20);
             label1.TabIndex = 0;
             label1.Text = "Curso:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(893, 48);
+            label7.Location = new Point(1032, 73);
             label7.Name = "label7";
-            label7.Size = new Size(60, 15);
+            label7.Size = new Size(78, 20);
             label7.TabIndex = 6;
             label7.Text = "Realizado:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(705, 50);
+            label6.Location = new Point(836, 73);
             label6.Name = "label6";
-            label6.Size = new Size(37, 15);
+            label6.Size = new Size(46, 20);
             label6.TabIndex = 5;
             label6.Text = "Meta:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(354, 48);
+            label3.Location = new Point(432, 73);
             label3.Name = "label3";
-            label3.Size = new Size(39, 15);
+            label3.Size = new Size(48, 20);
             label3.TabIndex = 2;
             label3.Text = "Início:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 91);
+            label5.Location = new Point(10, 133);
             label5.Name = "label5";
-            label5.Size = new Size(32, 15);
+            label5.Size = new Size(41, 20);
             label5.TabIndex = 4;
             label5.Text = "Dias:";
             // 
@@ -305,7 +316,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(118, 24);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(146, 30);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -313,34 +325,34 @@
             // 
             arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, salvarToolStripMenuItem, exportarToolStripMenuItem, sairToolStripMenuItem });
             arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            arquivoToolStripMenuItem.Size = new Size(61, 20);
+            arquivoToolStripMenuItem.Size = new Size(75, 24);
             arquivoToolStripMenuItem.Text = "Arquivo";
             // 
             // adicionarToolStripMenuItem
             // 
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(125, 22);
+            adicionarToolStripMenuItem.Size = new Size(156, 26);
             adicionarToolStripMenuItem.Text = "Adicionar";
             adicionarToolStripMenuItem.Click += adicionarToolStripMenuItem_Click;
             // 
             // salvarToolStripMenuItem
             // 
             salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            salvarToolStripMenuItem.Size = new Size(125, 22);
+            salvarToolStripMenuItem.Size = new Size(156, 26);
             salvarToolStripMenuItem.Text = "Salvar";
             salvarToolStripMenuItem.Click += salvarToolStripMenuItem_Click;
             // 
             // exportarToolStripMenuItem
             // 
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            exportarToolStripMenuItem.Size = new Size(125, 22);
+            exportarToolStripMenuItem.Size = new Size(156, 26);
             exportarToolStripMenuItem.Text = "Exportar";
             exportarToolStripMenuItem.Click += exportarToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(125, 22);
+            sairToolStripMenuItem.Size = new Size(156, 26);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -348,20 +360,20 @@
             // 
             editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { limparToolStripMenuItem, deletarToolStripMenuItem });
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            editarToolStripMenuItem.Size = new Size(49, 20);
+            editarToolStripMenuItem.Size = new Size(62, 24);
             editarToolStripMenuItem.Text = "Editar";
             editarToolStripMenuItem.Click += editarToolStripMenuItem_Click;
             // 
             // limparToolStripMenuItem
             // 
             limparToolStripMenuItem.Name = "limparToolStripMenuItem";
-            limparToolStripMenuItem.Size = new Size(111, 22);
+            limparToolStripMenuItem.Size = new Size(141, 26);
             limparToolStripMenuItem.Text = "Limpar";
             // 
             // deletarToolStripMenuItem
             // 
             deletarToolStripMenuItem.Name = "deletarToolStripMenuItem";
-            deletarToolStripMenuItem.Size = new Size(111, 22);
+            deletarToolStripMenuItem.Size = new Size(141, 26);
             deletarToolStripMenuItem.Text = "Deletar";
             deletarToolStripMenuItem.Click += deletarToolStripMenuItem_Click;
             // 
@@ -394,17 +406,19 @@
             panel1.Controls.Add(label12);
             panel1.Controls.Add(txtRealizado);
             panel1.Location = new Point(0, 0);
-            panel1.MaximumSize = new Size(1600, 900);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.MaximumSize = new Size(1829, 1200);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1126, 155);
+            panel1.Size = new Size(1287, 207);
             panel1.TabIndex = 3;
             // 
             // mtbValor
             // 
-            mtbValor.Location = new Point(399, 88);
+            mtbValor.Location = new Point(486, 129);
+            mtbValor.Margin = new Padding(3, 4, 3, 4);
             mtbValor.Mask = "$99,999.99";
             mtbValor.Name = "mtbValor";
-            mtbValor.Size = new Size(121, 23);
+            mtbValor.Size = new Size(138, 27);
             mtbValor.TabIndex = 8;
             mtbValor.MaskInputRejected += mtbValor_MaskInputRejected;
             // 
@@ -418,18 +432,20 @@
             panel2.Controls.Add(btnSalvar);
             panel2.Controls.Add(btnDeletar);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 574);
-            panel2.MaximumSize = new Size(1600, 900);
+            panel2.Location = new Point(0, 766);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.MaximumSize = new Size(1828, 1199);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1126, 87);
+            panel2.Size = new Size(1287, 115);
             panel2.TabIndex = 7;
             // 
             // btnSair
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
-            btnSair.Location = new Point(985, 31);
+            btnSair.Location = new Point(1126, 41);
+            btnSair.Margin = new Padding(3, 4, 3, 4);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(98, 31);
+            btnSair.Size = new Size(112, 41);
             btnSair.TabIndex = 5;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
@@ -438,9 +454,10 @@
             // btnExportar
             // 
             btnExportar.Anchor = AnchorStyles.Bottom;
-            btnExportar.Location = new Point(792, 31);
+            btnExportar.Location = new Point(905, 41);
+            btnExportar.Margin = new Padding(3, 4, 3, 4);
             btnExportar.Name = "btnExportar";
-            btnExportar.Size = new Size(94, 31);
+            btnExportar.Size = new Size(107, 41);
             btnExportar.TabIndex = 3;
             btnExportar.Text = "Exportar";
             btnExportar.UseVisualStyleBackColor = true;
@@ -449,9 +466,10 @@
             // btnAdicionar
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom;
-            btnAdicionar.Location = new Point(31, 31);
+            btnAdicionar.Location = new Point(35, 41);
+            btnAdicionar.Margin = new Padding(3, 4, 3, 4);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(98, 31);
+            btnAdicionar.Size = new Size(112, 41);
             btnAdicionar.TabIndex = 0;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
@@ -460,9 +478,10 @@
             // btnLimparCampos
             // 
             btnLimparCampos.Anchor = AnchorStyles.Bottom;
-            btnLimparCampos.Location = new Point(220, 31);
+            btnLimparCampos.Location = new Point(251, 41);
+            btnLimparCampos.Margin = new Padding(3, 4, 3, 4);
             btnLimparCampos.Name = "btnLimparCampos";
-            btnLimparCampos.Size = new Size(98, 31);
+            btnLimparCampos.Size = new Size(112, 41);
             btnLimparCampos.TabIndex = 7;
             btnLimparCampos.Text = "Limpar";
             btnLimparCampos.UseVisualStyleBackColor = true;
@@ -471,9 +490,10 @@
             // btnSalvar
             // 
             btnSalvar.Anchor = AnchorStyles.Bottom;
-            btnSalvar.Location = new Point(605, 31);
+            btnSalvar.Location = new Point(691, 41);
+            btnSalvar.Margin = new Padding(3, 4, 3, 4);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(98, 31);
+            btnSalvar.Size = new Size(112, 41);
             btnSalvar.TabIndex = 3;
             btnSalvar.Text = "Atualizar";
             btnSalvar.UseVisualStyleBackColor = true;
@@ -482,9 +502,10 @@
             // btnDeletar
             // 
             btnDeletar.Anchor = AnchorStyles.Bottom;
-            btnDeletar.Location = new Point(416, 31);
+            btnDeletar.Location = new Point(475, 41);
+            btnDeletar.Margin = new Padding(3, 4, 3, 4);
             btnDeletar.Name = "btnDeletar";
-            btnDeletar.Size = new Size(98, 31);
+            btnDeletar.Size = new Size(112, 41);
             btnDeletar.TabIndex = 2;
             btnDeletar.Text = "Deletar";
             btnDeletar.UseVisualStyleBackColor = true;
@@ -494,20 +515,21 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             gridCurso.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.LightGray;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoTurno, ColunaCursoValor, ColunaCursoHorario, ColunaCursoTurma, ColunaCursoSala });
-            gridCurso.Location = new Point(0, 152);
-            gridCurso.MaximumSize = new Size(1600, 900);
+            gridCurso.Location = new Point(0, 203);
+            gridCurso.Margin = new Padding(3, 4, 3, 4);
+            gridCurso.MaximumSize = new Size(1829, 1200);
             gridCurso.Name = "gridCurso";
             gridCurso.ReadOnly = true;
             gridCurso.RowHeadersWidth = 51;
             gridCurso.RowTemplate.Height = 25;
-            gridCurso.Size = new Size(1126, 422);
+            gridCurso.Size = new Size(1287, 563);
             gridCurso.TabIndex = 6;
             gridCurso.CellClick += gridCurso_CellClick;
             gridCurso.CellContentClick += gridCurso_CellContentClick;
@@ -531,9 +553,9 @@
             // ColunaCursoInicio
             // 
             ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Format = "d";
+            dataGridViewCellStyle11.NullValue = null;
+            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle11;
             ColunaCursoInicio.HeaderText = "Início";
             ColunaCursoInicio.MinimumWidth = 6;
             ColunaCursoInicio.Name = "ColunaCursoInicio";
@@ -542,9 +564,9 @@
             // ColunaCursoFim
             // 
             ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Format = "d";
+            dataGridViewCellStyle12.NullValue = null;
+            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle12;
             ColunaCursoFim.HeaderText = "Fim";
             ColunaCursoFim.MinimumWidth = 6;
             ColunaCursoFim.Name = "ColunaCursoFim";
@@ -616,18 +638,20 @@
             // 
             // Agenda_de_Curso
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1126, 661);
+            ClientSize = new Size(1287, 881);
             Controls.Add(gridCurso);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            MinimumSize = new Size(500, 400);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(569, 518);
             Name = "Agenda_de_Curso";
-            Text = "Agenda de Cursos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agendamento de Cursos";
             Load += Agenda_de_Curso_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

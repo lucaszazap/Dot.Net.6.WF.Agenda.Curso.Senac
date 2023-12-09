@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CredentialManagement;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class Login : Form
     {
+        private readonly string alvoCredenciais = "Credenciais  ";
         public Login()
         {
             InitializeComponent();
@@ -21,7 +23,37 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtSenha.PasswordChar = '*';
 
         }
+        //private void CarregarCredenciaisSalvas()
+        //{
+        //    var credencial = new Credential { Target = alvoCredenciais };
 
+        //    if (credencial.Load())
+        //    {
+        //        txtUsuario.Text = credencial.Username;
+        //        txtSenha.Text = credencial.Password;
+        //        chkLembrarSenha.Checked = true;
+        //    }
+        //}
+
+        //private void SalvarCredenciais()
+        //{
+        //    var credencial = new Credential
+        //    {
+        //        Target = alvoCredenciais,
+        //        Username = txtUsuario.Text,
+        //        Password = txtSenha.Text,
+        //        PersistanceType = PersistanceType.LocalComputer
+        //    };
+
+        //    if (chkLembrarSenha.Checked)
+        //    {
+        //        credencial.Save();
+        //    }
+        //    else
+        //    {
+        //        credencial.Delete();
+        //    }
+        //}
 
         private void button1_Click_1(object sender, EventArgs e)
         {

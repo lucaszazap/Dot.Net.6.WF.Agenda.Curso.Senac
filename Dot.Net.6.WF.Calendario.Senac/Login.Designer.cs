@@ -50,17 +50,20 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Location = new Point(-4, -10);
+            groupBox1.Location = new Point(-5, -13);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(774, 475);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(885, 633);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(316, 339);
+            btnCancelar.Location = new Point(348, 452);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(63, 27);
+            btnCancelar.Size = new Size(85, 36);
             btnCancelar.TabIndex = 19;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -68,19 +71,21 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(319, 300);
+            txtSenha.Location = new Point(348, 400);
+            txtSenha.Margin = new Padding(3, 4, 3, 4);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
-            txtSenha.Size = new Size(132, 23);
+            txtSenha.Size = new Size(173, 27);
             txtSenha.TabIndex = 1;
             txtSenha.UseSystemPasswordChar = true;
             txtSenha.KeyPress += txtSenha_KeyPress;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(385, 339);
+            btnLogin.Location = new Point(440, 452);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(66, 27);
+            btnLogin.Size = new Size(81, 36);
             btnLogin.TabIndex = 16;
             btnLogin.Text = "Entrar";
             btnLogin.UseVisualStyleBackColor = true;
@@ -88,9 +93,10 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(319, 267);
+            txtUsuario.Location = new Point(348, 356);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(132, 23);
+            txtUsuario.Size = new Size(173, 27);
             txtUsuario.TabIndex = 0;
             // 
             // label1
@@ -99,9 +105,9 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(262, 272);
+            label1.Location = new Point(289, 363);
             label1.Name = "label1";
-            label1.Size = new Size(50, 15);
+            label1.Size = new Size(62, 20);
             label1.TabIndex = 17;
             label1.Text = "Usuário:";
             // 
@@ -109,30 +115,31 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.White;
-            label2.Location = new Point(271, 305);
+            label2.Location = new Point(299, 407);
             label2.Name = "label2";
-            label2.Size = new Size(42, 15);
+            label2.Size = new Size(52, 20);
             label2.TabIndex = 18;
             label2.Text = "Senha:";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 10);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new Point(2, 13);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(766, 475);
+            pictureBox1.Size = new Size(875, 633);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(762, 461);
+            ClientSize = new Size(871, 615);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
