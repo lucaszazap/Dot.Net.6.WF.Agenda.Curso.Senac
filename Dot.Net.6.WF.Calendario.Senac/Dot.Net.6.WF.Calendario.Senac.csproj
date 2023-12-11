@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.1" />
-    <PackageReference Include="CredentialManagement" Version="1.0.2" />
     <PackageReference Include="EPPlus" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.25">
@@ -29,6 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="BancoDeDados.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Migrations\20231210155356_criando_banco_de_dados_curso.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -44,6 +49,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="cadastrousuario.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Cursos.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

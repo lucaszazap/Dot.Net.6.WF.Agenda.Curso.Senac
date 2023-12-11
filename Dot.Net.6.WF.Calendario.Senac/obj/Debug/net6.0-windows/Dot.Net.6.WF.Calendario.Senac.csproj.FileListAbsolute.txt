@@ -579,7 +579,6 @@ C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Ne
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.csproj.AssemblyReference.cache
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Agenda_de_Curso.resources
-C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Login.resources
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Properties.Resources.resources
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.csproj.GenerateResource.cache
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.GeneratedMSBuildEditorConfig.editorconfig
@@ -850,3 +849,10 @@ C:\Users\Aluno\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.
 D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\CredentialManagement.dll
 D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Esqueceu_a_senha.resources
 D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Cadastramento_de_Cursos.resources
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.Cadastramento_de_Cursos.resources
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.FrmTelaLogin.resources
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.FrmConsultarUsuario.resources
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\BancoDeDados.cs
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.FrmCadastroUsuario.resources
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\Migrations\20231210155356_criando_banco_de_dados_curso.cs
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\cadastrousuario.db

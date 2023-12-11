@@ -156,19 +156,41 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             if (string.IsNullOrEmpty(txtId.Text))
             {
-                MessageBox.Show("Tem certeza que deseja excluir?");
-
+                MessageBox.Show("Por favor, informe o ID antes de tentar excluir.");
             }
-
-            using (var bd = new BancoDeDados())
+            else
             {
-                var curso = bd.Cursos.Where(w => w
-                .Id == Convert.ToInt32(txtId.Text)).First();
 
-                bd.Cursos.Remove(curso);
-                bd.SaveChanges();
-                Listar();
-                LimparCampos();
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+                if (resultado == DialogResult.Yes)
+                {
+
+                    using (var bd = new BancoDeDados())
+                    {
+                        try
+                        {
+                            var curso = bd.Cursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
+
+                            if (curso != null)
+                            {
+                                bd.Cursos.Remove(curso);
+                                bd.SaveChanges();
+                                Listar();
+                                LimparCampos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Curso não encontrado. Verifique o ID informado.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Erro ao excluir: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
         }
         private void btnDeletar_Click_1(object sender, EventArgs e)
@@ -455,15 +477,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
-
-        private void btnCadastroCurso_Click(object sender, EventArgs e)
+        private void cadastrarCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Cadastramento_de_Cursos CadastroCursoForm = new Cadastramento_de_Cursos();
             CadastroCursoForm.ShowDialog();
-
-
-
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dot.Net.6.WF.Calendario.Senac")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6a0f52ce49ef64c4cc0725ffaf42930ddc8b2d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dot.Net.6.WF.Calendario.Senac")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dot.Net.6.WF.Calendario.Senac")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

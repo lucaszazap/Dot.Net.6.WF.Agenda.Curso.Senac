@@ -24,15 +24,6 @@
           }
         }
       },
-      "CredentialManagement/1.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net35/CredentialManagement.dll": {}
-        },
-        "runtime": {
-          "lib/net35/CredentialManagement.dll": {}
-        }
-      },
       "DocumentFormat.OpenXml/2.16.0": {
         "type": "package",
         "dependencies": {
@@ -2430,18 +2421,6 @@
         "lib/netstandard2.1/ClosedXML.dll",
         "lib/netstandard2.1/ClosedXML.xml",
         "nuget-logo.png"
-      ]
-    },
-    "CredentialManagement/1.0.2": {
-      "sha512": "VkP04/jFXaxT3TkcRhzETYtOrznQxRmQ2J1XJdbXz47Bir7hIzPR7mFZk4GJQ4An4gozW+vonpf+iqTHomAkQw==",
-      "type": "package",
-      "path": "credentialmanagement/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "credentialmanagement.1.0.2.nupkg.sha512",
-        "credentialmanagement.nuspec",
-        "lib/net35/CredentialManagement.dll"
       ]
     },
     "DocumentFormat.OpenXml/2.16.0": {
@@ -7179,7 +7158,6 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "ClosedXML >= 0.102.1",
-      "CredentialManagement >= 1.0.2",
       "EPPlus >= 7.0.2",
       "Microsoft.EntityFrameworkCore >= 6.0.25",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.25",
@@ -7191,19 +7169,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\caua.moreira\\.nuget\\packages\\": {}
+    "C:\\Users\\Larissa S. da Silva\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+      "projectUniqueName": "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
       "projectName": "Dot.Net.6.WF.Calendario.Senac",
-      "projectPath": "D:\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
-      "packagesPath": "C:\\Users\\caua.moreira\\.nuget\\packages\\",
-      "outputPath": "D:\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
+      "projectPath": "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+      "packagesPath": "C:\\Users\\Larissa S. da Silva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\caua.moreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Larissa S. da Silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7211,6 +7194,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7232,10 +7216,6 @@
           "ClosedXML": {
             "target": "Package",
             "version": "[0.102.1, )"
-          },
-          "CredentialManagement": {
-            "target": "Package",
-            "version": "[1.0.2, )"
           },
           "EPPlus": {
             "target": "Package",
@@ -7293,20 +7273,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "O pacote 'CredentialManagement 1.0.2' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net6.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
-      "libraryId": "CredentialManagement",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }

@@ -9,7 +9,6 @@
       "Dot.Net.6.WF.Calendario.Senac/1.0.0": {
         "dependencies": {
           "ClosedXML": "0.102.1",
-          "CredentialManagement": "1.0.2",
           "EPPlus": "7.0.2",
           "Microsoft.EntityFrameworkCore": "6.0.25",
           "Microsoft.EntityFrameworkCore.Design": "6.0.25",
@@ -37,14 +36,6 @@
           "lib/netstandard2.1/ClosedXML.dll": {
             "assemblyVersion": "0.102.1.0",
             "fileVersion": "0.102.1.0"
-          }
-        }
-      },
-      "CredentialManagement/1.0.2": {
-        "runtime": {
-          "lib/net35/CredentialManagement.dll": {
-            "assemblyVersion": "1.0.2.0",
-            "fileVersion": "1.0.2.0"
           }
         }
       },
@@ -1390,13 +1381,6 @@
       "sha512": "sha512-Zb0/SgczPKLqlCHpSZzMG2qzaT3HpdkFrYJU8TTFRMfC0NLTSlp8gw26tZAtJp+Do0szAhPrWjkTp9flH9Or0A==",
       "path": "closedxml/0.102.1",
       "hashPath": "closedxml.0.102.1.nupkg.sha512"
-    },
-    "CredentialManagement/1.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VkP04/jFXaxT3TkcRhzETYtOrznQxRmQ2J1XJdbXz47Bir7hIzPR7mFZk4GJQ4An4gozW+vonpf+iqTHomAkQw==",
-      "path": "credentialmanagement/1.0.2",
-      "hashPath": "credentialmanagement.1.0.2.nupkg.sha512"
     },
     "DocumentFormat.OpenXml/2.16.0": {
       "type": "package",
