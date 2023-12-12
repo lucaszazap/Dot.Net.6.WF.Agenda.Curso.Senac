@@ -17,7 +17,7 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");
 
-            modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.Curso", b =>
+            modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.AgendamentoCurso", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,7 +60,59 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
 
                     b.HasKey("Id");
 
+                    b.ToTable("AgendamentoCursos");
+                });
+
+            modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.Curso", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
                     b.ToTable("Cursos");
+                });
+
+            modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.Usuario", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Administrador")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Usuarios");
                 });
 #pragma warning restore 612, 618
         }

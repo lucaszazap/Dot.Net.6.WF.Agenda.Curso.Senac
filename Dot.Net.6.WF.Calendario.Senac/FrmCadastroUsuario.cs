@@ -53,35 +53,37 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
 
-            using (var bd = new BancoDeDadosCadastroUsuario())
+            using (var bd = new BancoDeDados())
             {
-                // Verifica se o usuário administrador já existe
-                var adminExistente = bd.CadastroUsuario.FirstOrDefault(u => u.Login == "admin");
+               
 
-                // Se o usuário administrador não existe, crie-o
-                if (adminExistente == null)
-                {
-                    var admin = new CadastroUsuario()
-                    {
-                        Login = "admin",
-                        Senha = "senha",
-                        Email = " ",
-                        Nome = " ",
-                        Administrador = true,
-                        Ativo = true,
-                    };
+                //// Verifica se o usuário administrador já existe
+                //var adminExistente = bd.Usuarios.FirstOrDefault(u => u.Login == "admin");
 
-                    bd.CadastroUsuario.Add(admin);
-                    bd.SaveChanges();
-                }
+                //// Se o usuário administrador não existe, crie-o
+                //if (adminExistente == null)
+                //{
+                //    var admin = new Usuario()
+                //    {
+                //        Login = "admin",
+                //        Senha = "senha",
+                //        Email = " ",
+                //        Nome = " ",
+                //        Administrador = true,
+                //        Ativo = true,
+                //    };
+
+                //    bd.Usuarios.Add(admin);
+                //    bd.SaveChanges();
+                //}
 
                 // verificar o usuário logado como administrador e criar um novo usuário
-                var usuarioLogado = bd.CadastroUsuario.FirstOrDefault(u => u.Login == "admin" && u.Senha == "senha");
+                var usuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == "admin" && u.Senha == "senha");
 
                 if (usuarioLogado != null && usuarioLogado.Administrador)
                 {
                     // Cria um novo usuário apenas se o usuário logado for administrador
-                    var cadastrousuario = new CadastroUsuario()
+                    var cadastrousuario = new Usuario()
                     {
                         Login = txtNomeLogin.Text,
                         Nome = txtNomeCompleto.Text,
@@ -91,7 +93,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         Ativo = chkAtivo.Checked,
                     };
 
-                    bd.CadastroUsuario.Add(cadastrousuario);
+                    bd.Usuarios.Add(cadastrousuario);
                     bd.SaveChanges();
 
                     MessageBox.Show("O usuário foi cadastrado com sucesso.");

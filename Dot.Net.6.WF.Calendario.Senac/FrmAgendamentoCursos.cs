@@ -8,7 +8,6 @@ using ClosedXML.Excel;
 using OfficeOpenXml;
 using System.IO.Pipes;
 using System.IO.Pipelines;
-using Dot.Net._6.WF.Calendario.Senac.Migrations;
 using DocumentFormat.OpenXml.Vml;
 
 
@@ -63,7 +62,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             // Adiciona o curso ao banco de dados
             using (var bd = new BancoDeDados())
             {
-                var curso = new Curso()
+                var curso = new AgendamentoCurso()
                 {
                     Nome = cmbCurso.Text,
                     Inicio = dtpInicio.Value.Date,
@@ -80,7 +79,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 };
 
 
-                bd.Cursos.Add(curso);
+                bd.AgendamentoCursos.Add(curso);
                 bd.SaveChanges();
 
                 MessageBox.Show("Curso adicionado com sucesso.",
@@ -110,7 +109,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var Curso = bd.Cursos.ToList();
+                var Curso = bd.AgendamentoCursos.ToList();
 
                 foreach (var curso in Curso)
                 {
@@ -171,11 +170,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     {
                         try
                         {
-                            var curso = bd.Cursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
+                            var curso = bd.AgendamentoCursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
 
                             if (curso != null)
                             {
-                                bd.Cursos.Remove(curso);
+                                bd.AgendamentoCursos.Remove(curso);
                                 bd.SaveChanges();
                                 Listar();
                                 LimparCampos();
@@ -202,9 +201,23 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
         {
+            CarregarCombos();
             Listar();
 
 
+        }
+
+        private void CarregarCombos()
+        {
+            using (var bd = new BancoDeDados())
+            {
+                var cursos = bd.Cursos.ToList();
+
+                cmbCurso.DataSource = cursos;
+                cmbCurso.DisplayMember = "Nome";
+                cmbCurso.ValueMember = "Id";
+                cmbCurso.SelectedIndex = -1;
+            }
         }
 
         private void iSalvar()
@@ -224,7 +237,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var curso = bd.Cursos
+                var curso = bd.AgendamentoCursos
             .Where(w => w.Id == Convert.ToInt32(txtId.Text))
             .First();
 
@@ -337,7 +350,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             using (var bd = new BancoDeDados())
             {
                 // Puxa todos os cursos do banco de dados
-                var todosCursos = bd.Cursos.ToList();
+                var todosCursos = bd.AgendamentoCursos.ToList();
 
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using (ExcelPackage excelPackage = new ExcelPackage())
@@ -481,6 +494,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             Cadastramento_de_Cursos CadastroCursoForm = new Cadastramento_de_Cursos();
             CadastroCursoForm.ShowDialog();
+        }
+
+        private void cadastrarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -69,15 +69,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             try
             {
-                using (var bd = new BancoDeDadosCadastroUsuario())
+                using (var bd = new BancoDeDados())
                 {
 
-                    var adminExistente = bd.CadastroUsuario.FirstOrDefault(u => u.ID.ToString() == "admin");
+                    var adminExistente = bd.Usuarios.FirstOrDefault(u => u.ID.ToString() == "admin");
 
                     // Se o usuário administrador não existe, crie-o
                     if (adminExistente == null)
                     {
-                        var admin = new CadastroUsuario()
+                        var admin = new Usuario()
                         {
                             Login = "admin",
                             Senha = "senha",  // Lembre-se de tratar senhas de maneira segura em uma aplicação real
@@ -85,7 +85,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                             Ativo = true,
                         };
 
-                        bd.CadastroUsuario.Add(admin);
+                        bd.Usuarios.Add(admin);
                         bd.SaveChanges();
                     }
                 }
@@ -138,29 +138,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             frmConsultarUsuario.ShowDialog();
         }
 
-       private void FrmTelaLogin_Load(object sender, EventArgs e)
-        {
-             try
-              {
-                using (var bd = new BancoDeDadosCadastroUsuario())
-
-               {
-                    // Verifica se existe pelo menos um usuário administrador no banco de dados
-                    var adminExistente = bd.CadastroUsuario.Any(u => u.Administrador);
-    
-                    // Se não há administradores, exibe uma mensagem e encerra a aplicação
-                     if (!adminExistente)
-                      {
-                          MessageBox.Show("Não há administradores cadastrados. A aplicação será encerrada.", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Application.Exit();
-                      }
-}
-    }
-                  catch (Exception ex)
-                   {
-                      MessageBox.Show("Erro ao verificar administradores: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                  }
-}
+      
      }
 }
 

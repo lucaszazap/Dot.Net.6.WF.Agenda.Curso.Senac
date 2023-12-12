@@ -19,36 +19,25 @@ namespace Dot.Net._6.WF.Calendario.Senac
             InitializeComponent();
         }
 
-       
-        private void MostrarUsuario()
-        {
-            using (var bd = new BancoDeDadosCadastroUsuario())
-            {
-                var usuarios = bd.CadastroUsuario.ToList();
-                GridConsultarUsuario.DataSource = usuarios;
-            }
-
-        }
-                    
-
         private void ListarCampo()
         {
-            
-
-            using (var bd = new BancoDeDadosCadastroUsuario())
+        
+            using (var bd = new BancoDeDados())
             {
-                var usuarios = bd.CadastroUsuario.ToList();
+                var CadastroUsuario = bd.Usuarios.ToList();
 
-                foreach (var usuario in usuarios)
+                foreach (var cadastrousuario in CadastroUsuario)
                 {
                     GridConsultarUsuario.Rows.Add(
-                        usuario.Login,
-                        usuario.Nome,
-                        usuario.Email,
-                        usuario.Senha,
-                        usuario.Administrador,
-                        usuario.Ativo);
+                        cadastrousuario.Login,
+                        cadastrousuario.Nome,
+                        cadastrousuario.Email,
+                        cadastrousuario.Senha,
+                        cadastrousuario.Administrador,
+                        cadastrousuario.Ativo);
                 }
+
+             
                 
             }
 
@@ -57,14 +46,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void GridConsultarUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MostrarUsuario();
-           ListarCampo();
+          
+          
         }
 
         private void FrmConsultarUsuario_Load(object sender, EventArgs e)
         {
-            MostrarUsuario();
-            ListarCampo();
+        
+           ListarCampo();
         }
     }
 }

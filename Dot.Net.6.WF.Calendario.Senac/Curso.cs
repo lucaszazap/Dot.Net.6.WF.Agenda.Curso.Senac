@@ -15,21 +15,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
-        [Required]
-        public DateTime Inicio { get; set; }
-        [Required]
-        public DateTime Fim { get; set; }
-        public string? Dias { get; set; }
-        public string? Meta { get; set; }
-        public string? Realizado { get; set; } 
-        public string? Turno { get; set; } 
-        public string? Valor { get; set; }
-        public string? Horario { get; set; } 
-        public string? Turma { get; set; } 
-        public string? Sala { get; set; }
-
-        
-
 
     }
 }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {}
+    "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {
+    "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+        "projectUniqueName": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
         "projectName": "Dot.Net.6.WF.Calendario.Senac",
-        "projectPath": "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
-        "packagesPath": "C:\\Users\\Larissa S. da Silva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Larissa S. da Silva\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
+        "projectPath": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\Dot.Net.6.WF.Calendario.Senac.csproj",
+        "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Aluno\\source\\repos\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Agenda.Curso.Senac\\Dot.Net.6.WF.Calendario.Senac\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Larissa S. da Silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

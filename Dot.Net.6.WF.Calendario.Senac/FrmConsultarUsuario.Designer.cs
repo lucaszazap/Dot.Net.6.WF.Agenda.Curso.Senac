@@ -36,6 +36,8 @@
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -44,30 +46,33 @@
             GridConsultarUsuario.AllowUserToAddRows = false;
             GridConsultarUsuario.AllowUserToDeleteRows = false;
             GridConsultarUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridConsultarUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            GridConsultarUsuario.Location = new Point(3, 3);
+            GridConsultarUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
+            GridConsultarUsuario.Location = new Point(3, 2);
+            GridConsultarUsuario.Margin = new Padding(3, 2, 3, 2);
             GridConsultarUsuario.Name = "GridConsultarUsuario";
             GridConsultarUsuario.ReadOnly = true;
             GridConsultarUsuario.RowHeadersWidth = 51;
             GridConsultarUsuario.RowTemplate.Height = 29;
-            GridConsultarUsuario.Size = new Size(843, 417);
+            GridConsultarUsuario.Size = new Size(738, 313);
             GridConsultarUsuario.TabIndex = 0;
             GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(227, 457);
+            btnAdicionar.Location = new Point(199, 343);
+            btnAdicionar.Margin = new Padding(3, 2, 3, 2);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(110, 39);
+            btnAdicionar.Size = new Size(96, 29);
             btnAdicionar.TabIndex = 1;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
             // 
             // btnAlterar
             // 
-            btnAlterar.Location = new Point(439, 457);
+            btnAlterar.Location = new Point(384, 343);
+            btnAlterar.Margin = new Padding(3, 2, 3, 2);
             btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(115, 39);
+            btnAlterar.Size = new Size(101, 29);
             btnAlterar.TabIndex = 2;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
@@ -79,52 +84,63 @@
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 47;
+            Column1.Width = 39;
             // 
             // Column2
             // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column2.HeaderText = "Nome de Login";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 141;
             // 
             // Column3
             // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column3.HeaderText = "Nome Completo";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 137;
             // 
             // Column4
             // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column4.HeaderText = "E-mail";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
-            Column4.Width = 81;
             // 
             // Column5
             // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column5.HeaderText = "Senha";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
-            Column5.Width = 78;
+            // 
+            // Column6
+            // 
+            Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column6.HeaderText = "Administrador";
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column7.HeaderText = "Ativo";
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
             // 
             // FrmConsultarUsuario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(845, 533);
+            ClientSize = new Size(739, 400);
             Controls.Add(btnAlterar);
             Controls.Add(btnAdicionar);
             Controls.Add(GridConsultarUsuario);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmConsultarUsuario";
             Text = "FrmConsultarUsuario";
             Load += FrmConsultarUsuario_Load;
@@ -142,5 +158,7 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
     }
 }
