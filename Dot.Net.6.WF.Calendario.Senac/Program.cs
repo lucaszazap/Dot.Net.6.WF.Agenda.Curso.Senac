@@ -11,7 +11,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmTelaLogin());
+            Application.Run(new TelaLogin());
         }
     }
 }

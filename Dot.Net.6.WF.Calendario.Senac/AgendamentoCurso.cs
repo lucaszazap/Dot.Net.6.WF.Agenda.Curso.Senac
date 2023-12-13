@@ -28,9 +28,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public string? Turma { get; set; } 
         public string? Sala { get; set; }
 
-        
-
-
+        internal void AtualizarComboBox()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
