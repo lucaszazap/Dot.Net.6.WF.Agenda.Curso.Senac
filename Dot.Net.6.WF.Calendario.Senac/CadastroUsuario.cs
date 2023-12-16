@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Packaging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,10 +23,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             ValidarForm();
 
-            CadastroUsuario formPrincipal = new CadastroUsuario();
+            CadastroUsuario cadastroUsuario = new CadastroUsuario();
 
             // Exiba o formulário principal como um diálogo
-            formPrincipal.Show();
+            cadastroUsuario.Show();
             this.Hide();
         }
 
@@ -60,36 +61,20 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
 
 
+            var login = txtNomeLogin.Text;
+            var nome = txtNomeCompleto.Text;
+            var email = txtEmail.Text;
+            var senha = txtSenha.Text;
+            var administrador = chkAdministrador.Checked;
+            var ativo = chkAtivo.Checked;
 
-
-            //// Verifica se o usuário administrador já existe
-            //var adminExistente = bd.Usuarios.FirstOrDefault(u => u.Login == "admin");
-
-            //// Se o usuário administrador não existe, crie-o
-            //if (adminExistente == null)
-            //{
-            //    var admin = new Usuario()
-            //    {
-            //        Login = "admin",
-            //        Senha = "senha",
-            //        Email = " ",
-            //        Nome = " ",
-            //        Administrador = true,
-            //        Ativo = true,
-            //    };
-
-            //    bd.Usuarios.Add(admin);
-            //    bd.SaveChanges();
-            //}
             using (var bd = new BancoDeDados())
             {
-                // verificar o usuário logado como administrador e criar um novo usuário
-                var usuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == "admin" && u.Senha == "senha");
-
-                if (usuarioLogado != null && usuarioLogado.Administrador)
+                // Verifica se não existe nenhum usuário no banco de dados
+                if (!bd.Usuarios.Any())
                 {
-                    // Cria um novo usuário apenas se o usuário logado for administrador
-                    var cadastrousuario = new Usuario()
+                    // Cria um usuário administrador se nenhum usuário existir
+                    var usuarioAdministrador = new Usuario()
                     {
                         Login = txtNomeLogin.Text,
                         Nome = txtNomeCompleto.Text,
@@ -99,11 +84,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         Ativo = chkAtivo.Checked,
                     };
 
-                    bd.Usuarios.Add(cadastrousuario);
+                    bd.Usuarios.Add(usuarioAdministrador);
                     bd.SaveChanges();
-
-                    MessageBox.Show("O usuário foi cadastrado com sucesso.");
+                    Listar();
                     LimparCampos();
+                    
                     txtNomeLogin.Focus();
                 }
                 else
@@ -125,7 +110,90 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
         {
+            Listar();
+        }
 
+
+        private void Listar()
+        {
+            GridConsultarUsuario.Rows.Clear();
+
+            using (var bd = new BancoDeDados())
+            {
+                var usuarios = bd.Usuarios.ToList();
+
+                foreach (var usuario in usuarios)
+                {
+                    GridConsultarUsuario.Rows.Add(GridConsultarUsuario.Rows.Count + 1,
+                        usuario.ID,
+                        usuario.Login,
+                        usuario.Nome,
+                        usuario.Email,
+                        usuario.Senha,
+                        usuario.Administrador,
+                        usuario.Ativo);
+
+                }
+
+            }
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            using (var bd = new BancoDeDados())
+            {
+                var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtID.Text)).First();
+                usuario.Login = txtNomeLogin.Text;
+                usuario.Nome = txtNomeCompleto.Text;
+                usuario.Email = txtEmail.Text;
+                usuario.Senha = txtSenha.Text;
+                usuario.Administrador = chkAdministrador.Checked;
+                usuario.Ativo = chkAtivo.Checked;
+
+                bd.SaveChanges();
+                Listar();
+                LimparCampos();
+            }
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            Listar();
+            LimparCampos();
+        }
+
+        private void GridConsultarUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
+            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
+            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
+            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
+            txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[5].Value.ToString();
+            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
+            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[7].Value;
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtID.Text)) 
+            { 
+                MessageBox.Show("Deve selecionar o usuário que deseja excluir.");
+                 return;
+                              
+            }
+
+            using ( var bd = new BancoDeDados())
+            {
+                var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtID.Text)).First();
+
+                bd.Usuarios.Remove(usuario);
+                bd.SaveChanges();
+                Listar();
+                LimparCampos();
+
+            }
         }
     }
 }

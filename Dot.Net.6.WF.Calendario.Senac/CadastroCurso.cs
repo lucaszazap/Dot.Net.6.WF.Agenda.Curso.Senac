@@ -10,26 +10,57 @@ using System.Windows.Forms;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
+    
     public partial class CadastroCurso : Form
     {
-       
+        private Agenda_de_Curso agenda_De_Curso;
 
-        public CadastroCurso()
+        public CadastroCurso(Agenda_de_Curso agenda_De_Curso)
         {
+
             InitializeComponent();
             txtCadastroCurso.Focus();
-          
+            
+
         }
 
-       
+
+        private void iCadastrar()
+        {
+            {
+                Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+                agenda_De_Curso.CarregarCombos();
+
+                var nome = txtCadastroCurso.Text;
+
+                using (var bd = new BancoDeDados())
+                {
+                    var curso = new Curso()
+                    {
+                        Nome = nome,
+                    };
+
+                    bd.Cursos.Add(curso);
+
+                    bd.SaveChanges();
+
+                    MessageBox.Show("Curso adicionado com sucesso.",
+                    "Cadastro de Cuso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+
+            }
+        }
+
 
         private void btnCadastrar_Click(object sender, EventArgs e)
 
         {
-            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso(txtCadastroCurso.Text);
-            agenda_De_Curso.Show();
-            
+            iCadastrar();
+            Close();
+
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -51,7 +82,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
         private void txtCadastroCurso_Click(object sender, EventArgs e)
         {
-         
+
         }
     }
 }

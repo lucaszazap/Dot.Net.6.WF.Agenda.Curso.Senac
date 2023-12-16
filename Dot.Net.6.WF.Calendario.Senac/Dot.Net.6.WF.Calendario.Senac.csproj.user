@@ -7,9 +7,6 @@
     <Compile Update="CadastroCurso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ConsultarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="CadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

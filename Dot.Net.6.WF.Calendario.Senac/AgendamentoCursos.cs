@@ -23,11 +23,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        public Agenda_de_Curso(string Valor)
-        {
-            InitializeComponent();
-            cmbCurso.Text = Valor;
-        }
+
+
         private void iAdicionar()
 
         {
@@ -212,7 +209,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void CarregarCombos()
+        public void CarregarCombos()
         {
             using (var bd = new BancoDeDados())
             {
@@ -503,7 +500,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void cadastrarCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CadastroCurso cadastroCurso = new CadastroCurso();
+            CadastroCurso cadastroCurso = new CadastroCurso(this);
 
             // Exiba o formulário principal como um diálogo
             cadastroCurso.Show();
@@ -515,10 +512,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
             cadastroUsuario.Show();
         }
 
-        private void consultarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void alterarSenhaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ConsultarUsuario consultarUsuario = new ConsultarUsuario();
-            consultarUsuario.Show();
+
         }
     }
 }

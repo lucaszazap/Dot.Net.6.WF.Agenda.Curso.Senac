@@ -37,14 +37,8 @@
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            menuStrip1 = new MenuStrip();
-            cadastroToolStripMenuItem = new ToolStripMenuItem();
-            cadastrarUsuárioToolStripMenuItem = new ToolStripMenuItem();
-            alterarSenhaToolStripMenuItem = new ToolStripMenuItem();
-            consultarUsuáriosToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -56,7 +50,6 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(menuStrip1);
             groupBox1.Location = new Point(-4, -10);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(774, 475);
@@ -126,68 +119,28 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(2, 38);
+            pictureBox1.Location = new Point(2, 0);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(766, 446);
+            pictureBox1.Size = new Size(766, 484);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem });
-            menuStrip1.Location = new Point(3, 19);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(768, 24);
-            menuStrip1.TabIndex = 20;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // cadastroToolStripMenuItem
-            // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarUsuárioToolStripMenuItem, alterarSenhaToolStripMenuItem, consultarUsuáriosToolStripMenuItem });
-            cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            cadastroToolStripMenuItem.Size = new Size(111, 20);
-            cadastroToolStripMenuItem.Text = "Cadastrar usuário";
-            // 
-            // cadastrarUsuárioToolStripMenuItem
-            // 
-            cadastrarUsuárioToolStripMenuItem.Name = "cadastrarUsuárioToolStripMenuItem";
-            cadastrarUsuárioToolStripMenuItem.Size = new Size(180, 22);
-            cadastrarUsuárioToolStripMenuItem.Text = "Cadastro de usuário";
-            cadastrarUsuárioToolStripMenuItem.Click += cadastrarUsuárioToolStripMenuItem_Click;
-            // 
-            // alterarSenhaToolStripMenuItem
-            // 
-            alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            alterarSenhaToolStripMenuItem.Size = new Size(180, 22);
-            alterarSenhaToolStripMenuItem.Text = "Alterar senha";
-            // 
-            // consultarUsuáriosToolStripMenuItem
-            // 
-            consultarUsuáriosToolStripMenuItem.Name = "consultarUsuáriosToolStripMenuItem";
-            consultarUsuáriosToolStripMenuItem.Size = new Size(180, 22);
-            consultarUsuáriosToolStripMenuItem.Text = "Consultar usuários";
-            consultarUsuáriosToolStripMenuItem.Click += consultarUsuáriosToolStripMenuItem_Click;
-            // 
-            // FrmTelaLogin
+            // TelaLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(762, 461);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "FrmTelaLogin";
+            Name = "TelaLogin";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agendamento de Cursos";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -201,10 +154,5 @@
         private Label label2;
         private PictureBox pictureBox1;
         private Button btnCancelar;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem cadastroToolStripMenuItem;
-        private ToolStripMenuItem cadastrarUsuárioToolStripMenuItem;
-        private ToolStripMenuItem alterarSenhaToolStripMenuItem;
-        private ToolStripMenuItem consultarUsuáriosToolStripMenuItem;
     }
 }

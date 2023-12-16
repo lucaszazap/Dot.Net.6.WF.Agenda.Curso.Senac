@@ -27,36 +27,39 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
-
-
         private void button1_Click_1()
         {
-            string nomeUsuario = "admin";
-            string senha = "senha";
+            string nomeUsuario = "teste";
+            string senha = "123";
 
-            if (txtUsuario.Text == nomeUsuario & txtSenha.Text == senha)
+            using (var bd = new BancoDeDados())
             {
-                MessageBox.Show("Acesso liberado", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
+                var usuario = bd.Usuarios.FirstOrDefault(u => u.Login == txtUsuario.Text && u.Senha == txtSenha.Text);
 
-                // Exiba o formulário principal como um diálogo
-                formPrincipal.Show();
-                this.Hide();
+                if (usuario != null)
+                {
+
+                    MessageBox.Show("Acesso liberado", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
+
+                    // Exiba o formulário principal como um diálogo
+                    formPrincipal.Show();
+                    this.Hide();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario/Senha incorretos", "Verifique suas credenciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    txtUsuario.Focus();
+                    txtUsuario.Text = "";
+                    txtSenha.Text = "";
+                }
+
 
 
             }
-            else
-            {
-                MessageBox.Show("Usuario/Senha incorretos", "Verifique suas credenciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                txtUsuario.Focus();
-                txtUsuario.Text = "";
-                txtSenha.Text = "";
-            }
-
-
-
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -67,36 +70,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void ValidarLogin()
         {
-            try
+            using (var bd = new BancoDeDados())
             {
-                using (var bd = new BancoDeDados())
+                // Verifica se já existe um usuário administrador
+                var adminExistente = bd.Usuarios.FirstOrDefault(u => u.Login == "admin");
+
+                // Exibe uma mensagem informando que o usuário administrador já existe
+                if (adminExistente != null)
                 {
-
-                    var adminExistente = bd.Usuarios.FirstOrDefault(u => u.ID.ToString() == "admin");
-
-                    // Se o usuário administrador não existe, crie-o
-                    if (adminExistente == null)
-                    {
-                        var admin = new Usuario()
-                        {
-                            Login = "admin",
-                            Senha = "senha",  // Lembre-se de tratar senhas de maneira segura em uma aplicação real
-                            Administrador = true,
-                            Ativo = true,
-                        };
-
-                        bd.Usuarios.Add(admin);
-                        bd.SaveChanges();
-                    }
+                    MessageBox.Show("Usuário administrador já existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Apenas usuários administradores podem cadastrar novos usuários.", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -119,28 +104,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
 
-        }
-
-        private void cadastrarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CadastroUsuario frmUsuarioCadastro = new CadastroUsuario();
-            frmUsuarioCadastro.ShowDialog();
-
-        }
-
-        private void consultarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConsultarUsuario frmConsultarUsuario = new ConsultarUsuario();
-            frmConsultarUsuario.ShowDialog();
-        }
-
-      
-     }
+    }
 }
+
+
 
 
 

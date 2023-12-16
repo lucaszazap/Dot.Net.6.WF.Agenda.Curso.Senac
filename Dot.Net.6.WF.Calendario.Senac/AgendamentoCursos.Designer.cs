@@ -66,7 +66,6 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             cadastrarCursoToolStripMenuItem = new ToolStripMenuItem();
             cadastrarUsuárioToolStripMenuItem1 = new ToolStripMenuItem();
-            consultarUsuárioToolStripMenuItem = new ToolStripMenuItem();
             alterarSenhaToolStripMenuItem1 = new ToolStripMenuItem();
             panel1 = new Panel();
             mtbValor = new MaskedTextBox();
@@ -139,6 +138,7 @@
             // 
             // cmbCurso
             // 
+            cmbCurso.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCurso.FormattingEnabled = true;
             cmbCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
             cmbCurso.Location = new Point(242, 48);
@@ -311,7 +311,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, cadastrarToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(187, 24);
+            menuStrip1.Size = new Size(307, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -325,28 +325,28 @@
             // adicionarToolStripMenuItem
             // 
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(180, 22);
+            adicionarToolStripMenuItem.Size = new Size(125, 22);
             adicionarToolStripMenuItem.Text = "Adicionar";
             adicionarToolStripMenuItem.Click += adicionarToolStripMenuItem_Click;
             // 
             // salvarToolStripMenuItem
             // 
             salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            salvarToolStripMenuItem.Size = new Size(180, 22);
+            salvarToolStripMenuItem.Size = new Size(125, 22);
             salvarToolStripMenuItem.Text = "Salvar";
             salvarToolStripMenuItem.Click += salvarToolStripMenuItem_Click;
             // 
             // exportarToolStripMenuItem
             // 
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            exportarToolStripMenuItem.Size = new Size(180, 22);
+            exportarToolStripMenuItem.Size = new Size(125, 22);
             exportarToolStripMenuItem.Text = "Exportar";
             exportarToolStripMenuItem.Click += exportarToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(180, 22);
+            sairToolStripMenuItem.Size = new Size(125, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -373,7 +373,7 @@
             // 
             // cadastrarToolStripMenuItem
             // 
-            cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarCursoToolStripMenuItem, cadastrarUsuárioToolStripMenuItem1, consultarUsuárioToolStripMenuItem, alterarSenhaToolStripMenuItem1 });
+            cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarCursoToolStripMenuItem, cadastrarUsuárioToolStripMenuItem1, alterarSenhaToolStripMenuItem1 });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
             cadastrarToolStripMenuItem.Size = new Size(69, 20);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
@@ -392,18 +392,12 @@
             cadastrarUsuárioToolStripMenuItem1.Text = "Cadastrar usuário";
             cadastrarUsuárioToolStripMenuItem1.Click += cadastrarUsuárioToolStripMenuItem1_Click;
             // 
-            // consultarUsuárioToolStripMenuItem
-            // 
-            consultarUsuárioToolStripMenuItem.Name = "consultarUsuárioToolStripMenuItem";
-            consultarUsuárioToolStripMenuItem.Size = new Size(180, 22);
-            consultarUsuárioToolStripMenuItem.Text = "Consultar usuário";
-            consultarUsuárioToolStripMenuItem.Click += consultarUsuárioToolStripMenuItem_Click;
-            // 
             // alterarSenhaToolStripMenuItem1
             // 
             alterarSenhaToolStripMenuItem1.Name = "alterarSenhaToolStripMenuItem1";
             alterarSenhaToolStripMenuItem1.Size = new Size(180, 22);
             alterarSenhaToolStripMenuItem1.Text = "Alterar senha";
+            alterarSenhaToolStripMenuItem1.Click += alterarSenhaToolStripMenuItem1_Click;
             // 
             // panel1
             // 
@@ -741,7 +735,6 @@
         private ToolStripMenuItem cadastrarToolStripMenuItem;
         private ToolStripMenuItem cadastrarCursoToolStripMenuItem;
         private ToolStripMenuItem cadastrarUsuárioToolStripMenuItem1;
-        private ToolStripMenuItem consultarUsuárioToolStripMenuItem;
         private ToolStripMenuItem alterarSenhaToolStripMenuItem1;
     }
 }
