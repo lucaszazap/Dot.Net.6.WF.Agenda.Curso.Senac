@@ -21,6 +21,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             InitializeComponent();
 
+
+
         }
 
 
@@ -52,10 +54,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
             var fim = dtpFim.Value;
             var meta = txtMeta.Text;
             var dias = txtDias.Text;
+            var horario = cmbHorario.Text;
             var realizado = txtRealizado.Text;
-            var turno = cmbTurno.Text;
             var valor = mtbValor.Text;
-            var horario = txtHorario.Text;
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
 
@@ -70,11 +71,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Inicio = dtpInicio.Value.Date,
                     Fim = dtpFim.Value.Date,
                     Dias = txtDias.Text,
+                    Horario = cmbHorario.Text,
                     Meta = txtMeta.Text,
                     Realizado = txtRealizado.Text,
-                    Turno = cmbTurno.Text,
                     Valor = mtbValor.Text,
-                    Horario = txtHorario.Text,
+                    
                     Turma = txtTurma.Text,
                     Sala = txtSala.Text,
 
@@ -121,11 +122,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         curso.Inicio,
                         curso.Fim,
                         curso.Dias,
+                        curso.Horario,
                         curso.Meta,
                         curso.Realizado,
-                        curso.Turno,
                         curso.Valor,
-                        curso.Horario,
+                        
                         curso.Turma,
                         curso.Sala);
                 }
@@ -139,11 +140,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
             txtDias.Text = String.Empty;
+            cmbHorario.Text = String.Empty;
             txtMeta.Text = String.Empty;
             txtRealizado.Text = String.Empty;
-            cmbTurno.Text = String.Empty;
             mtbValor.Text = String.Empty;
-            txtHorario.Text = String.Empty;
+            
             txtTurma.Text = String.Empty;
             txtSala.Text = String.Empty;
 
@@ -209,6 +210,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
+
+
+
         public void CarregarCombos()
         {
             using (var bd = new BancoDeDados())
@@ -229,11 +233,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
             DateTime inicio = dtpInicio.Value.Date;
             DateTime fim = dtpFim.Value.Date;
             string dias = txtDias.Text;
+            string horario = cmbHorario.Text;
             string meta = txtMeta.Text;
             string realizado = txtRealizado.Text;
-            string turno = cmbTurno.Text;
             string valor = Convert.ToString(mtbValor.Text);
-            string horario = txtHorario.Text;
+            
             string turma = txtTurma.Text;
             string sala = txtSala.Text;
 
@@ -247,11 +251,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 curso.Inicio = inicio;
                 curso.Fim = fim;
                 curso.Dias = dias;
+                curso.Horario = horario;
                 curso.Meta = meta;
                 curso.Realizado = realizado;
-                curso.Turno = turno;
                 curso.Valor = valor;
-                curso.Horario = horario;
+                
                 curso.Turma = turma;
                 curso.Sala = sala;
 
@@ -270,12 +274,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             iSalvar();
-        }
-
-        private void gridCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
         }
 
 
@@ -366,13 +364,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     worksheet.Cells[1, 3].Value = "Inicio";
                     worksheet.Cells[1, 4].Value = "Fim";
                     worksheet.Cells[1, 5].Value = "Dias";
-                    worksheet.Cells[1, 6].Value = "Meta";
-                    worksheet.Cells[1, 7].Value = "Realizado";
-                    worksheet.Cells[1, 8].Value = "Turno";
+                    worksheet.Cells[1, 6].Value = "Horario";
+                    worksheet.Cells[1, 7].Value = "Meta";
+                    worksheet.Cells[1, 8].Value = "Realizado";
+                   
                     worksheet.Cells[1, 9].Value = "Valor";
-                    worksheet.Cells[1, 10].Value = "Horario";
-                    worksheet.Cells[1, 11].Value = "Turma";
-                    worksheet.Cells[1, 12].Value = "Sala";
+                    
+                    worksheet.Cells[1, 10].Value = "Turma";
+                    worksheet.Cells[1, 11].Value = "Sala";
 
                     // Preenche os dados
                     int row = 2;
@@ -383,13 +382,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         worksheet.Cells[row, 3].Value = curso.Inicio.ToString("dd-MM-yyyy");
                         worksheet.Cells[row, 4].Value = curso.Fim.ToString("dd-MM-yyyy");
                         worksheet.Cells[row, 5].Value = curso.Dias;
-                        worksheet.Cells[row, 6].Value = curso.Meta;
-                        worksheet.Cells[row, 7].Value = curso.Realizado;
-                        worksheet.Cells[row, 8].Value = curso.Turno;
+                        worksheet.Cells[row, 6].Value = curso.Horario;
+                        worksheet.Cells[row, 7].Value = curso.Meta;
+                        worksheet.Cells[row, 8].Value = curso.Realizado;
                         worksheet.Cells[row, 9].Value = curso.Valor;
-                        worksheet.Cells[row, 10].Value = curso.Horario;
-                        worksheet.Cells[row, 11].Value = curso.Turma;
-                        worksheet.Cells[row, 12].Value = curso.Sala;
+                        
+                        worksheet.Cells[row, 10].Value = curso.Turma;
+                        worksheet.Cells[row, 11].Value = curso.Sala;
 
                         row++;
                     }
@@ -441,13 +440,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
             dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
             dtpFim.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
             txtDias.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
-            txtMeta.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
-            txtRealizado.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
-            cmbTurno.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
+            cmbHorario.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
+            txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
+            txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
             mtbValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
-            txtHorario.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
-            txtTurma.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
-            txtSala.Text = gridCurso.CurrentRow.Cells[11].Value.ToString();
+            txtTurma.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
+            txtSala.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
         }
 
         private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -472,31 +470,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
 
 
-
-        private void txtHorario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-
-
-        private void mtbValor_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-
-        private void cmbCurso_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void cadastrarCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -510,14 +488,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             CadastroUsuario cadastroUsuario = new CadastroUsuario();
             cadastroUsuario.Show();
-        }
-
-        private void alterarSenhaToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
 
         }
+
     }
+
 }
+
 
 
 

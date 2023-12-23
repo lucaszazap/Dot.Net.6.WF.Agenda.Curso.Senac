@@ -52,9 +52,6 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
                     b.Property<string>("Turma")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Turno")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Valor")
                         .HasColumnType("TEXT");
 

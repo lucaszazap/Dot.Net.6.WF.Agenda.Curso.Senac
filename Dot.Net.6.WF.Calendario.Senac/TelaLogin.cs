@@ -29,38 +29,36 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void button1_Click_1()
         {
-            string nomeUsuario = "teste";
-            string senha = "123";
+            string nomeUsuario = "admin";
+            string senha = "senha";
 
-            using (var bd = new BancoDeDados())
+            if (txtUsuario.Text == nomeUsuario && txtSenha.Text == senha)
+
+
             {
-                var usuario = bd.Usuarios.FirstOrDefault(u => u.Login == txtUsuario.Text && u.Senha == txtSenha.Text);
 
-                if (usuario != null)
-                {
+                MessageBox.Show("Acesso liberado", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
 
-                    MessageBox.Show("Acesso liberado", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
-
-                    // Exiba o formulário principal como um diálogo
-                    formPrincipal.Show();
-                    this.Hide();
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Usuario/Senha incorretos", "Verifique suas credenciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    txtUsuario.Focus();
-                    txtUsuario.Text = "";
-                    txtSenha.Text = "";
-                }
-
+                // Exiba o formulário principal como um diálogo
+                formPrincipal.Show();
+                this.Hide();
 
 
             }
+            else
+            {
+                MessageBox.Show("Usuario/Senha incorretos", "Verifique suas credenciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                txtUsuario.Focus();
+                txtUsuario.Text = "";
+                txtSenha.Text = "";
+            }
+
+
+
         }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             button1_Click_1();
@@ -70,18 +68,48 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void ValidarLogin()
         {
+            string nomeUsuarioNovo = txtUsuario.Text;
+            string senhaNovo = txtSenha.Text;
+
             using (var bd = new BancoDeDados())
             {
-                // Verifica se já existe um usuário administrador
-                var adminExistente = bd.Usuarios.FirstOrDefault(u => u.Login == "admin");
+                var usuarioNovo = bd.Usuarios.FirstOrDefault(u => u.Login == nomeUsuarioNovo && u.Senha == senhaNovo);
 
-                // Exibe uma mensagem informando que o usuário administrador já existe
-                if (adminExistente != null)
+                if (usuarioNovo != null)
                 {
-                    MessageBox.Show("Usuário administrador já existe.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Acesso liberado para novo usuário", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
+
+                    // Exiba o formulário principal como um diálogo
+                    formPrincipal.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    // Se o usuário não existir, crie um novo
+                    var novoUsuario = new Usuario()
+                    {
+                        Login = nomeUsuarioNovo,
+                        Senha = senhaNovo,
+                        // Adicione outros campos conforme necessário
+                    };
+
+                    bd.Usuarios.Add(novoUsuario);
+                  //  bd.SaveChanges();
+
+                    MessageBox.Show("Novo usuário criado com sucesso", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Continua o processo de login para o novo usuário
+                    Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
+                    formPrincipal.Show();
+                    this.Hide();
+
                 }
             }
+
         }
+
+    
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -103,8 +131,19 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
         }
+        private void LimparCampos()
+        {
+            txtUsuario.Focus();
+            txtUsuario.Text = "";
+            txtSenha.Text = "";
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+       
     }
 }
 

@@ -44,6 +44,7 @@
             btnListar = new Button();
             btnAlterar = new Button();
             GridConsultarUsuario = new DataGridView();
+            btnExcluir = new Button();
             Column1 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -52,7 +53,6 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
-            btnExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -68,11 +68,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 80);
+            label2.Location = new Point(72, 83);
             label2.Name = "label2";
-            label2.Size = new Size(92, 15);
+            label2.Size = new Size(50, 15);
             label2.TabIndex = 1;
-            label2.Text = "Nome de Login:";
+            label2.Text = "Usuário:";
             // 
             // label3
             // 
@@ -216,6 +216,17 @@
             GridConsultarUsuario.TabIndex = 8;
             GridConsultarUsuario.CellContentClick += GridConsultarUsuario_CellContentClick;
             // 
+            // btnExcluir
+            // 
+            btnExcluir.Location = new Point(610, 568);
+            btnExcluir.Margin = new Padding(3, 2, 3, 2);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(96, 29);
+            btnExcluir.TabIndex = 12;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
             // Column1
             // 
             Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -236,7 +247,7 @@
             // Column2
             // 
             Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column2.HeaderText = "Nome de Login";
+            Column2.HeaderText = "Usuário";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
@@ -278,17 +289,6 @@
             Column7.HeaderText = "Ativo";
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
-            // 
-            // btnExcluir
-            // 
-            btnExcluir.Location = new Point(610, 568);
-            btnExcluir.Margin = new Padding(3, 2, 3, 2);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(96, 29);
-            btnExcluir.TabIndex = 12;
-            btnExcluir.Text = "Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
-            btnExcluir.Click += btnExcluir_Click;
             // 
             // CadastroUsuario
             // 
