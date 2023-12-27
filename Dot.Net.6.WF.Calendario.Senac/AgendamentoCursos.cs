@@ -20,8 +20,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Agenda_de_Curso()
         {
             InitializeComponent();
+            Load += Agenda_de_Curso_Load;
 
         }
+
 
         private void iAdicionar()
 
@@ -68,7 +70,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Meta = txtMeta.Text,
                     Realizado = txtRealizado.Text,
                     Valor = mtbValor.Text,
-                    
                     Turma = txtTurma.Text,
                     Sala = txtSala.Text,
 
@@ -80,7 +81,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 MessageBox.Show("Curso adicionado com sucesso.",
                     "Agenda de Cursos", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);               
+                    MessageBoxIcon.Information);
                 Listar();
                 LimparCampos();
 
@@ -115,7 +116,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         curso.Meta,
                         curso.Realizado,
                         curso.Valor,
-                        
                         curso.Turma,
                         curso.Sala);
                 }
@@ -133,11 +133,44 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtMeta.Text = String.Empty;
             txtRealizado.Text = String.Empty;
             mtbValor.Text = String.Empty;
-            
             txtTurma.Text = String.Empty;
             txtSala.Text = String.Empty;
 
 
+        }
+        private void DeletarCurso()
+        {
+            // Verifique se um item está selecionado no ComboBox
+            if (cmbCurso.SelectedIndex != -1)
+            {
+                // Obtém o curso selecionado
+                var cursoSelecionado = (Curso)cmbCurso.SelectedItem;
+
+                // Exclua o curso do banco de dados
+                using (var bd = new BancoDeDados())
+                {
+                    var curso = bd.Cursos.FirstOrDefault(c => c.Id == cursoSelecionado.Id);
+
+                    if (curso != null)
+                    {
+                        bd.Cursos.Remove(curso);
+                        bd.SaveChanges();
+                    }
+                }
+
+                // Atualize o ComboBox após excluir o curso
+                CarregarCombos();
+
+                MessageBox.Show("Curso excluído com sucesso.",
+                    "Exclusão de Curso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Selecione um curso para excluir.",
+                    "Exclusão de Curso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
 
         private void iDeletar()
@@ -184,7 +217,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnDeletar_Click_1(object sender, EventArgs e)
         {
             iDeletar();
-
+            DeletarCurso();
         }
 
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
@@ -194,9 +227,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
         }
-
-       
-        
 
         public void CarregarCombos()
         {
@@ -222,7 +252,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             string meta = txtMeta.Text;
             string realizado = txtRealizado.Text;
             string valor = Convert.ToString(mtbValor.Text);
-            
             string turma = txtTurma.Text;
             string sala = txtSala.Text;
 
@@ -240,11 +269,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 curso.Meta = meta;
                 curso.Realizado = realizado;
                 curso.Valor = valor;
-                
                 curso.Turma = turma;
                 curso.Sala = sala;
-
-
 
                 bd.SaveChanges();
 
@@ -260,8 +286,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             iSalvar();
         }
-
-
 
         private void NumbersOnly(object sender, KeyPressEventArgs e)
         {
@@ -332,13 +356,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-            
+
                 var todosCursos = bd.AgendamentoCursos.ToList();
 
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using (ExcelPackage excelPackage = new ExcelPackage())
                 {
-               
+
                     ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Cursos");
 
                     worksheet.Cells[1, 1].Value = "ID";
@@ -349,10 +373,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     worksheet.Cells[1, 6].Value = "Horario";
                     worksheet.Cells[1, 7].Value = "Meta";
                     worksheet.Cells[1, 8].Value = "Realizado";
-                    worksheet.Cells[1, 9].Value = "Valor";  
+                    worksheet.Cells[1, 9].Value = "Valor";
                     worksheet.Cells[1, 10].Value = "Turma";
                     worksheet.Cells[1, 11].Value = "Sala";
-                
+
                     int row = 2;
                     foreach (var curso in todosCursos)
                     {
@@ -365,14 +389,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         worksheet.Cells[row, 7].Value = curso.Meta;
                         worksheet.Cells[row, 8].Value = curso.Realizado;
                         worksheet.Cells[row, 9].Value = curso.Valor;
-                        
+
                         worksheet.Cells[row, 10].Value = curso.Turma;
                         worksheet.Cells[row, 11].Value = curso.Sala;
 
                         row++;
                     }
 
-              
+
                     SaveFileDialog saveFileDialog = new SaveFileDialog();
                     saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
                     saveFileDialog.FileName = "Agenda de Cursos.xlsx";
@@ -410,7 +434,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void gridCurso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-         
+
             txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
             cmbCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
             dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
@@ -438,15 +462,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 e.Handled = true;
 
                 MessageBox.Show("Digite apenas texto.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
+
 
             }
-        }
-
-
-        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -468,10 +486,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 MessageBox.Show("Você não tem permissão para cadastrar novos usuários.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
+
 
         }
 
+        private void limparToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
     }
 
 }

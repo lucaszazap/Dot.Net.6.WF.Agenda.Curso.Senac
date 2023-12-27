@@ -146,7 +146,7 @@
             // 
             // txtMeta
             // 
-            txtMeta.Location = new Point(55, 99);
+            txtMeta.Location = new Point(50, 97);
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(121, 23);
             txtMeta.TabIndex = 4;
@@ -177,7 +177,7 @@
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(254, 99);
+            txtRealizado.Location = new Point(242, 99);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 5;
@@ -186,7 +186,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(731, 102);
+            label12.Location = new Point(740, 102);
             label12.Name = "label12";
             label12.Size = new Size(31, 15);
             label12.TabIndex = 11;
@@ -213,7 +213,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(381, 102);
+            label9.Location = new Point(384, 102);
             label9.Name = "label9";
             label9.Size = new Size(36, 15);
             label9.TabIndex = 8;
@@ -222,7 +222,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(564, 56);
+            label4.Location = new Point(566, 55);
             label4.Name = "label4";
             label4.Size = new Size(30, 15);
             label4.TabIndex = 3;
@@ -258,7 +258,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(378, 55);
+            label3.Location = new Point(381, 55);
             label3.Name = "label3";
             label3.Size = new Size(39, 15);
             label3.TabIndex = 2;
@@ -267,7 +267,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(730, 54);
+            label5.Location = new Point(740, 52);
             label5.Name = "label5";
             label5.Size = new Size(32, 15);
             label5.TabIndex = 4;
@@ -325,13 +325,13 @@
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "Editar";
-            editarToolStripMenuItem.Click += editarToolStripMenuItem_Click;
             // 
             // limparToolStripMenuItem
             // 
             limparToolStripMenuItem.Name = "limparToolStripMenuItem";
             limparToolStripMenuItem.Size = new Size(111, 22);
             limparToolStripMenuItem.Text = "Limpar";
+            limparToolStripMenuItem.Click += limparToolStripMenuItem_Click;
             // 
             // deletarToolStripMenuItem
             // 
@@ -350,21 +350,21 @@
             // cadastrarCursoToolStripMenuItem
             // 
             cadastrarCursoToolStripMenuItem.Name = "cadastrarCursoToolStripMenuItem";
-            cadastrarCursoToolStripMenuItem.Size = new Size(166, 22);
+            cadastrarCursoToolStripMenuItem.Size = new Size(180, 22);
             cadastrarCursoToolStripMenuItem.Text = "Cadastrar curso";
             cadastrarCursoToolStripMenuItem.Click += cadastrarCursoToolStripMenuItem_Click;
             // 
             // cadastrarUsuárioToolStripMenuItem1
             // 
             cadastrarUsuárioToolStripMenuItem1.Name = "cadastrarUsuárioToolStripMenuItem1";
-            cadastrarUsuárioToolStripMenuItem1.Size = new Size(166, 22);
+            cadastrarUsuárioToolStripMenuItem1.Size = new Size(180, 22);
             cadastrarUsuárioToolStripMenuItem1.Text = "Cadastrar usuário";
             cadastrarUsuárioToolStripMenuItem1.Click += cadastrarUsuárioToolStripMenuItem1_Click;
             // 
             // alterarSenhaToolStripMenuItem1
             // 
             alterarSenhaToolStripMenuItem1.Name = "alterarSenhaToolStripMenuItem1";
-            alterarSenhaToolStripMenuItem1.Size = new Size(166, 22);
+            alterarSenhaToolStripMenuItem1.Size = new Size(180, 22);
             alterarSenhaToolStripMenuItem1.Text = "Alterar senha";
             // 
             // panel1
@@ -403,7 +403,7 @@
             // 
             cmbHorario.FormattingEnabled = true;
             cmbHorario.Items.AddRange(new object[] { "07:00 às 12:00", "13:00 às 18:00", "19:00 às 22:00" });
-            cmbHorario.Location = new Point(976, 47);
+            cmbHorario.Location = new Point(973, 48);
             cmbHorario.Name = "cmbHorario";
             cmbHorario.Size = new Size(121, 23);
             cmbHorario.TabIndex = 36;
@@ -435,6 +435,7 @@
             // btnSair
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
+            btnSair.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnSair.Location = new Point(985, 31);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
@@ -446,7 +447,8 @@
             // btnExportar
             // 
             btnExportar.Anchor = AnchorStyles.Bottom;
-            btnExportar.Location = new Point(792, 31);
+            btnExportar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnExportar.Location = new Point(815, 31);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(94, 31);
             btnExportar.TabIndex = 3;
@@ -457,7 +459,8 @@
             // btnAdicionar
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom;
-            btnAdicionar.Location = new Point(31, 31);
+            btnAdicionar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAdicionar.Location = new Point(20, 31);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(98, 31);
             btnAdicionar.TabIndex = 0;
@@ -468,7 +471,8 @@
             // btnLimparCampos
             // 
             btnLimparCampos.Anchor = AnchorStyles.Bottom;
-            btnLimparCampos.Location = new Point(220, 31);
+            btnLimparCampos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLimparCampos.Location = new Point(180, 31);
             btnLimparCampos.Name = "btnLimparCampos";
             btnLimparCampos.Size = new Size(98, 31);
             btnLimparCampos.TabIndex = 7;
@@ -479,7 +483,8 @@
             // btnSalvar
             // 
             btnSalvar.Anchor = AnchorStyles.Bottom;
-            btnSalvar.Location = new Point(605, 31);
+            btnSalvar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSalvar.Location = new Point(647, 31);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(98, 31);
             btnSalvar.TabIndex = 3;
@@ -490,7 +495,8 @@
             // btnDeletar
             // 
             btnDeletar.Anchor = AnchorStyles.Bottom;
-            btnDeletar.Location = new Point(416, 31);
+            btnDeletar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDeletar.Location = new Point(334, 31);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;

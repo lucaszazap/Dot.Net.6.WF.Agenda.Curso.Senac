@@ -53,6 +53,7 @@
             // 
             // btnCadastrar
             // 
+            btnCadastrar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnCadastrar.Location = new Point(269, 68);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(75, 23);
@@ -63,6 +64,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancelar.Location = new Point(180, 68);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
@@ -82,10 +84,10 @@
             // label
             // 
             label.AutoSize = true;
-            label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label.Location = new Point(82, 40);
+            label.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label.Location = new Point(66, 36);
             label.Name = "label";
-            label.Size = new Size(92, 15);
+            label.Size = new Size(108, 19);
             label.TabIndex = 0;
             label.Text = "Cadastrar curso:";
             // 

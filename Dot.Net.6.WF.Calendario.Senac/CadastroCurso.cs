@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
-    
+
     public partial class CadastroCurso : Form
     {
         private Agenda_de_Curso agenda_De_Curso;
@@ -19,11 +19,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
 
             InitializeComponent();
+            agenda_De_Curso = agenda_De_Curso;
             txtCadastroCurso.Focus();
-            
 
         }
-
 
         private void iCadastrar()
         {
@@ -31,22 +30,25 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
                 agenda_De_Curso.CarregarCombos();
 
-               var nome = txtCadastroCurso.Text;
+                var nome = txtCadastroCurso.Text;
 
                 using (var bd = new BancoDeDados())
                 {
                     var curso = new Curso()
                     {
-                       Nome = nome,
-                   };
+                        Nome = nome,
+                    };
 
                     bd.Cursos.Add(curso);
 
-                   bd.SaveChanges();
+                    bd.SaveChanges();
 
-                   MessageBox.Show("Curso adicionado com sucesso.",
-                   "Cadastro de Cuso", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    agenda_De_Curso.CarregarCombos();
+                   
+
+                    MessageBox.Show("Curso adicionado com sucesso.",
+                    "Cadastro de Curso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 }
 
             }

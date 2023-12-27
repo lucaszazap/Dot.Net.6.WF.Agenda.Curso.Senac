@@ -34,14 +34,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-            
-
+         
                 if (Autenticacao.AutenticarUsuario(usuario, senha))
                 {
                     MessageBox.Show("Login bem-sucedido", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                
-
+               
                     AbrirFormPrincipal();
                 }
                 else
@@ -62,7 +59,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
     private void button1_Click_1(object sender, EventArgs e)
         {
             button1_Click_1();
-          
             LimparCampos();
 
         }
