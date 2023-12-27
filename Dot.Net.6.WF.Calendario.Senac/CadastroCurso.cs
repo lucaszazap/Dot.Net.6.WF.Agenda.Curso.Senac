@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,11 +46,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     bd.SaveChanges();
 
                     agenda_De_Curso.CarregarCombos();
-                   
+
 
                     MessageBox.Show("Curso adicionado com sucesso.",
                     "Cadastro de Curso", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                    Listar();
                 }
 
             }
@@ -59,7 +62,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         {
             iCadastrar();
-            Close();
+
 
         }
 
@@ -80,11 +83,68 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void Cadastramento_de_Cursos_Load(object sender, EventArgs e)
         {
-
+            Listar();
         }
         private void txtCadastroCurso_Click(object sender, EventArgs e)
         {
 
         }
+        private void Listar()
+        {
+            GridViewCadastroCurso.Rows.Clear();
+
+            using (var bd = new BancoDeDados())
+            {
+                var Curso = bd.Cursos.ToList();
+
+                foreach (var curso in Curso)
+                {
+                    GridViewCadastroCurso.Rows.Add(
+                        curso.Id,
+                        curso.Nome);
+                }
+
+            }
+        }
+
+
+        private void GridViewCadastroCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            txtCadastroCurso.Text = GridViewCadastroCurso.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCadastroCurso.Text))
+            {
+                MessageBox.Show("Deve selecionar o usuário que deseja excluir.");
+                return;
+
+            }
+            else
+            {
+
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+                using (var bd = new BancoDeDados())
+                {
+                    var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtCadastroCurso.Text)).First();
+
+                    bd.Usuarios.Remove(usuario);
+                    bd.SaveChanges();
+                    Listar();
+
+
+                }
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

@@ -138,40 +138,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
         }
-        private void DeletarCurso()
-        {
-            // Verifique se um item está selecionado no ComboBox
-            if (cmbCurso.SelectedIndex != -1)
-            {
-                // Obtém o curso selecionado
-                var cursoSelecionado = (Curso)cmbCurso.SelectedItem;
-
-                // Exclua o curso do banco de dados
-                using (var bd = new BancoDeDados())
-                {
-                    var curso = bd.Cursos.FirstOrDefault(c => c.Id == cursoSelecionado.Id);
-
-                    if (curso != null)
-                    {
-                        bd.Cursos.Remove(curso);
-                        bd.SaveChanges();
-                    }
-                }
-
-                // Atualize o ComboBox após excluir o curso
-                CarregarCombos();
-
-                MessageBox.Show("Curso excluído com sucesso.",
-                    "Exclusão de Curso", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Selecione um curso para excluir.",
-                    "Exclusão de Curso", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
-        }
+       
 
         private void iDeletar()
         {
@@ -203,7 +170,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                             }
                             else
                             {
-                                MessageBox.Show("Curso não encontrado. Verifique o ID informado.");
+                                MessageBox.Show("Curso não encontrado. Verifique o curso informado.");
                             }
                         }
                         catch (Exception ex)
@@ -217,7 +184,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnDeletar_Click_1(object sender, EventArgs e)
         {
             iDeletar();
-            DeletarCurso();
+            
         }
 
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
