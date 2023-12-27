@@ -13,10 +13,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public int ID { get; set; }
         [Required]
         [StringLength(50)]
-        public string Login { get; set; }
+        public string? Login { get; set; }
         [Required]
         [StringLength(50)]
-        public string Nome { get; set; }
+        public string? Nome { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]

@@ -29,87 +29,44 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void button1_Click_1()
         {
-            string nomeUsuario = "admin";
-            string senha = "senha";
-
-            if (txtUsuario.Text == nomeUsuario && txtSenha.Text == senha)
-
-
-            {
-
-                MessageBox.Show("Acesso liberado", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
-
-                // Exiba o formulário principal como um diálogo
-                formPrincipal.Show();
-                this.Hide();
-
-
-            }
-            else
-            {
-                MessageBox.Show("Usuario/Senha incorretos", "Verifique suas credenciais", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                txtUsuario.Focus();
-                txtUsuario.Text = "";
-                txtSenha.Text = "";
-            }
-
-
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            button1_Click_1();
-            ValidarLogin();
-
-        }
-
-        private void ValidarLogin()
-        {
-            string nomeUsuarioNovo = txtUsuario.Text;
-            string senhaNovo = txtSenha.Text;
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Text;
 
             using (var bd = new BancoDeDados())
             {
-                var usuarioNovo = bd.Usuarios.FirstOrDefault(u => u.Login == nomeUsuarioNovo && u.Senha == senhaNovo);
+            
 
-                if (usuarioNovo != null)
+                if (Autenticacao.AutenticarUsuario(usuario, senha))
                 {
-                    MessageBox.Show("Acesso liberado para novo usuário", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
+                    MessageBox.Show("Login bem-sucedido", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Exiba o formulário principal como um diálogo
-                    formPrincipal.Show();
-                    this.Hide();
+                
+
+                    AbrirFormPrincipal();
                 }
                 else
                 {
-                    // Se o usuário não existir, crie um novo
-                    var novoUsuario = new Usuario()
-                    {
-                        Login = nomeUsuarioNovo,
-                        Senha = senhaNovo,
-                        // Adicione outros campos conforme necessário
-                    };
-
-                    bd.Usuarios.Add(novoUsuario);
-                  //  bd.SaveChanges();
-
-                    MessageBox.Show("Novo usuário criado com sucesso", "Agendamento de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Continua o processo de login para o novo usuário
-                    Agenda_de_Curso formPrincipal = new Agenda_de_Curso();
-                    formPrincipal.Show();
-                    this.Hide();
-
+                    MessageBox.Show("Falha no login. Verifique suas credenciais.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                
             }
+        }
+        private void AbrirFormPrincipal()
+        {
+            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+            agenda_De_Curso.Show();
+            this.Hide();
+        }
+
+    private void button1_Click_1(object sender, EventArgs e)
+        {
+            button1_Click_1();
+          
+            LimparCampos();
 
         }
 
-    
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {

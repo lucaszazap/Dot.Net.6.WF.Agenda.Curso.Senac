@@ -21,11 +21,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             InitializeComponent();
 
-
-
         }
-
-
 
         private void iAdicionar()
 
@@ -35,8 +31,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("O campo 'Nome' é obrigatório.");
                 return;
             }
-
-
 
             if (dtpInicio.Value == null)
             {
@@ -62,7 +56,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
 
-            // Adiciona o curso ao banco de dados
             using (var bd = new BancoDeDados())
             {
                 var curso = new AgendamentoCurso()
@@ -87,8 +80,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 MessageBox.Show("Curso adicionado com sucesso.",
                     "Agenda de Cursos", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                // Limpa os campos
+                    MessageBoxIcon.Information);               
                 Listar();
                 LimparCampos();
 
@@ -100,9 +92,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             iAdicionar();
-
-
-
 
         }
 
@@ -151,9 +140,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
-
-
         private void iDeletar()
         {
             if (string.IsNullOrEmpty(txtId.Text))
@@ -201,7 +187,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
         private void Agenda_de_Curso_Load(object sender, EventArgs e)
         {
             CarregarCombos();
@@ -210,8 +195,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
-
+       
+        
 
         public void CarregarCombos()
         {
@@ -228,7 +213,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void iSalvar()
         {
-            // Obtém os dados do formulário
+
             string nome = cmbCurso.Text;
             DateTime inicio = dtpInicio.Value.Date;
             DateTime fim = dtpFim.Value.Date;
@@ -284,24 +269,22 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 e.Handled = false;
             }
-            // Valida se a tecla pressionada é um número.
+
             else
             {
 
                 if (e.KeyChar >= '0' && e.KeyChar <= '9')
                 {
 
-                    // Permite a entrada do caractere
                     e.Handled = false;
 
                 }
 
-
                 else
                 {
-                    // Exibe uma mensagem de erro
+
                     MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Bloqueia a entrada do caractere
+
                     e.Handled = true;
                 }
             }
@@ -349,16 +332,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-                // Puxa todos os cursos do banco de dados
+            
                 var todosCursos = bd.AgendamentoCursos.ToList();
 
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using (ExcelPackage excelPackage = new ExcelPackage())
                 {
-                    // Cria uma planilha
+               
                     ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Cursos");
 
-                    // Adiciona cabeçalhos
                     worksheet.Cells[1, 1].Value = "ID";
                     worksheet.Cells[1, 2].Value = "Curso";
                     worksheet.Cells[1, 3].Value = "Inicio";
@@ -367,13 +349,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     worksheet.Cells[1, 6].Value = "Horario";
                     worksheet.Cells[1, 7].Value = "Meta";
                     worksheet.Cells[1, 8].Value = "Realizado";
-                   
-                    worksheet.Cells[1, 9].Value = "Valor";
-                    
+                    worksheet.Cells[1, 9].Value = "Valor";  
                     worksheet.Cells[1, 10].Value = "Turma";
                     worksheet.Cells[1, 11].Value = "Sala";
-
-                    // Preenche os dados
+                
                     int row = 2;
                     foreach (var curso in todosCursos)
                     {
@@ -393,7 +372,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         row++;
                     }
 
-                    // Salva o arquivo Excel
+              
                     SaveFileDialog saveFileDialog = new SaveFileDialog();
                     saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
                     saveFileDialog.FileName = "Agenda de Cursos.xlsx";
@@ -405,9 +384,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     MessageBox.Show("Exportado com sucesso.", "Agenda de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-
-
-
 
                 bd.SaveChanges();
                 LimparCampos();
@@ -434,7 +410,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void gridCurso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // obtendo a linha atual que foi clicado e obtendo a celula (na posição)
+         
             txtId.Text = gridCurso.CurrentRow.Cells[0].Value.ToString();
             cmbCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
             dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
@@ -461,10 +437,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 e.Handled = true;
 
-
-                // Exibe uma mensagem de erro.
                 MessageBox.Show("Digite apenas texto.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Bloqueia a entrada do caractere.
+               
 
             }
         }
@@ -480,14 +454,21 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             CadastroCurso cadastroCurso = new CadastroCurso(this);
 
-            // Exiba o formulário principal como um diálogo
             cadastroCurso.Show();
         }
 
         private void cadastrarUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CadastroUsuario cadastroUsuario = new CadastroUsuario();
-            cadastroUsuario.Show();
+            if (Autenticacao.UsuarioTemPermissaoAdministrador())
+            {
+                CadastroUsuario cadastroUsuario = new CadastroUsuario();
+                cadastroUsuario.Show();
+            }
+            else
+            {
+                MessageBox.Show("Você não tem permissão para cadastrar novos usuários.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
 
         }
 
