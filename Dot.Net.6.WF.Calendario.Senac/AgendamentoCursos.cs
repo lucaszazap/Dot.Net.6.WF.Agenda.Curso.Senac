@@ -138,7 +138,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
         }
-       
+
 
         private void iDeletar()
         {
@@ -184,7 +184,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnDeletar_Click_1(object sender, EventArgs e)
         {
             iDeletar();
-            
+
         }
 
         private void Agenda_de_Curso_Load(object sender, EventArgs e)

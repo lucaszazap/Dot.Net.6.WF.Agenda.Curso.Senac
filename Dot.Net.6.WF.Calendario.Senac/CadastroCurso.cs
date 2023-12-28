@@ -108,17 +108,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
 
 
-        private void GridViewCadastroCurso_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-            txtCadastroCurso.Text = GridViewCadastroCurso.CurrentRow.Cells[1].Value.ToString();
-        }
+
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtCadastroCurso.Text))
             {
-                MessageBox.Show("Deve selecionar o usuário que deseja excluir.");
+                MessageBox.Show("Deve selecionar o curso que deseja excluir.");
                 return;
 
             }
@@ -130,9 +126,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 using (var bd = new BancoDeDados())
                 {
-                    var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtCadastroCurso.Text)).First();
+                    var curso = bd.Cursos.Where(w => w.Id == txtCadastroCurso.Text.First());
 
-                    bd.Usuarios.Remove(usuario);
+                    bd.Cursos.Remove(curso);
                     bd.SaveChanges();
                     Listar();
 
@@ -141,10 +137,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void GridViewCadastroCurso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
+            txtCadastroCurso.Text = GridViewCadastroCurso.CurrentRow.Cells[1].Value.ToString();
         }
     }
-}
+    }
+
 

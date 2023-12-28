@@ -44,114 +44,107 @@
             btnListar = new Button();
             btnAlterar = new Button();
             GridConsultarUsuario = new DataGridView();
-            btnExcluir = new Button();
             Column1 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
+            btnExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 44);
+            label1.Location = new Point(113, 59);
             label1.Name = "label1";
-            label1.Size = new Size(21, 15);
+            label1.Size = new Size(27, 20);
             label1.TabIndex = 0;
             label1.Text = "ID:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(72, 83);
+            label2.Location = new Point(82, 111);
             label2.Name = "label2";
-            label2.Size = new Size(50, 15);
+            label2.Size = new Size(62, 20);
             label2.TabIndex = 1;
             label2.Text = "Usuário:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(358, 83);
+            label3.Location = new Point(400, 114);
             label3.Name = "label3";
-            label3.Size = new Size(99, 15);
+            label3.Size = new Size(123, 20);
             label3.TabIndex = 2;
             label3.Text = "Nome Completo:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(71, 122);
+            label4.Location = new Point(85, 167);
             label4.Name = "label4";
-            label4.Size = new Size(44, 15);
+            label4.Size = new Size(55, 20);
             label4.TabIndex = 3;
             label4.Text = "E-mail:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(410, 132);
+            label5.Location = new Point(471, 167);
             label5.Name = "label5";
-            label5.Size = new Size(42, 15);
+            label5.Size = new Size(52, 20);
             label5.TabIndex = 4;
             label5.Text = "Senha:";
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(463, 132);
-            txtSenha.Margin = new Padding(3, 2, 3, 2);
+            txtSenha.Location = new Point(529, 160);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
-            txtSenha.Size = new Size(199, 23);
+            txtSenha.Size = new Size(227, 27);
             txtSenha.TabIndex = 3;
             txtSenha.UseSystemPasswordChar = true;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(127, 120);
-            txtEmail.Margin = new Padding(3, 2, 3, 2);
+            txtEmail.Location = new Point(145, 160);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(199, 23);
+            txtEmail.Size = new Size(231, 27);
             txtEmail.TabIndex = 2;
             // 
             // txtNomeCompleto
             // 
-            txtNomeCompleto.Location = new Point(463, 80);
-            txtNomeCompleto.Margin = new Padding(3, 2, 3, 2);
+            txtNomeCompleto.Location = new Point(529, 107);
             txtNomeCompleto.Name = "txtNomeCompleto";
-            txtNomeCompleto.Size = new Size(199, 23);
+            txtNomeCompleto.Size = new Size(227, 27);
             txtNomeCompleto.TabIndex = 1;
             // 
             // txtNomeLogin
             // 
-            txtNomeLogin.Location = new Point(128, 78);
-            txtNomeLogin.Margin = new Padding(3, 2, 3, 2);
+            txtNomeLogin.Location = new Point(146, 104);
             txtNomeLogin.Name = "txtNomeLogin";
-            txtNomeLogin.Size = new Size(202, 23);
+            txtNomeLogin.Size = new Size(230, 27);
             txtNomeLogin.TabIndex = 0;
             // 
             // txtID
             // 
-            txtID.Location = new Point(55, 36);
-            txtID.Margin = new Padding(3, 2, 3, 2);
+            txtID.Location = new Point(146, 52);
             txtID.Name = "txtID";
             txtID.ReadOnly = true;
-            txtID.Size = new Size(59, 23);
+            txtID.Size = new Size(67, 27);
             txtID.TabIndex = 7;
             txtID.TextAlign = HorizontalAlignment.Center;
             // 
             // chkAtivo
             // 
             chkAtivo.AutoSize = true;
-            chkAtivo.Location = new Point(263, 165);
-            chkAtivo.Margin = new Padding(3, 2, 3, 2);
+            chkAtivo.Location = new Point(146, 209);
             chkAtivo.Name = "chkAtivo";
-            chkAtivo.Size = new Size(54, 19);
+            chkAtivo.Size = new Size(66, 24);
             chkAtivo.TabIndex = 5;
             chkAtivo.Text = "Ativo";
             chkAtivo.UseVisualStyleBackColor = true;
@@ -159,20 +152,19 @@
             // chkAdministrador
             // 
             chkAdministrador.AutoSize = true;
-            chkAdministrador.Location = new Point(128, 165);
-            chkAdministrador.Margin = new Padding(3, 2, 3, 2);
+            chkAdministrador.Location = new Point(251, 209);
             chkAdministrador.Name = "chkAdministrador";
-            chkAdministrador.Size = new Size(102, 19);
+            chkAdministrador.Size = new Size(126, 24);
             chkAdministrador.TabIndex = 4;
             chkAdministrador.Text = "Administrador";
             chkAdministrador.UseVisualStyleBackColor = true;
             // 
             // btnAdicionarUsuario
             // 
-            btnAdicionarUsuario.Location = new Point(55, 568);
-            btnAdicionarUsuario.Margin = new Padding(3, 2, 3, 2);
+            btnAdicionarUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAdicionarUsuario.Location = new Point(59, 716);
             btnAdicionarUsuario.Name = "btnAdicionarUsuario";
-            btnAdicionarUsuario.Size = new Size(80, 29);
+            btnAdicionarUsuario.Size = new Size(91, 39);
             btnAdicionarUsuario.TabIndex = 6;
             btnAdicionarUsuario.Text = "Adicionar";
             btnAdicionarUsuario.UseVisualStyleBackColor = true;
@@ -180,10 +172,10 @@
             // 
             // btnListar
             // 
-            btnListar.Location = new Point(429, 568);
-            btnListar.Margin = new Padding(3, 2, 3, 2);
+            btnListar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnListar.Location = new Point(486, 716);
             btnListar.Name = "btnListar";
-            btnListar.Size = new Size(96, 29);
+            btnListar.Size = new Size(110, 39);
             btnListar.TabIndex = 11;
             btnListar.Text = "Listar";
             btnListar.UseVisualStyleBackColor = true;
@@ -191,10 +183,10 @@
             // 
             // btnAlterar
             // 
-            btnAlterar.Location = new Point(225, 568);
-            btnAlterar.Margin = new Padding(3, 2, 3, 2);
+            btnAlterar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAlterar.Location = new Point(253, 716);
             btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(101, 29);
+            btnAlterar.Size = new Size(115, 39);
             btnAlterar.TabIndex = 10;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
@@ -205,27 +197,15 @@
             GridConsultarUsuario.AllowUserToAddRows = false;
             GridConsultarUsuario.AllowUserToDeleteRows = false;
             GridConsultarUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridConsultarUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column8, Column2, Column3, Column4, Column5, Column6, Column7 });
-            GridConsultarUsuario.Location = new Point(12, 222);
-            GridConsultarUsuario.Margin = new Padding(3, 2, 3, 2);
+            GridConsultarUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
+            GridConsultarUsuario.Location = new Point(10, 255);
             GridConsultarUsuario.Name = "GridConsultarUsuario";
             GridConsultarUsuario.ReadOnly = true;
             GridConsultarUsuario.RowHeadersWidth = 51;
             GridConsultarUsuario.RowTemplate.Height = 29;
-            GridConsultarUsuario.Size = new Size(738, 313);
+            GridConsultarUsuario.Size = new Size(843, 417);
             GridConsultarUsuario.TabIndex = 8;
             GridConsultarUsuario.CellContentClick += GridConsultarUsuario_CellContentClick;
-            // 
-            // btnExcluir
-            // 
-            btnExcluir.Location = new Point(610, 568);
-            btnExcluir.Margin = new Padding(3, 2, 3, 2);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(96, 29);
-            btnExcluir.TabIndex = 12;
-            btnExcluir.Text = "Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
-            btnExcluir.Click += btnExcluir_Click;
             // 
             // Column1
             // 
@@ -234,15 +214,7 @@
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 39;
-            // 
-            // Column8
-            // 
-            Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Column8.HeaderText = "ID";
-            Column8.Name = "Column8";
-            Column8.ReadOnly = true;
-            Column8.Width = 43;
+            Column1.Width = 47;
             // 
             // Column2
             // 
@@ -280,6 +252,7 @@
             // 
             Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column6.HeaderText = "Administrador";
+            Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
             // 
@@ -287,15 +260,28 @@
             // 
             Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column7.HeaderText = "Ativo";
+            Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
             // 
+            // btnExcluir
+            // 
+            btnExcluir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnExcluir.Location = new Point(693, 716);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(110, 39);
+            btnExcluir.TabIndex = 12;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
             // CadastroUsuario
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(757, 618);
+            ClientSize = new Size(865, 824);
             Controls.Add(btnExcluir);
             Controls.Add(btnListar);
             Controls.Add(btnAlterar);
@@ -314,7 +300,6 @@
             Controls.Add(label2);
             Controls.Add(label1);
             DoubleBuffered = true;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "CadastroUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Usuário";
@@ -346,7 +331,6 @@
         private DataGridView GridConsultarUsuario;
         private Button btnExcluir;
         private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;

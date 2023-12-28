@@ -858,3 +858,4 @@ C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Ne
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.CadastroUsuario.resources
 C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.TelaLogin.resources
 D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\AgendamentoCursos.cs
+C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\AgendamentoCursos.cs

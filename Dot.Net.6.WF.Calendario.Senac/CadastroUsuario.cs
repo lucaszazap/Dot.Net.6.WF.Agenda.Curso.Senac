@@ -99,7 +99,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 foreach (var usuario in usuarios)
                 {
-                    GridConsultarUsuario.Rows.Add(GridConsultarUsuario.Rows.Count + 1,
+                    GridConsultarUsuario.Rows.Add(
                         usuario.ID,
                         usuario.Login,
                         usuario.Nome,
@@ -141,13 +141,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void GridConsultarUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtID.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
-            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
-            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
-            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
-            txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[5].Value.ToString();
-            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
-            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[7].Value;
+            txtID.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
+            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
+            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
+            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
+            txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
+            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
+            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
 
         }
 
