@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Vml;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
 
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
 
             var result = MessageBox.Show("Deseja realmente cancelar?",
@@ -112,10 +113,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCadastroCurso.Text))
+            if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Deve selecionar o curso que deseja excluir.");
-                return;
 
             }
             else
@@ -123,26 +123,41 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-
-                using (var bd = new BancoDeDados())
+                if (resultado == DialogResult.Yes)
                 {
-                    var curso = bd.Cursos.Where(w => w.Id == txtCadastroCurso.Text.First());
 
-                    bd.Cursos.Remove(curso);
-                    bd.SaveChanges();
-                    Listar();
+                    using (var bd = new BancoDeDados())
+                    {
+                        try
+                        {
+                            var curso = bd.Cursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
 
-
+                            if (curso != null)
+                            {
+                                bd.Cursos.Remove(curso);
+                                bd.SaveChanges();
+                                Listar();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Curso não encontrado. Verifique o curso informado.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Erro ao excluir: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
         }
 
         private void GridViewCadastroCurso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            txtId.Text = GridViewCadastroCurso.CurrentRow.Cells[0].Value.ToString();
             txtCadastroCurso.Text = GridViewCadastroCurso.CurrentRow.Cells[1].Value.ToString();
         }
     }
-    }
+}
 
 

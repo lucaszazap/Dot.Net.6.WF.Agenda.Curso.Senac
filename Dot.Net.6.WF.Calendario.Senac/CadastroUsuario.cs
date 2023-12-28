@@ -35,7 +35,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     MessageBox.Show("Nome de usuário já existe. Escolha outro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
-            
+
                 else
                 {
                     var novoUsuario = new Usuario()
@@ -53,24 +53,24 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     MessageBox.Show("Usuário criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
-                
+
 
             }
         }
 
-     
+
 
 
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
             {
-                if (e.KeyChar == '\r')
-                {
-                    btnSalvarUsuario_Click(this, new EventArgs());
-                }
+                btnSalvarUsuario_Click(this, new EventArgs());
             }
-        
-    
+        }
+
+
 
         private void LimparCampos()
         {
@@ -118,7 +118,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-                var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtID.Text)).First();
+                var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtId.Text)).First();
                 usuario.Login = txtNomeLogin.Text;
                 usuario.Nome = txtNomeCompleto.Text;
                 usuario.Email = txtEmail.Text;
@@ -141,7 +141,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void GridConsultarUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtID.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
+            txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
             txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
             txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
             txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
@@ -153,29 +153,50 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtID.Text))
+            if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Deve selecionar o usuário que deseja excluir.");
-                return;
+
 
             }
-
-            using (var bd = new BancoDeDados())
+            else
             {
-                var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtID.Text)).First();
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                bd.Usuarios.Remove(usuario);
-                bd.SaveChanges();
-                Listar();
-                LimparCampos();
+                if (resultado == DialogResult.Yes)
+                {
+                    using (var bd = new BancoDeDados())
+                    {
+                        try
+                        {
+                            var usuario = bd.Usuarios.FirstOrDefault(w => w.ID == Convert.ToInt32(txtId.Text));
 
+                            if (usuario != null)
+                            {
+                                bd.Usuarios.Remove(usuario);
+                                bd.SaveChanges();
+                                Listar();
+                                LimparCampos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Curso não encontrado. Verifique o curso informado.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Erro ao excluir: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
         }
     }
 }
+        
 
 
-    
+
 
 
 
