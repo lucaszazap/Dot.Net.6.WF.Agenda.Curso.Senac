@@ -63,7 +63,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var curso = new AgendamentoCurso()
+                var curso = new AgendaCurso()
                 {
                     Nome = cmbCurso.Text,
                     Inicio = dtpInicio.Value.Date,

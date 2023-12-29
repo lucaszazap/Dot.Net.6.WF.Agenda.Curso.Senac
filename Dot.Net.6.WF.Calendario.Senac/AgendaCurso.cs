@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
-    public class AgendamentoCurso
+    public class AgendaCurso
     {
         [Key] 
         public int Id { get; set; }
