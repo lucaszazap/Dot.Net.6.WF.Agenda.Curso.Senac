@@ -34,11 +34,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-         
+
                 if (Autenticacao.AutenticarUsuario(usuario, senha))
                 {
                     MessageBox.Show("Login bem-sucedido", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
+
                     AbrirFormPrincipal();
                 }
                 else
@@ -46,7 +46,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     MessageBox.Show("Falha no login. Verifique suas credenciais.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                
+
             }
         }
         private void AbrirFormPrincipal()
@@ -56,7 +56,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             this.Hide();
         }
 
-    private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             button1_Click_1();
             LimparCampos();
@@ -96,7 +96,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-       
+
     }
 }
 

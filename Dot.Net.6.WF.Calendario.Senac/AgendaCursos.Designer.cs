@@ -95,7 +95,7 @@
             // 
             lbl.AutoSize = true;
             lbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl.Location = new Point(94, 31);
+            lbl.Location = new Point(146, 31);
             lbl.Name = "lbl";
             lbl.Size = new Size(26, 19);
             lbl.TabIndex = 35;
@@ -104,7 +104,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(123, 28);
+            txtId.Location = new Point(175, 28);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(121, 23);
@@ -115,7 +115,7 @@
             // 
             dtpFim.CustomFormat = "dd-MM-yyyy";
             dtpFim.Format = DateTimePickerFormat.Custom;
-            dtpFim.Location = new Point(496, 55);
+            dtpFim.Location = new Point(548, 55);
             dtpFim.MaxDate = new DateTime(2999, 12, 31, 0, 0, 0, 0);
             dtpFim.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpFim.Name = "dtpFim";
@@ -127,7 +127,7 @@
             // 
             dtpInicio.CustomFormat = "dd-MM-yyyy";
             dtpInicio.Format = DateTimePickerFormat.Custom;
-            dtpInicio.Location = new Point(320, 55);
+            dtpInicio.Location = new Point(372, 55);
             dtpInicio.MaxDate = new DateTime(2999, 12, 31, 0, 0, 0, 0);
             dtpInicio.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpInicio.Name = "dtpInicio";
@@ -140,16 +140,15 @@
             cmbCurso.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCurso.FormattingEnabled = true;
             cmbCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
-            cmbCurso.Location = new Point(123, 55);
+            cmbCurso.Location = new Point(175, 55);
             cmbCurso.Name = "cmbCurso";
             cmbCurso.Size = new Size(121, 23);
             cmbCurso.TabIndex = 0;
-        
             cmbCurso.KeyPress += TextOnly;
             // 
             // txtMeta
             // 
-            txtMeta.Location = new Point(123, 101);
+            txtMeta.Location = new Point(175, 101);
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(121, 23);
             txtMeta.TabIndex = 4;
@@ -157,7 +156,7 @@
             // 
             // txtDias
             // 
-            txtDias.Location = new Point(672, 54);
+            txtDias.Location = new Point(724, 54);
             txtDias.Name = "txtDias";
             txtDias.Size = new Size(121, 23);
             txtDias.TabIndex = 6;
@@ -165,14 +164,14 @@
             // 
             // txtSala
             // 
-            txtSala.Location = new Point(861, 99);
+            txtSala.Location = new Point(913, 99);
             txtSala.Name = "txtSala";
             txtSala.Size = new Size(121, 23);
             txtSala.TabIndex = 12;
             // 
             // txtTurma
             // 
-            txtTurma.Location = new Point(672, 101);
+            txtTurma.Location = new Point(724, 101);
             txtTurma.Name = "txtTurma";
             txtTurma.Size = new Size(121, 23);
             txtTurma.TabIndex = 10;
@@ -180,7 +179,7 @@
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(318, 101);
+            txtRealizado.Location = new Point(370, 101);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 5;
@@ -190,7 +189,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(826, 106);
+            label12.Location = new Point(878, 106);
             label12.Name = "label12";
             label12.Size = new Size(36, 19);
             label12.TabIndex = 11;
@@ -200,7 +199,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(621, 104);
+            label11.Location = new Point(673, 104);
             label11.Name = "label11";
             label11.Size = new Size(51, 19);
             label11.TabIndex = 10;
@@ -210,7 +209,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(804, 59);
+            label10.Location = new Point(856, 59);
             label10.Name = "label10";
             label10.Size = new Size(58, 19);
             label10.TabIndex = 9;
@@ -220,7 +219,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(450, 105);
+            label9.Location = new Point(502, 105);
             label9.Name = "label9";
             label9.Size = new Size(43, 19);
             label9.TabIndex = 8;
@@ -230,7 +229,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(465, 58);
+            label4.Location = new Point(517, 58);
             label4.Name = "label4";
             label4.Size = new Size(34, 19);
             label4.TabIndex = 3;
@@ -240,7 +239,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(74, 59);
+            label1.Location = new Point(126, 59);
             label1.Name = "label1";
             label1.Size = new Size(48, 19);
             label1.TabIndex = 0;
@@ -250,7 +249,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(250, 106);
+            label7.Location = new Point(302, 106);
             label7.Name = "label7";
             label7.Size = new Size(69, 19);
             label7.TabIndex = 6;
@@ -260,7 +259,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(78, 104);
+            label6.Location = new Point(130, 104);
             label6.Name = "label6";
             label6.Size = new Size(44, 19);
             label6.TabIndex = 5;
@@ -270,7 +269,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(275, 59);
+            label3.Location = new Point(327, 59);
             label3.Name = "label3";
             label3.Size = new Size(44, 19);
             label3.TabIndex = 2;
@@ -280,7 +279,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(632, 58);
+            label5.Location = new Point(684, 58);
             label5.Name = "label5";
             label5.Size = new Size(38, 19);
             label5.TabIndex = 4;
@@ -377,7 +376,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel1.AutoSize = true;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(cmbHorario);
             panel1.Controls.Add(mtbValor);
@@ -403,23 +402,23 @@
             panel1.Controls.Add(label12);
             panel1.Controls.Add(txtRealizado);
             panel1.Location = new Point(0, 0);
-            panel1.MaximumSize = new Size(1601, 900);
+            panel1.MaximumSize = new Size(1920, 1080);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1085, 156);
+            panel1.Size = new Size(1216, 131);
             panel1.TabIndex = 3;
             // 
             // cmbHorario
             // 
             cmbHorario.FormattingEnabled = true;
             cmbHorario.Items.AddRange(new object[] { "07:00 às 12:00", "13:00 às 18:00", "19:00 às 22:00" });
-            cmbHorario.Location = new Point(861, 54);
+            cmbHorario.Location = new Point(913, 54);
             cmbHorario.Name = "cmbHorario";
             cmbHorario.Size = new Size(121, 23);
             cmbHorario.TabIndex = 36;
             // 
             // mtbValor
             // 
-            mtbValor.Location = new Point(494, 102);
+            mtbValor.Location = new Point(546, 102);
             mtbValor.Mask = "$99,999.99";
             mtbValor.Name = "mtbValor";
             mtbValor.Size = new Size(121, 23);
@@ -427,7 +426,7 @@
             // 
             // panel2
             // 
-            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel2.AutoSize = true;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(btnSair);
             panel2.Controls.Add(btnExportar);
@@ -435,17 +434,18 @@
             panel2.Controls.Add(btnLimparCampos);
             panel2.Controls.Add(btnAlterar);
             panel2.Controls.Add(btnDeletar);
+            panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 580);
-            panel2.MaximumSize = new Size(1600, 900);
+            panel2.MaximumSize = new Size(1920, 1080);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1096, 81);
+            panel2.Size = new Size(1216, 81);
             panel2.TabIndex = 7;
             // 
             // btnSair
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
-            btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSair.Location = new Point(952, 25);
+            btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSair.Location = new Point(1025, 25);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 5;
@@ -456,8 +456,8 @@
             // btnExportar
             // 
             btnExportar.Anchor = AnchorStyles.Bottom;
-            btnExportar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExportar.Location = new Point(768, 25);
+            btnExportar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnExportar.Location = new Point(841, 25);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(94, 31);
             btnExportar.TabIndex = 3;
@@ -468,8 +468,8 @@
             // btnAdicionar
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom;
-            btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAdicionar.Location = new Point(28, 25);
+            btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAdicionar.Location = new Point(101, 25);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(98, 31);
             btnAdicionar.TabIndex = 0;
@@ -480,8 +480,8 @@
             // btnLimparCampos
             // 
             btnLimparCampos.Anchor = AnchorStyles.Bottom;
-            btnLimparCampos.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLimparCampos.Location = new Point(204, 25);
+            btnLimparCampos.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimparCampos.Location = new Point(277, 25);
             btnLimparCampos.Name = "btnLimparCampos";
             btnLimparCampos.Size = new Size(98, 31);
             btnLimparCampos.TabIndex = 7;
@@ -492,8 +492,8 @@
             // btnAlterar
             // 
             btnAlterar.Anchor = AnchorStyles.Bottom;
-            btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(588, 25);
+            btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAlterar.Location = new Point(661, 25);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(98, 31);
             btnAlterar.TabIndex = 3;
@@ -504,8 +504,8 @@
             // btnDeletar
             // 
             btnDeletar.Anchor = AnchorStyles.Bottom;
-            btnDeletar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDeletar.Location = new Point(401, 25);
+            btnDeletar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDeletar.Location = new Point(474, 25);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;
@@ -519,18 +519,18 @@
             gridCurso.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            gridCurso.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            gridCurso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.LightGray;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoHorario, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoValor, ColunaCursoTurma, ColunaCursoSala });
-            gridCurso.Location = new Point(0, 152);
-            gridCurso.MaximumSize = new Size(1600, 900);
+            gridCurso.Location = new Point(0, 129);
+            gridCurso.MaximumSize = new Size(1920, 900);
             gridCurso.Name = "gridCurso";
             gridCurso.ReadOnly = true;
             gridCurso.RowHeadersWidth = 51;
             gridCurso.RowTemplate.Height = 25;
-            gridCurso.Size = new Size(1085, 422);
+            gridCurso.Size = new Size(1216, 451);
             gridCurso.TabIndex = 6;
             gridCurso.CellClick += gridCurso_CellClick;
             // 
@@ -632,16 +632,17 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            AutoSize = true;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1089, 661);
+            ClientSize = new Size(1216, 661);
             Controls.Add(gridCurso);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            MinimumSize = new Size(500, 392);
+            MaximumSize = new Size(1920, 1080);
+            MinimumSize = new Size(800, 600);
             Name = "Agenda_de_Curso";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Agendamento de Cursos";
+            Text = "Agenda de Cursos";
             Load += Agenda_de_Curso_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -650,6 +651,7 @@
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridCurso).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

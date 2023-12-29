@@ -16,7 +16,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class CadastroCurso : Form
     {
-       
+
 
         public CadastroCurso(Agenda_de_Curso agenda_De_Curso)
         {
@@ -30,7 +30,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iAdicionar()
         {
             {
-                
+
                 var nome = txtCadastroCurso.Text;
 
                 using (var bd = new BancoDeDados())
@@ -64,6 +64,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         {
             iAdicionar();
+
             AbrirFormAgendaCurso();
             this.Close();
 

@@ -21,8 +21,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             InitializeComponent();
             Load += Agenda_de_Curso_Load;
-            
-            
+
+
 
 
         }
@@ -474,7 +474,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             LimparCampos();
         }
 
-        
+
     }
 
 }

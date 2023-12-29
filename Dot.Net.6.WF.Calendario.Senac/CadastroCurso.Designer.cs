@@ -48,10 +48,10 @@
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblId.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblId.Location = new Point(623, 191);
             lblId.Name = "lblId";
-            lblId.Size = new Size(23, 15);
+            lblId.Size = new Size(21, 15);
             lblId.TabIndex = 7;
             lblId.Text = "ID:";
             lblId.Visible = false;
@@ -76,16 +76,16 @@
             // label
             // 
             label.AutoSize = true;
-            label.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label.Location = new Point(5, 189);
             label.Name = "label";
-            label.Size = new Size(118, 19);
+            label.Size = new Size(108, 19);
             label.TabIndex = 0;
             label.Text = "Cadastrar curso:";
             // 
             // btnExcluir
             // 
-            btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnExcluir.Location = new Point(380, 548);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(75, 29);
@@ -96,7 +96,7 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnAdicionar.Location = new Point(43, 548);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(89, 30);
@@ -107,7 +107,7 @@
             // 
             // btnSair
             // 
-            btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnSair.Location = new Point(537, 548);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(75, 30);
@@ -163,7 +163,7 @@
             // 
             // btnAlterar
             // 
-            btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnAlterar.Location = new Point(216, 549);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(75, 29);
