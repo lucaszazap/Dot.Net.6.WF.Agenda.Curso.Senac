@@ -27,7 +27,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void iCadastrar()
+        private void iAdicionar()
         {
             {
                 Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
@@ -53,16 +53,17 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     "Cadastro de Curso", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                     Listar();
+                    LimparCampos();
                 }
 
             }
         }
 
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnAdicionar_Click(object sender, EventArgs e)
 
         {
-            iCadastrar();
+            iAdicionar();
 
 
         }
@@ -156,6 +157,29 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             txtId.Text = GridViewCadastroCurso.CurrentRow.Cells[0].Value.ToString();
             txtCadastroCurso.Text = GridViewCadastroCurso.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void LimparCampos()
+        {
+            txtId.Text = String.Empty;
+            txtCadastroCurso.Text = String.Empty;
+        }
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            string nome = txtCadastroCurso.Text;
+
+            using ( var bd =  new BancoDeDados())
+            {
+                var curso = bd.Cursos.Where(w => w.Id == Convert.ToInt32(txtId.Text)).First();
+
+                curso.Nome = nome;
+
+                bd.SaveChanges();
+
+                MessageBox.Show("Deseja alterar?", "Cadastro de Curso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                Listar();
+                LimparCampos();
+            }
         }
     }
 }

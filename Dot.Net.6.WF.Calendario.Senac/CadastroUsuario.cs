@@ -18,6 +18,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public CadastroUsuario()
         {
             InitializeComponent();
+            txtSenha.KeyPress += txtSenha_KeyPress;
         }
 
         private void btnSalvarUsuario_Click(object sender, EventArgs e)
@@ -45,6 +46,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         Nome = " ",
                         Senha = senhaNovo,
                         Email = " ",
+                        Ativo = true,
+                        
 
                     };
 
@@ -100,7 +103,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 foreach (var usuario in usuarios)
                 {
                     GridConsultarUsuario.Rows.Add(
-                        usuario.ID,
+                        usuario.Id,
                         usuario.Login,
                         usuario.Nome,
                         usuario.Email,
@@ -118,7 +121,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-                var usuario = bd.Usuarios.Where(w => w.ID == Convert.ToInt32(txtId.Text)).First();
+                var usuario = bd.Usuarios.Where(w => w.Id == Convert.ToInt32(txtId.Text)).First();
                 usuario.Login = txtNomeLogin.Text;
                 usuario.Nome = txtNomeCompleto.Text;
                 usuario.Email = txtEmail.Text;
@@ -127,29 +130,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 usuario.Ativo = chkAtivo.Checked;
 
                 bd.SaveChanges();
+
+                MessageBox.Show("Deseja alterar?", "Cadastro de Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
                 Listar();
                 LimparCampos();
             }
         }
 
-
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            Listar();
-            LimparCampos();
-        }
-
-        private void GridConsultarUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
-            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
-            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
-            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
-            txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
-            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
-            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
-
-        }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -169,7 +157,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     {
                         try
                         {
-                            var usuario = bd.Usuarios.FirstOrDefault(w => w.ID == Convert.ToInt32(txtId.Text));
+                            var usuario = bd.Usuarios.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
 
                             if (usuario != null)
                             {
@@ -189,6 +177,31 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         }
                     }
                 }
+            }
+        }
+
+        private void GridConsultarUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
+            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
+            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
+            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
+            txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
+            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
+            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            DialogResult iSair;
+            iSair = MessageBox.Show("Tem certeza que deseja sair?",
+                "Cadastro de Usuário",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (iSair == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
     }

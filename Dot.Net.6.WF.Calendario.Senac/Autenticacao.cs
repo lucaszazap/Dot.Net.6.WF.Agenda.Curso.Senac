@@ -21,7 +21,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 using (var bd = new BancoDeDados())
                 {
              
-                    var usuarioEncontrado = bd.Usuarios.FirstOrDefault(u => u.Login == nomeUsuario && u.Senha == senha);
+                    var usuarioEncontrado = bd.Usuarios.FirstOrDefault(u => u.Login == nomeUsuario && u.Senha == senha && u.Ativo);
 
                    
                     if (usuarioEncontrado != null)

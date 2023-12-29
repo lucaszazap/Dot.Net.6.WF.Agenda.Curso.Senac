@@ -10,7 +10,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
     public class Usuario
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(50)]
         public string? Login { get; set; }

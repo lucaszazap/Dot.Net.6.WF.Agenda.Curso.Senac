@@ -208,7 +208,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void iSalvar()
+        private void iAlterar()
         {
 
             string nome = cmbCurso.Text;
@@ -241,7 +241,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 bd.SaveChanges();
 
-                MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.OKCancel);
+                MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 Listar();
                 LimparCampos();
             }
@@ -249,9 +249,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
 
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
-            iSalvar();
+            iAlterar();
         }
 
         private void NumbersOnly(object sender, KeyPressEventArgs e)
@@ -282,7 +282,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
         }
-
+        private void LogOut()
+        {
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.Show();
+        }
         private void iSair()
         {
             DialogResult iSair;
@@ -293,7 +297,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             if (iSair == DialogResult.Yes)
             {
-                Application.Exit();
+                LogOut();
+                this.Close();
             }
         }
         private void btnSair_Click_1(object sender, EventArgs e)
@@ -391,7 +396,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            iSalvar();
+            iAlterar();
         }
 
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
