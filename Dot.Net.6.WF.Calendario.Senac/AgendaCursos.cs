@@ -451,6 +451,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             CadastroCurso cadastroCurso = new CadastroCurso(this);
 
             cadastroCurso.Show();
+            this.Hide();
         }
 
         private void cadastrarUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)

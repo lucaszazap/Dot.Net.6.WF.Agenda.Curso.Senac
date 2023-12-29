@@ -16,7 +16,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class CadastroCurso : Form
     {
-        private Agenda_de_Curso agenda_De_Curso;
+       
 
         public CadastroCurso(Agenda_de_Curso agenda_De_Curso)
         {
@@ -30,9 +30,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iAdicionar()
         {
             {
-                Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
-                agenda_De_Curso.CarregarCombos();
-
+                
                 var nome = txtCadastroCurso.Text;
 
                 using (var bd = new BancoDeDados())
@@ -46,9 +44,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                     bd.SaveChanges();
 
-                    agenda_De_Curso.CarregarCombos();
-
-
                     MessageBox.Show("Curso adicionado com sucesso.",
                     "Cadastro de Curso", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -60,12 +55,17 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-
+        private void AbrirFormAgendaCurso()
+        {
+            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+            agenda_De_Curso.Show();
+        }
         private void btnAdicionar_Click(object sender, EventArgs e)
 
         {
             iAdicionar();
-
+            AbrirFormAgendaCurso();
+            this.Close();
 
         }
 
