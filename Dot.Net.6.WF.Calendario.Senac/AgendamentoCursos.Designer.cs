@@ -94,20 +94,20 @@
             // lbl
             // 
             lbl.AutoSize = true;
-            lbl.Location = new Point(108, 41);
+            lbl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl.Location = new Point(94, 31);
             lbl.Name = "lbl";
-            lbl.Size = new Size(27, 20);
+            lbl.Size = new Size(26, 19);
             lbl.TabIndex = 35;
             lbl.Text = "ID:";
             lbl.Visible = false;
             // 
             // txtId
             // 
-            txtId.Location = new Point(141, 38);
-            txtId.Margin = new Padding(3, 4, 3, 4);
+            txtId.Location = new Point(123, 28);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(138, 27);
+            txtId.Size = new Size(121, 23);
             txtId.TabIndex = 34;
             txtId.Visible = false;
             // 
@@ -115,12 +115,11 @@
             // 
             dtpFim.CustomFormat = "dd-MM-yyyy";
             dtpFim.Format = DateTimePickerFormat.Custom;
-            dtpFim.Location = new Point(567, 73);
-            dtpFim.Margin = new Padding(3, 4, 3, 4);
+            dtpFim.Location = new Point(496, 55);
             dtpFim.MaxDate = new DateTime(2999, 12, 31, 0, 0, 0, 0);
             dtpFim.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpFim.Name = "dtpFim";
-            dtpFim.Size = new Size(135, 27);
+            dtpFim.Size = new Size(119, 23);
             dtpFim.TabIndex = 3;
             dtpFim.Value = new DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
@@ -128,12 +127,11 @@
             // 
             dtpInicio.CustomFormat = "dd-MM-yyyy";
             dtpInicio.Format = DateTimePickerFormat.Custom;
-            dtpInicio.Location = new Point(366, 73);
-            dtpInicio.Margin = new Padding(3, 4, 3, 4);
+            dtpInicio.Location = new Point(320, 55);
             dtpInicio.MaxDate = new DateTime(2999, 12, 31, 0, 0, 0, 0);
             dtpInicio.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpInicio.Name = "dtpInicio";
-            dtpInicio.Size = new Size(135, 27);
+            dtpInicio.Size = new Size(119, 23);
             dtpInicio.TabIndex = 1;
             dtpInicio.Value = new DateTime(2023, 12, 2, 0, 0, 0, 0);
             // 
@@ -142,144 +140,149 @@
             cmbCurso.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCurso.FormattingEnabled = true;
             cmbCurso.Items.AddRange(new object[] { "Tecnologia da Informação" });
-            cmbCurso.Location = new Point(141, 73);
-            cmbCurso.Margin = new Padding(3, 4, 3, 4);
+            cmbCurso.Location = new Point(123, 55);
             cmbCurso.Name = "cmbCurso";
-            cmbCurso.Size = new Size(138, 28);
+            cmbCurso.Size = new Size(121, 23);
             cmbCurso.TabIndex = 0;
+        
             cmbCurso.KeyPress += TextOnly;
             // 
             // txtMeta
             // 
-            txtMeta.Location = new Point(141, 135);
-            txtMeta.Margin = new Padding(3, 4, 3, 4);
+            txtMeta.Location = new Point(123, 101);
             txtMeta.Name = "txtMeta";
-            txtMeta.Size = new Size(138, 27);
+            txtMeta.Size = new Size(121, 23);
             txtMeta.TabIndex = 4;
             txtMeta.KeyPress += NumbersOnly;
             // 
             // txtDias
             // 
-            txtDias.Location = new Point(768, 72);
-            txtDias.Margin = new Padding(3, 4, 3, 4);
+            txtDias.Location = new Point(672, 54);
             txtDias.Name = "txtDias";
-            txtDias.Size = new Size(138, 27);
+            txtDias.Size = new Size(121, 23);
             txtDias.TabIndex = 6;
             txtDias.KeyPress += TextOnly;
             // 
             // txtSala
             // 
-            txtSala.Location = new Point(972, 134);
-            txtSala.Margin = new Padding(3, 4, 3, 4);
+            txtSala.Location = new Point(861, 99);
             txtSala.Name = "txtSala";
-            txtSala.Size = new Size(138, 27);
+            txtSala.Size = new Size(121, 23);
             txtSala.TabIndex = 12;
             // 
             // txtTurma
             // 
-            txtTurma.Location = new Point(771, 134);
-            txtTurma.Margin = new Padding(3, 4, 3, 4);
+            txtTurma.Location = new Point(672, 101);
             txtTurma.Name = "txtTurma";
-            txtTurma.Size = new Size(138, 27);
+            txtTurma.Size = new Size(121, 23);
             txtTurma.TabIndex = 10;
             txtTurma.KeyPress += NumbersOnly;
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(369, 135);
-            txtRealizado.Margin = new Padding(3, 4, 3, 4);
+            txtRealizado.Location = new Point(318, 101);
             txtRealizado.Name = "txtRealizado";
-            txtRealizado.Size = new Size(138, 27);
+            txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 5;
             txtRealizado.KeyPress += NumbersOnly;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(930, 142);
+            label12.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Location = new Point(826, 106);
             label12.Name = "label12";
-            label12.Size = new Size(40, 20);
+            label12.Size = new Size(36, 19);
             label12.TabIndex = 11;
             label12.Text = "Sala:";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(715, 142);
+            label11.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(621, 104);
             label11.Name = "label11";
-            label11.Size = new Size(54, 20);
+            label11.Size = new Size(51, 19);
             label11.TabIndex = 10;
             label11.Text = "Turma:";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(908, 80);
+            label10.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(804, 59);
             label10.Name = "label10";
-            label10.Size = new Size(63, 20);
+            label10.Size = new Size(58, 19);
             label10.TabIndex = 9;
             label10.Text = "Horário:";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(523, 142);
+            label9.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(450, 105);
             label9.Name = "label9";
-            label9.Size = new Size(46, 20);
+            label9.Size = new Size(43, 19);
             label9.TabIndex = 8;
             label9.Text = "Valor:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(527, 81);
+            label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(465, 58);
             label4.Name = "label4";
-            label4.Size = new Size(36, 20);
+            label4.Size = new Size(34, 19);
             label4.TabIndex = 3;
             label4.Text = "Fim:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(85, 78);
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(74, 59);
             label1.Name = "label1";
-            label1.Size = new Size(49, 20);
+            label1.Size = new Size(48, 19);
             label1.TabIndex = 0;
             label1.Text = "Curso:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(285, 138);
+            label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(250, 106);
             label7.Name = "label7";
-            label7.Size = new Size(78, 20);
+            label7.Size = new Size(69, 19);
             label7.TabIndex = 6;
             label7.Text = "Realizado:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(89, 142);
+            label6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(78, 104);
             label6.Name = "label6";
-            label6.Size = new Size(46, 20);
+            label6.Size = new Size(44, 19);
             label6.TabIndex = 5;
             label6.Text = "Meta:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(315, 81);
+            label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(275, 59);
             label3.Name = "label3";
-            label3.Size = new Size(48, 20);
+            label3.Size = new Size(44, 19);
             label3.TabIndex = 2;
             label3.Text = "Início:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(726, 77);
+            label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(632, 58);
             label5.Name = "label5";
-            label5.Size = new Size(41, 20);
+            label5.Size = new Size(38, 19);
             label5.TabIndex = 4;
             label5.Text = "Dias:";
             // 
@@ -290,8 +293,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, cadastrarToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(232, 30);
+            menuStrip1.Size = new Size(187, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -299,34 +301,34 @@
             // 
             arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, salvarToolStripMenuItem, exportarToolStripMenuItem, sairToolStripMenuItem });
             arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            arquivoToolStripMenuItem.Size = new Size(75, 24);
+            arquivoToolStripMenuItem.Size = new Size(61, 20);
             arquivoToolStripMenuItem.Text = "Arquivo";
             // 
             // adicionarToolStripMenuItem
             // 
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(156, 26);
+            adicionarToolStripMenuItem.Size = new Size(125, 22);
             adicionarToolStripMenuItem.Text = "Adicionar";
             adicionarToolStripMenuItem.Click += adicionarToolStripMenuItem_Click;
             // 
             // salvarToolStripMenuItem
             // 
             salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            salvarToolStripMenuItem.Size = new Size(156, 26);
+            salvarToolStripMenuItem.Size = new Size(125, 22);
             salvarToolStripMenuItem.Text = "Salvar";
             salvarToolStripMenuItem.Click += salvarToolStripMenuItem_Click;
             // 
             // exportarToolStripMenuItem
             // 
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            exportarToolStripMenuItem.Size = new Size(156, 26);
+            exportarToolStripMenuItem.Size = new Size(125, 22);
             exportarToolStripMenuItem.Text = "Exportar";
             exportarToolStripMenuItem.Click += exportarToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(156, 26);
+            sairToolStripMenuItem.Size = new Size(125, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -334,20 +336,20 @@
             // 
             editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { limparToolStripMenuItem, deletarToolStripMenuItem });
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            editarToolStripMenuItem.Size = new Size(62, 24);
+            editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "Editar";
             // 
             // limparToolStripMenuItem
             // 
             limparToolStripMenuItem.Name = "limparToolStripMenuItem";
-            limparToolStripMenuItem.Size = new Size(141, 26);
+            limparToolStripMenuItem.Size = new Size(111, 22);
             limparToolStripMenuItem.Text = "Limpar";
             limparToolStripMenuItem.Click += limparToolStripMenuItem_Click;
             // 
             // deletarToolStripMenuItem
             // 
             deletarToolStripMenuItem.Name = "deletarToolStripMenuItem";
-            deletarToolStripMenuItem.Size = new Size(141, 26);
+            deletarToolStripMenuItem.Size = new Size(111, 22);
             deletarToolStripMenuItem.Text = "Deletar";
             deletarToolStripMenuItem.Click += deletarToolStripMenuItem_Click;
             // 
@@ -355,20 +357,20 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarCursoToolStripMenuItem, cadastrarUsuárioToolStripMenuItem1 });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(86, 24);
+            cadastrarToolStripMenuItem.Size = new Size(69, 20);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             // 
             // cadastrarCursoToolStripMenuItem
             // 
             cadastrarCursoToolStripMenuItem.Name = "cadastrarCursoToolStripMenuItem";
-            cadastrarCursoToolStripMenuItem.Size = new Size(207, 26);
+            cadastrarCursoToolStripMenuItem.Size = new Size(166, 22);
             cadastrarCursoToolStripMenuItem.Text = "Cadastrar curso";
             cadastrarCursoToolStripMenuItem.Click += cadastrarCursoToolStripMenuItem_Click;
             // 
             // cadastrarUsuárioToolStripMenuItem1
             // 
             cadastrarUsuárioToolStripMenuItem1.Name = "cadastrarUsuárioToolStripMenuItem1";
-            cadastrarUsuárioToolStripMenuItem1.Size = new Size(207, 26);
+            cadastrarUsuárioToolStripMenuItem1.Size = new Size(166, 22);
             cadastrarUsuárioToolStripMenuItem1.Text = "Cadastrar usuário";
             cadastrarUsuárioToolStripMenuItem1.Click += cadastrarUsuárioToolStripMenuItem1_Click;
             // 
@@ -401,29 +403,26 @@
             panel1.Controls.Add(label12);
             panel1.Controls.Add(txtRealizado);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.MaximumSize = new Size(1829, 1200);
+            panel1.MaximumSize = new Size(1601, 900);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1240, 207);
+            panel1.Size = new Size(1085, 156);
             panel1.TabIndex = 3;
             // 
             // cmbHorario
             // 
             cmbHorario.FormattingEnabled = true;
             cmbHorario.Items.AddRange(new object[] { "07:00 às 12:00", "13:00 às 18:00", "19:00 às 22:00" });
-            cmbHorario.Location = new Point(972, 72);
-            cmbHorario.Margin = new Padding(3, 4, 3, 4);
+            cmbHorario.Location = new Point(861, 54);
             cmbHorario.Name = "cmbHorario";
-            cmbHorario.Size = new Size(138, 28);
+            cmbHorario.Size = new Size(121, 23);
             cmbHorario.TabIndex = 36;
             // 
             // mtbValor
             // 
-            mtbValor.Location = new Point(570, 135);
-            mtbValor.Margin = new Padding(3, 4, 3, 4);
+            mtbValor.Location = new Point(494, 102);
             mtbValor.Mask = "$99,999.99";
             mtbValor.Name = "mtbValor";
-            mtbValor.Size = new Size(138, 27);
+            mtbValor.Size = new Size(121, 23);
             mtbValor.TabIndex = 8;
             // 
             // panel2
@@ -436,21 +435,19 @@
             panel2.Controls.Add(btnLimparCampos);
             panel2.Controls.Add(btnAlterar);
             panel2.Controls.Add(btnDeletar);
-            panel2.Location = new Point(0, 774);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.MaximumSize = new Size(1828, 1199);
+            panel2.Location = new Point(0, 580);
+            panel2.MaximumSize = new Size(1600, 900);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1252, 107);
+            panel2.Size = new Size(1096, 81);
             panel2.TabIndex = 7;
             // 
             // btnSair
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
-            btnSair.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSair.Location = new Point(1100, 33);
-            btnSair.Margin = new Padding(3, 4, 3, 4);
+            btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSair.Location = new Point(952, 25);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(112, 41);
+            btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 5;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
@@ -459,11 +456,10 @@
             // btnExportar
             // 
             btnExportar.Anchor = AnchorStyles.Bottom;
-            btnExportar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExportar.Location = new Point(878, 33);
-            btnExportar.Margin = new Padding(3, 4, 3, 4);
+            btnExportar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnExportar.Location = new Point(768, 25);
             btnExportar.Name = "btnExportar";
-            btnExportar.Size = new Size(107, 41);
+            btnExportar.Size = new Size(94, 31);
             btnExportar.TabIndex = 3;
             btnExportar.Text = "Exportar";
             btnExportar.UseVisualStyleBackColor = true;
@@ -472,11 +468,10 @@
             // btnAdicionar
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom;
-            btnAdicionar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAdicionar.Location = new Point(32, 33);
-            btnAdicionar.Margin = new Padding(3, 4, 3, 4);
+            btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAdicionar.Location = new Point(28, 25);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(112, 41);
+            btnAdicionar.Size = new Size(98, 31);
             btnAdicionar.TabIndex = 0;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
@@ -485,11 +480,10 @@
             // btnLimparCampos
             // 
             btnLimparCampos.Anchor = AnchorStyles.Bottom;
-            btnLimparCampos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLimparCampos.Location = new Point(233, 33);
-            btnLimparCampos.Margin = new Padding(3, 4, 3, 4);
+            btnLimparCampos.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLimparCampos.Location = new Point(204, 25);
             btnLimparCampos.Name = "btnLimparCampos";
-            btnLimparCampos.Size = new Size(112, 41);
+            btnLimparCampos.Size = new Size(98, 31);
             btnLimparCampos.TabIndex = 7;
             btnLimparCampos.Text = "Limpar";
             btnLimparCampos.UseVisualStyleBackColor = true;
@@ -498,11 +492,10 @@
             // btnAlterar
             // 
             btnAlterar.Anchor = AnchorStyles.Bottom;
-            btnAlterar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(672, 33);
-            btnAlterar.Margin = new Padding(3, 4, 3, 4);
+            btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAlterar.Location = new Point(588, 25);
             btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(112, 41);
+            btnAlterar.Size = new Size(98, 31);
             btnAlterar.TabIndex = 3;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
@@ -511,11 +504,10 @@
             // btnDeletar
             // 
             btnDeletar.Anchor = AnchorStyles.Bottom;
-            btnDeletar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDeletar.Location = new Point(458, 33);
-            btnDeletar.Margin = new Padding(3, 4, 3, 4);
+            btnDeletar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDeletar.Location = new Point(401, 25);
             btnDeletar.Name = "btnDeletar";
-            btnDeletar.Size = new Size(112, 41);
+            btnDeletar.Size = new Size(98, 31);
             btnDeletar.TabIndex = 2;
             btnDeletar.Text = "Deletar";
             btnDeletar.UseVisualStyleBackColor = true;
@@ -532,14 +524,13 @@
             gridCurso.BackgroundColor = Color.LightGray;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoHorario, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoValor, ColunaCursoTurma, ColunaCursoSala });
-            gridCurso.Location = new Point(0, 203);
-            gridCurso.Margin = new Padding(3, 4, 3, 4);
-            gridCurso.MaximumSize = new Size(1829, 1200);
+            gridCurso.Location = new Point(0, 152);
+            gridCurso.MaximumSize = new Size(1600, 900);
             gridCurso.Name = "gridCurso";
             gridCurso.ReadOnly = true;
             gridCurso.RowHeadersWidth = 51;
             gridCurso.RowTemplate.Height = 25;
-            gridCurso.Size = new Size(1233, 563);
+            gridCurso.Size = new Size(1085, 422);
             gridCurso.TabIndex = 6;
             gridCurso.CellClick += gridCurso_CellClick;
             // 
@@ -639,16 +630,15 @@
             // 
             // Agenda_de_Curso
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1245, 881);
+            ClientSize = new Size(1089, 661);
             Controls.Add(gridCurso);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(569, 510);
+            MinimumSize = new Size(500, 392);
             Name = "Agenda_de_Curso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agendamento de Cursos";

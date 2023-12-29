@@ -21,6 +21,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             InitializeComponent();
             Load += Agenda_de_Curso_Load;
+            
+            
+
 
         }
 
@@ -82,6 +85,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("Curso adicionado com sucesso.",
                     "Agenda de Cursos", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
                 Listar();
                 LimparCampos();
 
@@ -205,6 +209,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 cmbCurso.DisplayMember = "Nome";
                 cmbCurso.ValueMember = "Id";
                 cmbCurso.SelectedIndex = -1;
+
+
             }
         }
 
@@ -466,6 +472,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             LimparCampos();
         }
+
+        
     }
 
 }

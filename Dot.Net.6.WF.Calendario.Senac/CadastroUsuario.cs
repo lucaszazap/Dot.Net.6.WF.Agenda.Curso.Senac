@@ -47,7 +47,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         Senha = senhaNovo,
                         Email = " ",
                         Ativo = true,
-                        
+
 
                     };
 
@@ -206,7 +206,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
     }
 }
-        
+
 
 
 

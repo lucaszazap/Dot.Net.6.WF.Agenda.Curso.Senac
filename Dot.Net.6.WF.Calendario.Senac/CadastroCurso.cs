@@ -37,12 +37,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 using (var bd = new BancoDeDados())
                 {
-                    var curso = new Curso()
+                    var novoCurso = new Curso()
                     {
                         Nome = nome,
                     };
 
-                    bd.Cursos.Add(curso);
+                    bd.Cursos.Add(novoCurso);
 
                     bd.SaveChanges();
 
@@ -52,6 +52,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     MessageBox.Show("Curso adicionado com sucesso.",
                     "Cadastro de Curso", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
                     Listar();
                     LimparCampos();
                 }
@@ -168,7 +169,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             string nome = txtCadastroCurso.Text;
 
-            using ( var bd =  new BancoDeDados())
+            using (var bd = new BancoDeDados())
             {
                 var curso = bd.Cursos.Where(w => w.Id == Convert.ToInt32(txtId.Text)).First();
 
