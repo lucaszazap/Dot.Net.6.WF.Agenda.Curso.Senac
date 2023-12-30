@@ -83,6 +83,8 @@
             btnLimparCampos = new Button();
             btnAlterar = new Button();
             btnExcluir = new Button();
+            controleToolStripMenuItem = new ToolStripMenuItem();
+            acessoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridCurso).BeginInit();
@@ -286,10 +288,10 @@
             // 
             menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, cadastrarToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, cadastrarToolStripMenuItem, controleToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(187, 24);
+            menuStrip1.Size = new Size(372, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -614,6 +616,20 @@
             btnExcluir.UseVisualStyleBackColor = true;
             btnExcluir.Click += btnExcluir_Click_1;
             // 
+            // controleToolStripMenuItem
+            // 
+            controleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acessoToolStripMenuItem });
+            controleToolStripMenuItem.Name = "controleToolStripMenuItem";
+            controleToolStripMenuItem.Size = new Size(65, 20);
+            controleToolStripMenuItem.Text = "Controle";
+            // 
+            // acessoToolStripMenuItem
+            // 
+            acessoToolStripMenuItem.Name = "acessoToolStripMenuItem";
+            acessoToolStripMenuItem.Size = new Size(180, 22);
+            acessoToolStripMenuItem.Text = "Acesso";
+            acessoToolStripMenuItem.Click += acessoToolStripMenuItem_Click;
+            // 
             // Agenda_de_Curso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -694,5 +710,7 @@
         private DataGridViewTextBoxColumn ColunaCursoTurma;
         private DataGridViewTextBoxColumn ColunaCursoSala;
         private ComboBox cmbHorario;
+        private ToolStripMenuItem controleToolStripMenuItem;
+        private ToolStripMenuItem acessoToolStripMenuItem;
     }
 }

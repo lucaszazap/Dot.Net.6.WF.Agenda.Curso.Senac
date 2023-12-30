@@ -20,7 +20,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Agenda_de_Curso()
         {
             InitializeComponent();
-           
+
 
         }
 
@@ -148,7 +148,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("Você não tem permissão para excluir cursos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-               
+
 
             if (string.IsNullOrEmpty(txtId.Text))
             {
@@ -453,7 +453,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             this.Hide();
         }
 
-      
+
         private void cadastrarUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (Autenticacao.UsuarioTemPermissaoAdministrador())
@@ -475,6 +475,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
             LimparCampos();
         }
 
+        private void acessoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ControleAcesso controleAcesso = new ControleAcesso();
+            controleAcesso.Show();
+            this.Hide();
+        }
     }
 }
 
