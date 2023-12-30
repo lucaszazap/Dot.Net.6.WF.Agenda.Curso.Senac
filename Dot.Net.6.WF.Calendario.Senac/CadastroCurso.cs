@@ -81,7 +81,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                AbrirFormAgendaCurso();
             }
         }
 

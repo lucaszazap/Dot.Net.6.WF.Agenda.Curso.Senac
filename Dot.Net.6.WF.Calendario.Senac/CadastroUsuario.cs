@@ -191,6 +191,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
             chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
         }
 
+        private void AbrirFormAgendaCurso()
+        {
+            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+            agenda_De_Curso.Show();
+        }
         private void btnSair_Click(object sender, EventArgs e)
         {
             DialogResult iSair;
@@ -201,7 +206,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             if (iSair == DialogResult.Yes)
             {
+                AbrirFormAgendaCurso();
                 this.Close();
+                
             }
         }
     }

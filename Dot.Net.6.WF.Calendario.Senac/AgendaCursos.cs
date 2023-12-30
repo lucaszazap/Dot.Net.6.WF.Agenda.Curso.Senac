@@ -460,6 +460,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 CadastroUsuario cadastroUsuario = new CadastroUsuario();
                 cadastroUsuario.Show();
+                this.Hide();
             }
             else
             {

@@ -58,7 +58,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(304, 339);
+            btnCancelar.Location = new Point(320, 339);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(74, 27);
             btnCancelar.TabIndex = 19;
@@ -68,7 +68,7 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(304, 300);
+            txtSenha.Location = new Point(320, 305);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
             txtSenha.Size = new Size(152, 23);
@@ -78,7 +78,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(385, 339);
+            btnLogin.Location = new Point(401, 339);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(71, 27);
             btnLogin.TabIndex = 16;
@@ -88,7 +88,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(304, 267);
+            txtUsuario.Location = new Point(320, 269);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(152, 23);
             txtUsuario.TabIndex = 0;
@@ -99,7 +99,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(253, 272);
+            label1.Location = new Point(272, 277);
             label1.Name = "label1";
             label1.Size = new Size(50, 15);
             label1.TabIndex = 17;
@@ -109,7 +109,7 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.White;
-            label2.Location = new Point(262, 305);
+            label2.Location = new Point(280, 313);
             label2.Name = "label2";
             label2.Size = new Size(42, 15);
             label2.TabIndex = 18;
@@ -117,6 +117,8 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(2, 0);

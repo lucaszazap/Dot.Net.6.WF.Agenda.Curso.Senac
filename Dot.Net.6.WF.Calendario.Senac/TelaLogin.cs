@@ -80,7 +80,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
-            this.Close();
+            Application.Exit();
 
 
         }
