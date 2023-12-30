@@ -38,7 +38,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 {
                     UsuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
 
-                    //MessageBox.Show("Login bem-sucedido", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Bem-Vindo: {TelaLogin.UsuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     AbrirFormPrincipal();
                 }

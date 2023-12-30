@@ -20,7 +20,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Agenda_de_Curso()
         {
             InitializeComponent();
-            ControleLogin();
+           
 
         }
 
@@ -143,6 +143,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void iExcluir()
         {
+            if (!Autenticacao.UsuarioTemPermissaoAdministrador())
+            {
+                MessageBox.Show("Você não tem permissão para excluir cursos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+               
+
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Por favor, informe o curso antes de tentar excluir.");
@@ -445,19 +452,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
             cadastroCurso.Show();
             this.Hide();
         }
-        private void ControleLogin()
-        {
-            if (TelaLogin.UsuarioLogado != null)
-            {
-                MessageBox.Show($"Bem-Vindo: {TelaLogin.UsuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
-            else
-            {
-                MessageBox.Show("Nenhum usuário logado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
+      
         private void cadastrarUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (Autenticacao.UsuarioTemPermissaoAdministrador())
