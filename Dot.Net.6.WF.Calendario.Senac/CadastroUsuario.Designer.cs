@@ -61,7 +61,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(35, 21);
+            label1.Location = new Point(80, 22);
             label1.Name = "label1";
             label1.Size = new Size(26, 19);
             label1.TabIndex = 0;
@@ -72,7 +72,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(8, 60);
+            label2.Location = new Point(53, 61);
             label2.Name = "label2";
             label2.Size = new Size(59, 19);
             label2.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(271, 61);
+            label3.Location = new Point(316, 62);
             label3.Name = "label3";
             label3.Size = new Size(113, 19);
             label3.TabIndex = 2;
@@ -92,7 +92,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(10, 102);
+            label4.Location = new Point(55, 103);
             label4.Name = "label4";
             label4.Size = new Size(50, 19);
             label4.TabIndex = 3;
@@ -102,7 +102,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(333, 106);
+            label5.Location = new Point(378, 107);
             label5.Name = "label5";
             label5.Size = new Size(49, 19);
             label5.TabIndex = 4;
@@ -110,17 +110,18 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(384, 101);
+            txtSenha.Location = new Point(429, 102);
             txtSenha.Margin = new Padding(3, 2, 3, 2);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
             txtSenha.Size = new Size(199, 23);
             txtSenha.TabIndex = 3;
             txtSenha.UseSystemPasswordChar = true;
+            txtSenha.KeyPress += txtSenha_KeyPress;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(63, 97);
+            txtEmail.Location = new Point(108, 98);
             txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(203, 23);
@@ -128,7 +129,7 @@
             // 
             // txtNomeCompleto
             // 
-            txtNomeCompleto.Location = new Point(384, 55);
+            txtNomeCompleto.Location = new Point(429, 56);
             txtNomeCompleto.Margin = new Padding(3, 2, 3, 2);
             txtNomeCompleto.Name = "txtNomeCompleto";
             txtNomeCompleto.Size = new Size(199, 23);
@@ -136,7 +137,7 @@
             // 
             // txtNomeLogin
             // 
-            txtNomeLogin.Location = new Point(64, 55);
+            txtNomeLogin.Location = new Point(109, 56);
             txtNomeLogin.Margin = new Padding(3, 2, 3, 2);
             txtNomeLogin.Name = "txtNomeLogin";
             txtNomeLogin.Size = new Size(202, 23);
@@ -144,7 +145,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(64, 16);
+            txtId.Location = new Point(109, 17);
             txtId.Margin = new Padding(3, 2, 3, 2);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
@@ -157,7 +158,7 @@
             // 
             chkAtivo.AutoSize = true;
             chkAtivo.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            chkAtivo.Location = new Point(64, 134);
+            chkAtivo.Location = new Point(109, 135);
             chkAtivo.Margin = new Padding(3, 2, 3, 2);
             chkAtivo.Name = "chkAtivo";
             chkAtivo.Size = new Size(60, 23);
@@ -169,7 +170,7 @@
             // 
             chkAdministrador.AutoSize = true;
             chkAdministrador.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            chkAdministrador.Location = new Point(156, 134);
+            chkAdministrador.Location = new Point(201, 135);
             chkAdministrador.Margin = new Padding(3, 2, 3, 2);
             chkAdministrador.Name = "chkAdministrador";
             chkAdministrador.Size = new Size(115, 23);
@@ -180,7 +181,7 @@
             // btnAdicionarUsuario
             // 
             btnAdicionarUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAdicionarUsuario.Location = new Point(25, 436);
+            btnAdicionarUsuario.Location = new Point(50, 441);
             btnAdicionarUsuario.Margin = new Padding(3, 2, 3, 2);
             btnAdicionarUsuario.Name = "btnAdicionarUsuario";
             btnAdicionarUsuario.Size = new Size(99, 29);
@@ -192,7 +193,7 @@
             // btnSair
             // 
             btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSair.Location = new Point(492, 436);
+            btnSair.Location = new Point(517, 441);
             btnSair.Margin = new Padding(3, 2, 3, 2);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(91, 29);
@@ -204,7 +205,7 @@
             // btnAlterar
             // 
             btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(170, 436);
+            btnAlterar.Location = new Point(195, 441);
             btnAlterar.Margin = new Padding(3, 2, 3, 2);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(101, 29);
@@ -219,15 +220,16 @@
             GridConsultarUsuario.AllowUserToDeleteRows = false;
             GridConsultarUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridConsultarUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
-            GridConsultarUsuario.Location = new Point(3, 172);
+            GridConsultarUsuario.Location = new Point(1, 177);
             GridConsultarUsuario.Margin = new Padding(3, 2, 3, 2);
             GridConsultarUsuario.Name = "GridConsultarUsuario";
             GridConsultarUsuario.ReadOnly = true;
             GridConsultarUsuario.RowHeadersWidth = 51;
             GridConsultarUsuario.RowTemplate.Height = 29;
-            GridConsultarUsuario.Size = new Size(612, 225);
+            GridConsultarUsuario.Size = new Size(702, 225);
             GridConsultarUsuario.TabIndex = 8;
             GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
+            GridConsultarUsuario.CellFormatting += GridConsultarUsuario_CellFormatting;
             // 
             // Column1
             // 
@@ -289,7 +291,7 @@
             // btnExcluir
             // 
             btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(333, 436);
+            btnExcluir.Location = new Point(358, 441);
             btnExcluir.Margin = new Padding(3, 2, 3, 2);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(96, 29);
@@ -320,10 +322,10 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(4, 3);
+            panel1.Location = new Point(-2, -2);
             panel1.MaximumSize = new Size(1920, 1080);
             panel1.Name = "panel1";
-            panel1.Size = new Size(620, 502);
+            panel1.Size = new Size(708, 541);
             panel1.TabIndex = 13;
             // 
             // CadastroUsuario
@@ -332,7 +334,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(623, 510);
+            ClientSize = new Size(703, 537);
             Controls.Add(panel1);
             DoubleBuffered = true;
             Margin = new Padding(3, 2, 3, 2);
@@ -356,7 +358,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox2;
+
         private TextBox txtSenha;
         private TextBox txtEmail;
         private TextBox txtNomeCompleto;

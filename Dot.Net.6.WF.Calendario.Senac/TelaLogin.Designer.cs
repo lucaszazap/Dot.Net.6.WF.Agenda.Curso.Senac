@@ -137,6 +137,7 @@
             ClientSize = new Size(762, 461);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "TelaLogin";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;

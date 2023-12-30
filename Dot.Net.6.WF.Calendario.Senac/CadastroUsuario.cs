@@ -15,10 +15,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class CadastroUsuario : Form
     {
+        
         public CadastroUsuario()
         {
             InitializeComponent();
-            txtSenha.KeyPress += txtSenha_KeyPress;
+           
         }
 
         private void btnSalvarUsuario_Click(object sender, EventArgs e)
@@ -43,9 +44,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     {
 
                         Login = nomeUsuarioNovo,
-                        Nome = " ",
+                        
                         Senha = senhaNovo,
-                        Email = " ",
+                       
                         Ativo = true,
 
 
@@ -54,16 +55,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     bd.Usuarios.Add(novoUsuario);
                     bd.SaveChanges();
                     MessageBox.Show("Usuário criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
 
+                  
+
+                    Listar();
+                }
 
             }
         }
-
-
-
-
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -168,7 +167,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                             }
                             else
                             {
-                                MessageBox.Show("Curso não encontrado. Verifique o curso informado.");
+                                MessageBox.Show("Usuário não encontrado. Verifique o usuário informado.");
                             }
                         }
                         catch (Exception ex)
@@ -208,11 +207,28 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 AbrirFormAgendaCurso();
                 this.Close();
-                
+
+            }
+        }
+
+        private void GridConsultarUsuario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            List<int> colunaBoolIndex = new List<int> { 5, 6 };
+
+            if (e.RowIndex >= 0 && colunaBoolIndex.Contains(e.ColumnIndex))
+
+            {
+                if (e.Value != null && e.Value is bool)
+                {
+                    bool valorBool = (bool)e.Value;
+                    e.Value = valorBool ? "Sim" : "Não";
+                    e.FormattingApplied = true;
+                }
             }
         }
     }
 }
+
 
 
 

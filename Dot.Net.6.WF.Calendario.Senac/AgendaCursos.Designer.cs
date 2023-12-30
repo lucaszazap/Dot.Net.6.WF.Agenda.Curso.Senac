@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lbl = new Label();
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
@@ -54,7 +54,6 @@
             menuStrip1 = new MenuStrip();
             arquivoToolStripMenuItem = new ToolStripMenuItem();
             adicionarToolStripMenuItem = new ToolStripMenuItem();
-            salvarToolStripMenuItem = new ToolStripMenuItem();
             exportarToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
             editarToolStripMenuItem = new ToolStripMenuItem();
@@ -83,7 +82,7 @@
             btnAdicionar = new Button();
             btnLimparCampos = new Button();
             btnAlterar = new Button();
-            btnDeletar = new Button();
+            btnExcluir = new Button();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridCurso).BeginInit();
@@ -149,7 +148,7 @@
             txtMeta.Location = new Point(115, 126);
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(121, 23);
-            txtMeta.TabIndex = 4;
+            txtMeta.TabIndex = 6;
             txtMeta.KeyPress += NumbersOnly;
             // 
             // txtDias
@@ -157,7 +156,7 @@
             txtDias.Location = new Point(664, 79);
             txtDias.Name = "txtDias";
             txtDias.Size = new Size(121, 23);
-            txtDias.TabIndex = 6;
+            txtDias.TabIndex = 4;
             txtDias.KeyPress += TextOnly;
             // 
             // txtSala
@@ -165,14 +164,14 @@
             txtSala.Location = new Point(853, 124);
             txtSala.Name = "txtSala";
             txtSala.Size = new Size(121, 23);
-            txtSala.TabIndex = 12;
+            txtSala.TabIndex = 10;
             // 
             // txtTurma
             // 
             txtTurma.Location = new Point(664, 126);
             txtTurma.Name = "txtTurma";
             txtTurma.Size = new Size(121, 23);
-            txtTurma.TabIndex = 10;
+            txtTurma.TabIndex = 9;
             txtTurma.KeyPress += NumbersOnly;
             // 
             // txtRealizado
@@ -180,7 +179,7 @@
             txtRealizado.Location = new Point(310, 126);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
-            txtRealizado.TabIndex = 5;
+            txtRealizado.TabIndex = 7;
             txtRealizado.KeyPress += NumbersOnly;
             // 
             // label12
@@ -290,13 +289,13 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, cadastrarToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(187, 24);
+            menuStrip1.Size = new Size(307, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
             // arquivoToolStripMenuItem
             // 
-            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, salvarToolStripMenuItem, exportarToolStripMenuItem, sairToolStripMenuItem });
+            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, exportarToolStripMenuItem, sairToolStripMenuItem });
             arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             arquivoToolStripMenuItem.Size = new Size(61, 20);
             arquivoToolStripMenuItem.Text = "Arquivo";
@@ -304,28 +303,24 @@
             // adicionarToolStripMenuItem
             // 
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(125, 22);
+            adicionarToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
+            adicionarToolStripMenuItem.Size = new Size(167, 22);
             adicionarToolStripMenuItem.Text = "Adicionar";
             adicionarToolStripMenuItem.Click += adicionarToolStripMenuItem_Click;
-            // 
-            // salvarToolStripMenuItem
-            // 
-            salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            salvarToolStripMenuItem.Size = new Size(125, 22);
-            salvarToolStripMenuItem.Text = "Salvar";
-            salvarToolStripMenuItem.Click += salvarToolStripMenuItem_Click;
             // 
             // exportarToolStripMenuItem
             // 
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            exportarToolStripMenuItem.Size = new Size(125, 22);
+            exportarToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.E;
+            exportarToolStripMenuItem.Size = new Size(167, 22);
             exportarToolStripMenuItem.Text = "Exportar";
             exportarToolStripMenuItem.Click += exportarToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(125, 22);
+            sairToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
+            sairToolStripMenuItem.Size = new Size(167, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -339,16 +334,17 @@
             // limparToolStripMenuItem
             // 
             limparToolStripMenuItem.Name = "limparToolStripMenuItem";
-            limparToolStripMenuItem.Size = new Size(111, 22);
+            limparToolStripMenuItem.Size = new Size(183, 22);
             limparToolStripMenuItem.Text = "Limpar";
             limparToolStripMenuItem.Click += limparToolStripMenuItem_Click;
             // 
             // deletarToolStripMenuItem
             // 
             deletarToolStripMenuItem.Name = "deletarToolStripMenuItem";
-            deletarToolStripMenuItem.Size = new Size(111, 22);
-            deletarToolStripMenuItem.Text = "Deletar";
-            deletarToolStripMenuItem.Click += deletarToolStripMenuItem_Click;
+            deletarToolStripMenuItem.ShortcutKeys = Keys.Shift | Keys.Delete;
+            deletarToolStripMenuItem.Size = new Size(181, 22);
+            deletarToolStripMenuItem.Text = "Excluir";
+            deletarToolStripMenuItem.Click += excluirToolStripMenuItem_Click;
             // 
             // cadastrarToolStripMenuItem
             // 
@@ -360,14 +356,16 @@
             // cadastrarCursoToolStripMenuItem
             // 
             cadastrarCursoToolStripMenuItem.Name = "cadastrarCursoToolStripMenuItem";
-            cadastrarCursoToolStripMenuItem.Size = new Size(166, 22);
+            cadastrarCursoToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.C;
+            cadastrarCursoToolStripMenuItem.Size = new Size(202, 22);
             cadastrarCursoToolStripMenuItem.Text = "Cadastrar curso";
             cadastrarCursoToolStripMenuItem.Click += cadastrarCursoToolStripMenuItem_Click;
             // 
             // cadastrarUsuárioToolStripMenuItem1
             // 
             cadastrarUsuárioToolStripMenuItem1.Name = "cadastrarUsuárioToolStripMenuItem1";
-            cadastrarUsuárioToolStripMenuItem1.Size = new Size(166, 22);
+            cadastrarUsuárioToolStripMenuItem1.ShortcutKeys = Keys.Alt | Keys.E;
+            cadastrarUsuárioToolStripMenuItem1.Size = new Size(202, 22);
             cadastrarUsuárioToolStripMenuItem1.Text = "Cadastrar usuário";
             cadastrarUsuárioToolStripMenuItem1.Click += cadastrarUsuárioToolStripMenuItem1_Click;
             // 
@@ -388,7 +386,7 @@
             panel1.Controls.Add(txtId);
             panel1.Controls.Add(btnAlterar);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(btnDeletar);
+            panel1.Controls.Add(btnExcluir);
             panel1.Controls.Add(dtpFim);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(dtpInicio);
@@ -416,8 +414,8 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             gridCurso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.LightGray;
@@ -430,7 +428,7 @@
             gridCurso.RowHeadersWidth = 51;
             gridCurso.RowTemplate.Height = 25;
             gridCurso.Size = new Size(998, 240);
-            gridCurso.TabIndex = 6;
+            gridCurso.TabIndex = 17;
             gridCurso.CellClick += gridCurso_CellClick;
             // 
             // Column1
@@ -452,9 +450,9 @@
             // ColunaCursoInicio
             // 
             ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle5;
             ColunaCursoInicio.HeaderText = "Início";
             ColunaCursoInicio.MinimumWidth = 6;
             ColunaCursoInicio.Name = "ColunaCursoInicio";
@@ -463,9 +461,9 @@
             // ColunaCursoFim
             // 
             ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle6;
             ColunaCursoFim.HeaderText = "Fim";
             ColunaCursoFim.MinimumWidth = 6;
             ColunaCursoFim.Name = "ColunaCursoFim";
@@ -534,7 +532,7 @@
             btnSair.Location = new Point(867, 460);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
-            btnSair.TabIndex = 5;
+            btnSair.TabIndex = 16;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
             btnSair.Click += btnSair_Click_1;
@@ -546,7 +544,7 @@
             cmbHorario.Location = new Point(853, 79);
             cmbHorario.Name = "cmbHorario";
             cmbHorario.Size = new Size(121, 23);
-            cmbHorario.TabIndex = 36;
+            cmbHorario.TabIndex = 5;
             // 
             // btnExportar
             // 
@@ -555,7 +553,7 @@
             btnExportar.Location = new Point(697, 460);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(94, 31);
-            btnExportar.TabIndex = 3;
+            btnExportar.TabIndex = 15;
             btnExportar.Text = "Exportar";
             btnExportar.UseVisualStyleBackColor = true;
             btnExportar.Click += btnExportar_Click;
@@ -575,7 +573,7 @@
             btnAdicionar.Location = new Point(37, 460);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(98, 31);
-            btnAdicionar.TabIndex = 0;
+            btnAdicionar.TabIndex = 11;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
             btnAdicionar.Click += btnAdicionar_Click_1;
@@ -587,7 +585,7 @@
             btnLimparCampos.Location = new Point(194, 460);
             btnLimparCampos.Name = "btnLimparCampos";
             btnLimparCampos.Size = new Size(98, 31);
-            btnLimparCampos.TabIndex = 7;
+            btnLimparCampos.TabIndex = 12;
             btnLimparCampos.Text = "Limpar";
             btnLimparCampos.UseVisualStyleBackColor = true;
             btnLimparCampos.Click += btnLimparCampos_Click;
@@ -599,22 +597,22 @@
             btnAlterar.Location = new Point(520, 460);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(98, 31);
-            btnAlterar.TabIndex = 3;
+            btnAlterar.TabIndex = 14;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
             btnAlterar.Click += btnAlterar_Click;
             // 
-            // btnDeletar
+            // btnExcluir
             // 
-            btnDeletar.Anchor = AnchorStyles.Bottom;
-            btnDeletar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDeletar.Location = new Point(349, 460);
-            btnDeletar.Name = "btnDeletar";
-            btnDeletar.Size = new Size(98, 31);
-            btnDeletar.TabIndex = 2;
-            btnDeletar.Text = "Deletar";
-            btnDeletar.UseVisualStyleBackColor = true;
-            btnDeletar.Click += btnDeletar_Click_1;
+            btnExcluir.Anchor = AnchorStyles.Bottom;
+            btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnExcluir.Location = new Point(349, 460);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(98, 31);
+            btnExcluir.TabIndex = 13;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click_1;
             // 
             // Agenda_de_Curso
             // 
@@ -663,7 +661,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem arquivoToolStripMenuItem;
         private ToolStripMenuItem adicionarToolStripMenuItem;
-        private ToolStripMenuItem salvarToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem limparToolStripMenuItem;
@@ -679,7 +676,7 @@
         private Button btnAdicionar;
         private Button btnLimparCampos;
         private Button btnAlterar;
-        private Button btnDeletar;
+        private Button btnExcluir;
         private MaskedTextBox mtbValor;
         private DataGridView gridCurso;
         private ToolStripMenuItem cadastrarToolStripMenuItem;

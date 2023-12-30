@@ -20,10 +20,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public Agenda_de_Curso()
         {
             InitializeComponent();
-            Load += Agenda_de_Curso_Load;
-
-
-
+            ControleLogin();
 
         }
 
@@ -83,8 +80,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 bd.SaveChanges();
 
                 MessageBox.Show("Curso adicionado com sucesso.",
-                    "Agenda de Cursos", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                "Agenda de Cursos", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
 
                 Listar();
                 LimparCampos();
@@ -144,11 +141,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
 
 
-        private void iDeletar()
+        private void iExcluir()
         {
             if (string.IsNullOrEmpty(txtId.Text))
             {
-                MessageBox.Show("Por favor, informe o ID antes de tentar excluir.");
+                MessageBox.Show("Por favor, informe o curso antes de tentar excluir.");
             }
             else
             {
@@ -185,9 +182,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
         }
-        private void btnDeletar_Click_1(object sender, EventArgs e)
+        private void btnExcluir_Click_1(object sender, EventArgs e)
         {
-            iDeletar();
+            iExcluir();
 
         }
 
@@ -231,8 +228,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
             using (var bd = new BancoDeDados())
             {
                 var curso = bd.AgendamentoCursos
-            .Where(w => w.Id == Convert.ToInt32(txtId.Text))
-            .First();
+                .Where(w => w.Id == Convert.ToInt32(txtId.Text))
+                .First();
 
                 curso.Nome = nome;
                 curso.Inicio = inicio;
@@ -248,6 +245,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 bd.SaveChanges();
 
                 MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
                 Listar();
                 LimparCampos();
             }
@@ -367,7 +365,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         worksheet.Cells[row, 7].Value = curso.Meta;
                         worksheet.Cells[row, 8].Value = curso.Realizado;
                         worksheet.Cells[row, 9].Value = curso.Valor;
-
                         worksheet.Cells[row, 10].Value = curso.Turma;
                         worksheet.Cells[row, 11].Value = curso.Sala;
 
@@ -400,11 +397,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             iExportar();
         }
 
-        private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            iAlterar();
-        }
-
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iExportar();
@@ -426,9 +418,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtSala.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
         }
 
-        private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            iDeletar();
+            iExcluir();
         }
 
         private void TextOnly(object sender, KeyPressEventArgs e)
@@ -453,7 +445,19 @@ namespace Dot.Net._6.WF.Calendario.Senac
             cadastroCurso.Show();
             this.Hide();
         }
+        private void ControleLogin()
+        {
+            if (TelaLogin.UsuarioLogado != null)
+            {
+                MessageBox.Show($"Bem-Vindo: {TelaLogin.UsuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
+            else
+            {
+                MessageBox.Show("Nenhum usuário logado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
         private void cadastrarUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (Autenticacao.UsuarioTemPermissaoAdministrador())
@@ -475,10 +479,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
             LimparCampos();
         }
 
-
     }
-
 }
+
+
 
 
 

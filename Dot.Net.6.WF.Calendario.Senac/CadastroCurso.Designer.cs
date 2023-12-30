@@ -101,7 +101,7 @@
             btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnAdicionar.Location = new Point(32, 497);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(89, 30);
+            btnAdicionar.Size = new Size(81, 30);
             btnAdicionar.TabIndex = 4;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;

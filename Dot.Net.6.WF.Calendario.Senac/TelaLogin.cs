@@ -16,8 +16,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class TelaLogin : Form
     {
-
-
+        public static Usuario UsuarioLogado { get; private set; }
         public TelaLogin()
         {
             InitializeComponent();
@@ -37,7 +36,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 if (Autenticacao.AutenticarUsuario(usuario, senha))
                 {
-                    MessageBox.Show("Login bem-sucedido", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UsuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
+
+                    //MessageBox.Show("Login bem-sucedido", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     AbrirFormPrincipal();
                 }
