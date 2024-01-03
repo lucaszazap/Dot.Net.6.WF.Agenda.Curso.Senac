@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
+using System.Collections.Generic;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
@@ -36,6 +37,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 if (Autenticacao.AutenticarUsuario(usuario, senha))
                 {
+                    
                     UsuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
 
                     MessageBox.Show($"Bem-Vindo: {TelaLogin.UsuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
