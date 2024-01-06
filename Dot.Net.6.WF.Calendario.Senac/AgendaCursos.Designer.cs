@@ -62,6 +62,8 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             cadastrarCursoToolStripMenuItem = new ToolStripMenuItem();
             cadastrarUsuárioToolStripMenuItem1 = new ToolStripMenuItem();
+            controleToolStripMenuItem = new ToolStripMenuItem();
+            acessoToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             gridCurso = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -83,8 +85,6 @@
             btnLimparCampos = new Button();
             btnAlterar = new Button();
             btnExcluir = new Button();
-            controleToolStripMenuItem = new ToolStripMenuItem();
-            acessoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridCurso).BeginInit();
@@ -178,7 +178,7 @@
             // 
             // txtRealizado
             // 
-            txtRealizado.Location = new Point(310, 126);
+            txtRealizado.Location = new Point(312, 123);
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(121, 23);
             txtRealizado.TabIndex = 7;
@@ -248,7 +248,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(242, 131);
+            label7.Location = new Point(242, 127);
             label7.Name = "label7";
             label7.Size = new Size(69, 19);
             label7.TabIndex = 6;
@@ -291,7 +291,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, cadastrarToolStripMenuItem, controleToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(372, 24);
+            menuStrip1.Size = new Size(252, 24);
             menuStrip1.TabIndex = 29;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -371,6 +371,20 @@
             cadastrarUsuárioToolStripMenuItem1.Text = "Cadastrar usuário";
             cadastrarUsuárioToolStripMenuItem1.Click += cadastrarUsuárioToolStripMenuItem1_Click;
             // 
+            // controleToolStripMenuItem
+            // 
+            controleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acessoToolStripMenuItem });
+            controleToolStripMenuItem.Name = "controleToolStripMenuItem";
+            controleToolStripMenuItem.Size = new Size(65, 20);
+            controleToolStripMenuItem.Text = "Controle";
+            // 
+            // acessoToolStripMenuItem
+            // 
+            acessoToolStripMenuItem.Name = "acessoToolStripMenuItem";
+            acessoToolStripMenuItem.Size = new Size(111, 22);
+            acessoToolStripMenuItem.Text = "Acesso";
+            acessoToolStripMenuItem.Click += acessoToolStripMenuItem_Click;
+            // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -407,9 +421,10 @@
             panel1.Controls.Add(label12);
             panel1.Controls.Add(txtRealizado);
             panel1.Location = new Point(0, 0);
-            panel1.MaximumSize = new Size(1920, 1080);
+            panel1.MaximumSize = new Size(1680, 1050);
+            panel1.MinimumSize = new Size(900, 600);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1006, 564);
+            panel1.Size = new Size(1006, 600);
             panel1.TabIndex = 3;
             // 
             // gridCurso
@@ -429,7 +444,7 @@
             gridCurso.ReadOnly = true;
             gridCurso.RowHeadersWidth = 51;
             gridCurso.RowTemplate.Height = 25;
-            gridCurso.Size = new Size(998, 240);
+            gridCurso.Size = new Size(998, 276);
             gridCurso.TabIndex = 17;
             gridCurso.CellClick += gridCurso_CellClick;
             // 
@@ -531,7 +546,7 @@
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
             btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSair.Location = new Point(867, 460);
+            btnSair.Location = new Point(867, 496);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(98, 31);
             btnSair.TabIndex = 16;
@@ -552,7 +567,7 @@
             // 
             btnExportar.Anchor = AnchorStyles.Bottom;
             btnExportar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExportar.Location = new Point(697, 460);
+            btnExportar.Location = new Point(697, 496);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(94, 31);
             btnExportar.TabIndex = 15;
@@ -572,7 +587,7 @@
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom;
             btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAdicionar.Location = new Point(37, 460);
+            btnAdicionar.Location = new Point(37, 496);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(98, 31);
             btnAdicionar.TabIndex = 11;
@@ -584,7 +599,7 @@
             // 
             btnLimparCampos.Anchor = AnchorStyles.Bottom;
             btnLimparCampos.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimparCampos.Location = new Point(194, 460);
+            btnLimparCampos.Location = new Point(194, 496);
             btnLimparCampos.Name = "btnLimparCampos";
             btnLimparCampos.Size = new Size(98, 31);
             btnLimparCampos.TabIndex = 12;
@@ -596,7 +611,7 @@
             // 
             btnAlterar.Anchor = AnchorStyles.Bottom;
             btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(520, 460);
+            btnAlterar.Location = new Point(520, 496);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(98, 31);
             btnAlterar.TabIndex = 14;
@@ -608,7 +623,7 @@
             // 
             btnExcluir.Anchor = AnchorStyles.Bottom;
             btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(349, 460);
+            btnExcluir.Location = new Point(349, 496);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(98, 31);
             btnExcluir.TabIndex = 13;
@@ -616,25 +631,12 @@
             btnExcluir.UseVisualStyleBackColor = true;
             btnExcluir.Click += btnExcluir_Click_1;
             // 
-            // controleToolStripMenuItem
-            // 
-            controleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acessoToolStripMenuItem });
-            controleToolStripMenuItem.Name = "controleToolStripMenuItem";
-            controleToolStripMenuItem.Size = new Size(65, 20);
-            controleToolStripMenuItem.Text = "Controle";
-            // 
-            // acessoToolStripMenuItem
-            // 
-            acessoToolStripMenuItem.Name = "acessoToolStripMenuItem";
-            acessoToolStripMenuItem.Size = new Size(180, 22);
-            acessoToolStripMenuItem.Text = "Acesso";
-            acessoToolStripMenuItem.Click += acessoToolStripMenuItem_Click;
-            // 
             // Agenda_de_Curso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
+            AutoScroll = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1000, 561);
             Controls.Add(panel1);

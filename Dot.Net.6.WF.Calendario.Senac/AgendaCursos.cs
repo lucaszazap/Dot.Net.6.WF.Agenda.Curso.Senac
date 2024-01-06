@@ -16,6 +16,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class Agenda_de_Curso : Form
     {
+        public Usuario UsuarioLogado { get; private set; }
 
         public Agenda_de_Curso()
         {
@@ -477,7 +478,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void acessoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControleAcesso controleAcesso = new ControleAcesso();
+            ControleAcesso controleAcesso = new ControleAcesso(UsuarioLogado);
             controleAcesso.Show();
             this.Hide();
         }

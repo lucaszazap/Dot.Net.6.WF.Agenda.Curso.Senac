@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         protected override void OnConfiguring(DbContextOptionsBuilder opt)
         {
             opt.UseSqlite("Data Source=cursos.db");
+            opt.EnableSensitiveDataLogging();
 
 
         }

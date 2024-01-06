@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[6.0.25, )"
             },
+            "Microsoft.VisualStudio.OLE.Interop": {
+              "target": "Package",
+              "version": "[17.8.37221, )"
+            },
             "OfficeOpenXml.Core.ExcelPackage": {
               "target": "Package",
               "version": "[1.0.0, )"

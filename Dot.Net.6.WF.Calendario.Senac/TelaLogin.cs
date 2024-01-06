@@ -18,40 +18,34 @@ namespace Dot.Net._6.WF.Calendario.Senac
     public partial class TelaLogin : Form
     {
         public static Usuario UsuarioLogado { get; private set; }
+        private bool _podeVerSenha = false;
         public TelaLogin()
         {
             InitializeComponent();
             txtUsuario.Focus();
-            txtSenha.PasswordChar = '*';
-
+            
+            picLoading.Hide();
+            btnEntrar.Click += btnEntrar_Click;
+            picSenha.Click += PicSenha_Click;
 
         }
 
-        private void button1_Click_1()
+        private void PicSenha_Click(object sender, EventArgs e)
         {
-            string usuario = txtUsuario.Text;
-            string senha = txtSenha.Text;
+            _podeVerSenha = !_podeVerSenha;
 
-            using (var bd = new BancoDeDados())
+            if (_podeVerSenha)
             {
-
-                if (Autenticacao.AutenticarUsuario(usuario, senha))
-                {
-                    
-                    UsuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
-
-                    MessageBox.Show($"Bem-Vindo: {TelaLogin.UsuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    AbrirFormPrincipal();
-                }
-                else
-                {
-                    MessageBox.Show("Falha no login. Verifique suas credenciais.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
+                picSenha.Image = Properties.Resources.hide;
+                txtSenha.PasswordChar = '•';
+            }
+            else
+            {
+                picSenha.Image = Properties.Resources.show;
+                txtSenha.PasswordChar = '\0';
             }
         }
+
         private void AbrirFormPrincipal()
         {
             Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
@@ -59,9 +53,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
             this.Hide();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void BtnEntrar(object sender, EventArgs e)
         {
-            button1_Click_1();
+
             LimparCampos();
 
         }
@@ -71,7 +65,58 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             if (e.KeyChar == '\r')
             {
-                button1_Click_1(this, new EventArgs());
+                btnEntrar_Click(this, new EventArgs());
+            }
+        }
+
+        private void LimparCampos()
+        {
+            txtUsuario.Focus();
+            txtUsuario.Text = "";
+            txtSenha.Text = "";
+           
+
+           
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private async void btnEntrar_Click(object sender, EventArgs e)
+        {
+
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Text;
+
+            picLoading.Show();
+            await Task.Delay(2000);
+            picLoading.Hide();
+
+            using (var bd = new BancoDeDados())
+            {
+
+                if (Autenticacao.AutenticarUsuario(usuario, senha))
+                {
+
+                    UsuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
+
+                    MessageBox.Show($"Bem-Vindo: {TelaLogin.UsuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ControleAcesso controleAcesso = new ControleAcesso(UsuarioLogado);
+
+
+                    AbrirFormPrincipal();
+                }
+                else
+                {
+                    MessageBox.Show("Falha no login. Verifique suas credenciais.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
             }
         }
 
@@ -84,22 +129,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBoxIcon.Warning);
 
             Application.Exit();
-
-
         }
-        private void LimparCampos()
-        {
-            txtUsuario.Focus();
-            txtUsuario.Text = "";
-            txtSenha.Text = "";
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }
 

@@ -594,6 +594,35 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.VisualStudio.Interop/17.8.37221": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.VisualStudio.Interop.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.VisualStudio.Interop.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.OLE.Interop/17.8.37221": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.VisualStudio.Interop": "17.8.37221"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.VisualStudio.OLE.Interop.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.VisualStudio.OLE.Interop.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3123,6 +3152,52 @@
         "microsoft.netcore.targets.1.1.3.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
+      ]
+    },
+    "Microsoft.VisualStudio.Interop/17.8.37221": {
+      "sha512": "24I1zWVFAC1H8OXV7R4n3c/e2lg8zYnpYUtid5JmQL6SsE98KAK+D4OQfbYYDn5l3KazDxwovNqQVCMdL78z+A==",
+      "type": "package",
+      "path": "microsoft.visualstudio.interop/17.8.37221",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "PackageIcon.png",
+        "lib/net20/Microsoft.VisualStudio.Interop.dll",
+        "lib/net20/Microsoft.VisualStudio.Interop.xml",
+        "lib/net45/Microsoft.VisualStudio.Interop.dll",
+        "lib/net45/Microsoft.VisualStudio.Interop.xml",
+        "lib/net472/Microsoft.VisualStudio.Interop.dll",
+        "lib/net472/Microsoft.VisualStudio.Interop.xml",
+        "lib/net6.0/Microsoft.VisualStudio.Interop.dll",
+        "lib/net6.0/Microsoft.VisualStudio.Interop.xml",
+        "lib/netstandard2.0/Microsoft.VisualStudio.Interop.dll",
+        "lib/netstandard2.0/Microsoft.VisualStudio.Interop.xml",
+        "microsoft.visualstudio.interop.17.8.37221.nupkg.sha512",
+        "microsoft.visualstudio.interop.nuspec"
+      ]
+    },
+    "Microsoft.VisualStudio.OLE.Interop/17.8.37221": {
+      "sha512": "NKIPpkymwSUKgMsSAMdgORLyKwGJ7PEz0Ygmw6RzNdqqEvHoMfN3rRLHKc2LdfWbFMa5OENT023aSUu5NZqVxw==",
+      "type": "package",
+      "path": "microsoft.visualstudio.ole.interop/17.8.37221",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "PackageIcon.png",
+        "lib/net20/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/net20/Microsoft.VisualStudio.OLE.Interop.xml",
+        "lib/net45/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/net45/Microsoft.VisualStudio.OLE.Interop.xml",
+        "lib/net472/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/net472/Microsoft.VisualStudio.OLE.Interop.xml",
+        "lib/net6.0/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/net6.0/Microsoft.VisualStudio.OLE.Interop.xml",
+        "lib/netstandard2.0/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/netstandard2.0/Microsoft.VisualStudio.OLE.Interop.xml",
+        "microsoft.visualstudio.ole.interop.17.8.37221.nupkg.sha512",
+        "microsoft.visualstudio.ole.interop.nuspec"
       ]
     },
     "Microsoft.Win32.Primitives/4.3.0": {
@@ -7163,6 +7238,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.25",
       "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.25",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.25",
+      "Microsoft.VisualStudio.OLE.Interop >= 17.8.37221",
       "OfficeOpenXml.Core.ExcelPackage >= 1.0.0",
       "System.IO.Pipelines >= 8.0.0",
       "System.IO.Pipes >= 4.3.0"
@@ -7234,6 +7310,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[6.0.25, )"
+          },
+          "Microsoft.VisualStudio.OLE.Interop": {
+            "target": "Package",
+            "version": "[17.8.37221, )"
           },
           "OfficeOpenXml.Core.ExcelPackage": {
             "target": "Package",

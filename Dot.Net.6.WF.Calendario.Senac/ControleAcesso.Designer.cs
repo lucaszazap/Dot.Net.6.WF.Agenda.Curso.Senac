@@ -28,21 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             btnSair = new Button();
-            dataGridView1 = new DataGridView();
+            GridControleAcesso = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GridControleAcesso).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Controls.Add(btnSair);
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(GridControleAcesso);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(639, 397);
@@ -56,19 +54,21 @@
             btnSair.TabIndex = 2;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
+            btnSair.Click += btnSair_Click;
             // 
-            // dataGridView1
+            // GridControleAcesso
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            dataGridView1.Location = new Point(0, 3);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(636, 293);
-            dataGridView1.TabIndex = 1;
+            GridControleAcesso.AllowUserToAddRows = false;
+            GridControleAcesso.AllowUserToDeleteRows = false;
+            GridControleAcesso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridControleAcesso.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
+            GridControleAcesso.Location = new Point(0, 3);
+            GridControleAcesso.Name = "GridControleAcesso";
+            GridControleAcesso.ReadOnly = true;
+            GridControleAcesso.RowTemplate.Height = 25;
+            GridControleAcesso.Size = new Size(636, 293);
+            GridControleAcesso.TabIndex = 1;
+            
             // 
             // Column1
             // 
@@ -85,16 +85,6 @@
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             // 
-            // Column3
-            // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Format = "g";
-            dataGridViewCellStyle1.NullValue = null;
-            Column3.DefaultCellStyle = dataGridViewCellStyle1;
-            Column3.HeaderText = "Data/Hora";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            // 
             // ControleAcesso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -106,19 +96,18 @@
             Name = "ControleAcesso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ControleAcesso";
-            Load += ControleAcesso_Load;
+            
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GridControleAcesso).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private DataGridView dataGridView1;
+        private DataGridView GridControleAcesso;
         private Button btnSair;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
     }
 }

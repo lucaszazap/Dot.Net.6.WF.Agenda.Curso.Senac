@@ -17,7 +17,7 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");
 
-            modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.AgendamentoCurso", b =>
+            modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.AgendaCurso", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

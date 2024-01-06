@@ -949,3 +949,5 @@ C:\Users\morei\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.
 C:\Users\morei\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\ref\Dot.Net.6.WF.Calendario.Senac.dll
 D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net.6.WF.Calendario.Senac.sourcelink.json
 D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\obj\Debug\net6.0-windows\Dot.Net._6.WF.Calendario.Senac.ControleAcesso.resources
+D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\Microsoft.VisualStudio.Interop.dll
+D:\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\bin\Debug\net6.0-windows\Microsoft.VisualStudio.OLE.Interop.dll
