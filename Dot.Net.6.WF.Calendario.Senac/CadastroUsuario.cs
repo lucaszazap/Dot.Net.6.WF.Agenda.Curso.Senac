@@ -1,4 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class CadastroUsuario : Form
     {
-        
+
         public CadastroUsuario()
         {
             InitializeComponent();
-           
+
         }
 
         private void btnSalvarUsuario_Click(object sender, EventArgs e)
@@ -29,38 +31,33 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-
                 var usuarioExistente = bd.Usuarios.FirstOrDefault(u => u.Login == nomeUsuarioNovo);
 
                 if (usuarioExistente != null)
                 {
                     MessageBox.Show("Nome de usuário já existe. Escolha outro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 }
-
                 else
                 {
                     var novoUsuario = new Usuario()
                     {
-
                         Login = nomeUsuarioNovo,
-                        
+                        Nome = nomeUsuarioNovo,
+                        Email = "",
                         Senha = senhaNovo,
-                       
                         Ativo = true,
-
-
+                        Administrador = true,
                     };
 
                     bd.Usuarios.Add(novoUsuario);
+
                     bd.SaveChanges();
+
                     MessageBox.Show("Usuário criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                  
 
                     Listar();
                 }
-
             }
         }
 
@@ -120,22 +117,42 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             using (var bd = new BancoDeDados())
             {
-                var usuario = bd.Usuarios.Where(w => w.Id == Convert.ToInt32(txtId.Text)).First();
-                usuario.Login = txtNomeLogin.Text;
-                usuario.Nome = txtNomeCompleto.Text;
-                usuario.Email = txtEmail.Text;
-                usuario.Senha = txtSenha.Text;
-                usuario.Administrador = chkAdministrador.Checked;
-                usuario.Ativo = chkAtivo.Checked;
+                try
+                {
+                    var usuario = bd.Usuarios.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
 
-                bd.SaveChanges();
+                    if (usuario != null)
+                    {
+                        usuario.Login = txtNomeLogin.Text;
+                        usuario.Nome = txtNomeCompleto.Text;
+                        usuario.Email = txtEmail.Text;
+                        usuario.Senha = txtSenha.Text;
+                        usuario.Administrador = chkAdministrador.Checked;
+                        usuario.Ativo = chkAtivo.Checked;
 
-                MessageBox.Show("Deseja alterar?", "Cadastro de Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult resultado = MessageBox.Show("Deseja alterar?", "Cadastro de Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                Listar();
-                LimparCampos();
+                        if (resultado == DialogResult.Yes)
+                        {
+                            bd.SaveChanges();
+                            MessageBox.Show("Usuário alterado com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Listar();
+                            LimparCampos();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário não encontrado. Verifique o usuário informado.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao alterar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
+
+
 
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -143,8 +160,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Deve selecionar o usuário que deseja excluir.");
-
-
             }
             else
             {
@@ -162,6 +177,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                             {
                                 bd.Usuarios.Remove(usuario);
                                 bd.SaveChanges();
+                                MessageBox.Show("Usuário excluído com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Listar();
                                 LimparCampos();
                             }
@@ -177,24 +193,17 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     }
                 }
             }
+
         }
 
-        private void GridConsultarUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
-            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
-            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
-            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
-            txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
-            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
-            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
-        }
+
 
         private void AbrirFormAgendaCurso()
         {
             Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
             agenda_De_Curso.Show();
         }
+
         private void btnSair_Click(object sender, EventArgs e)
         {
             DialogResult iSair;
@@ -226,8 +235,21 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
         }
+
+        private void GridConsultarUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
+            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
+            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
+            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
+            txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
+            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
+            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
+        }
     }
-}
+ }
+
+
 
 
 

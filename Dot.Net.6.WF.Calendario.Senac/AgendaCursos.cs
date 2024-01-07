@@ -77,7 +77,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 };
 
 
-                bd.AgendamentoCursos.Add(curso);
+                bd.AgendaCursos.Add(curso);
                 bd.SaveChanges();
 
                 MessageBox.Show("Curso adicionado com sucesso.",
@@ -104,7 +104,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var Curso = bd.AgendamentoCursos.ToList();
+                var Curso = bd.AgendaCursos.ToList();
 
                 foreach (var curso in Curso)
                 {
@@ -168,11 +168,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     {
                         try
                         {
-                            var curso = bd.AgendamentoCursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
+                            var curso = bd.AgendaCursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
 
                             if (curso != null)
                             {
-                                bd.AgendamentoCursos.Remove(curso);
+                                bd.AgendaCursos.Remove(curso);
                                 bd.SaveChanges();
                                 Listar();
                                 LimparCampos();
@@ -235,7 +235,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var curso = bd.AgendamentoCursos
+                var curso = bd.AgendaCursos
                 .Where(w => w.Id == Convert.ToInt32(txtId.Text))
                 .First();
 
@@ -341,7 +341,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             using (var bd = new BancoDeDados())
             {
 
-                var todosCursos = bd.AgendamentoCursos.ToList();
+                var todosCursos = bd.AgendaCursos.ToList();
 
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using (ExcelPackage excelPackage = new ExcelPackage())

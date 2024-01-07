@@ -57,7 +57,7 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AgendamentoCursos");
+                    b.ToTable("AgendaCursos");
                 });
 
             modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.Curso", b =>
