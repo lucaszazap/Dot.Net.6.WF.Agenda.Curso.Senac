@@ -53,29 +53,32 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         Senha = senhaNovo,
                         Ativo = chkAtivo.Checked,
                         Administrador = chkAdministrador.Checked
-                        
                     };
 
-                    bd.Historicos.Add(new Historico
-                    {
-                        Login = Autenticacao.UsuarioAtual?.Login,
-                        DataHora = DateTime.Now,
-                        Alteracao = "Alteração de Usuário",
-                        Detalhes = $"Alterado usuário: {txtNomeLogin.Text}"
-                    });
+                    AdicionarHistoricoNovoUsuario(bd, novoUsuario);
 
                     bd.Usuarios.Add(novoUsuario);
 
                     bd.SaveChanges();
 
                     MessageBox.Show("Usuário criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
+
                     Listar();
                     LimparCampos();
-
-                    
                 }
             }
+        }
+
+        private void AdicionarHistoricoNovoUsuario(BancoDeDados bd, Usuario usuario)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Criação de Usuário",
+                Detalhes = $"Criado usuário: {usuario.Login}, Nome: {usuario.Nome}, Email: {usuario.Email}, Ativo: {usuario.Ativo}, Administrador: {usuario.Administrador}"
+                // Adicione mais detalhes conforme necessário
+            });
         }
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)

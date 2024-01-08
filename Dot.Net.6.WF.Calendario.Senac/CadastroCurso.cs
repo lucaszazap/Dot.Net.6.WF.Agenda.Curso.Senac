@@ -29,30 +29,40 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void iAdicionar()
         {
+            var nome = txtCadastroCurso.Text;
+
+            using (var bd = new BancoDeDados())
             {
-
-                var nome = txtCadastroCurso.Text;
-
-                using (var bd = new BancoDeDados())
+                var novoCurso = new Curso()
                 {
-                    var novoCurso = new Curso()
-                    {
-                        Nome = nome,
-                    };
+                    Nome = nome,
+                };
 
-                    bd.Cursos.Add(novoCurso);
+                AdicionarHistoricoNovoCurso(bd, novoCurso);
 
-                    bd.SaveChanges();
+                bd.Cursos.Add(novoCurso);
 
-                    MessageBox.Show("Curso adicionado com sucesso.",
+                bd.SaveChanges();
+
+                MessageBox.Show("Curso adicionado com sucesso.",
                     "Cadastro de Curso", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                    Listar();
-                    LimparCampos();
-                }
-
+                Listar();
+                LimparCampos();
             }
+        }
+
+        private void AdicionarHistoricoNovoCurso(BancoDeDados bd, Curso curso)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Adição de Curso",
+                Detalhes = $"Adicionado curso: {curso.Nome}"
+                // Adicione mais detalhes conforme necessário
+            });
         }
 
         private void AbrirFormAgendaCurso()
@@ -63,7 +73,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnAdicionar_Click(object sender, EventArgs e)
 
         {
-            iAdicionar();                       
+            iAdicionar();
         }
 
 
@@ -109,16 +119,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Deve selecionar o curso que deseja excluir.");
-
             }
             else
             {
-
                 DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (resultado == DialogResult.Yes)
                 {
-
                     using (var bd = new BancoDeDados())
                     {
                         try
@@ -127,13 +134,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                             if (curso != null)
                             {
-                                bd.Historicos.Add(new Historico
-                                {
-                                    Login = Autenticacao.UsuarioAtual?.Login,
-                                    DataHora = DateTime.Now,
-                                    Alteracao = "Exclusão de Usuário",
-                                    Detalhes = $"Excluído o usuário: {txtId.Text}"
-                                });
+                                AdicionarHistoricoExclusaoCurso(bd, curso);
 
                                 bd.Cursos.Remove(curso);
                                 bd.SaveChanges();
@@ -152,6 +153,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
         }
+
+        private void AdicionarHistoricoExclusaoCurso(BancoDeDados bd, Curso curso)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Exclusão de Curso",
+                Detalhes = $"Excluído curso: {curso.Id}, Nome: {curso.Nome}"
+                // Adicione mais detalhes conforme necessário
+            });
+        }
         private void GridViewCadastroCurso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtId.Text = GridViewCadastroCurso.CurrentRow.Cells[0].Value.ToString();
@@ -169,24 +182,39 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var curso = bd.Cursos.Where(w => w.Id == Convert.ToInt32(txtId.Text)).First();
+                var curso = bd.Cursos.Where(w => w.Id == Convert.ToInt32(txtId.Text)).FirstOrDefault();
 
-                curso.Nome = nome;
-
-                bd.Historicos.Add(new Historico
+                if (curso != null)
                 {
-                    Login = Autenticacao.UsuarioAtual?.Login,
-                    DataHora = DateTime.Now,
-                    Alteracao = "Alteração de Usuário",
-                    Detalhes = $"Alterado usuário: {txtId.Text}"
-                });
+                    string nomeOriginal = curso.Nome;
 
-                bd.SaveChanges();
+                    curso.Nome = nome;
 
-                MessageBox.Show("Deseja alterar?", "Cadastro de Curso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                Listar();
-                LimparCampos();
+                    AdicionarHistoricoAlteracaoCurso(bd, curso, nomeOriginal);
+
+                    bd.SaveChanges();
+
+                    MessageBox.Show("Deseja alterar?", "Cadastro de Curso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    Listar();
+                    LimparCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Curso não encontrado. Verifique o curso informado.");
+                }
             }
+        }
+
+        private void AdicionarHistoricoAlteracaoCurso(BancoDeDados bd, Curso curso, string nomeOriginal)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Alteração de Curso",
+                Detalhes = $"Alterado curso: Id {curso.Id}, Nome: {nomeOriginal} para {curso.Nome}"
+                // Adicione mais detalhes conforme necessário
+            });
         }
     }
 }

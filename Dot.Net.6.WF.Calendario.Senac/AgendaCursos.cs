@@ -159,20 +159,16 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
 
-
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Por favor, informe o curso antes de tentar excluir.");
             }
             else
             {
-
                 DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
 
                 if (resultado == DialogResult.Yes)
                 {
-
                     using (var bd = new BancoDeDados())
                     {
                         try
@@ -181,14 +177,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                             if (curso != null)
                             {
-                                bd.Historicos.Add(new Historico
-                                {
-                                    Login = Autenticacao.UsuarioAtual?.Login,
-                                    DataHora = DateTime.Now,
-                                    Alteracao = "Exclusão de Curso",
-                                    Detalhes = $"Excluído do curso: {txtId.Text}"
-                                });
-                                
+                                AdicionarHistoricoExclusao(bd, curso);
 
                                 bd.AgendaCursos.Remove(curso);
                                 bd.SaveChanges();
@@ -207,6 +196,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     }
                 }
             }
+        }
+
+        private void AdicionarHistoricoExclusao(BancoDeDados bd, AgendaCurso curso)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Exclusão de Curso",
+                Detalhes = $"Excluído do curso: {curso.Id}, Nome: {curso.Nome}, Início: {curso.Inicio}, Fim: {curso.Fim}"
+                // Adicione mais detalhes conforme necessário
+            });
         }
         private void btnExcluir_Click_1(object sender, EventArgs e)
         {
@@ -241,53 +242,69 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void iAlterar()
         {
-
-            string nome = cmbCurso.Text;
-            DateTime inicio = dtpInicio.Value.Date;
-            DateTime fim = dtpFim.Value.Date;
-            string dias = txtDias.Text;
-            string horario = cmbHorario.Text;
-            string meta = txtMeta.Text;
-            string realizado = txtRealizado.Text;
-            string valor = Convert.ToString(mtbValor.Text);
-            string turma = txtTurma.Text;
-            string sala = txtSala.Text;
-
             using (var bd = new BancoDeDados())
             {
                 var curso = bd.AgendaCursos
-                .Where(w => w.Id == Convert.ToInt32(txtId.Text))
-                .First();
+                    .Where(w => w.Id == Convert.ToInt32(txtId.Text))
+                    .FirstOrDefault();
 
-                curso.Nome = nome;
-                curso.Inicio = inicio;
-                curso.Fim = fim;
-                curso.Dias = dias;
-                curso.Horario = horario;
-                curso.Meta = meta;
-                curso.Realizado = realizado;
-                curso.Valor = valor;
-                curso.Turma = turma;
-                curso.Sala = sala;
+                if (curso != null)
+                {
+                    string nomeOriginal = curso.Nome;
+                    DateTime inicioOriginal = curso.Inicio;
+                    DateTime fimOriginal = curso.Fim;
+                    string diasOriginal = curso.Dias;
+                    string horarioOriginal = curso.Horario;
+                    string metaOriginal = curso.Meta;
+                    string realizadoOriginal = curso.Realizado;
+                    string valorOriginal = curso.Valor;
+                    string turmaOriginal = curso.Turma;
+                    string salaOriginal = curso.Sala;
 
+                    curso.Nome = cmbCurso.Text;
+                    curso.Inicio = dtpInicio.Value.Date;
+                    curso.Fim = dtpFim.Value.Date;
+                    curso.Dias = txtDias.Text;
+                    curso.Horario = cmbHorario.Text;
+                    curso.Meta = txtMeta.Text;
+                    curso.Realizado = txtRealizado.Text;
+                    curso.Valor = Convert.ToString(mtbValor.Text);
+                    curso.Turma = txtTurma.Text;
+                    curso.Sala = txtSala.Text;
 
+                    AdicionarHistorico(bd, nomeOriginal, curso.Nome, "Nome do Curso");
+                    AdicionarHistorico(bd, inicioOriginal.ToString(), curso.Inicio.ToString(), "Data de Início");
+                    AdicionarHistorico(bd, fimOriginal.ToString(), curso.Fim.ToString(), "Data de Fim");
+                    AdicionarHistorico(bd, diasOriginal, curso.Dias, "Dias");
+                    AdicionarHistorico(bd, horarioOriginal, curso.Horario, "Horário");
+                    AdicionarHistorico(bd, metaOriginal, curso.Meta, "Meta");
+                    AdicionarHistorico(bd, realizadoOriginal, curso.Realizado, "Realizado");
+                    AdicionarHistorico(bd, valorOriginal, curso.Valor, "Valor");
+                    AdicionarHistorico(bd, turmaOriginal, curso.Turma, "Turma");
+                    AdicionarHistorico(bd, salaOriginal, curso.Sala, "Sala");
+
+                    MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    bd.SaveChanges();
+                    Listar();
+                    LimparCampos();
+                }
+            }
+        }
+
+        private void AdicionarHistorico(BancoDeDados bd, string valorAntigo, string valorNovo, string nomeCampo)
+        {
+            if (valorAntigo != valorNovo)
+            {
                 bd.Historicos.Add(new Historico
                 {
                     Login = Autenticacao.UsuarioAtual?.Login,
                     DataHora = DateTime.Now,
-                    Alteracao = "Alteração de Curso",
-                    Detalhes = $"Alterado do curso: {txtId.Text}"
+                    Alteracao = $"Alteração de {nomeCampo}",
+                    Detalhes = $"Valor antigo: {valorAntigo}, Novo valor: {valorNovo}"
                 });
-               
-               
-                MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                bd.SaveChanges();
-                Listar();
-                LimparCampos();
             }
-
         }
-
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
