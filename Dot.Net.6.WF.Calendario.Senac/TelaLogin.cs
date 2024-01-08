@@ -25,40 +25,29 @@
 
             using (var bd = new BancoDeDados())
             {
-                if (bd.Usuarios.Any(u => u.Login == usuario))
+                var usuarioExistente = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
+
+                if (usuarioExistente != null && Autenticacao.AutenticarUsuario(usuario, senha))
                 {
+                    MessageBox.Show($"Bem-vindo: {usuarioExistente.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                    if (Autenticacao.AutenticarUsuario(usuario, senha))
+                    bd.Historicos.Add(new Historico
                     {
-                        Usuario usuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
+                        Login = usuario,
+                        DataHora = DateTime.Now,
+                        Alteracao = $"Login de {usuarioExistente.Login}",
+                        Detalhes = $"Usuário {usuarioExistente.Nome} fez login."
+                    });
 
-                        if (usuarioLogado != null)
-                        {
-                            MessageBox.Show($"Bem-vindo: {usuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bd.SaveChanges();
 
-                            bd.Historicos.Add(new Historico
-                            {
-                                Login = usuario,
-                                DataHora = DateTime.Now,
-                                Alteracao = $"Login de {usuarioLogado.Login}",
-                                Detalhes = $"Usuário {usuarioLogado.Nome} fez login."
+                    AbrirFormPrincipal();
 
-                            });
-                            bd.SaveChanges();
+                    ControleAcesso controleAcesso = Application.OpenForms.OfType<ControleAcesso>().FirstOrDefault();
 
-
-                            AbrirFormPrincipal();
-
-                            
-                            ControleAcesso controleAcesso = Application.OpenForms.OfType<ControleAcesso>().FirstOrDefault();
-
-                            if (controleAcesso != null)
-                            {
-                                controleAcesso.CarregarHistorico();
-                            }
-                        }
-
+                    if (controleAcesso != null)
+                    {
+                        controleAcesso.CarregarHistorico();
                     }
                 }
                 else
@@ -67,8 +56,6 @@
                 }
             }
         }
-        
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 

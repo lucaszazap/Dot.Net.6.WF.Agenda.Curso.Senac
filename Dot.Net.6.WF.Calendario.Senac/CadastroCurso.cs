@@ -70,7 +70,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnSair_Click(object sender, EventArgs e)
         {
 
-            var result = MessageBox.Show("Deseja realmente cancelar?",
+            var result = MessageBox.Show("Deseja realmente sair?",
              "Alerta",
              MessageBoxButtons.YesNo,
              MessageBoxIcon.Warning);
@@ -78,6 +78,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             if (result == DialogResult.Yes)
             {
                 AbrirFormAgendaCurso();
+                this.Close();
             }
         }
 

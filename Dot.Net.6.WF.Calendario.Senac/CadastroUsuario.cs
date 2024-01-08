@@ -17,11 +17,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class CadastroUsuario : Form
     {
-
+        private bool _podeVerSenha = false;
         public CadastroUsuario()
         {
             InitializeComponent();
-
+            picSenha.Click += PicSenha_Click;
         }
 
         private void btnSalvarUsuario_Click(object sender, EventArgs e)
@@ -86,6 +86,21 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
+        private void PicSenha_Click(object sender, EventArgs e)
+        {
+            _podeVerSenha = !_podeVerSenha;
+
+            if (_podeVerSenha)
+            {
+                picSenha.Image = Properties.Resources.hide4;
+                txtSenha.PasswordChar = '•';
+            }
+            else
+            {
+                picSenha.Image = Properties.Resources.show4;
+                txtSenha.PasswordChar = '\0';
+            }
+        }
 
 
         private void LimparCampos()

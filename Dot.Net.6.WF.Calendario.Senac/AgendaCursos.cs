@@ -84,7 +84,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Detalhes = $"Adicionado curso: {nome}"
                 });
 
-                bd.SaveChanges();
+                
 
                 bd.AgendaCursos.Add(curso);
                 bd.SaveChanges();
@@ -236,6 +236,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             }
         }
+
+
 
         private void iAlterar()
         {

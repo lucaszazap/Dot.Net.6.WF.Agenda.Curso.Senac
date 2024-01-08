@@ -48,12 +48,12 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(731, 524);
+            panel1.Size = new Size(895, 524);
             panel1.TabIndex = 0;
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(294, 435);
+            btnSair.Location = new Point(392, 438);
             btnSair.Margin = new Padding(3, 4, 3, 4);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(91, 51);
@@ -74,7 +74,7 @@
             gridHistorico.ReadOnly = true;
             gridHistorico.RowHeadersWidth = 51;
             gridHistorico.RowTemplate.Height = 25;
-            gridHistorico.Size = new Size(726, 395);
+            gridHistorico.Size = new Size(895, 395);
             gridHistorico.TabIndex = 1;
             gridHistorico.CellContentClick += gridHistorico_CellContentClick;
             // 
@@ -89,50 +89,47 @@
             // 
             // Column2
             // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column2.HeaderText = "Login";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 75;
             // 
             // Column3
             // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column3.HeaderText = "Data/Hora";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 109;
             // 
             // Column4
             // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column4.HeaderText = "Alteração";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
-            Column4.Width = 102;
             // 
             // Column5
             // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column5.HeaderText = "Detalhes";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
-            Column5.Width = 96;
             // 
             // ControleAcesso
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(726, 525);
+            ClientSize = new Size(899, 521);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "ControleAcesso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CONTROLE DE ACESSO";

@@ -45,8 +45,6 @@
             btnSair = new Button();
             btnAlterar = new Button();
             GridConsultarUsuario = new DataGridView();
-            btnExcluir = new Button();
-            panel1 = new Panel();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -54,8 +52,12 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
+            btnExcluir = new Button();
+            panel1 = new Panel();
+            picSenha = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picSenha).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -113,10 +115,9 @@
             // 
             txtSenha.Location = new Point(468, 148);
             txtSenha.Name = "txtSenha";
-            txtSenha.PasswordChar = '*';
+            txtSenha.PasswordChar = '•';
             txtSenha.Size = new Size(227, 27);
             txtSenha.TabIndex = 3;
-            txtSenha.UseSystemPasswordChar = true;
             txtSenha.KeyPress += txtSenha_KeyPress;
             // 
             // txtEmail
@@ -221,46 +222,6 @@
             GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
             GridConsultarUsuario.CellFormatting += GridConsultarUsuario_CellFormatting;
             // 
-            // btnExcluir
-            // 
-            btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(409, 588);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(110, 39);
-            btnExcluir.TabIndex = 12;
-            btnExcluir.Text = "Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
-            btnExcluir.Click += btnExcluir_Click;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(GridConsultarUsuario);
-            panel1.Controls.Add(txtNomeCompleto);
-            panel1.Controls.Add(txtSenha);
-            panel1.Controls.Add(chkAdministrador);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(btnExcluir);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(chkAtivo);
-            panel1.Controls.Add(btnSair);
-            panel1.Controls.Add(txtId);
-            panel1.Controls.Add(btnAdicionarUsuario);
-            panel1.Controls.Add(txtNomeLogin);
-            panel1.Controls.Add(btnAlterar);
-            panel1.Controls.Add(txtEmail);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label4);
-            panel1.Location = new Point(-2, -3);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.MaximumSize = new Size(2194, 1439);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(809, 721);
-            panel1.TabIndex = 13;
-            // 
             // Column1
             // 
             Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -318,6 +279,58 @@
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
             // 
+            // btnExcluir
+            // 
+            btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnExcluir.Location = new Point(409, 588);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(110, 39);
+            btnExcluir.TabIndex = 12;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSize = true;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(picSenha);
+            panel1.Controls.Add(GridConsultarUsuario);
+            panel1.Controls.Add(txtNomeCompleto);
+            panel1.Controls.Add(txtSenha);
+            panel1.Controls.Add(chkAdministrador);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(btnExcluir);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(chkAtivo);
+            panel1.Controls.Add(btnSair);
+            panel1.Controls.Add(txtId);
+            panel1.Controls.Add(btnAdicionarUsuario);
+            panel1.Controls.Add(txtNomeLogin);
+            panel1.Controls.Add(btnAlterar);
+            panel1.Controls.Add(txtEmail);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label4);
+            panel1.Location = new Point(-2, -3);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.MaximumSize = new Size(2194, 1439);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(809, 721);
+            panel1.TabIndex = 13;
+            // 
+            // picSenha
+            // 
+            picSenha.Cursor = Cursors.Hand;
+            picSenha.Image = Properties.Resources.hide4;
+            picSenha.Location = new Point(701, 148);
+            picSenha.Name = "picSenha";
+            picSenha.Size = new Size(33, 27);
+            picSenha.SizeMode = PictureBoxSizeMode.Zoom;
+            picSenha.TabIndex = 14;
+            picSenha.TabStop = false;
+            // 
             // CadastroUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -336,6 +349,7 @@
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picSenha).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -369,5 +383,6 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column6;
+        private PictureBox picSenha;
     }
 }
