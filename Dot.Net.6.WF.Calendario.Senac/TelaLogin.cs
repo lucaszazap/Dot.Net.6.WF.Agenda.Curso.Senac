@@ -2,25 +2,20 @@
 {
     public partial class TelaLogin : Form
     {
-        public static Usuario UsuarioLogado { get; private set; }
+        
         private bool _podeVerSenha = false;
 
         public TelaLogin()
         {
             InitializeComponent();
             txtUsuario.Focus();
-
-            picLoading.Hide();
-            btnEntrar.Click += btnEntrar_Click;
+            picLoading.Hide();           
             picSenha.Click += PicSenha_Click;
 
         }
 
-
-
         private async void btnEntrar_Click(object sender, EventArgs e)
         {
-
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Text;
 
@@ -30,18 +25,41 @@
 
             using (var bd = new BancoDeDados())
             {
-                if (Autenticacao.AutenticarUsuario(usuario, senha))
+                if (bd.Usuarios.Any(u => u.Login == usuario))
                 {
-                    Usuario usuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
 
-                    if (usuarioLogado != null)
+
+                    if (Autenticacao.AutenticarUsuario(usuario, senha))
                     {
-                        MessageBox.Show($"Bem-Vindo: {usuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Usuario usuarioLogado = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
+
+                        if (usuarioLogado != null)
+                        {
+                            MessageBox.Show($"Bem-vindo: {usuarioLogado.Login}", "Senac", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            bd.Historicos.Add(new Historico
+                            {
+                                Login = usuario,
+                                DataHora = DateTime.Now,
+                                Alteracao = $"Login de {usuarioLogado.Login}",
+                                Detalhes = $"Usuário {usuarioLogado.Nome} fez login."
+
+                            });
+                            bd.SaveChanges();
 
 
-                        AbrirFormPrincipal();
+                            AbrirFormPrincipal();
+
+                            
+                            ControleAcesso controleAcesso = Application.OpenForms.OfType<ControleAcesso>().FirstOrDefault();
+
+                            if (controleAcesso != null)
+                            {
+                                controleAcesso.CarregarHistorico();
+                            }
+                        }
+
                     }
-
                 }
                 else
                 {
@@ -72,12 +90,12 @@
 
             if (_podeVerSenha)
             {
-                picSenha.Image = Properties.Resources.hide;
+                picSenha.Image = Properties.Resources.hide4;
                 txtSenha.PasswordChar = '•';
             }
             else
             {
-                picSenha.Image = Properties.Resources.show;
+                picSenha.Image = Properties.Resources.show4;
                 txtSenha.PasswordChar = '\0';
             }
         }
@@ -103,8 +121,6 @@
             txtUsuario.Focus();
             txtUsuario.Text = "";
             txtSenha.Text = "";
-
-
 
         }
     }

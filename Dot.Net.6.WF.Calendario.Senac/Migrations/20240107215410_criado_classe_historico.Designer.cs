@@ -3,6 +3,7 @@ using System;
 using Dot.Net._6.WF.Calendario.Senac;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dot.Net._6.WF.Calendario.Senac.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    partial class BancoDeDadosModelSnapshot : ModelSnapshot
+    [Migration("20240107215410_criado_classe_historico")]
+    partial class criado_classe_historico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");
@@ -87,14 +89,6 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DataHora")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Detalhes")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

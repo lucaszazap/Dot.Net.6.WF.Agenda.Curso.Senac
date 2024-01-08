@@ -51,46 +51,49 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblId.Location = new Point(467, 196);
+            lblId.Location = new Point(649, 267);
             lblId.Name = "lblId";
-            lblId.Size = new Size(21, 15);
+            lblId.Size = new Size(27, 20);
             lblId.TabIndex = 7;
             lblId.Text = "ID:";
             lblId.Visible = false;
             // 
             // txtId
             // 
-            txtId.Location = new Point(491, 189);
+            txtId.Location = new Point(676, 258);
+            txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(25, 23);
+            txtId.Size = new Size(28, 27);
             txtId.TabIndex = 6;
             txtId.Visible = false;
             // 
             // txtCadastroCurso
             // 
-            txtCadastroCurso.Location = new Point(145, 191);
+            txtCadastroCurso.Location = new Point(8, 258);
+            txtCadastroCurso.Margin = new Padding(3, 4, 3, 4);
             txtCadastroCurso.Name = "txtCadastroCurso";
-            txtCadastroCurso.Size = new Size(316, 23);
+            txtCadastroCurso.Size = new Size(361, 27);
             txtCadastroCurso.TabIndex = 2;
-            txtCadastroCurso.Click += txtCadastroCurso_Click;
+           
             // 
             // label
             // 
             label.AutoSize = true;
             label.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label.Location = new Point(38, 192);
+            label.Location = new Point(8, 231);
             label.Name = "label";
-            label.Size = new Size(108, 19);
+            label.Size = new Size(129, 23);
             label.TabIndex = 0;
-            label.Text = "Cadastrar curso:";
+            label.Text = "Cadastrar curso";
             // 
             // btnExcluir
             // 
             btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(337, 498);
+            btnExcluir.Location = new Point(385, 664);
+            btnExcluir.Margin = new Padding(3, 4, 3, 4);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(75, 29);
+            btnExcluir.Size = new Size(86, 39);
             btnExcluir.TabIndex = 6;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
@@ -99,9 +102,10 @@
             // btnAdicionar
             // 
             btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAdicionar.Location = new Point(32, 497);
+            btnAdicionar.Location = new Point(37, 663);
+            btnAdicionar.Margin = new Padding(3, 4, 3, 4);
             btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(81, 30);
+            btnAdicionar.Size = new Size(93, 40);
             btnAdicionar.TabIndex = 4;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
@@ -110,9 +114,10 @@
             // btnSair
             // 
             btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSair.Location = new Point(499, 497);
+            btnSair.Location = new Point(570, 663);
+            btnSair.Margin = new Padding(3, 4, 3, 4);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(75, 30);
+            btnSair.Size = new Size(86, 40);
             btnSair.TabIndex = 3;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
@@ -123,10 +128,9 @@
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(120, 14);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(137, 19);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(371, 158);
+            pictureBox1.Size = new Size(424, 209);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
@@ -137,12 +141,13 @@
             GridViewCadastroCurso.AllowUserToDeleteRows = false;
             GridViewCadastroCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridViewCadastroCurso.Columns.AddRange(new DataGridViewColumn[] { Column2, Column1 });
-            GridViewCadastroCurso.Location = new Point(1, 220);
+            GridViewCadastroCurso.Location = new Point(1, 293);
+            GridViewCadastroCurso.Margin = new Padding(3, 4, 3, 4);
             GridViewCadastroCurso.Name = "GridViewCadastroCurso";
             GridViewCadastroCurso.ReadOnly = true;
             GridViewCadastroCurso.RowHeadersWidth = 51;
             GridViewCadastroCurso.RowTemplate.Height = 25;
-            GridViewCadastroCurso.Size = new Size(615, 256);
+            GridViewCadastroCurso.Size = new Size(703, 341);
             GridViewCadastroCurso.TabIndex = 5;
             GridViewCadastroCurso.CellClick += GridViewCadastroCurso_CellClick;
             // 
@@ -153,7 +158,7 @@
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 39;
+            Column2.Width = 47;
             // 
             // Column1
             // 
@@ -166,9 +171,10 @@
             // btnAlterar
             // 
             btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(181, 498);
+            btnAlterar.Location = new Point(207, 664);
+            btnAlterar.Margin = new Padding(3, 4, 3, 4);
             btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(75, 29);
+            btnAlterar.Size = new Size(86, 39);
             btnAlterar.TabIndex = 8;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
@@ -189,23 +195,26 @@
             panel1.Controls.Add(txtCadastroCurso);
             panel1.Controls.Add(label);
             panel1.Controls.Add(btnExcluir);
-            panel1.Location = new Point(3, 12);
-            panel1.MaximumSize = new Size(1920, 1080);
+            panel1.Location = new Point(3, 16);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.MaximumSize = new Size(2194, 1439);
             panel1.Name = "panel1";
-            panel1.Size = new Size(621, 546);
+            panel1.Size = new Size(709, 727);
             panel1.TabIndex = 9;
             // 
             // CadastroCurso
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(621, 565);
+            ClientSize = new Size(710, 753);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "CadastroCurso";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastro de Cursos";
+            Text = "ADICIONAR CURSO";
             Load += Cadastramento_de_Cursos_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridViewCadastroCurso).EndInit();

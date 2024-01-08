@@ -71,7 +71,7 @@
             // 
             picSenha.BackColor = SystemColors.ButtonHighlight;
             picSenha.Cursor = Cursors.Hand;
-            picSenha.Image = Properties.Resources.hide;
+            picSenha.Image = Properties.Resources.hide4;
             picSenha.Location = new Point(291, 415);
             picSenha.Margin = new Padding(3, 4, 3, 4);
             picSenha.Name = "picSenha";
@@ -83,8 +83,8 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = SystemColors.ButtonHighlight;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(299, 343);
+            pictureBox3.Image = Properties.Resources.user4;
+            pictureBox3.Location = new Point(293, 343);
             pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(31, 41);
@@ -177,10 +177,10 @@
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(-10, -61);
+            pictureBox1.Location = new Point(0, 14);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(920, 749);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.Size = new Size(879, 619);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
@@ -196,7 +196,7 @@
             Name = "TelaLogin";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Senac ";
+            Text = "SENAC";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picSenha).EndInit();

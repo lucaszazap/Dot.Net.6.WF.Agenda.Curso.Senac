@@ -63,11 +63,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void btnAdicionar_Click(object sender, EventArgs e)
 
         {
-            iAdicionar();
-
-            AbrirFormAgendaCurso();
-            this.Close();
-
+            iAdicionar();                       
         }
 
 
@@ -89,10 +85,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             Listar();
         }
-        private void txtCadastroCurso_Click(object sender, EventArgs e)
-        {
-
-        }
         private void Listar()
         {
             GridViewCadastroCurso.Rows.Clear();
@@ -110,9 +102,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             }
         }
-
-
-
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -137,6 +126,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                             if (curso != null)
                             {
+                                bd.Historicos.Add(new Historico
+                                {
+                                    Login = Autenticacao.UsuarioAtual?.Login,
+                                    DataHora = DateTime.Now,
+                                    Alteracao = "Exclusão de Usuário",
+                                    Detalhes = $"Excluído o usuário: {txtId.Text}"
+                                });
+
                                 bd.Cursos.Remove(curso);
                                 bd.SaveChanges();
                                 Listar();
@@ -154,7 +151,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
         }
-
         private void GridViewCadastroCurso_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtId.Text = GridViewCadastroCurso.CurrentRow.Cells[0].Value.ToString();
@@ -175,6 +171,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 var curso = bd.Cursos.Where(w => w.Id == Convert.ToInt32(txtId.Text)).First();
 
                 curso.Nome = nome;
+
+                bd.Historicos.Add(new Historico
+                {
+                    Login = Autenticacao.UsuarioAtual?.Login,
+                    DataHora = DateTime.Now,
+                    Alteracao = "Alteração de Usuário",
+                    Detalhes = $"Alterado usuário: {txtId.Text}"
+                });
 
                 bd.SaveChanges();
 

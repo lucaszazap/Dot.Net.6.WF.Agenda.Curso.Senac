@@ -13,39 +13,37 @@ namespace Dot.Net._6.WF.Calendario.Senac
 {
     public partial class ControleAcesso : Form
     {
-        private Usuario usuarioLogado;
-        public ControleAcesso(Usuario usuarioLogado)
+
+        public ControleAcesso()
         {
             InitializeComponent();
-            this.usuarioLogado = usuarioLogado;
-            AdicionarUsuarioAoGrid(usuarioLogado);
+            CarregarHistorico();
         }
 
-
-
-        private void AdicionarUsuarioAoGrid(Usuario usuario)
+        public void CarregarHistorico()
         {
-            try
-            {
-                using (var bd = new BancoDeDados())
-                {
-                    var usuarioAtual = bd.Usuarios.FirstOrDefault(u => u.Login == usuario.Login);
+            gridHistorico.Rows.Clear();
 
-                    if (usuarioAtual != null)
-                    {
-                        GridControleAcesso.Rows.Add(usuarioAtual.Login, DateTime.Now);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Erro: Usuário '{usuario.Login}' não encontrado no banco de dados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+            using (var bd = new BancoDeDados())
+            {
+
+                var historico = bd.Historicos.ToList();
+
+                foreach (var registro in historico)
+                {
+                    gridHistorico.Rows.Add(
+                        registro.Id,
+                        registro.Login,
+                        registro.DataHora,
+                        registro.Alteracao,
+                        registro.Detalhes
+
+                    );
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocorreu uma exceção: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
+
+
         private void AbrirFormAgenda()
         {
             Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
@@ -53,7 +51,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
         private void btnSair_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Deseja realmente cancelar?",
+            var result = MessageBox.Show("Deseja realmente sair?",
             "Alerta",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Warning);
@@ -61,8 +59,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
             if (result == DialogResult.Yes)
             {
                 AbrirFormAgenda();
+                this.Close();
             }
         }
 
+        private void gridHistorico_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

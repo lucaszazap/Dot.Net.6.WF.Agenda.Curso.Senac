@@ -29,6 +29,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
             string nomeUsuarioNovo = txtNomeLogin.Text;
             string senhaNovo = txtSenha.Text;
 
+            if (senhaNovo.Length < 6 || !senhaNovo.Any(char.IsDigit) || !senhaNovo.Any(char.IsLetter))
+            {
+                MessageBox.Show("A senha deve ter pelo menos 6 caracteres, incluindo pelo menos um número e uma letra.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             using (var bd = new BancoDeDados())
             {
                 var usuarioExistente = bd.Usuarios.FirstOrDefault(u => u.Login == nomeUsuarioNovo);
@@ -43,20 +49,31 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     {
                         Login = nomeUsuarioNovo,
                         Nome = nomeUsuarioNovo,
-                        Email = "",
+                        Email = txtEmail.Text,
                         Senha = senhaNovo,
-                        Ativo = true,
-                        Administrador = true,
+                        Ativo = chkAtivo.Checked,
+                        Administrador = chkAdministrador.Checked
+                        
                     };
+
+                    bd.Historicos.Add(new Historico
+                    {
+                        Login = Autenticacao.UsuarioAtual?.Login,
+                        DataHora = DateTime.Now,
+                        Alteracao = "Alteração de Usuário",
+                        Detalhes = $"Alterado usuário: {txtNomeLogin.Text}"
+                    });
 
                     bd.Usuarios.Add(novoUsuario);
 
                     bd.SaveChanges();
 
                     MessageBox.Show("Usuário criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                   
                     Listar();
+                    LimparCampos();
+
+                    
                 }
             }
         }
@@ -130,10 +147,21 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         usuario.Administrador = chkAdministrador.Checked;
                         usuario.Ativo = chkAtivo.Checked;
 
+                        bd.Historicos.Add(new Historico
+                        {
+                            Login = Autenticacao.UsuarioAtual?.Login,
+                            DataHora = DateTime.Now,
+                            Alteracao = "Alteração de Usuário",
+                            Detalhes = $"Alterado o usuário: {txtId.Text}"
+                        });
+
+                        bd.SaveChanges();
+
                         DialogResult resultado = MessageBox.Show("Deseja alterar?", "Cadastro de Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (resultado == DialogResult.Yes)
                         {
+
                             bd.SaveChanges();
                             MessageBox.Show("Usuário alterado com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Listar();
@@ -175,6 +203,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                             if (usuario != null)
                             {
+                                bd.Historicos.Add(new Historico
+                                {
+                                    Login = Autenticacao.UsuarioAtual?.Login,
+                                    DataHora = DateTime.Now,
+                                    Alteracao = "Exclusão de Usuário",
+                                    Detalhes = $"Excluído o usuário: {txtId.Text}"
+                                });
+
                                 bd.Usuarios.Remove(usuario);
                                 bd.SaveChanges();
                                 MessageBox.Show("Usuário excluído com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -198,7 +234,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
 
-        private void AbrirFormAgendaCurso()
+        private void AbrirAgendaCursos()
         {
             Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
             agenda_De_Curso.Show();
@@ -208,13 +244,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             DialogResult iSair;
             iSair = MessageBox.Show("Tem certeza que deseja sair?",
+
                 "Cadastro de Usuário",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
             if (iSair == DialogResult.Yes)
             {
-                AbrirFormAgendaCurso();
+                AbrirAgendaCursos();
                 this.Close();
 
             }
@@ -243,8 +280,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
             txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
             txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
-            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
-            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
+            chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
+            chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
+            
         }
     }
  }

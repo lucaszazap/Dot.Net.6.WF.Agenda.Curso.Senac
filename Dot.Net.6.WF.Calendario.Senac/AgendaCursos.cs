@@ -76,6 +76,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 };
 
+                bd.Historicos.Add(new Historico
+                {
+                    Login = Autenticacao.UsuarioAtual?.Login,
+                    DataHora = DateTime.Now,
+                    Alteracao = "Adição de Curso",
+                    Detalhes = $"Adicionado curso: {nome}"
+                });
+
+                bd.SaveChanges();
 
                 bd.AgendaCursos.Add(curso);
                 bd.SaveChanges();
@@ -172,6 +181,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                             if (curso != null)
                             {
+                                bd.Historicos.Add(new Historico
+                                {
+                                    Login = Autenticacao.UsuarioAtual?.Login,
+                                    DataHora = DateTime.Now,
+                                    Alteracao = "Exclusão de Curso",
+                                    Detalhes = $"Excluído do curso: {txtId.Text}"
+                                });
+                                
+
                                 bd.AgendaCursos.Remove(curso);
                                 bd.SaveChanges();
                                 Listar();
@@ -250,10 +268,18 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 curso.Turma = turma;
                 curso.Sala = sala;
 
-                bd.SaveChanges();
 
+                bd.Historicos.Add(new Historico
+                {
+                    Login = Autenticacao.UsuarioAtual?.Login,
+                    DataHora = DateTime.Now,
+                    Alteracao = "Alteração de Curso",
+                    Detalhes = $"Alterado do curso: {txtId.Text}"
+                });
+               
+               
                 MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+                bd.SaveChanges();
                 Listar();
                 LimparCampos();
             }
@@ -465,7 +491,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
             else
             {
-                MessageBox.Show("Você não tem permissão para cadastrar novos usuários.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Você não tem acesso administrador.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -478,9 +504,17 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void acessoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControleAcesso controleAcesso = new ControleAcesso(UsuarioLogado);
-            controleAcesso.Show();
-            this.Hide();
+            if (Autenticacao.UsuarioTemPermissaoAdministrador())
+            {
+                ControleAcesso controleAcesso = new ControleAcesso();
+                controleAcesso.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Você não tem acesso administrador.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
         }
     }
 }

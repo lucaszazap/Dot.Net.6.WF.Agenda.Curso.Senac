@@ -28,86 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControleAcesso));
             panel1 = new Panel();
             btnSair = new Button();
-            GridControleAcesso = new DataGridView();
+            gridHistorico = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)GridControleAcesso).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridHistorico).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Controls.Add(btnSair);
-            panel1.Controls.Add(GridControleAcesso);
+            panel1.Controls.Add(gridHistorico);
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(639, 397);
+            panel1.Size = new Size(731, 524);
             panel1.TabIndex = 0;
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(252, 325);
+            btnSair.Location = new Point(294, 435);
+            btnSair.Margin = new Padding(3, 4, 3, 4);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(80, 38);
+            btnSair.Size = new Size(91, 51);
             btnSair.TabIndex = 2;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
             btnSair.Click += btnSair_Click;
             // 
-            // GridControleAcesso
+            // gridHistorico
             // 
-            GridControleAcesso.AllowUserToAddRows = false;
-            GridControleAcesso.AllowUserToDeleteRows = false;
-            GridControleAcesso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridControleAcesso.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            GridControleAcesso.Location = new Point(0, 3);
-            GridControleAcesso.Name = "GridControleAcesso";
-            GridControleAcesso.ReadOnly = true;
-            GridControleAcesso.RowTemplate.Height = 25;
-            GridControleAcesso.Size = new Size(636, 293);
-            GridControleAcesso.TabIndex = 1;
-            
+            gridHistorico.AllowUserToAddRows = false;
+            gridHistorico.AllowUserToDeleteRows = false;
+            gridHistorico.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridHistorico.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            gridHistorico.Location = new Point(0, 0);
+            gridHistorico.Margin = new Padding(3, 4, 3, 4);
+            gridHistorico.Name = "gridHistorico";
+            gridHistorico.ReadOnly = true;
+            gridHistorico.RowHeadersWidth = 51;
+            gridHistorico.RowTemplate.Height = 25;
+            gridHistorico.Size = new Size(726, 395);
+            gridHistorico.TabIndex = 1;
+            gridHistorico.CellContentClick += gridHistorico_CellContentClick;
             // 
             // Column1
             // 
             Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column1.HeaderText = "#";
+            Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 39;
+            Column1.Width = 47;
             // 
             // Column2
             // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column2.HeaderText = "Usuário";
+            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column2.HeaderText = "Login";
+            Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
+            Column2.Width = 75;
+            // 
+            // Column3
+            // 
+            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column3.HeaderText = "Data/Hora";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 109;
+            // 
+            // Column4
+            // 
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column4.HeaderText = "Alteração";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 102;
+            // 
+            // Column5
+            // 
+            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column5.HeaderText = "Detalhes";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            Column5.Width = 96;
             // 
             // ControleAcesso
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(638, 397);
+            ClientSize = new Size(726, 525);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ControleAcesso";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ControleAcesso";
-            
+            Text = "CONTROLE DE ACESSO";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)GridControleAcesso).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridHistorico).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private DataGridView GridControleAcesso;
+        private DataGridView gridHistorico;
         private Button btnSair;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
     }
 }
