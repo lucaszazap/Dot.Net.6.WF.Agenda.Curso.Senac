@@ -443,7 +443,7 @@
             panel1.MaximumSize = new Size(1920, 1399);
             panel1.MinimumSize = new Size(1028, 799);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1149, 799);
+            panel1.Size = new Size(1189, 799);
             panel1.TabIndex = 3;
             // 
             // gridCurso
@@ -464,7 +464,7 @@
             gridCurso.ReadOnly = true;
             gridCurso.RowHeadersWidth = 51;
             gridCurso.RowTemplate.Height = 25;
-            gridCurso.Size = new Size(1141, 368);
+            gridCurso.Size = new Size(1186, 368);
             gridCurso.TabIndex = 17;
             gridCurso.CellClick += gridCurso_CellClick;
             // 
@@ -566,7 +566,7 @@
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
             btnSair.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSair.Location = new Point(991, 661);
+            btnSair.Location = new Point(1011, 661);
             btnSair.Margin = new Padding(3, 4, 3, 4);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(112, 41);
@@ -589,7 +589,7 @@
             // 
             btnExportar.Anchor = AnchorStyles.Bottom;
             btnExportar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExportar.Location = new Point(797, 661);
+            btnExportar.Location = new Point(817, 661);
             btnExportar.Margin = new Padding(3, 4, 3, 4);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(107, 41);
@@ -611,7 +611,7 @@
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom;
             btnAdicionar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAdicionar.Location = new Point(39, 661);
+            btnAdicionar.Location = new Point(59, 661);
             btnAdicionar.Margin = new Padding(3, 4, 3, 4);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(112, 41);
@@ -624,7 +624,7 @@
             // 
             btnLimparCampos.Anchor = AnchorStyles.Bottom;
             btnLimparCampos.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimparCampos.Location = new Point(217, 661);
+            btnLimparCampos.Location = new Point(237, 661);
             btnLimparCampos.Margin = new Padding(3, 4, 3, 4);
             btnLimparCampos.Name = "btnLimparCampos";
             btnLimparCampos.Size = new Size(112, 41);
@@ -637,7 +637,7 @@
             // 
             btnAlterar.Anchor = AnchorStyles.Bottom;
             btnAlterar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(594, 661);
+            btnAlterar.Location = new Point(614, 661);
             btnAlterar.Margin = new Padding(3, 4, 3, 4);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(112, 41);
@@ -650,7 +650,7 @@
             // 
             btnExcluir.Anchor = AnchorStyles.Bottom;
             btnExcluir.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(405, 661);
+            btnExcluir.Location = new Point(425, 661);
             btnExcluir.Margin = new Padding(3, 4, 3, 4);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(112, 41);
@@ -666,7 +666,7 @@
             AutoScroll = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1143, 748);
+            ClientSize = new Size(1190, 748);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
