@@ -105,7 +105,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-
         private void LimparCampos()
         {
             txtNomeLogin.Clear();
@@ -121,7 +120,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             Listar();
 
         }
-
 
         private void Listar()
         {
@@ -197,9 +195,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
         }
-
-
-
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -300,10 +295,24 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
             chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
             chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
-            
+
+        }
+
+        private void TextOnly(object sender, KeyPressEventArgs e)
+        {
+             if (!char.IsControl(e.KeyChar) && !
+                   char.IsLetter(e.KeyChar) && !
+                   char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+
+                MessageBox.Show("Aceito somente letras.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
         }
     }
- }
+}
 
 
 

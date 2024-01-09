@@ -54,6 +54,8 @@
                 {
                     MessageBox.Show("Falha no login. Verifique suas credenciais.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                LimparCampos();
             }
         }
         private void btnCancelar_Click(object sender, EventArgs e)

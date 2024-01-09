@@ -48,15 +48,15 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(895, 524);
+            panel1.Size = new Size(990, 511);
             panel1.TabIndex = 0;
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(392, 438);
+            btnSair.Location = new Point(429, 463);
             btnSair.Margin = new Padding(3, 4, 3, 4);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(91, 51);
+            btnSair.Size = new Size(79, 36);
             btnSair.TabIndex = 2;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             gridHistorico.ReadOnly = true;
             gridHistorico.RowHeadersWidth = 51;
             gridHistorico.RowTemplate.Height = 25;
-            gridHistorico.Size = new Size(895, 395);
+            gridHistorico.Size = new Size(987, 437);
             gridHistorico.TabIndex = 1;
             gridHistorico.CellContentClick += gridHistorico_CellContentClick;
             // 
@@ -124,7 +124,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(899, 521);
+            ClientSize = new Size(988, 512);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");

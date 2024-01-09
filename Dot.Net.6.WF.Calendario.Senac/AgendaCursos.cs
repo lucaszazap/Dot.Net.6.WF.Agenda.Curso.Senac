@@ -16,12 +16,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class Agenda_de_Curso : Form
     {
-        public Usuario UsuarioLogado { get; private set; }
 
         public Agenda_de_Curso()
         {
             InitializeComponent();
-
 
         }
 
@@ -219,8 +217,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             CarregarCombos();
             Listar();
-
-
         }
 
         public void CarregarCombos()
@@ -484,7 +480,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 e.Handled = true;
 
-                MessageBox.Show("Digite apenas texto.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Aceito somente letras.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             }

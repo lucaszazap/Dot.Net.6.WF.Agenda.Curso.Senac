@@ -13,11 +13,8 @@ using System.Windows.Forms;
 
 namespace Dot.Net._6.WF.Calendario.Senac
 {
-
     public partial class CadastroCurso : Form
     {
-
-
         public CadastroCurso(Agenda_de_Curso agenda_De_Curso)
         {
 

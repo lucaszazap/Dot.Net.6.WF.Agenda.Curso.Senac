@@ -133,6 +133,7 @@
             txtNomeCompleto.Name = "txtNomeCompleto";
             txtNomeCompleto.Size = new Size(227, 27);
             txtNomeCompleto.TabIndex = 1;
+            txtNomeCompleto.KeyPress += TextOnly;
             // 
             // txtNomeLogin
             // 
@@ -140,6 +141,7 @@
             txtNomeLogin.Name = "txtNomeLogin";
             txtNomeLogin.Size = new Size(230, 27);
             txtNomeLogin.TabIndex = 0;
+            txtNomeLogin.KeyPress += TextOnly;
             // 
             // txtId
             // 
