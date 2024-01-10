@@ -27,23 +27,70 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iAdicionar()
 
         {
-            if (cmbCurso.Text == null)
+            
+            if (string.IsNullOrEmpty(cmbCurso.Text))
             {
-                MessageBox.Show("O campo 'Nome' é obrigatório.");
+                MessageBox.Show("O campo 'Curso' é obrigatório.");
                 return;
             }
 
-            if (dtpInicio.Value == null)
+            
+            if (dtpInicio.Value == null || dtpInicio.Value == DateTime.MinValue)
             {
-                MessageBox.Show("O campo 'Início' é obrigatório.");
+                MessageBox.Show("A 'Data' é obrigatório.");
                 return;
             }
 
-            if (dtpFim.Value == null)
+            
+            if (dtpFim.Value == null || dtpFim.Value == DateTime.MinValue)
             {
-                MessageBox.Show("O campo 'Fim' é obrigatório.");
+                MessageBox.Show("A 'Data' é obrigatório.");
                 return;
             }
+
+            if (string.IsNullOrEmpty(txtDias.Text))
+            {
+                MessageBox.Show("O campo 'Dias' é obrigatório.");
+                return;
+
+            }
+
+            if (string.IsNullOrEmpty(cmbHorario.Text))
+            {
+                MessageBox.Show("O campo 'Horário' é obrigatório.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtMeta.Text))
+            {
+                MessageBox.Show("O campo 'Meta' é obrigatório.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtRealizado.Text))
+            {
+                MessageBox.Show("O campo 'Realizado' é obrigatório.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(mtbValor.Text))
+            {
+                MessageBox.Show("O campo 'Valor' é obrigatório.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtTurma.Text))
+            {
+                MessageBox.Show("O campo 'Turma' é obrigatório.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtSala.Text))
+            {
+                MessageBox.Show("O campo 'Sala' é obrigatório.");
+                return;
+            }
+
             var nome = cmbCurso.Text;
             var inicio = dtpInicio.Value;
             var fim = dtpFim.Value;
@@ -98,7 +145,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             iAdicionar();
@@ -147,7 +193,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
 
         }
-
 
         private void iExcluir()
         {
