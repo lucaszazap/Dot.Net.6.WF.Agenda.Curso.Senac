@@ -23,6 +23,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtCadastroCurso.Focus();
 
         }
+    
 
         private void iAdicionar()
         {
@@ -30,26 +31,37 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var novoCurso = new Curso()
+                var cursoExistente = bd.Cursos.FirstOrDefault(c => c.Nome == nome);
+               
+                if (cursoExistente != null)
                 {
-                    Nome = nome,
-                };
+                    MessageBox.Show("Já existe um curso com esse nome. Escolha um nome diferente.",
+                                    "Cadastro de Curso", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    var novoCurso = new Curso()
+                    {
+                        Nome = nome,
+                    };
 
-                AdicionarHistoricoNovoCurso(bd, novoCurso);
+                    AdicionarHistoricoNovoCurso(bd, novoCurso);
 
-                bd.Cursos.Add(novoCurso);
+                    bd.Cursos.Add(novoCurso);
 
-                bd.SaveChanges();
+                    bd.SaveChanges();
 
-                MessageBox.Show("Curso adicionado com sucesso.",
-                    "Cadastro de Curso", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                    MessageBox.Show("Curso adicionado com sucesso.",
+                        "Cadastro de Curso", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
-                Listar();
-                LimparCampos();
+                    Listar();
+                    LimparCampos();
+                }
             }
         }
-
+           
         private void AdicionarHistoricoNovoCurso(BancoDeDados bd, Curso curso)
         {
             bd.Historicos.Add(new Historico
