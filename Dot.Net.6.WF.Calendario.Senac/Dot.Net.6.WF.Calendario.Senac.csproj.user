@@ -13,6 +13,12 @@
     <Compile Update="ControleAcesso.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="enviarCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ResetarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>

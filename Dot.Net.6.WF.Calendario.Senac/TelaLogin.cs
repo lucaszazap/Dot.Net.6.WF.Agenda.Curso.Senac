@@ -2,14 +2,14 @@
 {
     public partial class TelaLogin : Form
     {
-        
+
         private bool _podeVerSenha = false;
 
         public TelaLogin()
         {
             InitializeComponent();
             txtUsuario.Focus();
-            picLoading.Hide();           
+            picLoading.Hide();
             picSenha.Click += PicSenha_Click;
 
         }
@@ -111,6 +111,13 @@
             txtUsuario.Text = "";
             txtSenha.Text = "";
 
+        }
+
+        private void EsqueceuSenha_Click(object sender, EventArgs e)
+        {
+            enviarCodigo ec = new enviarCodigo();
+            this.Hide();
+            ec.Show();
         }
     }
 }
