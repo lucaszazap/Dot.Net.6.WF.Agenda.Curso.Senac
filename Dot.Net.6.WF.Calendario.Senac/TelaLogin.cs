@@ -107,17 +107,18 @@
 
         private void LimparCampos()
         {
+            txtUsuario.Clear();
+            txtSenha.Clear();
             txtUsuario.Focus();
-            txtUsuario.Text = "";
-            txtSenha.Text = "";
 
         }
 
-        private void EsqueceuSenha_Click(object sender, EventArgs e)
+        private void TelaLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            enviarCodigo ec = new enviarCodigo();
-            this.Hide();
-            ec.Show();
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnEntrar.PerformClick ();
+            }
         }
     }
 }

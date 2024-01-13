@@ -71,13 +71,15 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void AdicionarHistoricoNovoUsuario(BancoDeDados bd, Usuario usuario)
         {
+            string login = Autenticacao.UsuarioAtual?.Login ?? "";
+           
             bd.Historicos.Add(new Historico
             {
-                Login = Autenticacao.UsuarioAtual?.Login,
+                Login = login,
                 DataHora = DateTime.Now,
                 Alteracao = "Criação de Usuário",
                 Detalhes = $"Criado usuário: {usuario.Login}, Nome: {usuario.Nome}, Email: {usuario.Email}, Ativo: {usuario.Ativo}, Administrador: {usuario.Administrador}"
-                // Adicione mais detalhes conforme necessário
+                
             });
         }
 
@@ -137,8 +139,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         usuario.Nome,
                         usuario.Email,
                         usuario.Senha,
-                        usuario.Administrador,
-                        usuario.Ativo);
+                        usuario.Ativo,
+                        usuario.Administrador);
 
                 }
 
@@ -160,8 +162,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         usuario.Nome = txtNomeCompleto.Text;
                         usuario.Email = txtEmail.Text;
                         usuario.Senha = txtSenha.Text;
-                        usuario.Administrador = chkAdministrador.Checked;
                         usuario.Ativo = chkAtivo.Checked;
+                        usuario.Administrador = chkAdministrador.Checked;
+                        
 
                         bd.Historicos.Add(new Historico
                         {
@@ -204,7 +207,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
             else
             {
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {

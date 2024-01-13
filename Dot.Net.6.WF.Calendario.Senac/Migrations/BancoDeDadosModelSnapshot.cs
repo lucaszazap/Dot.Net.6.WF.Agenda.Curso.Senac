@@ -60,25 +60,6 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
                     b.ToTable("AgendaCursos");
                 });
 
-            modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.AlterarSenha", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AlterarSenhas");
-                });
-
             modelBuilder.Entity("Dot.Net._6.WF.Calendario.Senac.Curso", b =>
                 {
                     b.Property<int>("Id")

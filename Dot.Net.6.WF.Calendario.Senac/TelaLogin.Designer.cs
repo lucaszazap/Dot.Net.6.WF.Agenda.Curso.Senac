@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLogin));
             groupBox1 = new GroupBox();
-            EsqueceuSenha = new Label();
             picSenha = new PictureBox();
             pictureBox3 = new PictureBox();
             btnCancelar = new Button();
@@ -50,7 +49,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(EsqueceuSenha);
             groupBox1.Controls.Add(picSenha);
             groupBox1.Controls.Add(pictureBox3);
             groupBox1.Controls.Add(btnCancelar);
@@ -66,18 +64,6 @@
             groupBox1.Size = new Size(774, 475);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            // 
-            // EsqueceuSenha
-            // 
-            EsqueceuSenha.AutoSize = true;
-            EsqueceuSenha.Cursor = Cursors.Hand;
-            EsqueceuSenha.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
-            EsqueceuSenha.Location = new Point(369, 346);
-            EsqueceuSenha.Name = "EsqueceuSenha";
-            EsqueceuSenha.Size = new Size(105, 15);
-            EsqueceuSenha.TabIndex = 25;
-            EsqueceuSenha.Text = "Esqueceu a senha?";
-            EsqueceuSenha.Click += EsqueceuSenha_Click;
             // 
             // picSenha
             // 
@@ -142,7 +128,7 @@
             txtSenha.Location = new Point(294, 318);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '•';
-            txtSenha.Size = new Size(180, 23);
+            txtSenha.Size = new Size(175, 23);
             txtSenha.TabIndex = 1;
             txtSenha.KeyPress += txtSenha_KeyPress;
             // 
@@ -202,6 +188,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SENAC";
+            KeyDown += TelaLogin_KeyDown;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picSenha).EndInit();
@@ -224,6 +211,5 @@
         private Button btnEntrar;
         private PictureBox pictureBox3;
         private PictureBox picSenha;
-        private Label EsqueceuSenha;
     }
 }
