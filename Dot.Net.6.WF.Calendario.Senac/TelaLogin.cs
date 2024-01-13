@@ -36,7 +36,7 @@
                         Login = usuario,
                         DataHora = DateTime.Now,
                         Alteracao = $"Login de {usuarioExistente.Login}",
-                        Detalhes = $"Usuário {usuarioExistente.Nome} fez login."
+                        Detalhes = $"Usuário {usuarioExistente.Cpf} fez login."
                     });
 
                     bd.SaveChanges();
@@ -117,8 +117,14 @@
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnEntrar.PerformClick ();
+                btnEntrar.PerformClick();
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            EsqueceuSenha esqueceuSenha = new EsqueceuSenha();
+            esqueceuSenha.Show();
         }
     }
 }

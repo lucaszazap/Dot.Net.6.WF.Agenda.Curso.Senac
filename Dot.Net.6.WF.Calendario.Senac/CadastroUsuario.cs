@@ -48,8 +48,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     var novoUsuario = new Usuario()
                     {
                         Login = nomeUsuarioNovo,
-                        Nome = nomeUsuarioNovo,
-                        Email = txtEmail.Text,
+                        Cpf = txtCpf.Text,
+                        DataNascimento = dtpDataNascimento.Value.Date,
                         Senha = senhaNovo,
                         Ativo = chkAtivo.Checked,
                         Administrador = chkAdministrador.Checked
@@ -72,14 +72,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void AdicionarHistoricoNovoUsuario(BancoDeDados bd, Usuario usuario)
         {
             string login = Autenticacao.UsuarioAtual?.Login ?? "";
-           
+
             bd.Historicos.Add(new Historico
             {
                 Login = login,
                 DataHora = DateTime.Now,
                 Alteracao = "Criação de Usuário",
-                Detalhes = $"Criado usuário: {usuario.Login}, Nome: {usuario.Nome}, Email: {usuario.Email}, Ativo: {usuario.Ativo}, Administrador: {usuario.Administrador}"
-                
+                Detalhes = $"Criado usuário: {usuario.Login}, CPF: {usuario.Cpf}, Data de Nascimento: {usuario.DataNascimento}, Ativo: {usuario.Ativo}, Administrador: {usuario.Administrador}"
+
             });
         }
 
@@ -110,8 +110,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void LimparCampos()
         {
             txtNomeLogin.Clear();
-            txtNomeCompleto.Clear();
-            txtEmail.Clear();
+            txtCpf.Clear();
             txtSenha.Clear();
             chkAdministrador.Checked = false;
             chkAtivo.Checked = false;
@@ -136,8 +135,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     GridConsultarUsuario.Rows.Add(
                         usuario.Id,
                         usuario.Login,
-                        usuario.Nome,
-                        usuario.Email,
+                        usuario.Cpf,
+                        usuario.DataNascimento,
                         usuario.Senha,
                         usuario.Ativo,
                         usuario.Administrador);
@@ -159,12 +158,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     if (usuario != null)
                     {
                         usuario.Login = txtNomeLogin.Text;
-                        usuario.Nome = txtNomeCompleto.Text;
-                        usuario.Email = txtEmail.Text;
+                        usuario.Cpf = txtCpf.Text;
+                        usuario.DataNascimento = dtpDataNascimento.Value.Date;
                         usuario.Senha = txtSenha.Text;
                         usuario.Ativo = chkAtivo.Checked;
                         usuario.Administrador = chkAdministrador.Checked;
-                        
+
 
                         bd.Historicos.Add(new Historico
                         {
@@ -293,8 +292,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
             txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
-            txtNomeCompleto.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
-            txtEmail.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
+            txtCpf.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
+            dtpDataNascimento.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
             txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
             chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
             chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
@@ -303,15 +302,42 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void TextOnly(object sender, KeyPressEventArgs e)
         {
-             if (!char.IsControl(e.KeyChar) && !
-                   char.IsLetter(e.KeyChar) && !
-                   char.IsWhiteSpace(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !
+                  char.IsLetter(e.KeyChar) && !
+                  char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
 
                 MessageBox.Show("Aceito somente letras.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
+            }
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\b')
+            {
+                e.Handled = false;
+            }
+
+            else
+            {
+
+                if (e.KeyChar >= '0' && e.KeyChar <= '9')
+                {
+
+                    e.Handled = false;
+
+                }
+
+                else
+                {
+
+                    MessageBox.Show("Digite apenas números", "Erro: Apenas números", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    e.Handled = true;
+                }
             }
         }
     }

@@ -16,9 +16,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public string? Login { get; set; }
         [Required]
         [StringLength(50)]
-        public string? Nome { get; set; }
+        public string? Cpf { get; set; }
         [Required]
-        public string Email { get; set; }
+        public DateTime DataNascimento { get; set; }
         [Required]
         [StringLength (50)]
         public string Senha { get; set; }

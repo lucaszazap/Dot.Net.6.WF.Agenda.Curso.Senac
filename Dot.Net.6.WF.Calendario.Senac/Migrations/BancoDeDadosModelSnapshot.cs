@@ -114,16 +114,15 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Login")
+                    b.Property<string>("Cpf")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Login")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
