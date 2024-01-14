@@ -14,7 +14,50 @@
 
         }
 
-        private async void btnEntrar_Click(object sender, EventArgs e)
+      
+        private void PicSenha_Click(object sender, EventArgs e)
+        {
+            _podeVerSenha = !_podeVerSenha;
+
+            if (_podeVerSenha)
+            {
+                picSenha.Image = Properties.Resources.hide4;
+                txtSenha.PasswordChar = '•';
+            }
+            else
+            {
+                picSenha.Image = Properties.Resources.show4;
+                txtSenha.PasswordChar = '\0';
+            }
+        }
+
+        private void AbrirFormPrincipal()
+        {
+            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+            agenda_De_Curso.Show();
+            this.Hide();
+        }
+
+
+
+        private void LimparCampos()
+        {
+            txtUsuario.Clear();
+            txtSenha.Clear();
+            txtUsuario.Focus();
+
+        }
+
+        private void TelaLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnEntrar.PerformClick();
+            }
+        }
+
+
+        private async void btnEntrar_Click_1(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Text;
@@ -58,66 +101,13 @@
                 LimparCampos();
             }
         }
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-            DialogResult resultado = MessageBox.Show("Deseja realmente cancelar?",
-                    "Alerta",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-            if (resultado == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-
-        private void PicSenha_Click(object sender, EventArgs e)
-        {
-            _podeVerSenha = !_podeVerSenha;
-
-            if (_podeVerSenha)
-            {
-                picSenha.Image = Properties.Resources.hide4;
-                txtSenha.PasswordChar = '•';
-            }
-            else
-            {
-                picSenha.Image = Properties.Resources.show4;
-                txtSenha.PasswordChar = '\0';
-            }
-        }
-
-        private void AbrirFormPrincipal()
-        {
-            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
-            agenda_De_Curso.Show();
-            this.Hide();
-        }
-
 
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
+
             if (e.KeyChar == '\r')
             {
-                btnEntrar_Click(this, new EventArgs());
-            }
-        }
-
-        private void LimparCampos()
-        {
-            txtUsuario.Clear();
-            txtSenha.Clear();
-            txtUsuario.Focus();
-
-        }
-
-        private void TelaLogin_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnEntrar.PerformClick();
+               btnEntrar_Click_1(this, new EventArgs());
             }
         }
 
@@ -125,6 +115,19 @@
         {
             EsqueceuSenha esqueceuSenha = new EsqueceuSenha();
             esqueceuSenha.Show();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Deseja realmente cancelar?",
+                   "Alerta",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

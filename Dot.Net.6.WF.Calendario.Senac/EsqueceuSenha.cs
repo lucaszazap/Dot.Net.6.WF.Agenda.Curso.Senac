@@ -30,7 +30,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 if (usuario != null)
                 {
                     this.Close();
-
+                    AbrirNovaSenha(usuario);
 
                    
                 }
@@ -42,10 +42,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void AbrirNovaSenha()
+        private void AbrirNovaSenha(Usuario usuario)
         {
-           // NovaSenha novaSenha = new NovaSenha();
-           // novaSenha.Show();
+           NovaSenha novaSenha = new NovaSenha(usuario);
+           novaSenha.Show();
         }
 
         private void TelaLogin()

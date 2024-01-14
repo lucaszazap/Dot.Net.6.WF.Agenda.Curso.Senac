@@ -14,6 +14,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Historico> Historicos { get; set; }
+       
         
 
 
