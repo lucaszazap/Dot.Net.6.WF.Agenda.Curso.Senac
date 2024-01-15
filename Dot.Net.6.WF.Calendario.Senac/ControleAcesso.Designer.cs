@@ -89,35 +89,39 @@
             // 
             // Column2
             // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column2.HeaderText = "Login";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
+            Column2.Width = 75;
             // 
             // Column3
             // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column3.HeaderText = "Data/Hora";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
+            Column3.Width = 109;
             // 
             // Column4
             // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column4.HeaderText = "Alteração";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
+            Column4.Width = 102;
             // 
             // Column5
             // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Column5.HeaderText = "Detalhes";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
+            Column5.Width = 96;
             // 
             // ControleAcesso
             // 

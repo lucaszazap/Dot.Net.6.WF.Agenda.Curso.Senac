@@ -249,7 +249,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 DataHora = DateTime.Now,
                 Alteracao = "Exclusão de Curso",
                 Detalhes = $"Excluído do curso: {curso.Id}, Nome: {curso.Nome}, Início: {curso.Inicio}, Fim: {curso.Fim}"
-                // Adicione mais detalhes conforme necessário
+                
             });
         }
         private void btnExcluir_Click_1(object sender, EventArgs e)
@@ -324,7 +324,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     AdicionarHistorico(bd, turmaOriginal, curso.Turma, "Turma");
                     AdicionarHistorico(bd, salaOriginal, curso.Sala, "Sala");
 
-                    MessageBox.Show("Deseja alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    MessageBox.Show("Deseja realmente alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     bd.SaveChanges();
                     Listar();

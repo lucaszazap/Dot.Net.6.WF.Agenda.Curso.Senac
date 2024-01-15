@@ -78,7 +78,7 @@
             // dtpDataNascimento
             // 
             dtpDataNascimento.Anchor = AnchorStyles.None;
-            dtpDataNascimento.CalendarMonthBackground = SystemColors.ButtonHighlight;
+            dtpDataNascimento.CalendarMonthBackground = SystemColors.HighlightText;
             dtpDataNascimento.CustomFormat = "dd-MM-yyyy";
             dtpDataNascimento.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             dtpDataNascimento.Format = DateTimePickerFormat.Custom;
@@ -95,7 +95,7 @@
             btnCancelar.ForeColor = SystemColors.Desktop;
             btnCancelar.Location = new Point(178, 422);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(110, 37);
+            btnCancelar.Size = new Size(110, 40);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -119,7 +119,7 @@
             btnProximo.ForeColor = SystemColors.Desktop;
             btnProximo.Location = new Point(371, 422);
             btnProximo.Name = "btnProximo";
-            btnProximo.Size = new Size(110, 37);
+            btnProximo.Size = new Size(110, 40);
             btnProximo.TabIndex = 4;
             btnProximo.Text = "Próximo";
             btnProximo.UseVisualStyleBackColor = false;
@@ -128,7 +128,8 @@
             // txtCpfUsuario
             // 
             txtCpfUsuario.Anchor = AnchorStyles.None;
-            txtCpfUsuario.BackColor = Color.White;
+            txtCpfUsuario.BackColor = SystemColors.HighlightText;
+            txtCpfUsuario.BorderStyle = BorderStyle.FixedSingle;
             txtCpfUsuario.Location = new Point(178, 290);
             txtCpfUsuario.Name = "txtCpfUsuario";
             txtCpfUsuario.Size = new Size(303, 28);
@@ -140,7 +141,7 @@
             label1.BackColor = SystemColors.ActiveCaption;
             label1.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(178, 265);
+            label1.Location = new Point(176, 269);
             label1.Name = "label1";
             label1.Size = new Size(45, 22);
             label1.TabIndex = 0;
@@ -151,7 +152,7 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ActiveCaption;
             label2.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(178, 334);
+            label2.Location = new Point(176, 338);
             label2.Name = "label2";
             label2.Size = new Size(177, 22);
             label2.TabIndex = 0;
@@ -177,6 +178,7 @@
             Controls.Add(panel1);
             Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "EsqueceuSenha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Log In | Esqueceu a senha?";

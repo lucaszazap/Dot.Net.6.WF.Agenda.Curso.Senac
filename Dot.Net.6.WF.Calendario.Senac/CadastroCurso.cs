@@ -70,7 +70,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 DataHora = DateTime.Now,
                 Alteracao = "Adição de Curso",
                 Detalhes = $"Adicionado curso: {curso.Nome}"
-                // Adicione mais detalhes conforme necessário
+                
             });
         }
 
@@ -171,7 +171,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 DataHora = DateTime.Now,
                 Alteracao = "Exclusão de Curso",
                 Detalhes = $"Excluído curso: {curso.Id}, Nome: {curso.Nome}"
-                // Adicione mais detalhes conforme necessário
+               
             });
         }
         private void GridViewCadastroCurso_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -222,7 +222,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 DataHora = DateTime.Now,
                 Alteracao = "Alteração de Curso",
                 Detalhes = $"Alterado curso: Id {curso.Id}, Nome: {nomeOriginal} para {curso.Nome}"
-                // Adicione mais detalhes conforme necessário
+               
             });
         }
     }

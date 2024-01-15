@@ -21,13 +21,20 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public CadastroUsuario()
         {
             InitializeComponent();
-            picSenha.Click += PicSenha_Click;
+            
+            txtCpf.TextChanged += txtCpf_TextChanged;
+            GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
+            GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
+            this.Load += FrmCadastroUsuario_Load;
+
         }
+
 
         private void btnSalvarUsuario_Click(object sender, EventArgs e)
         {
-            string nomeUsuarioNovo = txtNomeLogin.Text;
+            string nomeUsuarioNovo = txtUsuario.Text;
             string senhaNovo = txtSenha.Text;
+            string CpfNovo = txtCpf.Text;
 
             if (senhaNovo.Length < 6 || !senhaNovo.Any(char.IsDigit) || !senhaNovo.Any(char.IsLetter))
             {
@@ -42,32 +49,42 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 if (usuarioExistente != null)
                 {
                     MessageBox.Show("Nome de usuário já existe. Escolha outro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                else
+
+                var cpfExistente = bd.Usuarios.Any(c => c.Cpf == CpfNovo);
+
+                if (cpfExistente)
                 {
-                    var novoUsuario = new Usuario()
-                    {
-                        Login = nomeUsuarioNovo,
-                        Cpf = txtCpf.Text,
-                        DataNascimento = dtpDataNascimento.Value.Date,
-                        Senha = senhaNovo,
-                        Ativo = chkAtivo.Checked,
-                        Administrador = chkAdministrador.Checked
-                    };
-
-                    AdicionarHistoricoNovoUsuario(bd, novoUsuario);
-
-                    bd.Usuarios.Add(novoUsuario);
-
-                    bd.SaveChanges();
-
-                    MessageBox.Show("Usuário criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Listar();
-                    LimparCampos();
+                    MessageBox.Show("CPF já está em uso. Escolha outro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
+
+                var novoUsuario = new Usuario()
+                {
+                    Login = nomeUsuarioNovo,
+                    Cpf = txtCpf.Text,
+                    DataNascimento = dtpDataNascimento.Value.Date,
+                    Senha = senhaNovo,
+                    Ativo = chkAtivo.Checked,
+                    Administrador = chkAdministrador.Checked
+                };
+
+                AdicionarHistoricoNovoUsuario(bd, novoUsuario);
+
+                bd.Usuarios.Add(novoUsuario);
+
+                bd.SaveChanges();
+
+                MessageBox.Show("Usuário criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Listar();
+                LimparCampos();
+
             }
         }
+
+
 
         private void AdicionarHistoricoNovoUsuario(BancoDeDados bd, Usuario usuario)
         {
@@ -91,25 +108,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void PicSenha_Click(object sender, EventArgs e)
-        {
-            _podeVerSenha = !_podeVerSenha;
-
-            if (_podeVerSenha)
-            {
-                picSenha.Image = Properties.Resources.hide4;
-                txtSenha.PasswordChar = '•';
-            }
-            else
-            {
-                picSenha.Image = Properties.Resources.show4;
-                txtSenha.PasswordChar = '\0';
-            }
-        }
-
         private void LimparCampos()
         {
-            txtNomeLogin.Clear();
+            txtUsuario.Clear();
             txtCpf.Clear();
             txtSenha.Clear();
             chkAdministrador.Checked = false;
@@ -119,6 +120,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
         {
             Listar();
+          
 
         }
 
@@ -149,41 +151,44 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            using (var bd = new BancoDeDados())
             {
-                try
+                using (var bd = new BancoDeDados())
                 {
                     var usuario = bd.Usuarios.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
 
                     if (usuario != null)
                     {
-                        usuario.Login = txtNomeLogin.Text;
-                        usuario.Cpf = txtCpf.Text;
-                        usuario.DataNascimento = dtpDataNascimento.Value.Date;
-                        usuario.Senha = txtSenha.Text;
-                        usuario.Ativo = chkAtivo.Checked;
-                        usuario.Administrador = chkAdministrador.Checked;
-
-
-                        bd.Historicos.Add(new Historico
+                        
+                        if (Autenticacao.UsuarioAtual?.Login == usuario.Login)
                         {
-                            Login = Autenticacao.UsuarioAtual?.Login,
-                            DataHora = DateTime.Now,
-                            Alteracao = "Alteração de Usuário",
-                            Detalhes = $"Alterado o usuário: {txtId.Text}"
-                        });
+                            usuario.Login = txtUsuario.Text;
+                            usuario.Cpf = txtCpf.Text;
+                            usuario.Senha = txtSenha.Text;
+                            usuario.DataNascimento = dtpDataNascimento.Value.Date;
+                            usuario.Ativo = chkAtivo.Checked;
+                            usuario.Administrador = chkAdministrador.Checked;
 
-                        bd.SaveChanges();
+                            bd.Historicos.Add(new Historico
+                            {
+                                Login = Autenticacao.UsuarioAtual?.Login,
+                                DataHora = DateTime.Now,
+                                Alteracao = "Alteração de Usuário",
+                                Detalhes = $"Alterado o usuário: {txtId.Text}"
+                            });
 
-                        DialogResult resultado = MessageBox.Show("Deseja alterar?", "Cadastro de Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            DialogResult resultado = MessageBox.Show("Deseja realmente alterar?", "Cadastro de Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                        if (resultado == DialogResult.Yes)
+                            if (resultado == DialogResult.Yes)
+                            {
+                                bd.SaveChanges();
+                                MessageBox.Show("Usuário alterado com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Listar();
+                                LimparCampos();
+                            }
+                        }
+                        else
                         {
-
-                            bd.SaveChanges();
-                            MessageBox.Show("Usuário alterado com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Listar();
-                            LimparCampos();
+                            MessageBox.Show("Você só pode editar seus próprios dados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
@@ -191,12 +196,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         MessageBox.Show("Usuário não encontrado. Verifique o usuário informado.");
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Erro ao alterar: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
         }
+
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -274,6 +276,38 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void GridConsultarUsuario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+
+            int cpfColumnIndex = 2;
+            int senhaColumnIndex = 4;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && Autenticacao.UsuarioAtual != null)
+            {
+                
+                if (GridConsultarUsuario.Rows[e.RowIndex].Cells[1].Value != null)
+                {
+                    string usuarioLogadoLogin = Autenticacao.UsuarioAtual.Login;
+                    string loginNaLinha = GridConsultarUsuario.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                    if (!loginNaLinha.Equals(usuarioLogadoLogin, StringComparison.OrdinalIgnoreCase))
+                    {
+                       
+                        if (e.ColumnIndex == cpfColumnIndex && GridConsultarUsuario.Rows[e.RowIndex].Cells[cpfColumnIndex].Value != null)
+                        {
+                            e.Value = "******";
+                        }
+
+                        if (e.ColumnIndex == senhaColumnIndex && GridConsultarUsuario.Rows[e.RowIndex].Cells[senhaColumnIndex].Value != null)
+                        {
+                            e.Value = "******";
+                        }
+                    }
+
+                    
+                }
+            }
+
+
+
             List<int> colunaBoolIndex = new List<int> { 5, 6 };
 
             if (e.RowIndex >= 0 && colunaBoolIndex.Contains(e.ColumnIndex))
@@ -288,17 +322,40 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
+
         private void GridConsultarUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
-            txtNomeLogin.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
+            txtUsuario.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
             txtCpf.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
             dtpDataNascimento.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
             txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
             chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
             chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
 
+            
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                
+                string usuarioLogadoLogin = Autenticacao.UsuarioAtual?.Login;
+
+                
+                string loginNaCela = GridConsultarUsuario.Rows[e.RowIndex].Cells["Column2"].Value.ToString();
+
+                
+                if (usuarioLogadoLogin.Equals(loginNaCela, StringComparison.OrdinalIgnoreCase))
+                {
+                   
+                    txtCpf.Text = GridConsultarUsuario.Rows[e.RowIndex].Cells["Column3"].Value.ToString();
+                }
+                else
+                {
+                   
+                    txtCpf.Text = new string('*', txtCpf.MaxLength);
+                }
+            }
         }
+
 
         private void TextOnly(object sender, KeyPressEventArgs e)
         {
@@ -340,8 +397,59 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
         }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+
+            string cpfDigito = new string(txtCpf.Text.Where(char.IsDigit).ToArray());
+
+
+            if (cpfDigito.Length > 11)
+            {
+                cpfDigito = cpfDigito.Substring(0, 11);
+            }
+
+
+            if (cpfDigito.Length > 2)
+            {
+                cpfDigito = cpfDigito.Insert(3, ".");
+            }
+            if (cpfDigito.Length > 6)
+            {
+                cpfDigito = cpfDigito.Insert(7, ".");
+            }
+            if (cpfDigito.Length > 10)
+            {
+                cpfDigito = cpfDigito.Insert(11, "-");
+            }
+
+
+            txtCpf.Text = cpfDigito;
+
+
+            txtCpf.SelectionStart = txtCpf.Text.Length;
+        }
+
+
+        private void txtCpf_Leave(object sender, EventArgs e)
+        {
+            string cpfDigito = new string(txtCpf.Text.Where(char.IsDigit).ToArray());
+
+
+            if (cpfDigito.Length != 11)
+            {
+                MessageBox.Show("CPF inválido. Preencha corretamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+                txtCpf.Clear();
+                txtCpf.Focus();
+            }
+        }
+
     }
 }
+
+
 
 
 

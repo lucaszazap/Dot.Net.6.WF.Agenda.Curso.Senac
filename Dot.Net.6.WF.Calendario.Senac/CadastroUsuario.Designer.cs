@@ -37,7 +37,7 @@
             label5 = new Label();
             txtSenha = new TextBox();
             txtCpf = new TextBox();
-            txtNomeLogin = new TextBox();
+            txtUsuario = new TextBox();
             txtId = new TextBox();
             chkAtivo = new CheckBox();
             chkAdministrador = new CheckBox();
@@ -55,10 +55,8 @@
             btnExcluir = new Button();
             panel1 = new Panel();
             dtpDataNascimento = new DateTimePicker();
-            picSenha = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picSenha).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -114,6 +112,8 @@
             // 
             // txtSenha
             // 
+            txtSenha.BackColor = SystemColors.HighlightText;
+            txtSenha.BorderStyle = BorderStyle.FixedSingle;
             txtSenha.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             txtSenha.Location = new Point(469, 152);
             txtSenha.Name = "txtSenha";
@@ -124,21 +124,27 @@
             // 
             // txtCpf
             // 
+            txtCpf.BackColor = SystemColors.HighlightText;
+            txtCpf.BorderStyle = BorderStyle.FixedSingle;
             txtCpf.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             txtCpf.Location = new Point(469, 95);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(227, 29);
             txtCpf.TabIndex = 1;
+            txtCpf.TextChanged += txtCpf_TextChanged;
             txtCpf.KeyPress += txtCpf_KeyPress;
+            txtCpf.Leave += txtCpf_Leave;
             // 
-            // txtNomeLogin
+            // txtUsuario
             // 
-            txtNomeLogin.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtNomeLogin.Location = new Point(125, 95);
-            txtNomeLogin.Name = "txtNomeLogin";
-            txtNomeLogin.Size = new Size(230, 29);
-            txtNomeLogin.TabIndex = 0;
-            txtNomeLogin.KeyPress += TextOnly;
+            txtUsuario.BackColor = SystemColors.HighlightText;
+            txtUsuario.BorderStyle = BorderStyle.FixedSingle;
+            txtUsuario.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            txtUsuario.Location = new Point(125, 95);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(230, 29);
+            txtUsuario.TabIndex = 0;
+            txtUsuario.KeyPress += TextOnly;
             // 
             // txtId
             // 
@@ -187,7 +193,7 @@
             // btnSair
             // 
             btnSair.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSair.Location = new Point(591, 588);
+            btnSair.Location = new Point(619, 588);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(110, 40);
             btnSair.TabIndex = 11;
@@ -198,7 +204,7 @@
             // btnAlterar
             // 
             btnAlterar.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(223, 588);
+            btnAlterar.Location = new Point(232, 588);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(110, 40);
             btnAlterar.TabIndex = 10;
@@ -212,12 +218,15 @@
             GridConsultarUsuario.AllowUserToDeleteRows = false;
             GridConsultarUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridConsultarUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column7, Column6 });
+            GridConsultarUsuario.GridColor = SystemColors.ActiveCaption;
             GridConsultarUsuario.Location = new Point(1, 236);
             GridConsultarUsuario.Name = "GridConsultarUsuario";
             GridConsultarUsuario.ReadOnly = true;
             GridConsultarUsuario.RowHeadersWidth = 51;
             GridConsultarUsuario.RowTemplate.Height = 29;
+            GridConsultarUsuario.ShowCellToolTips = false;
             GridConsultarUsuario.Size = new Size(802, 300);
+            GridConsultarUsuario.StandardTab = true;
             GridConsultarUsuario.TabIndex = 8;
             GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
             GridConsultarUsuario.CellFormatting += GridConsultarUsuario_CellFormatting;
@@ -285,7 +294,7 @@
             // btnExcluir
             // 
             btnExcluir.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(409, 588);
+            btnExcluir.Location = new Point(418, 588);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(110, 40);
             btnExcluir.TabIndex = 12;
@@ -299,7 +308,6 @@
             panel1.AutoSize = true;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(dtpDataNascimento);
-            panel1.Controls.Add(picSenha);
             panel1.Controls.Add(GridConsultarUsuario);
             panel1.Controls.Add(txtCpf);
             panel1.Controls.Add(txtSenha);
@@ -311,7 +319,7 @@
             panel1.Controls.Add(btnSair);
             panel1.Controls.Add(txtId);
             panel1.Controls.Add(btnAdicionarUsuario);
-            panel1.Controls.Add(txtNomeLogin);
+            panel1.Controls.Add(txtUsuario);
             panel1.Controls.Add(btnAlterar);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
@@ -333,17 +341,6 @@
             dtpDataNascimento.TabIndex = 15;
             dtpDataNascimento.Value = new DateTime(2024, 1, 13, 0, 0, 0, 0);
             // 
-            // picSenha
-            // 
-            picSenha.Cursor = Cursors.Hand;
-            picSenha.Image = Properties.Resources.hide4;
-            picSenha.Location = new Point(701, 152);
-            picSenha.Name = "picSenha";
-            picSenha.Size = new Size(33, 27);
-            picSenha.SizeMode = PictureBoxSizeMode.Zoom;
-            picSenha.TabIndex = 14;
-            picSenha.TabStop = false;
-            // 
             // CadastroUsuario
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -362,7 +359,6 @@
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picSenha).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -378,7 +374,7 @@
 
         private TextBox txtSenha;
         private TextBox txtCpf;
-        private TextBox txtNomeLogin;
+        private TextBox txtUsuario;
         private TextBox txtId;
         private CheckBox chkAtivo;
         private CheckBox chkAdministrador;
@@ -388,7 +384,6 @@
         private DataGridView GridConsultarUsuario;
         private Button btnExcluir;
         private Panel panel1;
-        private PictureBox picSenha;
         private DateTimePicker dtpDataNascimento;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;

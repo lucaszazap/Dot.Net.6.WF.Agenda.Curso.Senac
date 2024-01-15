@@ -72,10 +72,10 @@
             // 
             picLoading.BackColor = Color.White;
             picLoading.Image = (Image)resources.GetObject("picLoading.Image");
-            picLoading.Location = new Point(337, 542);
+            picLoading.Location = new Point(337, 534);
             picLoading.Margin = new Padding(3, 4, 3, 4);
             picLoading.Name = "picLoading";
-            picLoading.Size = new Size(254, 120);
+            picLoading.Size = new Size(255, 119);
             picLoading.SizeMode = PictureBoxSizeMode.Zoom;
             picLoading.TabIndex = 31;
             picLoading.TabStop = false;
@@ -96,6 +96,8 @@
             // 
             // txtSenha
             // 
+            txtSenha.BackColor = SystemColors.HighlightText;
+            txtSenha.BorderStyle = BorderStyle.FixedSingle;
             txtSenha.Location = new Point(337, 408);
             txtSenha.Margin = new Padding(3, 4, 3, 4);
             txtSenha.Name = "txtSenha";
@@ -109,7 +111,7 @@
             picSenha.BackColor = SystemColors.ButtonHighlight;
             picSenha.Cursor = Cursors.Hand;
             picSenha.Image = Properties.Resources.hide4;
-            picSenha.Location = new Point(297, 408);
+            picSenha.Location = new Point(300, 408);
             picSenha.Margin = new Padding(3, 4, 3, 4);
             picSenha.Name = "picSenha";
             picSenha.Size = new Size(34, 26);
@@ -119,6 +121,8 @@
             // 
             // txtUsuario
             // 
+            txtUsuario.BackColor = SystemColors.HighlightText;
+            txtUsuario.BorderStyle = BorderStyle.FixedSingle;
             txtUsuario.Location = new Point(337, 346);
             txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
@@ -130,10 +134,10 @@
             btnEntrar.BackColor = SystemColors.ButtonHighlight;
             btnEntrar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnEntrar.ForeColor = SystemColors.Desktop;
-            btnEntrar.Location = new Point(482, 486);
+            btnEntrar.Location = new Point(481, 486);
             btnEntrar.Margin = new Padding(3, 4, 3, 4);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(81, 36);
+            btnEntrar.Size = new Size(110, 40);
             btnEntrar.TabIndex = 32;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -143,7 +147,7 @@
             // 
             pictureBox3.BackColor = SystemColors.ButtonHighlight;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(300, 343);
+            pictureBox3.Location = new Point(303, 343);
             pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(31, 30);
@@ -157,7 +161,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(337, 320);
+            label1.Location = new Point(334, 325);
             label1.Name = "label1";
             label1.Size = new Size(75, 22);
             label1.TabIndex = 29;
@@ -168,7 +172,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(337, 382);
+            label2.Location = new Point(335, 387);
             label2.Name = "label2";
             label2.Size = new Size(63, 22);
             label2.TabIndex = 30;
@@ -179,10 +183,10 @@
             btnCancelar.BackColor = SystemColors.ButtonHighlight;
             btnCancelar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancelar.ForeColor = SystemColors.Desktop;
-            btnCancelar.Location = new Point(348, 486);
+            btnCancelar.Location = new Point(337, 486);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(88, 36);
+            btnCancelar.Size = new Size(110, 40);
             btnCancelar.TabIndex = 33;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -207,6 +211,7 @@
             ClientSize = new Size(937, 687);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "TelaLogin";

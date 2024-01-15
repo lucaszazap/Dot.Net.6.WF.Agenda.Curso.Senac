@@ -61,7 +61,8 @@
             // txtConfirmarSenha
             // 
             txtConfirmarSenha.Anchor = AnchorStyles.None;
-            txtConfirmarSenha.BackColor = Color.White;
+            txtConfirmarSenha.BackColor = SystemColors.HighlightText;
+            txtConfirmarSenha.BorderStyle = BorderStyle.FixedSingle;
             txtConfirmarSenha.Location = new Point(179, 399);
             txtConfirmarSenha.Name = "txtConfirmarSenha";
             txtConfirmarSenha.PasswordChar = '•';
@@ -75,7 +76,7 @@
             btnCancelar.ForeColor = SystemColors.Desktop;
             btnCancelar.Location = new Point(179, 448);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(98, 38);
+            btnCancelar.Size = new Size(110, 40);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -86,18 +87,19 @@
             btnMudarSenha.BackColor = SystemColors.ButtonHighlight;
             btnMudarSenha.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnMudarSenha.ForeColor = SystemColors.Desktop;
-            btnMudarSenha.Location = new Point(361, 448);
+            btnMudarSenha.Location = new Point(349, 448);
             btnMudarSenha.Name = "btnMudarSenha";
-            btnMudarSenha.Size = new Size(98, 38);
+            btnMudarSenha.Size = new Size(110, 40);
             btnMudarSenha.TabIndex = 4;
-            btnMudarSenha.Text = "Mudar";
+            btnMudarSenha.Text = "Redefinir";
             btnMudarSenha.UseVisualStyleBackColor = false;
             btnMudarSenha.Click += btnMudarSenha_Click;
             // 
             // txtNovaSenha
             // 
             txtNovaSenha.Anchor = AnchorStyles.None;
-            txtNovaSenha.BackColor = Color.White;
+            txtNovaSenha.BackColor = SystemColors.HighlightText;
+            txtNovaSenha.BorderStyle = BorderStyle.FixedSingle;
             txtNovaSenha.Location = new Point(179, 335);
             txtNovaSenha.Name = "txtNovaSenha";
             txtNovaSenha.PasswordChar = '•';
@@ -110,7 +112,7 @@
             label1.BackColor = SystemColors.ActiveCaption;
             label1.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.Desktop;
-            label1.Location = new Point(179, 310);
+            label1.Location = new Point(177, 314);
             label1.Name = "label1";
             label1.Size = new Size(106, 22);
             label1.TabIndex = 0;
@@ -121,7 +123,7 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ActiveCaption;
             label2.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(179, 374);
+            label2.Location = new Point(176, 378);
             label2.Name = "label2";
             label2.Size = new Size(190, 22);
             label2.TabIndex = 0;
@@ -147,6 +149,7 @@
             Controls.Add(panel1);
             Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "NovaSenha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Log In | Redefinir Senha";

@@ -51,7 +51,7 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblId.Location = new Point(3, 305);
+            lblId.Location = new Point(709, 305);
             lblId.Name = "lblId";
             lblId.Size = new Size(33, 22);
             lblId.TabIndex = 7;
@@ -61,18 +61,20 @@
             // txtId
             // 
             txtId.BackColor = SystemColors.Window;
-            txtId.Location = new Point(42, 297);
+            txtId.Location = new Point(748, 297);
             txtId.Margin = new Padding(3, 5, 3, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(150, 30);
+            txtId.Size = new Size(44, 30);
             txtId.TabIndex = 6;
             txtId.Visible = false;
             // 
             // txtCadastroCurso
             // 
+            txtCadastroCurso.BackColor = SystemColors.HighlightText;
+            txtCadastroCurso.BorderStyle = BorderStyle.FixedSingle;
             txtCadastroCurso.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCadastroCurso.Location = new Point(380, 297);
+            txtCadastroCurso.Location = new Point(3, 298);
             txtCadastroCurso.Margin = new Padding(3, 5, 3, 5);
             txtCadastroCurso.Name = "txtCadastroCurso";
             txtCadastroCurso.Size = new Size(406, 29);
@@ -82,7 +84,7 @@
             // 
             label.AutoSize = true;
             label.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label.Location = new Point(379, 270);
+            label.Location = new Point(2, 271);
             label.Name = "label";
             label.Size = new Size(139, 22);
             label.TabIndex = 0;
@@ -129,9 +131,9 @@
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(154, 22);
+            pictureBox1.Location = new Point(172, 28);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(451, 227);
+            pictureBox1.Size = new Size(389, 204);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
@@ -148,7 +150,7 @@
             GridViewCadastroCurso.ReadOnly = true;
             GridViewCadastroCurso.RowHeadersWidth = 51;
             GridViewCadastroCurso.RowTemplate.Height = 25;
-            GridViewCadastroCurso.Size = new Size(791, 392);
+            GridViewCadastroCurso.Size = new Size(797, 392);
             GridViewCadastroCurso.TabIndex = 5;
             GridViewCadastroCurso.CellClick += GridViewCadastroCurso_CellClick;
             // 

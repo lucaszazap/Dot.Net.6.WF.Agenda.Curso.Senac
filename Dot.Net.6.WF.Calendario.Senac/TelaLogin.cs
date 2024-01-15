@@ -78,8 +78,8 @@
                     {
                         Login = usuario,
                         DataHora = DateTime.Now,
-                        Alteracao = $"Login de {usuarioExistente.Login}",
-                        Detalhes = $"Usuário {usuarioExistente.Cpf} fez login."
+                        Alteracao = $"Usuário {usuarioExistente.Login} fez login",
+                        Detalhes = ""
                     });
 
                     bd.SaveChanges();
