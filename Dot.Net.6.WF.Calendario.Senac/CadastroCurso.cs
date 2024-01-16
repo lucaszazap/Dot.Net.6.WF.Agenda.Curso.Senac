@@ -24,8 +24,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
-
         private void AdicionarHistoricoNovoCurso(BancoDeDados bd, Curso curso)
         {
             bd.Historicos.Add(new Historico
@@ -43,8 +41,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
             agenda_De_Curso.Show();
         }
-
-
 
         private void Cadastramento_de_Cursos_Load(object sender, EventArgs e)
         {

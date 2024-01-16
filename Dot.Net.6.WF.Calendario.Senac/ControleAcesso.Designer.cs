@@ -74,7 +74,7 @@
             gridHistorico.RowTemplate.Height = 25;
             gridHistorico.Size = new Size(864, 328);
             gridHistorico.TabIndex = 1;
-            gridHistorico.CellContentClick += gridHistorico_CellContentClick;
+            
             // 
             // Column1
             // 

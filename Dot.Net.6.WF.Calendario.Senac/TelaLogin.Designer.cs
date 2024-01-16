@@ -39,7 +39,7 @@
             pictureBox3 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            btnCancelar = new Button();
+            btnSair = new Button();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLoading).BeginInit();
@@ -60,7 +60,7 @@
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(btnCancelar);
+            panel1.Controls.Add(btnSair);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -173,18 +173,18 @@
             label2.TabIndex = 30;
             label2.Text = "Senha:";
             // 
-            // btnCancelar
+            // btnSair
             // 
-            btnCancelar.BackColor = SystemColors.ButtonHighlight;
-            btnCancelar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.ForeColor = SystemColors.Desktop;
-            btnCancelar.Location = new Point(230, 364);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(96, 30);
-            btnCancelar.TabIndex = 33;
-            btnCancelar.Text = "Sair";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            btnSair.BackColor = SystemColors.ButtonHighlight;
+            btnSair.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSair.ForeColor = SystemColors.Desktop;
+            btnSair.Location = new Point(230, 364);
+            btnSair.Name = "btnSair";
+            btnSair.Size = new Size(96, 30);
+            btnSair.TabIndex = 33;
+            btnSair.Text = "Sair";
+            btnSair.UseVisualStyleBackColor = false;
+            btnSair.Click += btnSair_Click;
             // 
             // pictureBox1
             // 
@@ -235,6 +235,6 @@
         private PictureBox pictureBox3;
         private Label label1;
         private Label label2;
-        private Button btnCancelar;
+        private Button btnSair;
     }
 }

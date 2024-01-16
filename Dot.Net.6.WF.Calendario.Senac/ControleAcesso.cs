@@ -63,9 +63,5 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void gridHistorico_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

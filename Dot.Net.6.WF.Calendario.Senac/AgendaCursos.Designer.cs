@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda_de_Curso));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lbl = new Label();
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
@@ -67,6 +67,14 @@
             acessoToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             gridCurso = new DataGridView();
+            btnSair = new Button();
+            cmbHorario = new ComboBox();
+            btnExportar = new Button();
+            mtbValor = new MaskedTextBox();
+            btnAdicionar = new Button();
+            btnLimparCampos = new Button();
+            btnAlterar = new Button();
+            btnExcluir = new Button();
             Column1 = new DataGridViewTextBoxColumn();
             ColunaCurso = new DataGridViewTextBoxColumn();
             ColunaCursoInicio = new DataGridViewTextBoxColumn();
@@ -78,14 +86,6 @@
             ColunaCursoValor = new DataGridViewTextBoxColumn();
             ColunaCursoTurma = new DataGridViewTextBoxColumn();
             ColunaCursoSala = new DataGridViewTextBoxColumn();
-            btnSair = new Button();
-            cmbHorario = new ComboBox();
-            btnExportar = new Button();
-            mtbValor = new MaskedTextBox();
-            btnAdicionar = new Button();
-            btnLimparCampos = new Button();
-            btnAlterar = new Button();
-            btnExcluir = new Button();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridCurso).BeginInit();
@@ -113,6 +113,7 @@
             // 
             // dtpFim
             // 
+            dtpFim.Anchor = AnchorStyles.None;
             dtpFim.CalendarMonthBackground = SystemColors.HighlightText;
             dtpFim.CustomFormat = "dd-MM-yyyy";
             dtpFim.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -127,6 +128,7 @@
             // 
             // dtpInicio
             // 
+            dtpInicio.Anchor = AnchorStyles.None;
             dtpInicio.CalendarMonthBackground = SystemColors.HighlightText;
             dtpInicio.CustomFormat = "dd-MM-yyyy";
             dtpInicio.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -141,6 +143,7 @@
             // 
             // cmbCurso
             // 
+            cmbCurso.Anchor = AnchorStyles.None;
             cmbCurso.BackColor = SystemColors.HighlightText;
             cmbCurso.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCurso.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -154,6 +157,7 @@
             // 
             // txtMeta
             // 
+            txtMeta.Anchor = AnchorStyles.None;
             txtMeta.BackColor = SystemColors.HighlightText;
             txtMeta.BorderStyle = BorderStyle.FixedSingle;
             txtMeta.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -165,6 +169,7 @@
             // 
             // txtDias
             // 
+            txtDias.Anchor = AnchorStyles.None;
             txtDias.BackColor = SystemColors.HighlightText;
             txtDias.BorderStyle = BorderStyle.FixedSingle;
             txtDias.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -176,6 +181,7 @@
             // 
             // txtSala
             // 
+            txtSala.Anchor = AnchorStyles.None;
             txtSala.BackColor = SystemColors.HighlightText;
             txtSala.BorderStyle = BorderStyle.FixedSingle;
             txtSala.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -186,6 +192,7 @@
             // 
             // txtTurma
             // 
+            txtTurma.Anchor = AnchorStyles.None;
             txtTurma.BackColor = SystemColors.HighlightText;
             txtTurma.BorderStyle = BorderStyle.FixedSingle;
             txtTurma.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -197,6 +204,7 @@
             // 
             // txtRealizado
             // 
+            txtRealizado.Anchor = AnchorStyles.None;
             txtRealizado.BackColor = SystemColors.HighlightText;
             txtRealizado.BorderStyle = BorderStyle.FixedSingle;
             txtRealizado.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
@@ -208,6 +216,7 @@
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.None;
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label12.Location = new Point(959, 119);
@@ -218,6 +227,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label11.Location = new Point(725, 119);
@@ -228,6 +238,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label10.Location = new Point(960, 68);
@@ -238,6 +249,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label9.Location = new Point(494, 119);
@@ -248,6 +260,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(495, 69);
@@ -258,6 +271,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(25, 68);
@@ -268,26 +282,29 @@
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label7.Location = new Point(262, 118);
             label7.Name = "label7";
-            label7.Size = new Size(78, 18);
+            label7.Size = new Size(99, 18);
             label7.TabIndex = 6;
-            label7.Text = "Realizado:";
+            label7.Text = "Matriculados:";
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(24, 118);
             label6.Name = "label6";
-            label6.Size = new Size(46, 18);
+            label6.Size = new Size(116, 18);
             label6.TabIndex = 5;
-            label6.Text = "Meta:";
+            label6.Text = "Meta de Alunos:";
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(264, 68);
@@ -298,6 +315,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(726, 68);
@@ -330,7 +348,7 @@
             adicionarToolStripMenuItem.Image = (Image)resources.GetObject("adicionarToolStripMenuItem.Image");
             adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
             adicionarToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
-            adicionarToolStripMenuItem.Size = new Size(164, 22);
+            adicionarToolStripMenuItem.Size = new Size(184, 26);
             adicionarToolStripMenuItem.Text = "Adicionar";
             adicionarToolStripMenuItem.Click += adicionarToolStripMenuItem_Click;
             // 
@@ -339,7 +357,7 @@
             exportarToolStripMenuItem.Image = (Image)resources.GetObject("exportarToolStripMenuItem.Image");
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
             exportarToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.E;
-            exportarToolStripMenuItem.Size = new Size(164, 22);
+            exportarToolStripMenuItem.Size = new Size(184, 26);
             exportarToolStripMenuItem.Text = "Exportar";
             exportarToolStripMenuItem.Click += exportarToolStripMenuItem_Click;
             // 
@@ -348,7 +366,7 @@
             sairToolStripMenuItem.Image = (Image)resources.GetObject("sairToolStripMenuItem.Image");
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             sairToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
-            sairToolStripMenuItem.Size = new Size(164, 22);
+            sairToolStripMenuItem.Size = new Size(184, 26);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -362,8 +380,10 @@
             // 
             // limparToolStripMenuItem
             // 
+            limparToolStripMenuItem.Image = (Image)resources.GetObject("limparToolStripMenuItem.Image");
             limparToolStripMenuItem.Name = "limparToolStripMenuItem";
-            limparToolStripMenuItem.Size = new Size(184, 22);
+            limparToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.X;
+            limparToolStripMenuItem.Size = new Size(188, 26);
             limparToolStripMenuItem.Text = "Limpar";
             limparToolStripMenuItem.Click += limparToolStripMenuItem_Click;
             // 
@@ -372,7 +392,7 @@
             deletarToolStripMenuItem.Image = (Image)resources.GetObject("deletarToolStripMenuItem.Image");
             deletarToolStripMenuItem.Name = "deletarToolStripMenuItem";
             deletarToolStripMenuItem.ShortcutKeys = Keys.Shift | Keys.Delete;
-            deletarToolStripMenuItem.Size = new Size(184, 22);
+            deletarToolStripMenuItem.Size = new Size(188, 26);
             deletarToolStripMenuItem.Text = "Excluir";
             deletarToolStripMenuItem.Click += excluirToolStripMenuItem_Click;
             // 
@@ -389,7 +409,7 @@
             cadastrarCursoToolStripMenuItem.Image = (Image)resources.GetObject("cadastrarCursoToolStripMenuItem.Image");
             cadastrarCursoToolStripMenuItem.Name = "cadastrarCursoToolStripMenuItem";
             cadastrarCursoToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.C;
-            cadastrarCursoToolStripMenuItem.Size = new Size(204, 22);
+            cadastrarCursoToolStripMenuItem.Size = new Size(208, 26);
             cadastrarCursoToolStripMenuItem.Text = "Cadastrar curso";
             cadastrarCursoToolStripMenuItem.Click += cadastrarCursoToolStripMenuItem_Click;
             // 
@@ -398,7 +418,7 @@
             cadastrarUsuárioToolStripMenuItem1.Image = (Image)resources.GetObject("cadastrarUsuárioToolStripMenuItem1.Image");
             cadastrarUsuárioToolStripMenuItem1.Name = "cadastrarUsuárioToolStripMenuItem1";
             cadastrarUsuárioToolStripMenuItem1.ShortcutKeys = Keys.Alt | Keys.E;
-            cadastrarUsuárioToolStripMenuItem1.Size = new Size(204, 22);
+            cadastrarUsuárioToolStripMenuItem1.Size = new Size(208, 26);
             cadastrarUsuárioToolStripMenuItem1.Text = "Cadastrar usuário";
             cadastrarUsuárioToolStripMenuItem1.Click += cadastrarUsuárioToolStripMenuItem1_Click;
             // 
@@ -414,7 +434,8 @@
             // 
             acessoToolStripMenuItem.Image = (Image)resources.GetObject("acessoToolStripMenuItem.Image");
             acessoToolStripMenuItem.Name = "acessoToolStripMenuItem";
-            acessoToolStripMenuItem.Size = new Size(114, 22);
+            acessoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Q;
+            acessoToolStripMenuItem.Size = new Size(184, 26);
             acessoToolStripMenuItem.Text = "Acesso";
             acessoToolStripMenuItem.Click += acessoToolStripMenuItem_Click;
             // 
@@ -464,8 +485,8 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             gridCurso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.LightGray;
@@ -481,102 +502,6 @@
             gridCurso.TabIndex = 17;
             gridCurso.CellClick += gridCurso_CellClick;
             // 
-            // Column1
-            // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Column1.HeaderText = "#";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 39;
-            // 
-            // ColunaCurso
-            // 
-            ColunaCurso.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            ColunaCurso.HeaderText = "Curso";
-            ColunaCurso.MinimumWidth = 6;
-            ColunaCurso.Name = "ColunaCurso";
-            ColunaCurso.ReadOnly = true;
-            ColunaCurso.Width = 63;
-            // 
-            // ColunaCursoInicio
-            // 
-            ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle2;
-            ColunaCursoInicio.HeaderText = "Início";
-            ColunaCursoInicio.MinimumWidth = 6;
-            ColunaCursoInicio.Name = "ColunaCursoInicio";
-            ColunaCursoInicio.ReadOnly = true;
-            // 
-            // ColunaCursoFim
-            // 
-            ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle3;
-            ColunaCursoFim.HeaderText = "Fim";
-            ColunaCursoFim.MinimumWidth = 6;
-            ColunaCursoFim.Name = "ColunaCursoFim";
-            ColunaCursoFim.ReadOnly = true;
-            // 
-            // ColunaCursoDias
-            // 
-            ColunaCursoDias.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColunaCursoDias.HeaderText = "Dias";
-            ColunaCursoDias.MinimumWidth = 6;
-            ColunaCursoDias.Name = "ColunaCursoDias";
-            ColunaCursoDias.ReadOnly = true;
-            // 
-            // ColunaCursoHorario
-            // 
-            ColunaCursoHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColunaCursoHorario.HeaderText = "Horário";
-            ColunaCursoHorario.MinimumWidth = 6;
-            ColunaCursoHorario.Name = "ColunaCursoHorario";
-            ColunaCursoHorario.ReadOnly = true;
-            // 
-            // ColunaCursoMeta
-            // 
-            ColunaCursoMeta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColunaCursoMeta.HeaderText = "Meta";
-            ColunaCursoMeta.MinimumWidth = 6;
-            ColunaCursoMeta.Name = "ColunaCursoMeta";
-            ColunaCursoMeta.ReadOnly = true;
-            // 
-            // ColunaCursoRealizado
-            // 
-            ColunaCursoRealizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColunaCursoRealizado.HeaderText = "Realizado";
-            ColunaCursoRealizado.MinimumWidth = 6;
-            ColunaCursoRealizado.Name = "ColunaCursoRealizado";
-            ColunaCursoRealizado.ReadOnly = true;
-            // 
-            // ColunaCursoValor
-            // 
-            ColunaCursoValor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColunaCursoValor.HeaderText = "Valor";
-            ColunaCursoValor.MinimumWidth = 6;
-            ColunaCursoValor.Name = "ColunaCursoValor";
-            ColunaCursoValor.ReadOnly = true;
-            // 
-            // ColunaCursoTurma
-            // 
-            ColunaCursoTurma.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColunaCursoTurma.HeaderText = "Turma";
-            ColunaCursoTurma.MinimumWidth = 6;
-            ColunaCursoTurma.Name = "ColunaCursoTurma";
-            ColunaCursoTurma.ReadOnly = true;
-            // 
-            // ColunaCursoSala
-            // 
-            ColunaCursoSala.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColunaCursoSala.HeaderText = "Sala";
-            ColunaCursoSala.MinimumWidth = 6;
-            ColunaCursoSala.Name = "ColunaCursoSala";
-            ColunaCursoSala.ReadOnly = true;
-            // 
             // btnSair
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
@@ -591,10 +516,11 @@
             // 
             // cmbHorario
             // 
+            cmbHorario.Anchor = AnchorStyles.None;
             cmbHorario.BackColor = SystemColors.HighlightText;
             cmbHorario.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             cmbHorario.FormattingEnabled = true;
-            cmbHorario.Items.AddRange(new object[] { "07:00 às 12:00", "13:00 às 18:00", "19:00 às 22:00" });
+            cmbHorario.Items.AddRange(new object[] { "7:30 às 12:00", "8:00 às 12:00", "9:15 às 12:15", "13:30 às 17:30", "14:00 às 17:00", "14:00 às 17:30", "18:00 às 22:30", "19:00 às 22:30" });
             cmbHorario.Location = new Point(962, 85);
             cmbHorario.Name = "cmbHorario";
             cmbHorario.Size = new Size(215, 26);
@@ -614,6 +540,7 @@
             // 
             // mtbValor
             // 
+            mtbValor.Anchor = AnchorStyles.None;
             mtbValor.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             mtbValor.Location = new Point(497, 136);
             mtbValor.Mask = "$99,999.99";
@@ -668,6 +595,102 @@
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
             btnExcluir.Click += btnExcluir_Click_1;
+            // 
+            // Column1
+            // 
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column1.HeaderText = "#";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 39;
+            // 
+            // ColunaCurso
+            // 
+            ColunaCurso.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            ColunaCurso.HeaderText = "Curso";
+            ColunaCurso.MinimumWidth = 6;
+            ColunaCurso.Name = "ColunaCurso";
+            ColunaCurso.ReadOnly = true;
+            ColunaCurso.Width = 63;
+            // 
+            // ColunaCursoInicio
+            // 
+            ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle5;
+            ColunaCursoInicio.HeaderText = "Início";
+            ColunaCursoInicio.MinimumWidth = 6;
+            ColunaCursoInicio.Name = "ColunaCursoInicio";
+            ColunaCursoInicio.ReadOnly = true;
+            // 
+            // ColunaCursoFim
+            // 
+            ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle6;
+            ColunaCursoFim.HeaderText = "Fim";
+            ColunaCursoFim.MinimumWidth = 6;
+            ColunaCursoFim.Name = "ColunaCursoFim";
+            ColunaCursoFim.ReadOnly = true;
+            // 
+            // ColunaCursoDias
+            // 
+            ColunaCursoDias.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColunaCursoDias.HeaderText = "Dias";
+            ColunaCursoDias.MinimumWidth = 6;
+            ColunaCursoDias.Name = "ColunaCursoDias";
+            ColunaCursoDias.ReadOnly = true;
+            // 
+            // ColunaCursoHorario
+            // 
+            ColunaCursoHorario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColunaCursoHorario.HeaderText = "Horário";
+            ColunaCursoHorario.MinimumWidth = 6;
+            ColunaCursoHorario.Name = "ColunaCursoHorario";
+            ColunaCursoHorario.ReadOnly = true;
+            // 
+            // ColunaCursoMeta
+            // 
+            ColunaCursoMeta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColunaCursoMeta.HeaderText = "Meta de Alunos";
+            ColunaCursoMeta.MinimumWidth = 6;
+            ColunaCursoMeta.Name = "ColunaCursoMeta";
+            ColunaCursoMeta.ReadOnly = true;
+            // 
+            // ColunaCursoRealizado
+            // 
+            ColunaCursoRealizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColunaCursoRealizado.HeaderText = "Matriculados";
+            ColunaCursoRealizado.MinimumWidth = 6;
+            ColunaCursoRealizado.Name = "ColunaCursoRealizado";
+            ColunaCursoRealizado.ReadOnly = true;
+            // 
+            // ColunaCursoValor
+            // 
+            ColunaCursoValor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColunaCursoValor.HeaderText = "Valor";
+            ColunaCursoValor.MinimumWidth = 6;
+            ColunaCursoValor.Name = "ColunaCursoValor";
+            ColunaCursoValor.ReadOnly = true;
+            // 
+            // ColunaCursoTurma
+            // 
+            ColunaCursoTurma.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColunaCursoTurma.HeaderText = "Turma";
+            ColunaCursoTurma.MinimumWidth = 6;
+            ColunaCursoTurma.Name = "ColunaCursoTurma";
+            ColunaCursoTurma.ReadOnly = true;
+            // 
+            // ColunaCursoSala
+            // 
+            ColunaCursoSala.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ColunaCursoSala.HeaderText = "Sala";
+            ColunaCursoSala.MinimumWidth = 6;
+            ColunaCursoSala.Name = "ColunaCursoSala";
+            ColunaCursoSala.ReadOnly = true;
             // 
             // Agenda_de_Curso
             // 

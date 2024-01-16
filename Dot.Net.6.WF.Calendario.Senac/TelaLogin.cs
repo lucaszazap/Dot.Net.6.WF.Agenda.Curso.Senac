@@ -13,7 +13,6 @@
             picSenha.Click += PicSenha_Click;
 
         }
-
       
         private void PicSenha_Click(object sender, EventArgs e)
         {
@@ -38,14 +37,11 @@
             this.Hide();
         }
 
-
-
         private void LimparCampos()
         {
             txtUsuario.Clear();
             txtSenha.Clear();
             txtUsuario.Focus();
-
         }
 
         private void TelaLogin_KeyDown(object sender, KeyEventArgs e)
@@ -117,9 +113,9 @@
             esqueceuSenha.Show();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("Deseja realmente cancelar?",
+            DialogResult resultado = MessageBox.Show("Deseja realmente sair?",
                    "Alerta",
                    MessageBoxButtons.YesNo,
                    MessageBoxIcon.Warning);

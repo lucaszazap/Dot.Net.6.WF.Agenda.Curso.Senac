@@ -30,7 +30,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-
         private void btnSalvarUsuario_Click(object sender, EventArgs e)
         {
             string nomeUsuarioNovo = txtUsuario.Text;
@@ -85,8 +84,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-
-
         private void AdicionarHistoricoNovoUsuario(BancoDeDados bd, Usuario usuario)
         {
             string login = Autenticacao.UsuarioAtual?.Login ?? "";
@@ -121,7 +118,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
         {
             Listar();
-
 
         }
 
@@ -200,7 +196,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtId.Text))
@@ -249,8 +244,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
 
         }
-
-
 
         private void AbrirAgendaCursos()
         {
@@ -307,8 +300,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
 
-
-
             List<int> colunaBoolIndex = new List<int> { 5, 6 };
 
             if (e.RowIndex >= 0 && colunaBoolIndex.Contains(e.ColumnIndex))
@@ -357,7 +348,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-
         private void TextOnly(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !
@@ -401,8 +391,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-
-        private void txtCpf_TextChanged(object sender, EventArgs e)
+       private void txtCpf_TextChanged(object sender, EventArgs e)
         {
 
             string cpfDigito = new string(txtCpf.Text.Where(char.IsDigit).ToArray());

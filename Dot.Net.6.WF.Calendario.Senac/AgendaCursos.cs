@@ -9,6 +9,8 @@ using OfficeOpenXml;
 using System.IO.Pipes;
 using System.IO.Pipelines;
 using DocumentFormat.OpenXml.Vml;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Dot.Net._6.WF.Calendario.Senac.Migrations;
 
 
 namespace Dot.Net._6.WF.Calendario.Senac
@@ -16,13 +18,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class Agenda_de_Curso : Form
     {
-
+        
         public Agenda_de_Curso()
         {
             InitializeComponent();
 
         }
-
 
         private void iAdicionar()
 
@@ -106,7 +107,23 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var curso = new AgendaCurso()
+                var turmaExistente = bd.AgendaCursos
+            .FirstOrDefault(c => c.Turma == turma && c.Sala == sala);
+
+                if (turmaExistente != null)
+                {
+                    // Verificar se o curso existente tem o mesmo horário
+                    var horarioExistente = bd.AgendaCursos
+                        .FirstOrDefault(c => c.Turma == turma && c.Sala == sala && c.Horario == horario);
+
+                    if (horarioExistente != null)
+                    {
+                        MessageBox.Show("Já existe um curso na mesma turma, sala e horário. Não é possível adicionar.",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                    var curso = new AgendaCurso()
                 {
                     Nome = cmbCurso.Text,
                     Inicio = dtpInicio.Value.Date,
@@ -198,7 +215,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             if (!Autenticacao.UsuarioTemPermissaoAdministrador())
             {
-                MessageBox.Show("Você não tem permissão para excluir cursos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Você não tem permissão para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -279,12 +296,16 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-
-
         private void iAlterar()
         {
+            if (!Autenticacao.UsuarioTemPermissaoAdministrador())
+            {
+                MessageBox.Show("Você não tem permissão para alterar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             using (var bd = new BancoDeDados())
             {
+
                 var curso = bd.AgendaCursos
                     .Where(w => w.Id == Convert.ToInt32(txtId.Text))
                     .FirstOrDefault();
@@ -530,7 +551,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             }
         }
-
 
         private void cadastrarCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {

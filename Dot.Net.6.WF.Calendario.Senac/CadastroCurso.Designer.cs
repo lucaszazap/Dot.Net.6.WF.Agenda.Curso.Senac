@@ -243,7 +243,7 @@
             btnSairCurso.Name = "btnSairCurso";
             btnSairCurso.Size = new Size(96, 30);
             btnSairCurso.TabIndex = 5;
-            btnSairCurso.Text = "Cancelar";
+            btnSairCurso.Text = "Sair";
             btnSairCurso.UseVisualStyleBackColor = true;
             btnSairCurso.Click += btnSairCurso_Click;
             // 
