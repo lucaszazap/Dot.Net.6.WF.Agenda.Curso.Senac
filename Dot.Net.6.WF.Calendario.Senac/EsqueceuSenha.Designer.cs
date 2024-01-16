@@ -61,16 +61,16 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(658, 580);
+            panel1.Size = new Size(703, 537);
             panel1.TabIndex = 0;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = SystemColors.ButtonHighlight;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(148, 363);
+            pictureBox2.Location = new Point(170, 367);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(24, 24);
+            pictureBox2.Size = new Size(24, 19);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 32;
             pictureBox2.TabStop = false;
@@ -82,9 +82,9 @@
             dtpDataNascimento.CustomFormat = "dd-MM-yyyy";
             dtpDataNascimento.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             dtpDataNascimento.Format = DateTimePickerFormat.Custom;
-            dtpDataNascimento.Location = new Point(178, 359);
+            dtpDataNascimento.Location = new Point(195, 363);
             dtpDataNascimento.Name = "dtpDataNascimento";
-            dtpDataNascimento.Size = new Size(303, 28);
+            dtpDataNascimento.Size = new Size(278, 24);
             dtpDataNascimento.TabIndex = 2;
             dtpDataNascimento.Value = new DateTime(2024, 1, 13, 0, 0, 0, 0);
             // 
@@ -93,9 +93,9 @@
             btnCancelar.BackColor = SystemColors.ButtonHighlight;
             btnCancelar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancelar.ForeColor = SystemColors.Desktop;
-            btnCancelar.Location = new Point(178, 422);
+            btnCancelar.Location = new Point(205, 415);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(110, 40);
+            btnCancelar.Size = new Size(96, 30);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -105,9 +105,9 @@
             // 
             pictureBox3.BackColor = SystemColors.ButtonHighlight;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(148, 294);
+            pictureBox3.Location = new Point(173, 301);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(24, 24);
+            pictureBox3.Size = new Size(20, 24);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 31;
             pictureBox3.TabStop = false;
@@ -117,9 +117,9 @@
             btnProximo.BackColor = SystemColors.HighlightText;
             btnProximo.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnProximo.ForeColor = SystemColors.Desktop;
-            btnProximo.Location = new Point(371, 422);
+            btnProximo.Location = new Point(361, 415);
             btnProximo.Name = "btnProximo";
-            btnProximo.Size = new Size(110, 40);
+            btnProximo.Size = new Size(96, 30);
             btnProximo.TabIndex = 4;
             btnProximo.Text = "Próximo";
             btnProximo.UseVisualStyleBackColor = false;
@@ -130,10 +130,12 @@
             txtCpfUsuario.Anchor = AnchorStyles.None;
             txtCpfUsuario.BackColor = SystemColors.HighlightText;
             txtCpfUsuario.BorderStyle = BorderStyle.FixedSingle;
-            txtCpfUsuario.Location = new Point(178, 290);
+            txtCpfUsuario.Location = new Point(195, 301);
             txtCpfUsuario.Name = "txtCpfUsuario";
-            txtCpfUsuario.Size = new Size(303, 28);
+            txtCpfUsuario.Size = new Size(278, 24);
             txtCpfUsuario.TabIndex = 1;
+            txtCpfUsuario.TextChanged += txtCpfUsuario_TextChanged;
+            txtCpfUsuario.KeyDown += txtCpfUsuario_KeyDown;
             // 
             // label1
             // 
@@ -141,9 +143,9 @@
             label1.BackColor = SystemColors.ActiveCaption;
             label1.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(176, 269);
+            label1.Location = new Point(195, 285);
             label1.Name = "label1";
-            label1.Size = new Size(45, 22);
+            label1.Size = new Size(35, 17);
             label1.TabIndex = 0;
             label1.Text = "CPF:";
             // 
@@ -152,9 +154,9 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ActiveCaption;
             label2.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(176, 338);
+            label2.Location = new Point(193, 347);
             label2.Name = "label2";
-            label2.Size = new Size(177, 22);
+            label2.Size = new Size(137, 17);
             label2.TabIndex = 0;
             label2.Text = "Data de Nascimento:";
             // 
@@ -162,7 +164,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(160, 26);
+            pictureBox1.Location = new Point(178, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(312, 202);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -171,10 +173,10 @@
             // 
             // EsqueceuSenha
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
-            ClientSize = new Size(658, 580);
+            ClientSize = new Size(703, 537);
             Controls.Add(panel1);
             Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");

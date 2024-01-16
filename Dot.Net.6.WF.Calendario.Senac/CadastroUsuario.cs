@@ -21,10 +21,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
         public CadastroUsuario()
         {
             InitializeComponent();
-            
+
             txtCpf.TextChanged += txtCpf_TextChanged;
             GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
             GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
+            txtCpf.KeyDown += txtCpf_KeyDown;
             this.Load += FrmCadastroUsuario_Load;
 
         }
@@ -120,7 +121,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
         {
             Listar();
-          
+
 
         }
 
@@ -158,7 +159,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                     if (usuario != null)
                     {
-                        
+
                         if (Autenticacao.UsuarioAtual?.Login == usuario.Login)
                         {
                             usuario.Login = txtUsuario.Text;
@@ -282,7 +283,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && Autenticacao.UsuarioAtual != null)
             {
-                
+
                 if (GridConsultarUsuario.Rows[e.RowIndex].Cells[1].Value != null)
                 {
                     string usuarioLogadoLogin = Autenticacao.UsuarioAtual.Login;
@@ -290,7 +291,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                     if (!loginNaLinha.Equals(usuarioLogadoLogin, StringComparison.OrdinalIgnoreCase))
                     {
-                       
+
                         if (e.ColumnIndex == cpfColumnIndex && GridConsultarUsuario.Rows[e.RowIndex].Cells[cpfColumnIndex].Value != null)
                         {
                             e.Value = "******";
@@ -302,7 +303,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         }
                     }
 
-                    
+
                 }
             }
 
@@ -333,24 +334,24 @@ namespace Dot.Net._6.WF.Calendario.Senac
             chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
             chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
 
-            
+
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                
+
                 string usuarioLogadoLogin = Autenticacao.UsuarioAtual?.Login;
 
-                
+
                 string loginNaCela = GridConsultarUsuario.Rows[e.RowIndex].Cells["Column2"].Value.ToString();
 
-                
+
                 if (usuarioLogadoLogin.Equals(loginNaCela, StringComparison.OrdinalIgnoreCase))
                 {
-                   
+
                     txtCpf.Text = GridConsultarUsuario.Rows[e.RowIndex].Cells["Column3"].Value.ToString();
                 }
                 else
                 {
-                   
+
                     txtCpf.Text = new string('*', txtCpf.MaxLength);
                 }
             }
@@ -373,6 +374,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+
             if (e.KeyChar == '\b')
             {
                 e.Handled = false;
@@ -397,6 +400,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 }
             }
         }
+
 
         private void txtCpf_TextChanged(object sender, EventArgs e)
         {
@@ -446,8 +450,26 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-    }
-}
+        private void txtCpf_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+
+                if (txtCpf.SelectionStart > 0)
+                {
+                   int cursorPosition = txtCpf.SelectionStart;
+                   string Texto = txtCpf.Text.Remove(cursorPosition - 1, 1);
+                   txtCpf.Text = Texto;
+                   txtCpf.SelectionStart = cursorPosition - 1 ;
+                }
+
+                e.Handled = true;
+            }
+                
+        }
+     }
+ }
+
 
 
 

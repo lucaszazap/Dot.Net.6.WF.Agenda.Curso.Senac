@@ -19,10 +19,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnProximo_Click(object sender, EventArgs e)
         {
-           string CpfDigitado = txtCpfUsuario.Text;
+            string CpfDigitado = txtCpfUsuario.Text;
             DateTime dataNascimento = dtpDataNascimento.Value;
 
-            using ( var bd = new BancoDeDados())
+            using (var bd = new BancoDeDados())
             {
                 var usuario = bd.Usuarios.FirstOrDefault(u => u.Cpf == CpfDigitado &&
                 u.DataNascimento == dataNascimento);
@@ -32,11 +32,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     this.Close();
                     AbrirNovaSenha(usuario);
 
-                   
+
                 }
                 else
                 {
-                    MessageBox.Show("CPF ou data de nascimento inválidos.", "Falha ao alterar.", MessageBoxButtons.OK , MessageBoxIcon.Error);
+                    MessageBox.Show("CPF ou data de nascimento inválidos.", "Falha ao alterar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -44,8 +44,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void AbrirNovaSenha(Usuario usuario)
         {
-           NovaSenha novaSenha = new NovaSenha(usuario);
-           novaSenha.Show();
+            NovaSenha novaSenha = new NovaSenha(usuario);
+            novaSenha.Show();
         }
 
         private void TelaLogin()
@@ -67,5 +67,54 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 this.Close();
             }
         }
+
+        private void txtCpfUsuario_TextChanged(object sender, EventArgs e)
+        {
+            string cpfDigito = new string(txtCpfUsuario.Text.Where(char.IsDigit).ToArray());
+
+
+            if (cpfDigito.Length > 11)
+            {
+                cpfDigito = cpfDigito.Substring(0, 11);
+            }
+
+
+            if (cpfDigito.Length > 2)
+            {
+                cpfDigito = cpfDigito.Insert(3, ".");
+            }
+            if (cpfDigito.Length > 6)
+            {
+                cpfDigito = cpfDigito.Insert(7, ".");
+            }
+            if (cpfDigito.Length > 10)
+            {
+                cpfDigito = cpfDigito.Insert(11, "-");
+            }
+
+
+            txtCpfUsuario.Text = cpfDigito;
+
+
+            txtCpfUsuario.SelectionStart = txtCpfUsuario.Text.Length;
+        }
+
+        private void txtCpfUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+
+                if (txtCpfUsuario.SelectionStart > 0)
+                {
+                    int cursorPosition = txtCpfUsuario.SelectionStart;
+                    string Texto = txtCpfUsuario.Text.Remove(cursorPosition - 1, 1);
+                    txtCpfUsuario.Text = Texto;
+                    txtCpfUsuario.SelectionStart = cursorPosition - 1;
+                }
+
+                e.Handled = true;
+            }
+        }
     }
-}
+ }
+

@@ -14,13 +14,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class NovaSenha : Form
     {
-        
+
         private Usuario usuario;
         public NovaSenha(Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
-           
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         DataHora = DateTime.Now,
                         Alteracao = "Alteração de Senha",
                         Detalhes = $"Senha alterada para o usuário: {usuario.Login}"
-                        
+
                     });
 
                     bd.SaveChanges();

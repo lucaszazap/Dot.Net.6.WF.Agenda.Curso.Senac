@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Dot.Net._6.WF.Calendario.Senac
-build_property.ProjectDir = C:\Users\Larissa S. da Silva\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\
+build_property.ProjectDir = C:\Users\Aluno\source\repos\Dot.Net.6.WF.Agenda.Curso.Senac\Dot.Net.6.WF.Calendario.Senac\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

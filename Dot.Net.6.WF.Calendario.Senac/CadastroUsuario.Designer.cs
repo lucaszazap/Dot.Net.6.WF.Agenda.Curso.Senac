@@ -63,9 +63,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(92, 29);
+            label1.Location = new Point(80, 22);
             label1.Name = "label1";
-            label1.Size = new Size(33, 22);
+            label1.Size = new Size(26, 18);
             label1.TabIndex = 0;
             label1.Text = "ID:";
             label1.Visible = false;
@@ -74,9 +74,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(125, 70);
+            label2.Location = new Point(109, 52);
             label2.Name = "label2";
-            label2.Size = new Size(75, 22);
+            label2.Size = new Size(63, 18);
             label2.TabIndex = 1;
             label2.Text = "Usuário:";
             // 
@@ -84,9 +84,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(469, 70);
+            label3.Location = new Point(410, 52);
             label3.Name = "label3";
-            label3.Size = new Size(45, 22);
+            label3.Size = new Size(37, 18);
             label3.TabIndex = 2;
             label3.Text = "CPF:";
             // 
@@ -94,9 +94,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(125, 126);
+            label4.Location = new Point(108, 101);
             label4.Name = "label4";
-            label4.Size = new Size(177, 22);
+            label4.Size = new Size(147, 18);
             label4.TabIndex = 3;
             label4.Text = "Data de Nascimento:";
             // 
@@ -104,9 +104,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(469, 127);
+            label5.Location = new Point(410, 102);
             label5.Name = "label5";
-            label5.Size = new Size(63, 22);
+            label5.Size = new Size(52, 18);
             label5.TabIndex = 4;
             label5.Text = "Senha:";
             // 
@@ -115,10 +115,11 @@
             txtSenha.BackColor = SystemColors.HighlightText;
             txtSenha.BorderStyle = BorderStyle.FixedSingle;
             txtSenha.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtSenha.Location = new Point(469, 152);
+            txtSenha.Location = new Point(410, 121);
+            txtSenha.Margin = new Padding(3, 2, 3, 2);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '•';
-            txtSenha.Size = new Size(227, 29);
+            txtSenha.Size = new Size(199, 25);
             txtSenha.TabIndex = 3;
             txtSenha.KeyPress += txtSenha_KeyPress;
             // 
@@ -127,11 +128,13 @@
             txtCpf.BackColor = SystemColors.HighlightText;
             txtCpf.BorderStyle = BorderStyle.FixedSingle;
             txtCpf.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtCpf.Location = new Point(469, 95);
+            txtCpf.Location = new Point(410, 71);
+            txtCpf.Margin = new Padding(3, 2, 3, 2);
             txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(227, 29);
+            txtCpf.Size = new Size(199, 25);
             txtCpf.TabIndex = 1;
             txtCpf.TextChanged += txtCpf_TextChanged;
+            txtCpf.KeyDown += txtCpf_KeyDown;
             txtCpf.KeyPress += txtCpf_KeyPress;
             txtCpf.Leave += txtCpf_Leave;
             // 
@@ -140,19 +143,21 @@
             txtUsuario.BackColor = SystemColors.HighlightText;
             txtUsuario.BorderStyle = BorderStyle.FixedSingle;
             txtUsuario.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtUsuario.Location = new Point(125, 95);
+            txtUsuario.Location = new Point(109, 71);
+            txtUsuario.Margin = new Padding(3, 2, 3, 2);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(230, 29);
+            txtUsuario.Size = new Size(202, 25);
             txtUsuario.TabIndex = 0;
             txtUsuario.KeyPress += TextOnly;
             // 
             // txtId
             // 
             txtId.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            txtId.Location = new Point(129, 25);
+            txtId.Location = new Point(113, 19);
+            txtId.Margin = new Padding(3, 2, 3, 2);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(67, 29);
+            txtId.Size = new Size(59, 25);
             txtId.TabIndex = 7;
             txtId.TextAlign = HorizontalAlignment.Center;
             txtId.Visible = false;
@@ -161,9 +166,10 @@
             // 
             chkAtivo.AutoSize = true;
             chkAtivo.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            chkAtivo.Location = new Point(125, 192);
+            chkAtivo.Location = new Point(109, 151);
+            chkAtivo.Margin = new Padding(3, 2, 3, 2);
             chkAtivo.Name = "chkAtivo";
-            chkAtivo.Size = new Size(75, 26);
+            chkAtivo.Size = new Size(63, 22);
             chkAtivo.TabIndex = 5;
             chkAtivo.Text = "Ativo";
             chkAtivo.UseVisualStyleBackColor = true;
@@ -172,9 +178,10 @@
             // 
             chkAdministrador.AutoSize = true;
             chkAdministrador.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            chkAdministrador.Location = new Point(223, 192);
+            chkAdministrador.Location = new Point(195, 151);
+            chkAdministrador.Margin = new Padding(3, 2, 3, 2);
             chkAdministrador.Name = "chkAdministrador";
-            chkAdministrador.Size = new Size(149, 26);
+            chkAdministrador.Size = new Size(124, 22);
             chkAdministrador.TabIndex = 4;
             chkAdministrador.Text = "Administrador";
             chkAdministrador.UseVisualStyleBackColor = true;
@@ -182,9 +189,10 @@
             // btnAdicionarUsuario
             // 
             btnAdicionarUsuario.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAdicionarUsuario.Location = new Point(57, 588);
+            btnAdicionarUsuario.Location = new Point(50, 441);
+            btnAdicionarUsuario.Margin = new Padding(3, 2, 3, 2);
             btnAdicionarUsuario.Name = "btnAdicionarUsuario";
-            btnAdicionarUsuario.Size = new Size(110, 40);
+            btnAdicionarUsuario.Size = new Size(96, 30);
             btnAdicionarUsuario.TabIndex = 6;
             btnAdicionarUsuario.Text = "Adicionar";
             btnAdicionarUsuario.UseVisualStyleBackColor = true;
@@ -193,9 +201,10 @@
             // btnSair
             // 
             btnSair.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSair.Location = new Point(619, 588);
+            btnSair.Location = new Point(542, 441);
+            btnSair.Margin = new Padding(3, 2, 3, 2);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(110, 40);
+            btnSair.Size = new Size(96, 30);
             btnSair.TabIndex = 11;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
@@ -204,9 +213,10 @@
             // btnAlterar
             // 
             btnAlterar.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(232, 588);
+            btnAlterar.Location = new Point(203, 441);
+            btnAlterar.Margin = new Padding(3, 2, 3, 2);
             btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(110, 40);
+            btnAlterar.Size = new Size(96, 30);
             btnAlterar.TabIndex = 10;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
@@ -219,13 +229,14 @@
             GridConsultarUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridConsultarUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column7, Column6 });
             GridConsultarUsuario.GridColor = SystemColors.ActiveCaption;
-            GridConsultarUsuario.Location = new Point(1, 236);
+            GridConsultarUsuario.Location = new Point(1, 177);
+            GridConsultarUsuario.Margin = new Padding(3, 2, 3, 2);
             GridConsultarUsuario.Name = "GridConsultarUsuario";
             GridConsultarUsuario.ReadOnly = true;
             GridConsultarUsuario.RowHeadersWidth = 51;
             GridConsultarUsuario.RowTemplate.Height = 29;
             GridConsultarUsuario.ShowCellToolTips = false;
-            GridConsultarUsuario.Size = new Size(802, 300);
+            GridConsultarUsuario.Size = new Size(702, 225);
             GridConsultarUsuario.StandardTab = true;
             GridConsultarUsuario.TabIndex = 8;
             GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
@@ -238,7 +249,7 @@
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 47;
+            Column1.Width = 39;
             // 
             // Column2
             // 
@@ -294,9 +305,10 @@
             // btnExcluir
             // 
             btnExcluir.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(418, 588);
+            btnExcluir.Location = new Point(366, 441);
+            btnExcluir.Margin = new Padding(3, 2, 3, 2);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(110, 40);
+            btnExcluir.Size = new Size(96, 30);
             btnExcluir.TabIndex = 12;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
@@ -324,33 +336,32 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(-2, -3);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.MaximumSize = new Size(2194, 1439);
+            panel1.Location = new Point(-2, -2);
+            panel1.MaximumSize = new Size(1920, 1080);
             panel1.Name = "panel1";
-            panel1.Size = new Size(809, 721);
+            panel1.Size = new Size(708, 541);
             panel1.TabIndex = 13;
             // 
             // dtpDataNascimento
             // 
             dtpDataNascimento.Format = DateTimePickerFormat.Custom;
-            dtpDataNascimento.Location = new Point(125, 152);
-            dtpDataNascimento.Margin = new Padding(3, 4, 3, 4);
+            dtpDataNascimento.Location = new Point(109, 121);
             dtpDataNascimento.Name = "dtpDataNascimento";
-            dtpDataNascimento.Size = new Size(230, 27);
+            dtpDataNascimento.Size = new Size(202, 23);
             dtpDataNascimento.TabIndex = 15;
             dtpDataNascimento.Value = new DateTime(2024, 1, 13, 0, 0, 0, 0);
             // 
             // CadastroUsuario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(803, 716);
+            ClientSize = new Size(703, 537);
             Controls.Add(panel1);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "CadastroUsuario";
             StartPosition = FormStartPosition.CenterScreen;
