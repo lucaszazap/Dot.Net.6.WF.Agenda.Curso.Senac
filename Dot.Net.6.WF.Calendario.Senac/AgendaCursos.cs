@@ -49,6 +49,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 return;
             }
 
+            if (dtpFim.Value.Date < dtpInicio.Value.Date)
+            {
+                MessageBox.Show("A 'Data de Fim' não pode ser anterior à 'Data de Início'.");
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtDias.Text))
             {
                 MessageBox.Show("O campo 'Dias' é obrigatório.");
@@ -117,7 +123,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 if (cursoExistente)
                 {
-                    MessageBox.Show("Já existe um curso na mesma turma, sala e horário. Não é possível adicionar.",
+                    MessageBox.Show("Já existe um curso na mesma turma, sala ou horário. Não é possível adicionar.",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -196,7 +202,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void LimparCampos()
         {
             txtId.Text = String.Empty;
-            cmbCurso.Text = String.Empty;
+            cmbCurso.Text = String.Empty; 
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
             txtDias.Text = String.Empty;
@@ -220,11 +226,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             if (string.IsNullOrEmpty(txtId.Text))
             {
-                MessageBox.Show("Por favor, informe o curso antes de tentar excluir.");
+                MessageBox.Show("Informe o curso antes de tentar excluir.");
             }
             else
             {
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show("Deseja realmente excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (resultado == DialogResult.Yes)
                 {
@@ -310,6 +316,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     .FirstOrDefault();
 
                 if (curso != null)
+
+                    if (dtpFim.Value.Date < dtpInicio.Value.Date)
+                    {
+                        MessageBox.Show("A 'Data de Fim' deve ser posterior ao dia de Início.",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 {
                     string nomeOriginal = curso.Nome;
                     DateTime inicioOriginal = curso.Inicio;
@@ -346,7 +359,6 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         MessageBox.Show("Já existe um curso na mesma turma e sala nos horários específicos. Não é possível alterar.",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                        // Restaurar valores originais se necessário
                         curso.Nome = nomeOriginal;
                         curso.Inicio = inicioOriginal;
                         curso.Fim = fimOriginal;
@@ -361,7 +373,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         return;
                     }
 
-                    // Restante do seu código para salvar as alterações
+                    
                     AdicionarHistorico(bd, nomeOriginal, curso.Nome, "Nome do Curso");
                     AdicionarHistorico(bd, inicioOriginal.ToString(), curso.Inicio.ToString(), "Data de Início");
                     AdicionarHistorico(bd, fimOriginal.ToString(), curso.Fim.ToString(), "Data de Fim");
@@ -437,7 +449,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iSair()
         {
             DialogResult iSair;
-            iSair = MessageBox.Show("Tem certeza que deseja sair?",
+            iSair = MessageBox.Show("Deseja realmente sair?",
                 "Agenda de Cursos",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
@@ -490,8 +502,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     worksheet.Cells[1, 4].Value = "Fim";
                     worksheet.Cells[1, 5].Value = "Dias";
                     worksheet.Cells[1, 6].Value = "Horario";
-                    worksheet.Cells[1, 7].Value = "Meta";
-                    worksheet.Cells[1, 8].Value = "Realizado";
+                    worksheet.Cells[1, 7].Value = "Meta de Alunos";
+                    worksheet.Cells[1, 8].Value = "Matriculados";
                     worksheet.Cells[1, 9].Value = "Valor";
                     worksheet.Cells[1, 10].Value = "Turma";
                     worksheet.Cells[1, 11].Value = "Sala";
@@ -574,7 +586,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 e.Handled = true;
 
-                MessageBox.Show("Aceito somente letras.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Digite apenas letras.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             }
