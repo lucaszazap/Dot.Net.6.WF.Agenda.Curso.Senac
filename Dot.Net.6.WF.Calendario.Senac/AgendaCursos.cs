@@ -185,7 +185,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 {
                     gridCurso.Rows.Add(
                         curso.Id,
-                        curso.Nome,
+                        curso.Nome, 
                         curso.Inicio,
                         curso.Fim,
                         curso.Dias,
@@ -202,7 +202,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void LimparCampos()
         {
             txtId.Text = String.Empty;
-            cmbCurso.Text = String.Empty; 
+            cmbCurso.Text = String.Empty; cmbCurso.SelectedIndex = -1;
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
             txtDias.Text = String.Empty;

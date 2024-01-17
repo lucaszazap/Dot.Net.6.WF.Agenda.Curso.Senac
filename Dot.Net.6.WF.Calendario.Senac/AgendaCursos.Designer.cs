@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda_de_Curso));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lbl = new Label();
             txtId = new TextBox();
             dtpFim = new DateTimePicker();
@@ -95,7 +95,7 @@
             // 
             lbl.AutoSize = true;
             lbl.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl.Location = new Point(24, 39);
+            lbl.Location = new Point(25, 40);
             lbl.Name = "lbl";
             lbl.Size = new Size(26, 18);
             lbl.TabIndex = 35;
@@ -104,7 +104,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(53, 36);
+            txtId.Location = new Point(54, 37);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(150, 23);
@@ -467,8 +467,8 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             gridCurso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gridCurso.BackgroundColor = Color.LightGray;
@@ -505,9 +505,9 @@
             // ColunaCursoInicio
             // 
             ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle5;
             ColunaCursoInicio.HeaderText = "Início";
             ColunaCursoInicio.MinimumWidth = 6;
             ColunaCursoInicio.Name = "ColunaCursoInicio";
@@ -516,9 +516,9 @@
             // ColunaCursoFim
             // 
             ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle6;
             ColunaCursoFim.HeaderText = "Fim";
             ColunaCursoFim.MinimumWidth = 6;
             ColunaCursoFim.Name = "ColunaCursoFim";
@@ -584,7 +584,7 @@
             // 
             btnSair.Anchor = AnchorStyles.Bottom;
             btnSair.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSair.Location = new Point(973, 538);
+            btnSair.Location = new Point(973, 553);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(96, 30);
             btnSair.TabIndex = 16;
@@ -607,7 +607,7 @@
             // 
             btnExportar.Anchor = AnchorStyles.Bottom;
             btnExportar.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExportar.Location = new Point(803, 538);
+            btnExportar.Location = new Point(803, 553);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(96, 30);
             btnExportar.TabIndex = 15;
@@ -619,7 +619,7 @@
             // 
             mtbValor.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             mtbValor.Location = new Point(497, 136);
-            mtbValor.Mask = "$99,999.99";
+            mtbValor.Mask = "$00,000,00";
             mtbValor.Name = "mtbValor";
             mtbValor.Size = new Size(215, 25);
             mtbValor.TabIndex = 8;
@@ -628,7 +628,7 @@
             // 
             btnAdicionar.Anchor = AnchorStyles.Bottom;
             btnAdicionar.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAdicionar.Location = new Point(139, 538);
+            btnAdicionar.Location = new Point(139, 553);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(96, 30);
             btnAdicionar.TabIndex = 11;
@@ -640,7 +640,7 @@
             // 
             btnLimparCampos.Anchor = AnchorStyles.Bottom;
             btnLimparCampos.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLimparCampos.Location = new Point(305, 538);
+            btnLimparCampos.Location = new Point(305, 553);
             btnLimparCampos.Name = "btnLimparCampos";
             btnLimparCampos.Size = new Size(96, 30);
             btnLimparCampos.TabIndex = 12;
@@ -652,7 +652,7 @@
             // 
             btnAlterar.Anchor = AnchorStyles.Bottom;
             btnAlterar.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(635, 538);
+            btnAlterar.Location = new Point(635, 553);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(96, 30);
             btnAlterar.TabIndex = 14;
@@ -664,7 +664,7 @@
             // 
             btnExcluir.Anchor = AnchorStyles.Bottom;
             btnExcluir.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(466, 538);
+            btnExcluir.Location = new Point(466, 553);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(96, 30);
             btnExcluir.TabIndex = 13;
