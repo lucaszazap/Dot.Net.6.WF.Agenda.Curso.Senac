@@ -28,21 +28,21 @@ namespace Dot.Net._6.WF.Calendario.Senac
         private void iAdicionar()
 
         {
-            
+
             if (string.IsNullOrEmpty(cmbCurso.Text))
             {
                 MessageBox.Show("O campo 'Curso' é obrigatório.");
                 return;
             }
 
-            
+
             if (dtpInicio.Value == null || dtpInicio.Value == DateTime.MinValue)
             {
                 MessageBox.Show("A 'Data' é obrigatório.");
                 return;
             }
 
-            
+
             if (dtpFim.Value == null || dtpFim.Value == DateTime.MinValue)
             {
                 MessageBox.Show("A 'Data' é obrigatório.");
@@ -107,23 +107,22 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var turmaExistente = bd.AgendaCursos
-            .FirstOrDefault(c => c.Turma == turma && c.Sala == sala);
 
-                if (turmaExistente != null)
+                var cursoExistente = bd.AgendaCursos
+                .Any(c =>
+                c.Turma == turma &&
+                c.Sala == sala &&
+                c.Horario == horario &&
+                c.Inicio.Date == inicio.Date);
+
+                if (cursoExistente)
                 {
-                    // Verificar se o curso existente tem o mesmo horário
-                    var horarioExistente = bd.AgendaCursos
-                        .FirstOrDefault(c => c.Turma == turma && c.Sala == sala && c.Horario == horario);
-
-                    if (horarioExistente != null)
-                    {
-                        MessageBox.Show("Já existe um curso na mesma turma, sala e horário. Não é possível adicionar.",
-                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    MessageBox.Show("Já existe um curso na mesma turma, sala e horário. Não é possível adicionar.",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                    var curso = new AgendaCurso()
+
+                var curso = new AgendaCurso()
                 {
                     Nome = cmbCurso.Text,
                     Inicio = dtpInicio.Value.Date,
@@ -303,9 +302,9 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("Você não tem permissão para alterar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             using (var bd = new BancoDeDados())
             {
-
                 var curso = bd.AgendaCursos
                     .Where(w => w.Id == Convert.ToInt32(txtId.Text))
                     .FirstOrDefault();
@@ -334,6 +333,35 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     curso.Turma = txtTurma.Text;
                     curso.Sala = txtSala.Text;
 
+                    var mesmoHorario = bd.AgendaCursos
+                    .Any(c =>
+                    c.Id != curso.Id &&
+                    c.Turma == curso.Turma &&
+                    c.Sala == curso.Sala &&
+                    c.Horario == curso.Horario &&
+                    c.Inicio.Date == curso.Inicio.Date);
+
+                    if (mesmoHorario)
+                    {
+                        MessageBox.Show("Já existe um curso na mesma turma e sala nos horários específicos. Não é possível alterar.",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        // Restaurar valores originais se necessário
+                        curso.Nome = nomeOriginal;
+                        curso.Inicio = inicioOriginal;
+                        curso.Fim = fimOriginal;
+                        curso.Dias = diasOriginal;
+                        curso.Horario = horarioOriginal;
+                        curso.Meta = metaOriginal;
+                        curso.Realizado = realizadoOriginal;
+                        curso.Valor = valorOriginal;
+                        curso.Turma = turmaOriginal;
+                        curso.Sala = salaOriginal;
+
+                        return;
+                    }
+
+                    // Restante do seu código para salvar as alterações
                     AdicionarHistorico(bd, nomeOriginal, curso.Nome, "Nome do Curso");
                     AdicionarHistorico(bd, inicioOriginal.ToString(), curso.Inicio.ToString(), "Data de Início");
                     AdicionarHistorico(bd, fimOriginal.ToString(), curso.Fim.ToString(), "Data de Fim");
