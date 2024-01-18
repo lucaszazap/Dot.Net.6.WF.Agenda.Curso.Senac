@@ -643,18 +643,21 @@ namespace Dot.Net._6.WF.Calendario.Senac
         }
 
         private void ListaTudo()
-        {
-
+        {                      
             using (var bd = new BancoDeDados())
-            {
-                var todosCursos = bd.AgendaCursos.ToList();
+           {
+               var todosCursos = bd.AgendaCursos.ToList();
 
-                gridCurso.Rows.Clear();
+              
+
+               gridCurso.DataSource = null;
+
+               gridCurso.Rows.Clear();
 
                 gridCurso.DataSource = todosCursos;
 
 
-            }
+           }
         }
 
         private void PesquisarCurso(string Pesquisa)
@@ -670,12 +673,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     gridCurso.Columns.Clear();
 
                     gridCurso.DataSource = resultados;
+
+                    
                 }
             }
             else
             {
 
-                ListaTudo();
+               ListaTudo();
 
 
 

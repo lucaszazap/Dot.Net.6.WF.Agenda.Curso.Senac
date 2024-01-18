@@ -138,7 +138,7 @@
             dtpInicio.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(215, 25);
-            dtpInicio.TabIndex = 1;
+            dtpInicio.TabIndex = 2;
             dtpInicio.Value = new DateTime(2024, 1, 8, 0, 0, 0, 0);
             // 
             // cmbCurso
@@ -151,7 +151,7 @@
             cmbCurso.Location = new Point(26, 110);
             cmbCurso.Name = "cmbCurso";
             cmbCurso.Size = new Size(215, 26);
-            cmbCurso.TabIndex = 0;
+            cmbCurso.TabIndex = 1;
             cmbCurso.KeyPress += TextOnly;
             // 
             // txtMeta
@@ -255,7 +255,7 @@
             label4.Location = new Point(495, 94);
             label4.Name = "label4";
             label4.Size = new Size(36, 18);
-            label4.TabIndex = 3;
+            label4.TabIndex = 21;
             label4.Text = "Fim:";
             // 
             // label1
@@ -295,7 +295,7 @@
             label3.Location = new Point(264, 93);
             label3.Name = "label3";
             label3.Size = new Size(48, 18);
-            label3.TabIndex = 2;
+            label3.TabIndex = 0;
             label3.Text = "Início:";
             // 
             // label5
@@ -419,7 +419,7 @@
             acessoToolStripMenuItem.Image = (Image)resources.GetObject("acessoToolStripMenuItem.Image");
             acessoToolStripMenuItem.Name = "acessoToolStripMenuItem";
             acessoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Q;
-            acessoToolStripMenuItem.Size = new Size(184, 26);
+            acessoToolStripMenuItem.Size = new Size(156, 22);
             acessoToolStripMenuItem.Text = "Acesso";
             acessoToolStripMenuItem.Click += acessoToolStripMenuItem_Click;
             // 
@@ -465,13 +465,13 @@
             panel1.MinimumSize = new Size(900, 600);
             panel1.Name = "panel1";
             panel1.Size = new Size(1217, 642);
-            panel1.TabIndex = 3;
+            panel1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(962, 27);
+            label2.Location = new Point(962, 30);
             label2.Name = "label2";
             label2.Size = new Size(76, 18);
             label2.TabIndex = 37;
@@ -482,7 +482,7 @@
             txtPesquisar.BackColor = SystemColors.HighlightText;
             txtPesquisar.BorderStyle = BorderStyle.FixedSingle;
             txtPesquisar.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPesquisar.Location = new Point(962, 48);
+            txtPesquisar.Location = new Point(962, 51);
             txtPesquisar.Name = "txtPesquisar";
             txtPesquisar.Size = new Size(215, 25);
             txtPesquisar.TabIndex = 36;
@@ -496,7 +496,7 @@
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             gridCurso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridCurso.BackgroundColor = Color.LightGray;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridCurso.Columns.AddRange(new DataGridViewColumn[] { Column1, ColunaCurso, ColunaCursoInicio, ColunaCursoFim, ColunaCursoDias, ColunaCursoHorario, ColunaCursoMeta, ColunaCursoRealizado, ColunaCursoValor, ColunaCursoTurma, ColunaCursoSala });
@@ -772,6 +772,8 @@
         private ComboBox cmbHorario;
         private ToolStripMenuItem controleToolStripMenuItem;
         private ToolStripMenuItem acessoToolStripMenuItem;
+        private Label label2;
+        private TextBox txtPesquisar;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn ColunaCurso;
         private DataGridViewTextBoxColumn ColunaCursoInicio;
@@ -783,7 +785,5 @@
         private DataGridViewTextBoxColumn ColunaCursoValor;
         private DataGridViewTextBoxColumn ColunaCursoTurma;
         private DataGridViewTextBoxColumn ColunaCursoSala;
-        private Label label2;
-        private TextBox txtPesquisar;
     }
 }

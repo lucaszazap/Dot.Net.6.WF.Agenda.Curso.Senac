@@ -459,12 +459,35 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void CadastroUsuario_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
-            agenda_De_Curso.Show();
-           
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult fechar = MessageBox.Show("Deseja realmente fechar?.",
+                                                    "Cadastro de Usuário",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Question);
+
+                if (fechar == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+
+                    Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+                    agenda_De_Curso.Show();
+                    this.Hide();
+                }
+            }
         }
     }
 }
+
+           
+           
+        
+    
+
 
 
 
