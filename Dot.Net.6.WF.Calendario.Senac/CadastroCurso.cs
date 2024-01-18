@@ -141,12 +141,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         private void btnSairCurso_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Deseja realmente sair?",
+            var sair = MessageBox.Show("Deseja realmente sair?",
             "Alerta",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)
+            if (sair == DialogResult.Yes)
             {
                 AbrirFormAgendaCurso();
                 this.Close();
@@ -220,6 +220,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     }
                 }
             }
+        }
+
+        private void CadastroCurso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+            agenda_De_Curso.Show();
         }
     }
 }

@@ -63,5 +63,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
+        private void ControleAcesso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+            agenda_De_Curso.Show();
+        }
     }
 }

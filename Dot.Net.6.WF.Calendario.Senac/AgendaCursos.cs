@@ -18,7 +18,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class Agenda_de_Curso : Form
     {
-        
+
         public Agenda_de_Curso()
         {
             InitializeComponent();
@@ -151,7 +151,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     Detalhes = $"Adicionado curso: {nome}"
                 });
 
-                
+
 
                 bd.AgendaCursos.Add(curso);
                 bd.SaveChanges();
@@ -159,6 +159,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 MessageBox.Show("Curso adicionado com sucesso.",
                 "Agenda de Cursos", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+
+                string Pesquisa = txtPesquisar.Text;
+                PesquisarCurso(Pesquisa);
+
+                txtPesquisar.Text = "";
 
                 Listar();
                 LimparCampos();
@@ -185,7 +190,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 {
                     gridCurso.Rows.Add(
                         curso.Id,
-                        curso.Nome, 
+                        curso.Nome,
                         curso.Inicio,
                         curso.Fim,
                         curso.Dias,
@@ -271,7 +276,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 DataHora = DateTime.Now,
                 Alteracao = "Exclusão de Curso",
                 Detalhes = $"Excluído do curso: {curso.Id}, Nome: {curso.Nome}, Início: {curso.Inicio}, Fim: {curso.Fim}"
-                
+
             });
         }
         private void btnExcluir_Click_1(object sender, EventArgs e)
@@ -373,7 +378,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                         return;
                     }
 
-                    
+
                     AdicionarHistorico(bd, nomeOriginal, curso.Nome, "Nome do Curso");
                     AdicionarHistorico(bd, inicioOriginal.ToString(), curso.Inicio.ToString(), "Data de Início");
                     AdicionarHistorico(bd, fimOriginal.ToString(), curso.Fim.ToString(), "Data de Fim");
@@ -634,15 +639,86 @@ namespace Dot.Net._6.WF.Calendario.Senac
             {
                 MessageBox.Show("Você não tem acesso administrador.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-           
+
+        }
+
+        private void ListaTudo()
+        {
+
+            using (var bd = new BancoDeDados())
+            {
+                var todosCursos = bd.AgendaCursos.ToList();
+
+                gridCurso.Rows.Clear();
+
+                gridCurso.DataSource = todosCursos;
+
+
+            }
+        }
+
+        private void PesquisarCurso(string Pesquisa)
+        {
+            if (!string.IsNullOrEmpty(Pesquisa))
+            {
+                using (var bd = new BancoDeDados())
+                {
+                    var resultados = bd.AgendaCursos
+                        .Where(c => c.Nome.ToUpper().Contains(Pesquisa.ToUpper()))
+                        .ToList();
+
+                    gridCurso.Columns.Clear();
+
+                    gridCurso.DataSource = resultados;
+                }
+            }
+            else
+            {
+
+                ListaTudo();
+
+
+
+            }
+        }
+
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarCurso(txtPesquisar.Text);
+        }
+
+        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                PesquisarCurso(txtPesquisar.Text);
+            }
+        }
+
+
+        private void Agenda_de_Curso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult iSair = MessageBox.Show("Deseja fechar o programa?",
+                                                    "Agenda de Cursos",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Question);
+
+                if (iSair == DialogResult.No)
+                {
+                    e.Cancel = true; 
+                }
+                else
+                {
+                    
+                    Application.Exit();
+                }
+            }
         }
     }
 }
-
-
-
-
-
 
 
 

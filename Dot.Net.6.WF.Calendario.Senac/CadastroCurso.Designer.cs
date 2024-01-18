@@ -273,6 +273,7 @@
             Name = "CadastroCurso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ADICIONAR CURSO";
+            FormClosing += CadastroCurso_FormClosing;
             Load += Cadastramento_de_Cursos_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridViewCadastroCurso).EndInit();

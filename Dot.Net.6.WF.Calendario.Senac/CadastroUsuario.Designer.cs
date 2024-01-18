@@ -366,6 +366,7 @@
             Name = "CadastroUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CADASTRO DE USUÁRIO";
+            FormClosing += CadastroUsuario_FormClosing;
             Load += FrmCadastroUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).EndInit();
             panel1.ResumeLayout(false);

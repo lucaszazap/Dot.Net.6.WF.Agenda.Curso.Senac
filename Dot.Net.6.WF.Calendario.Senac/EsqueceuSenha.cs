@@ -115,6 +115,12 @@ namespace Dot.Net._6.WF.Calendario.Senac
                 e.Handled = true;
             }
         }
+
+        private void EsqueceuSenha_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.Show();
+        }
     }
- }
+}
 

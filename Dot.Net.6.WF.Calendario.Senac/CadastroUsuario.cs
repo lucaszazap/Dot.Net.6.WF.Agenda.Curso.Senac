@@ -391,7 +391,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-       private void txtCpf_TextChanged(object sender, EventArgs e)
+        private void txtCpf_TextChanged(object sender, EventArgs e)
         {
 
             string cpfDigito = new string(txtCpf.Text.Where(char.IsDigit).ToArray());
@@ -446,18 +446,25 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                 if (txtCpf.SelectionStart > 0)
                 {
-                   int cursorPosition = txtCpf.SelectionStart;
-                   string Texto = txtCpf.Text.Remove(cursorPosition - 1, 1);
-                   txtCpf.Text = Texto;
-                   txtCpf.SelectionStart = cursorPosition - 1 ;
+                    int cursorPosition = txtCpf.SelectionStart;
+                    string Texto = txtCpf.Text.Remove(cursorPosition - 1, 1);
+                    txtCpf.Text = Texto;
+                    txtCpf.SelectionStart = cursorPosition - 1;
                 }
 
                 e.Handled = true;
             }
-                
+
         }
-     }
- }
+
+        private void CadastroUsuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Agenda_de_Curso agenda_De_Curso = new Agenda_de_Curso();
+            agenda_De_Curso.Show();
+           
+        }
+    }
+}
 
 
 

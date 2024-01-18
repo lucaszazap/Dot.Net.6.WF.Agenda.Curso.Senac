@@ -74,7 +74,6 @@
             gridHistorico.RowTemplate.Height = 25;
             gridHistorico.Size = new Size(864, 328);
             gridHistorico.TabIndex = 1;
-            
             // 
             // Column1
             // 
@@ -134,6 +133,7 @@
             Name = "ControleAcesso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CONTROLE DE ACESSO";
+            FormClosing += ControleAcesso_FormClosing;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridHistorico).EndInit();
             ResumeLayout(false);

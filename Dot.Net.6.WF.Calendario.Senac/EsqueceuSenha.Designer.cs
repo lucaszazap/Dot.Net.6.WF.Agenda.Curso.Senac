@@ -184,6 +184,7 @@
             Name = "EsqueceuSenha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Log In | Esqueceu a senha?";
+            FormClosing += EsqueceuSenha_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

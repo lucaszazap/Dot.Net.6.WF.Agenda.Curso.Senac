@@ -77,6 +77,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
             telaLogin.Show();
         }
 
+        private void NovaSenha_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.Show();
+        }
     }
 }
 
