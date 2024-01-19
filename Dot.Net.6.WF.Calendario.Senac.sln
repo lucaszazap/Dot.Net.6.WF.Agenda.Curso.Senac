@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dot.Net.6.WF.Calendario.Senac", "Dot.Net.6.WF.Calendario.Senac\Dot.Net.6.WF.Calendario.Senac.csproj", "{26D333CE-108B-4195-915C-839E5F767C63}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador Senac", "Instalador\Instalador Senac\Instalador Senac.vdproj", "{AB7CE801-46A9-44D0-B18B-F4E1AA9C11D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{26D333CE-108B-4195-915C-839E5F767C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26D333CE-108B-4195-915C-839E5F767C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26D333CE-108B-4195-915C-839E5F767C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB7CE801-46A9-44D0-B18B-F4E1AA9C11D5}.Debug|Any CPU.ActiveCfg = Debug
+		{AB7CE801-46A9-44D0-B18B-F4E1AA9C11D5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

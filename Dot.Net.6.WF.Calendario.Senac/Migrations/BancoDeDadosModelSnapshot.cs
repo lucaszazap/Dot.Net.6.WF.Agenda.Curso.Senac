@@ -115,7 +115,6 @@ namespace Dot.Net._6.WF.Calendario.Senac.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cpf")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 

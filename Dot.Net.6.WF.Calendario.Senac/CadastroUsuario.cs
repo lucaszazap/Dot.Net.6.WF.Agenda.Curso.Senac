@@ -44,6 +44,22 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
+                if (!bd.Usuarios.Any())
+                {
+                    
+                    bd.Usuarios.Add(new Usuario
+                    {
+                        Login = "admin",
+                        Senha = "senha1",
+                        Cpf = "00000000000",
+                        DataNascimento = DateTime.Now,
+                        Ativo = true,
+                        Administrador = true
+                    });
+
+                    bd.SaveChanges();
+                }
+
                 var usuarioExistente = bd.Usuarios.FirstOrDefault(u => u.Login == nomeUsuarioNovo);
 
                 if (usuarioExistente != null)
@@ -59,6 +75,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     MessageBox.Show("CPF já está em uso. Escolha outro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+
 
                 var novoUsuario = new Usuario()
                 {
@@ -319,8 +337,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
             txtUsuario.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
-            txtCpf.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
-            dtpDataNascimento.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
+           // txtCpf.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
+           // dtpDataNascimento.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
             txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
             chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
             chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;

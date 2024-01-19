@@ -64,6 +64,20 @@
 
             using (var bd = new BancoDeDados())
             {
+                if (!bd.Usuarios.Any())
+                {
+                    bd.Usuarios.Add(new Usuario
+                    {
+                        Login = "admin",
+                        Senha = "senha1",
+                        Cpf = "00000000000",
+                        DataNascimento = DateTime.Now,
+                        Ativo = true,
+                        Administrador = true
+                    });
+
+                    bd.SaveChanges();
+                }
                 var usuarioExistente = bd.Usuarios.FirstOrDefault(u => u.Login == usuario);
 
                 if (usuarioExistente != null && Autenticacao.AutenticarUsuario(usuario, senha))
