@@ -55,9 +55,9 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblId.Location = new Point(653, 252);
+            lblId.Location = new Point(643, 252);
             lblId.Name = "lblId";
-            lblId.Size = new Size(26, 18);
+            lblId.Size = new Size(33, 22);
             lblId.TabIndex = 0;
             lblId.Text = "ID:";
             lblId.Visible = false;
@@ -69,7 +69,7 @@
             txtId.Margin = new Padding(3, 5, 3, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(26, 26);
+            txtId.Size = new Size(26, 30);
             txtId.TabIndex = 0;
             txtId.Visible = false;
             // 
@@ -78,19 +78,19 @@
             txtCadastroCurso.BackColor = SystemColors.HighlightText;
             txtCadastroCurso.BorderStyle = BorderStyle.FixedSingle;
             txtCadastroCurso.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCadastroCurso.Location = new Point(0, 248);
+            txtCadastroCurso.Location = new Point(0, 245);
             txtCadastroCurso.Margin = new Padding(3, 5, 3, 5);
             txtCadastroCurso.Name = "txtCadastroCurso";
-            txtCadastroCurso.Size = new Size(312, 25);
+            txtCadastroCurso.Size = new Size(312, 29);
             txtCadastroCurso.TabIndex = 1;
             // 
             // label
             // 
             label.AutoSize = true;
             label.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label.Location = new Point(-1, 230);
+            label.Location = new Point(-1, 223);
             label.Name = "label";
-            label.Size = new Size(117, 18);
+            label.Size = new Size(139, 22);
             label.TabIndex = 0;
             label.Text = "Cadastrar curso:";
             // 
@@ -162,7 +162,7 @@
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 42;
+            Column2.Width = 49;
             // 
             // Column1
             // 
@@ -261,7 +261,7 @@
             // 
             // CadastroCurso
             // 
-            AutoScaleDimensions = new SizeF(8F, 19F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
             ClientSize = new Size(708, 620);

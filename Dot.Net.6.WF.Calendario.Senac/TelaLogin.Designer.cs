@@ -39,7 +39,6 @@
             pictureBox3 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            btnSair = new Button();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLoading).BeginInit();
@@ -60,22 +59,21 @@
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(btnSair);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(703, 537);
+            panel1.Size = new Size(803, 716);
             panel1.TabIndex = 26;
             // 
             // picLoading
             // 
             picLoading.BackColor = Color.White;
             picLoading.Image = (Image)resources.GetObject("picLoading.Image");
-            picLoading.Location = new Point(230, 400);
+            picLoading.Location = new Point(263, 533);
+            picLoading.Margin = new Padding(3, 4, 3, 4);
             picLoading.Name = "picLoading";
-            picLoading.Size = new Size(223, 89);
+            picLoading.Size = new Size(255, 119);
             picLoading.SizeMode = PictureBoxSizeMode.Zoom;
             picLoading.TabIndex = 31;
             picLoading.TabStop = false;
@@ -87,9 +85,9 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Navy;
-            label3.Location = new Point(273, 333);
+            label3.Location = new Point(312, 444);
             label3.Name = "label3";
-            label3.Size = new Size(129, 18);
+            label3.Size = new Size(154, 22);
             label3.TabIndex = 36;
             label3.Text = "Esqueceu a senha?";
             label3.Click += label3_Click;
@@ -98,10 +96,11 @@
             // 
             txtSenha.BackColor = SystemColors.HighlightText;
             txtSenha.BorderStyle = BorderStyle.FixedSingle;
-            txtSenha.Location = new Point(230, 306);
+            txtSenha.Location = new Point(263, 408);
+            txtSenha.Margin = new Padding(3, 4, 3, 4);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '•';
-            txtSenha.Size = new Size(222, 23);
+            txtSenha.Size = new Size(253, 27);
             txtSenha.TabIndex = 28;
             txtSenha.KeyPress += txtSenha_KeyPress;
             // 
@@ -110,9 +109,10 @@
             picSenha.BackColor = SystemColors.ButtonHighlight;
             picSenha.Cursor = Cursors.Hand;
             picSenha.Image = Properties.Resources.hide4;
-            picSenha.Location = new Point(197, 306);
+            picSenha.Location = new Point(225, 408);
+            picSenha.Margin = new Padding(3, 4, 3, 4);
             picSenha.Name = "picSenha";
-            picSenha.Size = new Size(30, 20);
+            picSenha.Size = new Size(34, 27);
             picSenha.SizeMode = PictureBoxSizeMode.CenterImage;
             picSenha.TabIndex = 35;
             picSenha.TabStop = false;
@@ -121,9 +121,10 @@
             // 
             txtUsuario.BackColor = SystemColors.HighlightText;
             txtUsuario.BorderStyle = BorderStyle.FixedSingle;
-            txtUsuario.Location = new Point(230, 260);
+            txtUsuario.Location = new Point(263, 347);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(222, 23);
+            txtUsuario.Size = new Size(253, 27);
             txtUsuario.TabIndex = 27;
             // 
             // btnEntrar
@@ -131,9 +132,10 @@
             btnEntrar.BackColor = SystemColors.ButtonHighlight;
             btnEntrar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnEntrar.ForeColor = SystemColors.Desktop;
-            btnEntrar.Location = new Point(356, 364);
+            btnEntrar.Location = new Point(328, 485);
+            btnEntrar.Margin = new Padding(3, 4, 3, 4);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(96, 30);
+            btnEntrar.Size = new Size(110, 40);
             btnEntrar.TabIndex = 32;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -143,9 +145,10 @@
             // 
             pictureBox3.BackColor = SystemColors.ButtonHighlight;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(200, 257);
+            pictureBox3.Location = new Point(229, 343);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(27, 22);
+            pictureBox3.Size = new Size(31, 29);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 34;
             pictureBox3.TabStop = false;
@@ -156,9 +159,9 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(227, 244);
+            label1.Location = new Point(259, 325);
             label1.Name = "label1";
-            label1.Size = new Size(59, 17);
+            label1.Size = new Size(75, 22);
             label1.TabIndex = 29;
             label1.Text = "Usuário:";
             // 
@@ -167,24 +170,11 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(229, 290);
+            label2.Location = new Point(262, 387);
             label2.Name = "label2";
-            label2.Size = new Size(49, 17);
+            label2.Size = new Size(63, 22);
             label2.TabIndex = 30;
             label2.Text = "Senha:";
-            // 
-            // btnSair
-            // 
-            btnSair.BackColor = SystemColors.ButtonHighlight;
-            btnSair.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSair.ForeColor = SystemColors.Desktop;
-            btnSair.Location = new Point(230, 364);
-            btnSair.Name = "btnSair";
-            btnSair.Size = new Size(96, 30);
-            btnSair.TabIndex = 33;
-            btnSair.Text = "Sair";
-            btnSair.UseVisualStyleBackColor = false;
-            btnSair.Click += btnSair_Click;
             // 
             // pictureBox1
             // 
@@ -192,21 +182,21 @@
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(701, 535);
+            pictureBox1.Size = new Size(801, 714);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 26;
             pictureBox1.TabStop = false;
             // 
             // TelaLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(703, 537);
+            ClientSize = new Size(803, 716);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "TelaLogin";
             ShowIcon = false;
@@ -235,6 +225,5 @@
         private PictureBox pictureBox3;
         private Label label1;
         private Label label2;
-        private Button btnSair;
     }
 }

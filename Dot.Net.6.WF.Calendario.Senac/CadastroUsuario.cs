@@ -337,8 +337,8 @@ namespace Dot.Net._6.WF.Calendario.Senac
         {
             txtId.Text = GridConsultarUsuario.CurrentRow.Cells[0].Value.ToString();
             txtUsuario.Text = GridConsultarUsuario.CurrentRow.Cells[1].Value.ToString();
-           // txtCpf.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
-           // dtpDataNascimento.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
+            txtCpf.Text = GridConsultarUsuario.CurrentRow.Cells[2].Value.ToString();
+            dtpDataNascimento.Text = GridConsultarUsuario.CurrentRow.Cells[3].Value.ToString();
             txtSenha.Text = GridConsultarUsuario.CurrentRow.Cells[4].Value.ToString();
             chkAtivo.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[5].Value;
             chkAdministrador.Checked = (bool)GridConsultarUsuario.CurrentRow.Cells[6].Value;
@@ -480,7 +480,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult fechar = MessageBox.Show("Deseja realmente fechar?.",
+                DialogResult fechar = MessageBox.Show("Deseja realmente fechar?",
                                                     "Cadastro de Usuário",
                                                     MessageBoxButtons.YesNo,
                                                     MessageBoxIcon.Question);

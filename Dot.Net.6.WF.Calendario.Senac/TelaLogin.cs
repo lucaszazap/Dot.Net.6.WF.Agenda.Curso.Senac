@@ -13,7 +13,7 @@
             picSenha.Click += PicSenha_Click;
 
         }
-      
+
         private void PicSenha_Click(object sender, EventArgs e)
         {
             _podeVerSenha = !_podeVerSenha;
@@ -117,7 +117,7 @@
 
             if (e.KeyChar == '\r')
             {
-               btnEntrar_Click_1(this, new EventArgs());
+                btnEntrar_Click_1(this, new EventArgs());
             }
         }
 
@@ -127,18 +127,6 @@
             esqueceuSenha.Show();
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show("Deseja realmente sair?",
-                   "Alerta",
-                   MessageBoxButtons.YesNo,
-                   MessageBoxIcon.Warning);
-
-            if (resultado == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
     }
 }
 

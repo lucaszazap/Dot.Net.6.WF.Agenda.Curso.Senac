@@ -11,6 +11,8 @@ using System.IO.Pipelines;
 using DocumentFormat.OpenXml.Vml;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Dot.Net._6.WF.Calendario.Senac.Migrations;
+using System.Globalization;
+using System.Collections.ObjectModel;
 
 
 namespace Dot.Net._6.WF.Calendario.Senac
@@ -18,159 +20,143 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
     public partial class Agenda_de_Curso : Form
     {
+        private List<string> diasSelecionados = new List<string>();
 
         public Agenda_de_Curso()
         {
             InitializeComponent();
 
+            clbDias.Items.AddRange(new object[]
+        {
+            "Segunda-feira",
+            "Terça-feira",
+            "Quarta-feira",
+            "Quinta-feira",
+            "Sexta-feira",
+            "Sábado"
+        });
+            clbDias.CheckOnClick = true;
         }
 
         private void iAdicionar()
-
         {
-
-            if (string.IsNullOrEmpty(cmbCurso.Text))
-            {
-                MessageBox.Show("O campo 'Curso' é obrigatório.");
+         
+            if (CamposObrigatorios())
                 return;
-            }
-
-
-            if (dtpInicio.Value == null || dtpInicio.Value == DateTime.MinValue)
-            {
-                MessageBox.Show("A 'Data' é obrigatório.");
-                return;
-            }
-
-
-            if (dtpFim.Value == null || dtpFim.Value == DateTime.MinValue)
-            {
-                MessageBox.Show("A 'Data' é obrigatório.");
-                return;
-            }
-
-            if (dtpFim.Value.Date < dtpInicio.Value.Date)
-            {
-                MessageBox.Show("A 'Data de Fim' não pode ser anterior à 'Data de Início'.");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtDias.Text))
-            {
-                MessageBox.Show("O campo 'Dias' é obrigatório.");
-                return;
-
-            }
-
-            if (string.IsNullOrEmpty(cmbHorario.Text))
-            {
-                MessageBox.Show("O campo 'Horário' é obrigatório.");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtMeta.Text))
-            {
-                MessageBox.Show("O campo 'Meta' é obrigatório.");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtRealizado.Text))
-            {
-                MessageBox.Show("O campo 'Realizado' é obrigatório.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(mtbValor.Text))
-            {
-                MessageBox.Show("O campo 'Valor' é obrigatório.");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtTurma.Text))
-            {
-                MessageBox.Show("O campo 'Turma' é obrigatório.");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtSala.Text))
-            {
-                MessageBox.Show("O campo 'Sala' é obrigatório.");
-                return;
-            }
 
             var nome = cmbCurso.Text;
             var inicio = dtpInicio.Value;
             var fim = dtpFim.Value;
             var meta = txtMeta.Text;
-            var dias = txtDias.Text;
             var horario = cmbHorario.Text;
             var realizado = txtRealizado.Text;
             var valor = mtbValor.Text;
             var turma = txtTurma.Text;
             var sala = txtSala.Text;
 
-
-
             using (var bd = new BancoDeDados())
             {
-
-                var cursoExistente = bd.AgendaCursos
-                .Any(c =>
-                c.Turma == turma &&
-                c.Sala == sala &&
-                c.Horario == horario &&
-                c.Inicio.Date == inicio.Date);
-
-                if (cursoExistente)
-                {
-                    MessageBox.Show("Já existe um curso na mesma turma, sala ou horário. Não é possível adicionar.",
-                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (CursoExistente(bd, turma, sala, horario, inicio))
                     return;
-                }
+
+                diasSelecionados = clbDias.CheckedItems.OfType<string>().ToList();
 
                 var curso = new AgendaCurso()
                 {
                     Nome = cmbCurso.Text,
                     Inicio = dtpInicio.Value.Date,
                     Fim = dtpFim.Value.Date,
-                    Dias = txtDias.Text,
+                    Dias = string.Join(", ", diasSelecionados),
                     Horario = cmbHorario.Text,
                     Meta = txtMeta.Text,
                     Realizado = txtRealizado.Text,
                     Valor = mtbValor.Text,
                     Turma = txtTurma.Text,
                     Sala = txtSala.Text,
-
                 };
 
-                bd.Historicos.Add(new Historico
-                {
-                    Login = Autenticacao.UsuarioAtual?.Login,
-                    DataHora = DateTime.Now,
-                    Alteracao = "Adição de Curso",
-                    Detalhes = $"Adicionado curso: {nome}"
-                });
-
-
-
-                bd.AgendaCursos.Add(curso);
-                bd.SaveChanges();
+                AdicionarHistorico(bd, nome);
+                AdicionarCurso(bd, curso);
+               
+                LimparCheckBoxes(); 
 
                 MessageBox.Show("Curso adicionado com sucesso.",
-                "Agenda de Cursos", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-
-                string Pesquisa = txtPesquisar.Text;
-                PesquisarCurso(Pesquisa);
+                    "Agenda de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtPesquisar.Text = "";
-
                 Listar();
                 LimparCampos();
-
             }
 
         }
+
+       
+        private void AdicionarHistorico(BancoDeDados bd, string nome)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Adição de Curso",
+                Detalhes = $"Adicionado curso: {nome}"
+            });
+        }
+      
+
+        private void LimparCheckBoxes()
+        {
+           
+            foreach (int index in clbDias.CheckedIndices)
+            {
+                clbDias.SetItemChecked(index, false);
+            }
+        }
+
+        private bool CamposObrigatorios()
+        {
+            if (string.IsNullOrEmpty(cmbCurso.Text)
+                || dtpInicio.Value == DateTime.MinValue
+                || dtpFim.Value == DateTime.MinValue
+                || dtpFim.Value.Date < dtpInicio.Value.Date
+                || !clbDias.CheckedItems.OfType<object>().Any()
+                || string.IsNullOrEmpty(cmbHorario.Text)
+                || string.IsNullOrEmpty(txtMeta.Text)
+                || string.IsNullOrEmpty(txtRealizado.Text)
+                || string.IsNullOrWhiteSpace(mtbValor.Text)
+                || string.IsNullOrEmpty(txtTurma.Text)
+                || string.IsNullOrEmpty(txtSala.Text))
+            {
+                MessageBox.Show("Preencha todos os campos obrigatórios.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
+        }
+        private bool CursoExistente(BancoDeDados bd, string turma, string sala, string horario, DateTime inicio)
+        {
+            var cursoExistente = bd.AgendaCursos
+                .Any(c =>
+                    c.Turma == turma &&
+                    c.Sala == sala &&
+                    c.Horario == horario &&
+                    c.Inicio.Date == inicio.Date);
+
+            if (cursoExistente)
+            {
+                MessageBox.Show("Já existe um curso na mesma turma, sala ou horário. Não é possível adicionar.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+
+            return false;
+        }
+
+        private void AdicionarCurso(BancoDeDados bd, AgendaCurso curso)
+        {
+            bd.AgendaCursos.Add(curso);
+            bd.SaveChanges();
+        }
+
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
@@ -184,9 +170,10 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
             using (var bd = new BancoDeDados())
             {
-                var Curso = bd.AgendaCursos.ToList();
+                var cursos = bd.AgendaCursos.ToList();
 
-                foreach (var curso in Curso)
+
+                foreach (var curso in cursos)
                 {
                     gridCurso.Rows.Add(
                         curso.Id,
@@ -204,13 +191,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
+
         private void LimparCampos()
         {
             txtId.Text = String.Empty;
             cmbCurso.Text = String.Empty; cmbCurso.SelectedIndex = -1;
             dtpInicio.Text = String.Empty;
             dtpFim.Text = String.Empty;
-            txtDias.Text = String.Empty;
+            clbDias.Text = String.Empty;
             cmbHorario.Text = String.Empty;
             txtMeta.Text = String.Empty;
             txtRealizado.Text = String.Empty;
@@ -218,6 +206,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
             txtTurma.Text = String.Empty;
             txtSala.Text = String.Empty;
 
+            LimparCheckBoxes();
 
         }
 
@@ -321,14 +310,14 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     .FirstOrDefault();
 
                 if (curso != null)
-
+                {
                     if (dtpFim.Value.Date < dtpInicio.Value.Date)
                     {
                         MessageBox.Show("A 'Data de Fim' deve ser posterior ao dia de Início.",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                {
+
                     string nomeOriginal = curso.Nome;
                     DateTime inicioOriginal = curso.Inicio;
                     DateTime fimOriginal = curso.Fim;
@@ -343,7 +332,11 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     curso.Nome = cmbCurso.Text;
                     curso.Inicio = dtpInicio.Value.Date;
                     curso.Fim = dtpFim.Value.Date;
-                    curso.Dias = txtDias.Text;
+
+                    var diasSelecionados = clbDias.CheckedItems.OfType<string>().ToList();
+                    curso.Dias = string.Join(", ", diasSelecionados);
+
+                    
                     curso.Horario = cmbHorario.Text;
                     curso.Meta = txtMeta.Text;
                     curso.Realizado = txtRealizado.Text;
@@ -351,13 +344,17 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     curso.Turma = txtTurma.Text;
                     curso.Sala = txtSala.Text;
 
+                   
+
                     var mesmoHorario = bd.AgendaCursos
-                    .Any(c =>
-                    c.Id != curso.Id &&
-                    c.Turma == curso.Turma &&
-                    c.Sala == curso.Sala &&
-                    c.Horario == curso.Horario &&
-                    c.Inicio.Date == curso.Inicio.Date);
+                        .Any(c =>
+                            c.Id != curso.Id &&
+                            c.Turma == curso.Turma &&
+                            c.Sala == curso.Sala &&
+                            c.Horario == curso.Horario &&
+                            c.Inicio.Date == curso.Inicio.Date);
+                  
+                   
 
                     if (mesmoHorario)
                     {
@@ -382,7 +379,7 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     AdicionarHistorico(bd, nomeOriginal, curso.Nome, "Nome do Curso");
                     AdicionarHistorico(bd, inicioOriginal.ToString(), curso.Inicio.ToString(), "Data de Início");
                     AdicionarHistorico(bd, fimOriginal.ToString(), curso.Fim.ToString(), "Data de Fim");
-                    AdicionarHistorico(bd, diasOriginal, curso.Dias, "Dias");
+                    AdicionarHistorico(bd, diasOriginal.ToString(), curso.Dias.ToString(), "Dias");
                     AdicionarHistorico(bd, horarioOriginal, curso.Horario, "Horário");
                     AdicionarHistorico(bd, metaOriginal, curso.Meta, "Meta");
                     AdicionarHistorico(bd, realizadoOriginal, curso.Realizado, "Realizado");
@@ -390,11 +387,19 @@ namespace Dot.Net._6.WF.Calendario.Senac
                     AdicionarHistorico(bd, turmaOriginal, curso.Turma, "Turma");
                     AdicionarHistorico(bd, salaOriginal, curso.Sala, "Sala");
 
-                    MessageBox.Show("Deseja realmente alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    
+                    DialogResult resultado = MessageBox.Show("Deseja realmente alterar?", "Agenda de Cursos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                    bd.SaveChanges();
-                    Listar();
-                    LimparCampos();
+                    if (resultado == DialogResult.Yes)
+                    {
+                        bd.SaveChanges();
+                        Listar();
+                        LimparCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alteração cancelada pelo usuário.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }
@@ -569,14 +574,19 @@ namespace Dot.Net._6.WF.Calendario.Senac
             cmbCurso.Text = gridCurso.CurrentRow.Cells[1].Value.ToString();
             dtpInicio.Text = gridCurso.CurrentRow.Cells[2].Value.ToString();
             dtpFim.Text = gridCurso.CurrentRow.Cells[3].Value.ToString();
-            txtDias.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
+            clbDias.Text = gridCurso.CurrentRow.Cells[4].Value.ToString();
             cmbHorario.Text = gridCurso.CurrentRow.Cells[5].Value.ToString();
             txtMeta.Text = gridCurso.CurrentRow.Cells[6].Value.ToString();
             txtRealizado.Text = gridCurso.CurrentRow.Cells[7].Value.ToString();
             mtbValor.Text = gridCurso.CurrentRow.Cells[8].Value.ToString();
             txtTurma.Text = gridCurso.CurrentRow.Cells[9].Value.ToString();
             txtSala.Text = gridCurso.CurrentRow.Cells[10].Value.ToString();
+
+
         }
+
+
+
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -642,29 +652,13 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
         }
 
-        private void ListaTudo()
-        {
-            using (var bd = new BancoDeDados())
-            {
-                var todosCursos = bd.AgendaCursos.ToList();
 
-
-
-                gridCurso.DataSource = null;
-
-                gridCurso.Rows.Clear();
-
-                gridCurso.DataSource = todosCursos;
-
-
-            }
-        }
 
         private void PesquisarCurso(string Pesquisa)
         {
-            if (!string.IsNullOrEmpty(Pesquisa))
+            using (var bd = new BancoDeDados())
             {
-                using (var bd = new BancoDeDados())
+                if (!string.IsNullOrEmpty(Pesquisa))
                 {
                     var resultados = bd.AgendaCursos
                         .Where(c => c.Nome.ToUpper().Contains(Pesquisa.ToUpper()))
@@ -672,33 +666,47 @@ namespace Dot.Net._6.WF.Calendario.Senac
 
                     gridCurso.Columns.Clear();
 
-                    gridCurso.DataSource = resultados;
+                    if (gridCurso.Columns.Count == 0)
+                    {
+                        gridCurso.Columns.Add("Id", "ID");
+                        gridCurso.Columns.Add("Nome", "Nome");
+                        gridCurso.Columns.Add("Inicio", "Início");
+                        gridCurso.Columns.Add("Fim", "Fim");
+                        gridCurso.Columns.Add("Dias", "Dias");
+                        gridCurso.Columns.Add("Horario", "Horário");
+                        gridCurso.Columns.Add("Meta", "Meta");
+                        gridCurso.Columns.Add("Realizado", "Realizado");
+                        gridCurso.Columns.Add("Valor", "Valor");
+                        gridCurso.Columns.Add("Turma", "Turma");
+                        gridCurso.Columns.Add("Sala", "Sala");
+                    }
 
-
+                    foreach (var curso in resultados)
+                    {
+                        gridCurso.Rows.Add(
+                            curso.Id,
+                            curso.Nome,
+                            curso.Inicio,
+                            curso.Fim,
+                            curso.Dias,
+                            curso.Horario,
+                            curso.Meta,
+                            curso.Realizado,
+                            curso.Valor,
+                            curso.Turma,
+                            curso.Sala);
+                    }
+                }
+                else
+                {
+                    ListaTudo();
                 }
             }
-            else
-            {
-
-                ListaTudo();
-
-
-
-            }
         }
 
-
-        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        private void ListaTudo()
         {
-            PesquisarCurso(txtPesquisar.Text);
-        }
-
-        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Back)
-            {
-                PesquisarCurso(txtPesquisar.Text);
-            }
+            Listar();
         }
 
 
@@ -723,19 +731,40 @@ namespace Dot.Net._6.WF.Calendario.Senac
             }
         }
 
-        private void printPreviewDialog1_Load(object sender, EventArgs e)
-        {
 
+        private void txtPesquisar_TextChanged_1(object sender, EventArgs e)
+        {
+            PesquisarCurso(txtPesquisar.Text);
         }
+
+        private void txtPesquisar_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                PesquisarCurso(txtPesquisar.Text);
+            }
+        }
+
+
+        //private void gridCurso_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        //{
+        //    List<int> colunaDiasIndex = new List<int> { 4 };
+
+        //    if (e.RowIndex >= 0 && colunaDiasIndex.Contains(e.ColumnIndex))
+        //    {
+        //        if (e.Value != null)
+        //        {
+        //            // Mostra o dia da semana em português quando o CheckBox está marcado
+        //            e.Value = e.Value.ToString().Split(',').Select(dia => DateTime.Now.ToString("dddd", new CultureInfo("pt-BR"))).ToList();
+        //            e.FormattingApplied = true;
+        //        }
+        //    }
+        //}
     }
 }
 
 
-
-
-
-
-
+        
 
 
 
